@@ -19,3 +19,6 @@ Thumbs.db
 .idea/
 .vscode/*
 !.vscode/extensions.json
+
+# 本地私有：项目运维/发布注意事项（含 token 名等，禁止上传网络）
+CLAUDE.md
