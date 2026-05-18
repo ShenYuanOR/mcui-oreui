@@ -21,7 +21,7 @@
 ## 安装
 
 ```bash
-npm install oreui-vue
+npm install mcui-oreui
 ```
 
 需要 Vue `^3.3`（peerDependency）。
@@ -34,8 +34,8 @@ npm install oreui-vue
 // main.ts
 import { createApp } from 'vue'
 import App from './App.vue'
-import OreUIVue from 'oreui-vue'
-import 'oreui-vue/style.css'   // 样式需引入一次
+import OreUIVue from 'mcui-oreui'
+import 'mcui-oreui/style.css'   // 样式需引入一次
 
 createApp(App).use(OreUIVue).mount('#app')
 ```
@@ -53,8 +53,8 @@ createApp(App).use(OreUIVue).mount('#app')
 
 ```vue
 <script setup lang="ts">
-import { OreButton, showPop } from 'oreui-vue'
-import 'oreui-vue/style.css'
+import { OreButton, showPop } from 'mcui-oreui'
+import 'mcui-oreui/style.css'
 </script>
 
 <template>
@@ -62,7 +62,7 @@ import 'oreui-vue/style.css'
 </template>
 ```
 
-> CommonJS `require` 场景需 `require('oreui-vue').default`；现代 ESM 工具链无需关心。
+> CommonJS `require` 场景需 `require('mcui-oreui').default`；现代 ESM 工具链无需关心。
 
 ## 组件一览
 

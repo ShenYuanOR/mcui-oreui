@@ -22,14 +22,14 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'OreUIVue',
-      fileName: 'oreui-vue',
+      fileName: 'mcui-oreui',
     },
     rollupOptions: {
       external: ['vue'],
       output: {
         globals: { vue: 'Vue' },
         assetFileNames: (info: { name?: string }) =>
-          info.name === 'style.css' ? 'oreui-vue.css' : 'assets/[name][extname]',
+          info.name === 'style.css' ? 'mcui-oreui.css' : 'assets/[name][extname]',
       },
     },
   },

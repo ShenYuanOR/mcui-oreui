@@ -2,7 +2,7 @@
 
 “Ore UI” 这个名字有两层含义，务必区分：
 
-| | Mojang/ore-ui（官方） | 本库（oreui-vue） |
+| | Mojang/ore-ui（官方） | 本库（mcui-oreui） |
 |---|---|---|
 | 性质 | 官方开源，仅含 `@react-facet` 状态管理库 | 第三方复刻的 **视觉组件库** |
 | Minecraft 视觉资产 | ❌ 不包含 | ✅ 像素字体 / 配色 / 组件 |

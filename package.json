@@ -1,20 +1,20 @@
 {
-  "name": "oreui-vue",
+  "name": "mcui-oreui",
   "version": "1.0.0",
   "description": "Minecraft 基岩版 Ore UI 设计语言的 Vue 3 组件库（第三方复刻，移植自 Spectrollay-OreUI）",
   "type": "module",
   "license": "MIT",
   "files": ["dist"],
-  "main": "./dist/oreui-vue.umd.cjs",
-  "module": "./dist/oreui-vue.js",
+  "main": "./dist/mcui-oreui.umd.cjs",
+  "module": "./dist/mcui-oreui.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/oreui-vue.js",
-      "require": "./dist/oreui-vue.umd.cjs"
+      "import": "./dist/mcui-oreui.js",
+      "require": "./dist/mcui-oreui.umd.cjs"
     },
-    "./style.css": "./dist/oreui-vue.css"
+    "./style.css": "./dist/mcui-oreui.css"
   },
   "scripts": {
     "build": "vue-tsc -p tsconfig.build.json && vite build",

@@ -3,7 +3,7 @@
 ## 安装
 
 ```bash
-npm install oreui-vue
+npm install mcui-oreui
 ```
 
 需要 Vue `^3.3`（peerDependency）。
@@ -13,8 +13,8 @@ npm install oreui-vue
 ```ts
 import { createApp } from 'vue'
 import App from './App.vue'
-import OreUIVue from 'oreui-vue'
-import 'oreui-vue/style.css'
+import OreUIVue from 'mcui-oreui'
+import 'mcui-oreui/style.css'
 
 createApp(App).use(OreUIVue).mount('#app')
 ```
@@ -23,15 +23,15 @@ createApp(App).use(OreUIVue).mount('#app')
 此后任意组件（组合式或选项式）的 `<template>` 里直接写 `<OreButton>`、`<OreSwitch v-model>` 等，
 **无需再单独 import**。
 
-> **ESM（Vite / 现代构建，绝大多数场景）**：`import OreUIVue from 'oreui-vue'` 直接拿到插件，默认导出即插件对象。
-> **CommonJS（`require`）**：因库同时提供具名与默认导出，需写 `const OreUIVue = require('oreui-vue').default`。现代 Vue 项目走 ESM 一般无需关心此点。
+> **ESM（Vite / 现代构建，绝大多数场景）**：`import OreUIVue from 'mcui-oreui'` 直接拿到插件，默认导出即插件对象。
+> **CommonJS（`require`）**：因库同时提供具名与默认导出，需写 `const OreUIVue = require('mcui-oreui').default`。现代 Vue 项目走 ESM 一般无需关心此点。
 
 ## 按需引入
 
 ```vue
 <script setup lang="ts">
-import { OreButton, OreCheckbox } from 'oreui-vue'
-import 'oreui-vue/style.css'
+import { OreButton, OreCheckbox } from 'mcui-oreui'
+import 'mcui-oreui/style.css'
 </script>
 
 <template>
@@ -39,7 +39,7 @@ import 'oreui-vue/style.css'
 </template>
 ```
 
-> 样式文件 `oreui-vue/style.css` 必须引入一次（含 Minecraft 字体、配色与全部组件样式）。
+> 样式文件 `mcui-oreui/style.css` 必须引入一次（含 Minecraft 字体、配色与全部组件样式）。
 
 ## 组合式 / 选项式 API 都支持
 
@@ -50,7 +50,7 @@ import 'oreui-vue/style.css'
 
 ```vue
 <script setup lang="ts">
-import { OreButton, showPop } from 'oreui-vue'
+import { OreButton, showPop } from 'mcui-oreui'
 </script>
 
 <template>
@@ -62,7 +62,7 @@ import { OreButton, showPop } from 'oreui-vue'
 
 ```vue
 <script lang="ts">
-import { OreSwitch, showPop } from 'oreui-vue'
+import { OreSwitch, showPop } from 'mcui-oreui'
 
 export default {
   components: { OreSwitch },
@@ -92,7 +92,7 @@ export default {
 
 ```vue
 <script setup lang="ts">
-import { OrePopHost, showPop } from 'oreui-vue'
+import { OrePopHost, showPop } from 'mcui-oreui'
 </script>
 
 <template>
@@ -112,6 +112,6 @@ import { OrePopHost, showPop } from 'oreui-vue'
 按键音效随组件自动播放（移植自原项目 7 个 ogg）。可全局开关：
 
 ```ts
-import { setSoundEnabled } from 'oreui-vue'
+import { setSoundEnabled } from 'mcui-oreui'
 setSoundEnabled(false) // 静音
 ```

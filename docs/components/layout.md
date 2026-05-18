@@ -7,8 +7,8 @@
 
 ```vue
 <script setup lang="ts">
-import { OreLayout, OreHeader, OreScrollView, OreButton } from 'oreui-vue'
-import 'oreui-vue/style.css'
+import { OreLayout, OreHeader, OreScrollView, OreButton } from 'mcui-oreui'
+import 'mcui-oreui/style.css'
 </script>
 
 <template>

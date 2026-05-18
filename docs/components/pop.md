@@ -19,7 +19,7 @@ const $o = { showPop }
 
 ```vue
 <script setup lang="ts">
-import { OrePopHost, OreButton, showPop } from 'oreui-vue'
+import { OrePopHost, OreButton, showPop } from 'mcui-oreui'
 </script>
 
 <template>
