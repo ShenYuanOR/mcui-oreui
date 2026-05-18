@@ -37,7 +37,7 @@ jobs:
             npm publish --access public
           fi
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.MCUIACTION }}
 
       # dev：发布预发布测试版（dist-tag = next）。
       # 版本号在 base 上附加 -dev.<run_number>，每次推送产出唯一可安装版本。
@@ -50,4 +50,4 @@ jobs:
           npm version "$PRE" --no-git-tag-version
           npm publish --tag next --access public
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.MCUIACTION }}
