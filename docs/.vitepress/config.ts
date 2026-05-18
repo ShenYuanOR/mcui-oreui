@@ -4,6 +4,8 @@ export default defineConfig({
   title: 'OreUI Vue',
   description: 'Minecraft 基岩版 Ore UI 设计语言的 Vue 3 组件库（第三方复刻）',
   lang: 'zh-CN',
+  // GitHub Pages（project pages）部署在 https://shenyuanol.github.io/mcui-oreui/
+  base: '/mcui-oreui/',
   lastUpdated: true,
   vite: {
     server: { port: 5175, strictPort: true },

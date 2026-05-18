@@ -6,9 +6,9 @@ aside: false
 ---
 
 <script setup>
-import { useRouter } from 'vitepress'
+import { useRouter, withBase } from 'vitepress'
 const router = useRouter()
-const go = (p) => router.go(p)
+const go = (p) => router.go(withBase(p))
 </script>
 
 <div class="ore-landing">
