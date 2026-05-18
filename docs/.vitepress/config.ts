@@ -72,7 +72,7 @@ export default defineConfig({
       },
     ],
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/Spectrollay-OreUI/OreUI' },
+      { icon: 'github', link: 'https://github.com/ShenYuanOR/mcui-oreui' },
     ],
     footer: {
       message: 'MIT Licensed · 设计语言移植自 Spectrollay-OreUI',
