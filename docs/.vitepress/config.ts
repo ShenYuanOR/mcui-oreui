@@ -1,8 +1,8 @@
-import { defineConfig } from 'vitepress'
+import { defineConfig } from 'vitepress';
 
 export default defineConfig({
-  title: 'OreUI Vue',
-  description: 'Minecraft 基岩版 Ore UI 设计语言的 Vue 3 组件库（第三方复刻）',
+  title: 'McUI Vue',
+  description: 'Minecraft 基岩版风格的 Vue 3 组件库（第三方复刻）',
   lang: 'zh-CN',
   // GitHub Pages（project pages）部署在 https://shenyuanol.github.io/mcui-oreui/
   base: '/mcui-oreui/',
@@ -16,10 +16,10 @@ export default defineConfig({
         isCustomElement: (tag: string) =>
           tag.startsWith('custom-') ||
           ['text-field', 'link-block', 'scroll-view', 'scroll-container',
-           'display-body', 'dispaly-area', 'modal_area', 'modal',
-           'modal_title_area', 'modal_title', 'modal_close_btn',
-           'custom-scrollbar', 'custom-scrollbar-track',
-           'custom-scrollbar-thumb'].includes(tag),
+            'display-body', 'dispaly-area', 'modal_area', 'modal',
+            'modal_title_area', 'modal_title', 'modal_close_btn',
+            'custom-scrollbar', 'custom-scrollbar-track',
+            'custom-scrollbar-thumb'].includes(tag),
       },
     },
   },
@@ -35,7 +35,13 @@ export default defineConfig({
         items: [
           { text: '快速开始', link: '/guide/getting-started' },
           { text: '设计 Token', link: '/guide/design-tokens' },
-          { text: '与官方 ore-ui 的区别', link: '/guide/about' },
+          { text: '与 OreUI 的区别', link: '/guide/about' },
+        ],
+      },
+      {
+        text: '样式',
+        items: [
+          { text: '格式化代码', link: '/styles/format-codes' },
         ],
       },
       {
@@ -43,12 +49,17 @@ export default defineConfig({
         items: [
           { text: 'Button 按钮', link: '/components/button' },
           { text: 'Card 链接卡片', link: '/components/card' },
+          { text: 'Panel 面板', link: '/components/panel' },
+          { text: 'Tooltip 提示', link: '/components/tooltip' },
+          { text: 'Progress 进度条', link: '/components/progress' },
         ],
       },
       {
         text: '表单',
         items: [
           { text: 'Checkbox 复选框', link: '/components/checkbox' },
+          { text: 'Radio 单选', link: '/components/radio' },
+          { text: 'FormField 表单项', link: '/components/formfield' },
           { text: 'Switch 开关', link: '/components/switch' },
           { text: 'Dropdown 下拉选择', link: '/components/dropdown' },
           { text: 'TextField 文本框', link: '/components/textfield' },
@@ -59,6 +70,7 @@ export default defineConfig({
         text: '布局',
         items: [
           { text: 'Layout / Header', link: '/components/layout' },
+          { text: 'Tabs 标签页', link: '/components/tabs' },
           { text: 'ScrollView 滚动区', link: '/components/scrollview' },
         ],
       },
@@ -66,6 +78,8 @@ export default defineConfig({
         text: '反馈',
         items: [
           { text: 'Modal 弹窗', link: '/components/modal' },
+          { text: 'Confirm 确认弹窗', link: '/components/confirm' },
+          { text: 'Drawer 抽屉', link: '/components/drawer' },
           { text: 'Pop 提示', link: '/components/pop' },
           { text: 'LoadingMask 加载遮罩', link: '/components/loadingmask' },
         ],
@@ -75,8 +89,8 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/ShenYuanOR/mcui-oreui' },
     ],
     footer: {
-      message: 'MIT Licensed · 设计语言移植自 Spectrollay-OreUI',
+      message: 'MIT Licensed · 设计语言移植自 Spectrollay-McUI',
       copyright: '© 2020 Spectrollay · Vue 移植版',
     },
   },
-})
+});

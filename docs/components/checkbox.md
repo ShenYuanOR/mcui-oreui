@@ -6,10 +6,10 @@ const a = ref(true)
 const b = ref(false)
 </script>
 
-<div class="ore-demo">
-  <OreCheckbox v-model="a" />
-  <OreCheckbox v-model="b" />
-  <OreCheckbox :model-value="true" disabled />
+<div class="mc-demo">
+  <mc-checkbox v-model="a" />
+  <mc-checkbox v-model="b" />
+  <mc-checkbox :model-value="true" disabled />
   <span style="color:#fff">a = {{ a }}，b = {{ b }}</span>
 </div>
 
@@ -20,8 +20,8 @@ const checked = ref(true)
 </script>
 
 <template>
-  <OreCheckbox v-model="checked" />
-  <OreCheckbox :model-value="true" disabled />
+  <mc-checkbox v-model="checked" />
+  <mc-checkbox :model-value="true" disabled />
 </template>
 ```
 

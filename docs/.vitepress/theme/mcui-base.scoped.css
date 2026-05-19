@@ -68,24 +68,24 @@
 }
 
 /* 页面选择事件 */
-.ore-demo ::selection {
+.mc-demo ::selection {
     background-color: transparent;
     color: inherit;
 }
 
-.ore-demo * {
+.mc-demo * {
     -webkit-tap-highlight-color: transparent; /* 禁用高亮 */
     touch-action: manipulation; /* 禁用长按菜单 */
 }
 
 /* 总体样式 */
-.ore-demo {
+.mc-demo {
     font-family: "NotoSans Bold", sans-serif;
     height: 100%;
     overscroll-behavior: contain;
 }
 
-.ore-demo .flex {
+.mc-demo .flex {
     display: flex;
 }
 
@@ -96,7 +96,7 @@
     justify-content: center;
 }
 
-.ore-demo {
+.mc-demo {
     background-color: #48494A;
     height: 100%;
     margin: 0;
@@ -114,7 +114,7 @@ dispaly-area {
 }
 
 /* 顶部标题栏 */
-.ore-demo header {
+.mc-demo header {
     align-items: center;
     background-color: #E6E8EB;
     border-bottom: 4px solid #B1B2B5;
@@ -286,14 +286,14 @@ scroll-container {
     width: 100%;
 }
 
-.ore-demo main {
+.mc-demo main {
     color: #FFFFFF;
     min-width: 330px;
     width: 100vw;
 }
 
 /* 主体块 */
-.ore-demo .main {
+.mc-demo .main {
     align-items: center;
     border-bottom: 2px solid #333334;
     border-left: 2px solid #333334;
@@ -320,7 +320,7 @@ scroll-container {
     width: 32px;
 }
 
-.ore-demo a {
+.mc-demo a {
     box-shadow: inset 0 -2px 0 0 currentColor;
     color: inherit;
     position: relative;
@@ -629,7 +629,7 @@ article_list_l4:before {
     display: flex;
 }
 
-.ore-demo .badge {
+.mc-demo .badge {
     height: 6px;
     margin-right: 6px;
     width: 6px;
@@ -690,7 +690,7 @@ article_list_l4:before {
 
 
 /* 按钮 */
-.ore-demo button {
+.mc-demo button {
     align-items: center;
     display: flex;
     justify-content: center;

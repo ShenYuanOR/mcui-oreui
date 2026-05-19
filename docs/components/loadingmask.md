@@ -11,10 +11,10 @@ function demo() {
 }
 </script>
 
-<div class="ore-demo">
-  <OreButton variant="green" @click="demo">显示 1.8 秒</OreButton>
+<div class="mc-demo">
+  <mc-button variant="green" @click="demo">显示 1.8 秒</mc-button>
   <ClientOnly>
-    <OreLoadingMask :visible="show" text="生成世界中" />
+    <mc-loading-mask :visible="show" text="生成世界中" />
   </ClientOnly>
 </div>
 
@@ -26,7 +26,7 @@ const loading = ref(true)
 </script>
 
 <template>
-  <OreLoadingMask :visible="loading" text="生成世界中" />
+  <mc-loading-mask :visible="loading" text="生成世界中" />
 </template>
 ```
 

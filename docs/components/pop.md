@@ -1,14 +1,14 @@
 # Pop 提示
 
 底部冒出的短暂消息条（移植自原 `showPop`）。通过组合式函数 `showPop` 触发，
-需在应用根部放置一个 `<OrePopHost />`。
+需在应用根部放置一个 `<mc-pop-host />`。
 
-<div class="ore-demo">
+<div class="mc-demo">
   <ClientOnly>
-    <OrePopHost />
-    <OreButton variant="green" @click="$o.showPop('已保存世界', 2000, 'success')">成功</OreButton>
-    <OreButton variant="normal" @click="$o.showPop('正在生成…', 2000, 'process')">进行中</OreButton>
-    <OreButton variant="red" @click="$o.showPop('保存失败', 2000, 'error')">错误</OreButton>
+    <mc-pop-host />
+    <mc-button variant="green" @click="$o.showPop('已保存世界', 2000, 'success')">成功</mc-button>
+    <mc-button variant="normal" @click="$o.showPop('正在生成…', 2000, 'process')">进行中</mc-button>
+    <mc-button variant="red" @click="$o.showPop('保存失败', 2000, 'error')">错误</mc-button>
   </ClientOnly>
 </div>
 
@@ -19,12 +19,12 @@ const $o = { showPop }
 
 ```vue
 <script setup lang="ts">
-import { OrePopHost, OreButton, showPop } from 'mcui-oreui'
+import { McPopHost, McButton, showPop } from 'mcui-oreui'
 </script>
 
 <template>
-  <OrePopHost />
-  <OreButton @click="showPop('已保存', 2000, 'success')">保存</OreButton>
+  <mc-pop-host />
+  <mc-button @click="showPop('已保存', 2000, 'success')">保存</mc-button>
 </template>
 ```
 
@@ -36,4 +36,4 @@ import { OrePopHost, OreButton, showPop } from 'mcui-oreui'
 | `duration` | `number` | `3000` | 显示毫秒数 |
 | `styleClass` | `string` | — | `success` / `process` / `error` / `vip` / `debug_text` |
 
-最多同时显示 5 条，自动播放 `toast` 音效。`<OrePopHost />` 全局放置一次即可。
+最多同时显示 5 条，自动播放 `toast` 音效。`<mc-pop-host />` 全局放置一次即可。

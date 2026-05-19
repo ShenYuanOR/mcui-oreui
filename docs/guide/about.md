@@ -1,18 +1,23 @@
-# 与官方 ore-ui 的区别
+# 与 OreUI 的区别
 
-“Ore UI” 这个名字有两层含义，务必区分：
+本库从 OreUI 风格与 [Spectrollay-OreUI/OreUI](https://github.com/Spectrollay-OreUI/OreUI) 原始实现迁移而来，但定位不是直接复刻原项目结构，而是面向 Vue 3 的组件库封装。
 
-| | Mojang/ore-ui（官方） | 本库（mcui-oreui） |
+| | Spectrollay-OreUI / 原始实现 | 本库（mcui-oreui） |
 |---|---|---|
-| 性质 | 官方开源，仅含 `@react-facet` 状态管理库 | 第三方复刻的 **视觉组件库** |
-| Minecraft 视觉资产 | ❌ 不包含 | ✅ 像素字体 / 配色 / 组件 |
-| 技术栈 | React + TypeScript | Vue 3 + TypeScript |
-| 来源 | github.com/Mojang/ore-ui | 移植自 github.com/Spectrollay-OreUI/OreUI |
+| 定位 | 原生 HTML/CSS/JS 风格实现 | Vue 3 + TypeScript 组件库 |
+| 使用方式 | 依赖自定义元素与全局脚本 | 标准 Vue 组件、Props、事件、插槽、`v-model` |
+| 状态管理 | 多处依赖 DOM / `localStorage` / id 约定 | 受控数据流，适合 Vue 应用集成 |
+| 资源路径 | 依赖全局 `rootPath` | 由 Vite 打包字体与音效资源 |
+| 音效 | 全局函数触发 | `useSound` / `playSound` / 全局开关 |
+| 文档与类型 | 原始示例为主 | VitePress 实时 Demo + TypeScript 类型声明 |
 
-- 官方仓库开源的是“引擎/工具层”（性能基础设施），**不含** Minecraft 界面外观。
-- 本库的设计语言来自社区第三方项目 **Spectrollay-OreUI**，它用纯原生 HTML/CSS/JS
-  复刻了基岩版 Ore UI 的观感。本库进一步把它迁移为 Vue 3 组件。
+- 本库保留 OreUI 风格中的像素字体、配色、立体按钮、面板、滚动条、弹窗等视觉体验。
+- 本库去掉了面向原生页面的全局式用法，改为可组合、可按需导入、可类型检查的 Vue 组件。
 - **非官方**：与 Mojang 工作室无任何从属关系，不含 Minecraft 官方代码或美术资产。MIT 许可。
+
+::: tip 与官方 `Mojang/mc-ui` 的关系
+官方 `Mojang/mc-ui` 仓库开源的是 `@react-facet` 等性能基础设施，不包含 Minecraft 界面外观；本库讨论的 OreUI 风格迁移与它不是同一个项目。
+:::
 
 ## 迁移做了哪些现代化适配
 

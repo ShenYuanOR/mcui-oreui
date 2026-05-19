@@ -6,8 +6,8 @@ const sel = ref(2)
 const opts = ['简单', '普通', '困难', '极限']
 </script>
 
-<div class="ore-demo ore-demo--column">
-  <OreDropdown :options="opts" v-model="sel" unselected-text="选择难度" />
+<div class="mc-demo mc-demo--column">
+  <mc-dropdown :options="opts" v-model="sel" unselected-text="选择难度" />
   <span style="color:#fff">选中序号：{{ sel }}（{{ opts[sel-1] }}）</span>
 </div>
 
@@ -19,7 +19,7 @@ const opts = ['简单', '普通', '困难', '极限']
 </script>
 
 <template>
-  <OreDropdown :options="opts" v-model="sel" unselected-text="选择难度" />
+  <mc-dropdown :options="opts" v-model="sel" unselected-text="选择难度" />
 </template>
 ```
 

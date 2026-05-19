@@ -1,5 +1,6 @@
-/* OreUI Vue 样式入口 —— 引入即获得完整 Minecraft Ore UI 视觉系统 */
+/* McUI Vue 样式入口 —— 引入即获得完整 Minecraft 风格视觉系统 */
 @import './tokens.css';
-@import './oreui-base.css';
+@import './mcui-base.css';
 @import './public.css';
 @import './loading-mask.css';
+@import './components.css';

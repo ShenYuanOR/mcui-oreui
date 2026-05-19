@@ -1,9 +1,10 @@
 /*
- * 文档站专用 OreUI 样式
- * 全局/元素选择器（html,body,*,::selection,header,main,a,button）已作用域化到 .ore-demo，
+ * 文档站专用 McUI 样式
+ * 全局/元素选择器（html,body,*,::selection,header,main,a,button）已作用域化到 .mc-demo，
  * 避免污染 VitePress 自身布局；class / 自定义元素 / teleport(.loading_mask,.pop,modal) 选择器保持原样
  */
 @import '../../../src/styles/tokens.css';
-@import './oreui-base.scoped.css';
+@import './mcui-base.scoped.css';
 @import '../../../src/styles/public.css';
 @import '../../../src/styles/loading-mask.css';
+@import '../../../src/styles/components.css';

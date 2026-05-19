@@ -1,10 +1,73 @@
 /*
  * 演示容器：模拟 Minecraft 深灰界面环境。
- * 作用域化把原 body{} 样式赋给了 .ore-demo（含 overflow:hidden/height:100%/min-width），
- * 这里覆盖为正常文档流布局。用纯 .ore-demo 选择器（后加载覆盖作用域规则），
+ * 作用域化把原 body{} 样式赋给了 .mc-demo（含 overflow:hidden/height:100%/min-width），
+ * 这里覆盖为正常文档流布局。用纯 .mc-demo 选择器（后加载覆盖作用域规则），
  * 以兼容首页 page 布局（无 .vp-doc 包裹）。
  */
-.ore-demo {
+
+:root {
+  scrollbar-color: #6f7072 #151617;
+  scrollbar-width: thin;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+.VPNavScreen::-webkit-scrollbar,
+.VPSidebar::-webkit-scrollbar,
+.VPDocAside::-webkit-scrollbar,
+.content-container::-webkit-scrollbar,
+.vp-doc div[class*='language-'] pre::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track,
+.VPNavScreen::-webkit-scrollbar-track,
+.VPSidebar::-webkit-scrollbar-track,
+.VPDocAside::-webkit-scrollbar-track,
+.content-container::-webkit-scrollbar-track,
+.vp-doc div[class*='language-'] pre::-webkit-scrollbar-track {
+  background: #151617;
+  border-left: 2px solid #2b2c2e;
+}
+
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb,
+.VPNavScreen::-webkit-scrollbar-thumb,
+.VPSidebar::-webkit-scrollbar-thumb,
+.VPDocAside::-webkit-scrollbar-thumb,
+.content-container::-webkit-scrollbar-thumb,
+.vp-doc div[class*='language-'] pre::-webkit-scrollbar-thumb {
+  background: #747577;
+  border: 2px solid #151617;
+  border-radius: 0;
+  box-shadow:
+    inset 2px 2px 0 rgba(255, 255, 255, 0.24),
+    inset -2px -2px 0 rgba(0, 0, 0, 0.45);
+}
+
+html::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover,
+.VPNavScreen::-webkit-scrollbar-thumb:hover,
+.VPSidebar::-webkit-scrollbar-thumb:hover,
+.VPDocAside::-webkit-scrollbar-thumb:hover,
+.content-container::-webkit-scrollbar-thumb:hover,
+.vp-doc div[class*='language-'] pre::-webkit-scrollbar-thumb:hover {
+  background: #8b8c8e;
+}
+
+html::-webkit-scrollbar-corner,
+body::-webkit-scrollbar-corner,
+.VPNavScreen::-webkit-scrollbar-corner,
+.VPSidebar::-webkit-scrollbar-corner,
+.VPDocAside::-webkit-scrollbar-corner,
+.content-container::-webkit-scrollbar-corner,
+.vp-doc div[class*='language-'] pre::-webkit-scrollbar-corner {
+  background: #151617;
+}
+
+.mc-demo {
   height: auto !important;
   min-height: 96px !important;
   min-width: 0 !important;
@@ -21,38 +84,38 @@
   box-sizing: border-box;
 }
 
-.ore-demo--column {
+.mc-demo--column {
   flex-direction: column;
   align-items: stretch;
 }
 
 /* 仅对“无按下高度补偿”的组件清零外边距；按钮保留原 margin（其 :active 依赖补偿） */
-.ore-demo :is(.custom-checkbox, .switch_content, custom-dropdown,
+.mc-demo :is(.custom-checkbox, .switch_content, custom-dropdown,
   text-field, .slider_area) {
   margin: 0;
 }
 
-.ore-demo--column text-field,
-.ore-demo--column custom-dropdown,
-.ore-demo--column .slider_area {
+.mc-demo--column text-field,
+.mc-demo--column custom-dropdown,
+.mc-demo--column .slider_area {
   width: 100%;
 }
 
 /* ===== 首页 Hero（用本组件库组件构建） ===== */
-.ore-landing {
+.mc-landing {
   max-width: 1100px;
   margin: 0 auto;
   padding: 32px 24px 64px;
 }
 
-.ore-hero {
+.mc-hero {
   flex-direction: column;
   gap: 20px;
   padding: 60px 32px;
   text-align: center;
 }
 
-.ore-hero-title {
+.mc-hero-title {
   font-family: 'Minecraft Ten', sans-serif;
   font-size: clamp(40px, 7vw, 64px);
   line-height: 1.1;
@@ -60,14 +123,14 @@
   letter-spacing: 1px;
 }
 
-.ore-hero-sub {
+.mc-hero-sub {
   font-family: 'Minecraft Ten', sans-serif;
   font-size: clamp(22px, 4vw, 34px);
   color: #ffffff;
   margin-top: -4px;
 }
 
-.ore-hero-tagline {
+.mc-hero-tagline {
   font-family: 'NotoSans Bold', sans-serif;
   font-size: 15px;
   line-height: 1.7;
@@ -76,7 +139,7 @@
   margin: 6px auto 0;
 }
 
-.ore-hero-actions {
+.mc-hero-actions {
   display: flex;
   gap: 14px;
   justify-content: center;
@@ -84,16 +147,16 @@
   margin-top: 10px;
 }
 
-.ore-hero-features {
+.mc-hero-features {
   margin-top: 22px;
   gap: 14px;
 }
 
-.ore-hero-features link-block {
+.mc-hero-features link-block {
   width: 280px;
 }
 
-.ore-hero-note {
+.mc-hero-note {
   font-family: 'NotoSans Bold', sans-serif;
   font-size: 13px;
   color: #b1b2b5;
@@ -102,6 +165,6 @@
   line-height: 1.7;
 }
 
-.ore-hero-note a {
+.mc-hero-note a {
   color: #6fb23f;
 }

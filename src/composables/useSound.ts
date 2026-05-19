@@ -6,9 +6,9 @@ import openSfx from '../assets/sounds/drawer_open.ogg'
 import closeSfx from '../assets/sounds/drawer_close.ogg'
 import toastSfx from '../assets/sounds/toast.ogg'
 
-export type OreSoundType = 'click' | 'button' | 'pop' | 'hide' | 'open' | 'close' | 'toast'
+export type McSoundType = 'click' | 'button' | 'pop' | 'hide' | 'open' | 'close' | 'toast'
 
-const soundPaths: Record<OreSoundType, string> = {
+const soundPaths: Record<McSoundType, string> = {
   click: clickSfx,
   button: buttonSfx,
   pop: popSfx,
@@ -20,13 +20,13 @@ const soundPaths: Record<OreSoundType, string> = {
 
 let soundEnabled = true
 
-/** 全局开关：是否启用 OreUI 音效 */
+/** 全局开关：是否启用 McUI 音效 */
 export function setSoundEnabled(enabled: boolean): void {
   soundEnabled = enabled
 }
 
 /** 播放指定类型的音效（移植自原 playSound） */
-export function playSound(type: OreSoundType): void {
+export function playSound(type: McSoundType): void {
   if (!soundEnabled) return
   const src = soundPaths[type]
   if (!src) return

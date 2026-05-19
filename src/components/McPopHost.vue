@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { popState } from '../composables/usePop'
-// 全局 Pop 容器：在应用根部放置一个 <OrePopHost />，配合 showPop() 使用
+// 全局 Pop 容器：在应用根部放置一个 <McPopHost />，配合 showPop() 使用
 </script>
 
 <template>

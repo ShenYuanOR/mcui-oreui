@@ -10,15 +10,26 @@ const v2 = ref(2)
 
 ## 连续滑块（range）
 
-<div class="ore-demo ore-demo--column">
-  <OreSlider v-model="v1" :min="0" :max="100" :step="5" type="range" />
+<div class="mc-demo mc-demo--column">
+  <mc-slider v-model="v1" :min="0" :max="100" :step="5" type="range" />
   <span style="color:#fff">value = {{ v1 }}</span>
 </div>
 
+```vue
+<script setup lang="ts">
+import { ref } from 'vue'
+const v1 = ref(50)
+</script>
+
+<template>
+  <mc-slider v-model="v1" :min="0" :max="100" :step="5" type="range" />
+</template>
+```
+
 ## 分段滑块（set）
 
-<div class="ore-demo ore-demo--column">
-  <OreSlider v-model="v2" :min="0" :max="4" :segments="4" type="set" />
+<div class="mc-demo mc-demo--column">
+  <mc-slider v-model="v2" :min="0" :max="4" :segments="4" type="set" />
   <span style="color:#fff">value = {{ v2 }}</span>
 </div>
 
@@ -30,8 +41,8 @@ const v2 = ref(2)
 </script>
 
 <template>
-  <OreSlider v-model="v1" :min="0" :max="100" :step="5" type="range" />
-  <OreSlider v-model="v2" :min="0" :max="4" :segments="4" type="set" />
+  <mc-slider v-model="v1" :min="0" :max="100" :step="5" type="range" />
+  <mc-slider v-model="v2" :min="0" :max="4" :segments="4" type="set" />
 </template>
 ```
 

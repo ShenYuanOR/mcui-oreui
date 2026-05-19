@@ -7,15 +7,15 @@ import { ref } from 'vue'
 const open = ref(false)
 </script>
 
-<div class="ore-demo">
-  <OreButton variant="green" @click="open = true">打开弹窗</OreButton>
+<div class="mc-demo">
+  <mc-button variant="green" @click="open = true">打开弹窗</mc-button>
   <ClientOnly>
-    <OreModal v-model:open="open" title="提示">
+    <mc-modal v-model:open="open" title="提示">
       <p style="color:#fff;font-family:'NotoSans Bold',sans-serif">
-        这是一个 Ore UI 风格弹窗，点击遮罩或右上角 ✕ 关闭。
+        这是一个 McUI 风格弹窗，点击遮罩或右上角 ✕ 关闭。
       </p>
-      <OreButton variant="green" @click="open = false">知道了</OreButton>
-    </OreModal>
+      <mc-button variant="green" @click="open = false">知道了</mc-button>
+    </mc-modal>
   </ClientOnly>
 </div>
 
@@ -26,10 +26,10 @@ const open = ref(false)
 </script>
 
 <template>
-  <OreButton @click="open = true">打开</OreButton>
-  <OreModal v-model:open="open" title="提示">
+  <mc-button @click="open = true">打开</mc-button>
+  <mc-modal v-model:open="open" title="提示">
     弹窗内容
-  </OreModal>
+  </mc-modal>
 </template>
 ```
 

@@ -12,7 +12,7 @@ const pops = ref<PopItem[]>([])
 let seq = 0
 const MAX_VISIBLE = 5
 
-/** 共享的 pop 列表（供 OrePopHost 渲染） */
+/** 共享的 pop 列表（供 McPopHost 渲染） */
 export const popState = pops
 
 /**

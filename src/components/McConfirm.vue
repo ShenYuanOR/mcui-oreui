@@ -1,0 +1,62 @@
+<script setup lang="ts">
+import McButton from './McButton.vue';
+import McModal from './McModal.vue';
+
+const props = withDefaults(
+    defineProps<{
+        /** 是否打开（v-model:open） */
+        open?: boolean;
+        /** 标题 */
+        title?: string;
+        /** 确认按钮文本 */
+        confirmText?: string;
+        /** 取消按钮文本 */
+        cancelText?: string;
+        /** 危险确认样式 */
+        danger?: boolean;
+    }>(),
+    {
+        open: false,
+        title: '确认操作',
+        confirmText: '确认',
+        cancelText: '取消',
+        danger: false,
+    },
+);
+
+const emit = defineEmits<{
+    (e: 'update:open', v: boolean): void;
+    (e: 'confirm'): void;
+    (e: 'cancel'): void;
+    (e: 'close'): void;
+}>();
+
+function updateOpen(v: boolean) {
+    emit('update:open', v);
+    if (!v) emit('close');
+}
+
+function cancel() {
+    emit('cancel');
+    updateOpen(false);
+}
+
+function confirm() {
+    emit('confirm');
+    updateOpen(false);
+}
+</script>
+
+<template>
+    <McModal :open="props.open" :title="title" :close-on-overlay="false" :show-close="false" @update:open="updateOpen">
+        <div class="mc-confirm">
+            <div class="mc-confirm__content">
+                <slot />
+            </div>
+            <div class="mc-confirm__actions">
+                <McButton variant="normal" @click="cancel">{{ cancelText }}</McButton>
+                <McButton :variant="danger ? 'red' : 'green'" @click="confirm">{{ confirmText }}</McButton>
+            </div>
+        </div>
+    </McModal>
+</template>

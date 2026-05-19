@@ -257,6 +257,7 @@ scroll-view {
     display: flex;
     height: 100%;
     overflow: hidden;
+    position: relative;
     width: 100%;
 }
 
@@ -430,10 +431,12 @@ a {
 /* 自定义滚动条 */
 custom-scrollbar {
     display: block;
+    bottom: 0;
     opacity: 1;
     overflow-y: hidden;
     position: absolute;
     right: 0; /* 右侧显示 */
+    top: 0;
     transition: opacity 1s;
 }
 

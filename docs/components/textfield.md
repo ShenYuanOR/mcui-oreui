@@ -8,9 +8,9 @@ const name = ref('')
 const num = ref('')
 </script>
 
-<div class="ore-demo ore-demo--column">
-  <OreTextField v-model="name" hint="请输入世界名称" :max-length="20" />
-  <OreTextField v-model="num" type="number" hint="仅数字" />
+<div class="mc-demo mc-demo--column">
+  <mc-text-field v-model="name" hint="请输入世界名称" :max-length="20" />
+  <mc-text-field v-model="num" type="number" hint="仅数字" />
   <span style="color:#fff">name = "{{ name }}"，num = "{{ num }}"</span>
 </div>
 
@@ -21,8 +21,8 @@ const name = ref('')
 </script>
 
 <template>
-  <OreTextField v-model="name" hint="请输入世界名称" :max-length="20" />
-  <OreTextField v-model="num" type="number" hint="仅数字" />
+  <mc-text-field v-model="name" hint="请输入世界名称" :max-length="20" />
+  <mc-text-field v-model="num" type="number" hint="仅数字" />
 </template>
 ```
 

@@ -1,41 +1,41 @@
 /*
- * OreUI 设计 Token —— 提炼自 Minecraft 基岩版 Ore UI 真实色值
- * 这些变量作为定制与文档参考层；组件本体样式见 oreui-base.css
+ * McUI 设计 Token —— 提炼自 Minecraft 基岩版风格真实色值
+ * 这些变量作为定制与文档参考层；组件本体样式见 mcui-base.css
  */
 :root {
   /* —— 背景 —— */
-  --ore-bg: #48494A;
-  --ore-bg-header: #E6E8EB;
-  --ore-bg-panel: #58585A;
-  --ore-bg-panel-light: #5C5D5F;
+  --mc-bg: #48494A;
+  --mc-bg-header: #E6E8EB;
+  --mc-bg-panel: #58585A;
+  --mc-bg-panel-light: #5C5D5F;
 
   /* —— 主操作 绿 —— */
-  --ore-green: #3C8527;
-  --ore-green-hover: #2A641C;
-  --ore-green-active: #1D4D13;
+  --mc-green: #3C8527;
+  --mc-green-hover: #2A641C;
+  --mc-green-active: #1D4D13;
 
   /* —— 次要 灰 —— */
-  --ore-normal: #D0D1D4;
-  --ore-normal-hover: #B1B2B5;
-  --ore-normal-shadow: #58585A;
+  --mc-normal: #D0D1D4;
+  --mc-normal-hover: #B1B2B5;
+  --mc-normal-shadow: #58585A;
 
   /* —— 危险 红 —— */
-  --ore-red: #C33636;
-  --ore-red-hover: #C02D2D;
-  --ore-red-active: #AD1D1D;
+  --mc-red: #C33636;
+  --mc-red-hover: #C02D2D;
+  --mc-red-active: #AD1D1D;
 
   /* —— 禁用 —— */
-  --ore-disabled-bg: #D0D1D4;
-  --ore-disabled-border: #8C8D90;
-  --ore-disabled-text: #48494A;
+  --mc-disabled-bg: #D0D1D4;
+  --mc-disabled-border: #8C8D90;
+  --mc-disabled-text: #48494A;
 
   /* —— 描边 / 文字 —— */
-  --ore-border-dark: #1E1E1F;
-  --ore-text-light: #D0D1D4;
-  --ore-text-white: #FFFFFF;
+  --mc-border-dark: #1E1E1F;
+  --mc-text-light: #D0D1D4;
+  --mc-text-white: #FFFFFF;
 
   /* —— 字体 —— */
-  --ore-font-title: 'Minecraft Ten', sans-serif;
-  --ore-font-ui: 'Minecraft Seven', sans-serif;
-  --ore-font-body: 'NotoSans Bold', sans-serif;
+  --mc-font-title: 'Minecraft Ten', sans-serif;
+  --mc-font-ui: 'Minecraft Seven', sans-serif;
+  --mc-font-body: 'NotoSans Bold', sans-serif;
 }

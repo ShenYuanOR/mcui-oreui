@@ -13,29 +13,29 @@ npm install mcui-oreui
 ```ts
 import { createApp } from 'vue'
 import App from './App.vue'
-import OreUIVue from 'mcui-oreui'
+import McUIVue from 'mcui-oreui'
 import 'mcui-oreui/style.css'
 
-createApp(App).use(OreUIVue).mount('#app')
+createApp(App).use(McUIVue).mount('#app')
 ```
 
-**导入一次，全局可用** —— `.use(OreUIVue)` 后全部 13 个组件已全局注册，
-此后任意组件（组合式或选项式）的 `<template>` 里直接写 `<OreButton>`、`<OreSwitch v-model>` 等，
+**导入一次，全局可用** —— `.use(McUIVue)` 后全部组件已按 `mc-` 标签全局注册，
+此后任意组件（组合式或选项式）的 `<template>` 里直接写 `<mc-button>`、`<mc-switch v-model>` 等，
 **无需再单独 import**。
 
-> **ESM（Vite / 现代构建，绝大多数场景）**：`import OreUIVue from 'mcui-oreui'` 直接拿到插件，默认导出即插件对象。
-> **CommonJS（`require`）**：因库同时提供具名与默认导出，需写 `const OreUIVue = require('mcui-oreui').default`。现代 Vue 项目走 ESM 一般无需关心此点。
+> **ESM（Vite / 现代构建，绝大多数场景）**：`import McUIVue from 'mcui-oreui'` 直接拿到插件，默认导出即插件对象。
+> **CommonJS（`require`）**：因库同时提供具名与默认导出，需写 `const McUIVue = require('mcui-oreui').default`。现代 Vue 项目走 ESM 一般无需关心此点。
 
 ## 按需引入
 
 ```vue
 <script setup lang="ts">
-import { OreButton, OreCheckbox } from 'mcui-oreui'
+import { McButton, McCheckbox } from 'mcui-oreui'
 import 'mcui-oreui/style.css'
 </script>
 
 <template>
-  <OreButton variant="green" @click="onStart">开始游戏</OreButton>
+  <mc-button variant="green" @click="onStart">开始游戏</mc-button>
 </template>
 ```
 
@@ -50,11 +50,11 @@ import 'mcui-oreui/style.css'
 
 ```vue
 <script setup lang="ts">
-import { OreButton, showPop } from 'mcui-oreui'
+import { McButton, showPop } from 'mcui-oreui'
 </script>
 
 <template>
-  <OreButton variant="green" @click="showPop('已保存', 2000, 'success')">保存</OreButton>
+  <mc-button variant="green" @click="showPop('已保存', 2000, 'success')">保存</mc-button>
 </template>
 ```
 
@@ -62,10 +62,10 @@ import { OreButton, showPop } from 'mcui-oreui'
 
 ```vue
 <script lang="ts">
-import { OreSwitch, showPop } from 'mcui-oreui'
+import { McSwitch, showPop } from 'mcui-oreui'
 
 export default {
-  components: { OreSwitch },
+  components: { McSwitch },
   data: () => ({ enabled: false }),
   methods: {
     save() {
@@ -76,8 +76,8 @@ export default {
 </script>
 
 <template>
-  <OreSwitch v-model="enabled" />
-  <OreButton variant="green" @click="save">保存</OreButton>
+  <mc-switch v-model="enabled" />
+  <mc-button variant="green" @click="save">保存</mc-button>
 </template>
 ```
 
@@ -92,18 +92,18 @@ export default {
 
 ```vue
 <script setup lang="ts">
-import { OrePopHost, showPop } from 'mcui-oreui'
+import { McPopHost, showPop } from 'mcui-oreui'
 </script>
 
 <template>
-  <OrePopHost />
-  <OreButton @click="showPop('已保存', 2000, 'success')">保存</OreButton>
+  <mc-pop-host />
+  <mc-button @click="showPop('已保存', 2000, 'success')">保存</mc-button>
 </template>
 ```
 
 ## 关于自定义元素
 
-组件库在 **构建时** 已用正确的编译选项处理了 Ore UI 的自定义元素标签
+组件库在 **构建时** 已用正确的编译选项处理了原始样式中的自定义元素标签
 （如 `<custom-dropdown>`、`<link-block>`）。你在自己的项目里**无需任何额外配置**，
 直接使用编译产物即可。
 

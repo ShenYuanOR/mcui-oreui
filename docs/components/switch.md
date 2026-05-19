@@ -8,10 +8,10 @@ const on = ref(true)
 const off = ref(false)
 </script>
 
-<div class="ore-demo">
-  <OreSwitch v-model="on" />
-  <OreSwitch v-model="off" />
-  <OreSwitch :model-value="true" disabled />
+<div class="mc-demo">
+  <mc-switch v-model="on" />
+  <mc-switch v-model="off" />
+  <mc-switch :model-value="true" disabled />
   <span style="color:#fff">on = {{ on }}</span>
 </div>
 
@@ -22,7 +22,7 @@ const enabled = ref(true)
 </script>
 
 <template>
-  <OreSwitch v-model="enabled" @change="v => console.log(v)" />
+  <mc-switch v-model="enabled" @change="v => console.log(v)" />
 </template>
 ```
 
