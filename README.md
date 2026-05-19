@@ -6,6 +6,8 @@
 ![Vue](https://img.shields.io/badge/Vue-3.3%2B-42b883)
 ![TypeScript](https://img.shields.io/badge/TypeScript-Ready-3178c6)
 
+**📖 在线文档（组件实时 Demo + API）：<https://shenyuanor.github.io/mcui-oreui/>**
+
 把 Minecraft 基岩版界面的观感（Minecraft 像素字体、灰色立体面板、绿/灰/红三态按钮、卡片扫光、按键音效）封装为 **13 个标准 Vue 3 组件**，并附带一套 VitePress 实时文档站。
 
 > ⚠️ **非官方声明**：本项目为第三方复刻，与 Mojang Studios **无任何从属关系**，不含 Minecraft 官方代码或美术资产。设计语言移植自社区项目 [Spectrollay-OreUI/OreUI](https://github.com/Spectrollay-OreUI/OreUI)（MIT）。它与官方仓库 `Mojang/ore-ui`（仅开源 `@react-facet` 状态管理库）是完全不同的两个东西。
