@@ -8,7 +8,7 @@
 
 **📖 在线文档（组件实时 Demo + API）：<https://shenyuanor.github.io/mcui-oreui/>**
 
-把 Minecraft 基岩版界面的观感（Minecraft 像素字体、灰色立体面板、绿/灰/红三态按钮、卡片扫光、按键音效）封装为 **24 个标准 Vue 3 组件**，并附带一套 VitePress 实时文档站。
+把 Minecraft 基岩版界面的观感（Minecraft 像素字体、灰色立体面板、主/默认/错误三态按钮、卡片扫光、按键音效）封装为 **25 个标准 Vue 3 组件**，并附带一套 VitePress 实时文档站。
 
 > ⚠️ **非官方声明**：本项目为第三方复刻，与 Mojang Studios **无任何从属关系**，不含 Minecraft 官方代码或美术资产。设计语言移植自社区项目 [Spectrollay-OreUI/OreUI](https://github.com/Spectrollay-OreUI/OreUI)（MIT）。它与官方仓库 `Mojang/mc-ui`（仅开源 `@react-facet` 状态管理库）是完全不同的两个东西。
 
@@ -18,6 +18,7 @@
 - 🧩 **标准 Vue 3 + TypeScript** —— 全部 `<script setup lang="ts">`，`v-model` 受控、类型完整
 - 🔌 **组合式 / 选项式 API 通用** —— 导入一次全局可用，两种风格皆可
 - 🔊 **内置音效** —— 移植原项目 7 个按键音效，可全局开关
+- 🧰 **内置图标库** —— 支持普通图标、按键映射图标、彩色图标，统一通过 `<mc-icon>` 或组件 `icon` 属性使用
 - 🎨 **Minecraft 格式化代码** —— 支持 `§` 颜色 / 样式代码解析与渲染，可用于 MOTD、世界名等文本预览
 - 📦 **Vite 库模式打包** —— 产出 ESM / UMD / `.d.ts` 类型声明
 
@@ -47,7 +48,8 @@ createApp(App).use(McUIVue).mount('#app')
 
 ```vue
 <template>
-  <mc-button variant="green" @click="onStart">开始游戏</mc-button>
+  <mc-button icon="mc-enter" variant="primary" @click="onStart">开始游戏</mc-button>
+  <mc-icon name="mc-key-enter" />
   <mc-switch v-model="enabled" />
 </template>
 ```
@@ -61,7 +63,7 @@ import 'mcui-oreui/style.css'
 </script>
 
 <template>
-  <mc-button variant="green" @click="showPop('已保存', 2000, 'success')">保存</mc-button>
+  <mc-button icon="mc-save" variant="primary" @click="showPop('已保存', 2000, 'success')">保存</mc-button>
 </template>
 ```
 
@@ -71,7 +73,7 @@ import 'mcui-oreui/style.css'
 
 | 类别 | 组件 |
 |---|---|
-| 基础 | `<mc-button>` · `<mc-card>` · `<mc-panel>` · `<mc-tooltip>` · `<mc-progress>` |
+| 基础 | `<mc-icon>` · `<mc-button>` · `<mc-card>` · `<mc-panel>` · `<mc-tooltip>` · `<mc-progress>` |
 | 表单 | `<mc-checkbox>` · `<mc-radio>` · `<mc-radio-group>` · `<mc-form-field>` · `<mc-switch>` · `<mc-dropdown>` · `<mc-text-field>` · `<mc-slider>` |
 | 布局 | `<mc-layout>` · `<mc-header>` · `<mc-tabs>` · `<mc-scroll-view>` |
 | 反馈 | `<mc-modal>` · `<mc-confirm>` · `<mc-drawer>` · `<mc-loading-mask>` · `<mc-pop-host>` |

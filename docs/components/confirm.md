@@ -13,7 +13,7 @@ const dangerOpen = ref(false)
 ## 基础用法
 
 <div class="mc-demo">
-  <mc-button variant="green" @click="open = true">打开确认</mc-button>
+  <mc-button variant="primary" @click="open = true">打开确认</mc-button>
   <mc-confirm v-model:open="open" title="保存设置？" confirm-text="保存" @confirm="open = false">
     是否保存当前游戏设置？
   </mc-confirm>
@@ -26,7 +26,7 @@ const open = ref(false)
 </script>
 
 <template>
-  <mc-button variant="green" @click="open = true">打开确认</mc-button>
+  <mc-button variant="primary" @click="open = true">打开确认</mc-button>
   <mc-confirm v-model:open="open" title="保存设置？" confirm-text="保存">
     是否保存当前游戏设置？
   </mc-confirm>
@@ -36,7 +36,7 @@ const open = ref(false)
 ## 危险操作
 
 <div class="mc-demo">
-  <mc-button variant="red" @click="dangerOpen = true">删除世界</mc-button>
+  <mc-button variant="error" @click="dangerOpen = true">删除世界</mc-button>
   <mc-confirm v-model:open="dangerOpen" title="删除世界？" confirm-text="删除" danger>
     此操作无法撤销，请确认是否继续。
   </mc-confirm>
@@ -49,7 +49,7 @@ const dangerOpen = ref(false)
 </script>
 
 <template>
-  <mc-button variant="red" @click="dangerOpen = true">删除世界</mc-button>
+  <mc-button variant="error" @click="dangerOpen = true">删除世界</mc-button>
   <mc-confirm v-model:open="dangerOpen" title="删除世界？" confirm-text="删除" danger>
     此操作无法撤销，请确认是否继续。
   </mc-confirm>

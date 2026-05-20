@@ -18,7 +18,7 @@ const go = (p) => router.go(withBase(p))
   <div class="mc-hero-sub">Minecraft 风格 Vue 3 组件库</div>
   <div class="mc-hero-tagline">把 Minecraft 基岩版风格的像素质感、立体按钮与音效带进 Vue 工程（第三方复刻）</div>
   <div class="mc-hero-actions">
-    <mc-button variant="green" size="large" @click="go('/guide/getting-started.html')">快速开始</mc-button>
+    <mc-button variant="primary" size="large" @click="go('/guide/getting-started.html')">快速开始</mc-button>
     <mc-button variant="normal" size="large" @click="go('/components/button.html')">浏览组件</mc-button>
   </div>
 </div>
@@ -39,7 +39,7 @@ const go = (path: string) => router.go(withBase(path))
       把 Minecraft 基岩版风格的像素质感、立体按钮与音效带进 Vue 工程
     </div>
     <div class="mc-hero-actions">
-      <mc-button variant="green" size="large" @click="go('/guide/getting-started.html')">快速开始</mc-button>
+      <mc-button variant="primary" size="large" @click="go('/guide/getting-started.html')">快速开始</mc-button>
       <mc-button variant="normal" size="large" @click="go('/components/button.html')">浏览组件</mc-button>
     </div>
   </div>

@@ -41,12 +41,14 @@ export default defineConfig({
       {
         text: '样式',
         items: [
+          { text: '图标总览', link: '/styles/icons' },
           { text: '格式化代码', link: '/styles/format-codes' },
         ],
       },
       {
         text: '基础',
         items: [
+          { text: 'Icon 图标', link: '/components/icon' },
           { text: 'Button 按钮', link: '/components/button' },
           { text: 'Card 链接卡片', link: '/components/card' },
           { text: 'Panel 面板', link: '/components/panel' },

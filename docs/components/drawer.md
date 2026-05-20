@@ -11,13 +11,13 @@ const bottomOpen = ref(false)
 ## 右侧抽屉
 
 <div class="mc-demo">
-  <mc-button variant="green" @click="rightOpen = true">打开设置</mc-button>
+  <mc-button variant="primary" @click="rightOpen = true">打开设置</mc-button>
   <mc-drawer v-model:open="rightOpen" title="设置">
     <mc-form-field label="界面音效" description="控制 McUI 组件交互音效。">
       <mc-switch />
     </mc-form-field>
     <template #footer>
-      <mc-button variant="green" @click="rightOpen = false">完成</mc-button>
+      <mc-button variant="primary" @click="rightOpen = false">完成</mc-button>
     </template>
   </mc-drawer>
 </div>
@@ -29,7 +29,7 @@ const open = ref(false)
 </script>
 
 <template>
-  <mc-button variant="green" @click="open = true">打开设置</mc-button>
+  <mc-button variant="primary" @click="open = true">打开设置</mc-button>
   <mc-drawer v-model:open="open" title="设置">
     设置内容
   </mc-drawer>

@@ -8,13 +8,13 @@ const open = ref(false)
 </script>
 
 <div class="mc-demo">
-  <mc-button variant="green" @click="open = true">打开弹窗</mc-button>
+  <mc-button variant="primary" @click="open = true">打开弹窗</mc-button>
   <ClientOnly>
     <mc-modal v-model:open="open" title="提示">
       <p style="color:#fff;font-family:'NotoSans Bold',sans-serif">
         这是一个 McUI 风格弹窗，点击遮罩或右上角 ✕ 关闭。
       </p>
-      <mc-button variant="green" @click="open = false">知道了</mc-button>
+      <mc-button variant="primary" @click="open = false">知道了</mc-button>
     </mc-modal>
   </ClientOnly>
 </div>

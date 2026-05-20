@@ -1,5 +1,55 @@
 /* McUI Vue 扩展组件样式 */
 
+/* Icon 图标 */
+.mc-icon {
+    --mc-icon-size: 24px;
+    --mc-icon-color: currentColor;
+    align-items: center;
+    color: var(--mc-icon-color, currentColor);
+    display: inline-flex;
+    flex: none;
+    height: var(--mc-icon-size);
+    justify-content: center;
+    line-height: 0;
+    overflow: hidden;
+    vertical-align: -0.125em;
+    width: var(--mc-icon-size);
+}
+
+.mc-icon svg {
+    display: block;
+    flex: none;
+    height: 100%;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    max-height: 100%;
+    max-width: 100%;
+    shape-rendering: crispEdges;
+    width: 100%;
+}
+
+.mc-icon image {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+.mc-icon--missing {
+    outline: 1px dashed currentColor;
+    outline-offset: -1px;
+    opacity: 0.45;
+}
+
+.btn {
+    align-items: center;
+    display: inline-flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.btn_icon {
+    --mc-icon-size: 22px;
+}
+
 /* Minecraft § 格式化文本 */
 .mc-formatted-text {
     color: #FFFFFF;

@@ -6,9 +6,9 @@
 <div class="mc-demo">
   <ClientOnly>
     <mc-pop-host />
-    <mc-button variant="green" @click="$o.showPop('已保存世界', 2000, 'success')">成功</mc-button>
+    <mc-button variant="primary" @click="$o.showPop('已保存世界', 2000, 'success')">成功</mc-button>
     <mc-button variant="normal" @click="$o.showPop('正在生成…', 2000, 'process')">进行中</mc-button>
-    <mc-button variant="red" @click="$o.showPop('保存失败', 2000, 'error')">错误</mc-button>
+    <mc-button variant="error" @click="$o.showPop('保存失败', 2000, 'error')">错误</mc-button>
   </ClientOnly>
 </div>
 

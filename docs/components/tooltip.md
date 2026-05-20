@@ -6,13 +6,13 @@
 
 <div class="mc-demo">
   <mc-tooltip content="保存当前设置">
-    <mc-button variant="green">悬停查看</mc-button>
+    <mc-button variant="primary">悬停查看</mc-button>
   </mc-tooltip>
 </div>
 
 ```vue
 <mc-tooltip content="保存当前设置">
-  <mc-button variant="green">悬停查看</mc-button>
+  <mc-button variant="primary">悬停查看</mc-button>
 </mc-tooltip>
 ```
 

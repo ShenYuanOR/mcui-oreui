@@ -35,7 +35,7 @@ import 'mcui-oreui/style.css'
 </script>
 
 <template>
-  <mc-button variant="green" @click="onStart">开始游戏</mc-button>
+  <mc-button icon="mc-enter" variant="primary" @click="onStart">开始游戏</mc-button>
 </template>
 ```
 
@@ -54,7 +54,7 @@ import { McButton, showPop } from 'mcui-oreui'
 </script>
 
 <template>
-  <mc-button variant="green" @click="showPop('已保存', 2000, 'success')">保存</mc-button>
+  <mc-button icon="mc-save" variant="primary" @click="showPop('已保存', 2000, 'success')">保存</mc-button>
 </template>
 ```
 
@@ -77,9 +77,24 @@ export default {
 
 <template>
   <mc-switch v-model="enabled" />
-  <mc-button variant="green" @click="save">保存</mc-button>
+  <mc-button icon="mc-save" variant="primary" @click="save">保存</mc-button>
 </template>
 ```
+
+## 图标
+
+内置图标统一通过 `<mc-icon>` 或组件 `icon` 属性使用：
+
+```vue
+<template>
+  <mc-icon>mc-add</mc-icon>
+  <mc-icon name="mc-key-enter" />
+  <mc-icon name="mc-x-creative" />
+  <mc-button icon="mc-save" variant="primary">保存</mc-button>
+</template>
+```
+
+普通图标命名为 `mc-xxx` 且支持改色；按键映射图标命名为 `mc-key-xxx`，彩色图标命名为 `mc-x-xxx`，两者保持原色。
 
 > `showPop` / `playSound` / `playSoundType` / `setSoundEnabled` / `usePop` / `useSound`
 > 都是**纯函数**，不依赖 `setup` 上下文（无 `onMounted` / `inject` 等），

@@ -25,6 +25,7 @@ import McConfirm from './components/McConfirm.vue';
 import McDrawer from './components/McDrawer.vue';
 import McFormattedText from './components/McFormattedText.vue';
 import McTcode from './components/McTcode.vue';
+import McIcon from './components/McIcon.vue';
 
 export {
   McButton as McButton,
@@ -51,6 +52,7 @@ export {
   McDrawer as McDrawer,
   McFormattedText as McFormattedText,
   McTcode,
+  McIcon,
 };
 
 export type { McRadioValue } from './components/McRadio.vue';
@@ -72,6 +74,16 @@ export type {
   McFormatCodeToken,
   McFormatCodeTokenType,
 } from './utils/formatCodes';
+
+export {
+  getMcIcon,
+  hasMcIcon,
+  mcIconNames,
+  mcNormalIconNames,
+  mcKeyIconNames,
+  mcXIconNames,
+} from './utils/iconRegistry';
+export type { McIconDefinition, McIconName, McIconType } from './utils/iconRegistry';
 
 export { useSound, playSound, playSoundType, setSoundEnabled } from './composables/useSound';
 export type { McSoundType } from './composables/useSound';
@@ -103,6 +115,7 @@ const components = {
   'mc-drawer': McDrawer,
   'mc-formatted-text': McFormattedText,
   'mc-tcode': McTcode,
+  'mc-icon': McIcon,
 };
 
 const McUIVue: Plugin = {

@@ -168,3 +168,112 @@ body::-webkit-scrollbar-corner,
 .mc-hero-note a {
   color: #6fb23f;
 }
+
+/* ===== 图标总览 ===== */
+.mc-icon-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-top: 24px;
+}
+
+.mc-icon-gallery__section {
+  border: 2px solid #1e1e1f;
+  background: #48494a;
+  padding: 18px;
+  box-shadow:
+    inset 2px 2px 0 rgba(255, 255, 255, 0.16),
+    inset -2px -2px 0 rgba(0, 0, 0, 0.38);
+}
+
+.mc-icon-gallery__heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.mc-icon-gallery__heading h2 {
+  margin: 0 0 8px;
+  padding-top: 0;
+  border-top: 0;
+  color: #ffffff;
+  font-family: 'Minecraft Ten', sans-serif;
+}
+
+.mc-icon-gallery__heading p {
+  margin: 0;
+  color: #d0d1d4;
+  font-size: 14px;
+}
+
+.mc-icon-gallery__heading span {
+  flex: 0 0 auto;
+  color: #b1b2b5;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.mc-icon-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+  gap: 10px;
+}
+
+.mc-icon-gallery__item {
+  position: relative;
+  min-height: 96px;
+  border: 2px solid #1f2021;
+  background: #343536;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 8px;
+  cursor: pointer;
+  font: inherit;
+  box-shadow:
+    inset 2px 2px 0 rgba(255, 255, 255, 0.14),
+    inset -2px -2px 0 rgba(0, 0, 0, 0.45);
+}
+
+.mc-icon-gallery__item:hover,
+.mc-icon-gallery__item:focus-visible {
+  background: #3f4041;
+  outline: 2px solid #6fb23f;
+  outline-offset: 2px;
+}
+
+.mc-icon-gallery__item:active {
+  transform: translateY(1px);
+}
+
+.mc-icon-gallery__name {
+  max-width: 100%;
+  color: #e7e8eb;
+  font-size: 12px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+  text-align: center;
+}
+
+.mc-icon-gallery__copied {
+  position: absolute;
+  right: 6px;
+  top: 6px;
+  opacity: 0;
+  background: #6fb23f;
+  color: #ffffff;
+  font-size: 12px;
+  line-height: 1;
+  padding: 4px 6px;
+  pointer-events: none;
+  transition: opacity 0.12s ease;
+}
+
+.mc-icon-gallery__copied.is-active {
+  opacity: 1;
+}

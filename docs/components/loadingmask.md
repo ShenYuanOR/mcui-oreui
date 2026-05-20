@@ -12,7 +12,7 @@ function demo() {
 </script>
 
 <div class="mc-demo">
-  <mc-button variant="green" @click="demo">显示 1.8 秒</mc-button>
+  <mc-button variant="primary" @click="demo">显示 1.8 秒</mc-button>
   <ClientOnly>
     <mc-loading-mask :visible="show" text="生成世界中" />
   </ClientOnly>

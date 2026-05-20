@@ -747,7 +747,7 @@ button {
     box-shadow: inset 3px 3px rgba(255, 255, 255, 0.8), inset -3px -3px rgba(255, 255, 255, 0.6);
 }
 
-.green_btn {
+.primary_btn {
     background-color: #3C8527;
     border: 2px solid #1E1E1F;
     box-shadow: inset 0 -4px #1D4D13, inset 3px 3px rgba(255, 255, 255, 0.2), inset -3px -7px rgba(255, 255, 255, 0.1);
@@ -755,17 +755,17 @@ button {
     padding-bottom: 6px;
 }
 
-.green_btn:hover {
+.primary_btn:hover {
     background-color: #2A641C;
     box-shadow: inset 0 -4px #1D4D13, inset 3px 3px rgba(255, 255, 255, 0.4), inset -3px -7px rgba(255, 255, 255, 0.3);
 }
 
-.green_btn:active {
+.primary_btn:active {
     background-color: #1D4D13;
     box-shadow: inset 3px 3px rgba(255, 255, 255, 0.4), inset -3px -3px rgba(255, 255, 255, 0.3);
 }
 
-.red_btn {
+.error_btn {
     background-color: #C33636;
     border: 2px solid #1E1E1F;
     box-shadow: inset 0 -4px #AD1D1D, inset 3px 3px rgba(255, 255, 255, 0.2), inset -3px -7px rgba(255, 255, 255, 0.1);
@@ -773,12 +773,12 @@ button {
     padding-bottom: 6px;
 }
 
-.red_btn:hover {
+.error_btn:hover {
     background-color: #C02D2D;
     box-shadow: inset 0 -4px #AD1D1D, inset 3px 3px rgba(255, 255, 255, 0.5), inset -3px -7px rgba(255, 255, 255, 0.4);
 }
 
-.red_btn:active {
+.error_btn:active {
     background-color: #AD1D1D;
     box-shadow: inset 3px 3px rgba(255, 255, 255, 0.5), inset -3px -3px rgba(255, 255, 255, 0.4);
 }
@@ -1020,6 +1020,12 @@ custom-dropdown .disabled_dropdown {
     cursor: not-allowed;
 }
 
+.dropdown_label.open_dropdown {
+    background-color: #B1B2B5;
+    box-shadow: inset 0 4px #58585A, inset 3px 7px rgba(0, 0, 0, 0.22), inset -3px -3px rgba(255, 255, 255, 0.45);
+    padding: 12px 10px 14px 10px;
+}
+
 .dropdown_arrow {
     position: absolute;
     right: 10px;
@@ -1032,6 +1038,11 @@ custom-dropdown .disabled_dropdown {
     filter: invert(100%) grayscale(100%) brightness(50%);
 }
 
+.open_dropdown_arrow {
+    top: calc(50% + 2px);
+    transform: translateY(-50%) rotate(180deg);
+}
+
 .dropdown_options {
     background-color: #58585A;
     border: 2px solid #1E1E1F;
@@ -1040,7 +1051,7 @@ custom-dropdown .disabled_dropdown {
     display: none;
     left: 0;
     position: absolute;
-    top: 0;
+    top: calc(100% + 2px);
     width: calc(100% - 4px); /* 减去边框的2倍 */
     z-index: 5;
 }

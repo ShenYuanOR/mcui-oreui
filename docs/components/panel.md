@@ -25,7 +25,7 @@
     </template>
     已启用 3 个资源包。
     <template #footer>
-      <mc-button variant="green">保存</mc-button>
+      <mc-button variant="primary">保存</mc-button>
     </template>
   </mc-panel>
 </div>
@@ -39,7 +39,7 @@
   已启用 3 个资源包。
 
   <template #footer>
-    <mc-button variant="green">保存</mc-button>
+    <mc-button variant="primary">保存</mc-button>
   </template>
 </mc-panel>
 ```

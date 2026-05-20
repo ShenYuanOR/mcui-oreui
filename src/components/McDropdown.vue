@@ -65,14 +65,14 @@ onBeforeUnmount(() => {
   <custom-dropdown ref="root">
     <div
       class="dropdown_label"
-      :class="{ disabled_dropdown: disabled }"
+      :class="{ disabled_dropdown: disabled, open_dropdown: open }"
       @click="toggle"
     >
       {{ labelText }}
     </div>
     <img
       class="dropdown_arrow"
-      :class="{ disabled_dropdown_arrow: disabled }"
+      :class="{ disabled_dropdown_arrow: disabled, open_dropdown_arrow: open }"
       :src="arrowDown"
       alt=""
     />

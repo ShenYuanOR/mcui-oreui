@@ -55,7 +55,7 @@ function confirm() {
             </div>
             <div class="mc-confirm__actions">
                 <McButton variant="normal" @click="cancel">{{ cancelText }}</McButton>
-                <McButton :variant="danger ? 'red' : 'green'" @click="confirm">{{ confirmText }}</McButton>
+                <McButton :variant="danger ? 'error' : 'primary'" @click="confirm">{{ confirmText }}</McButton>
             </div>
         </div>
     </McModal>

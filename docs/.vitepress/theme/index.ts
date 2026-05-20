@@ -26,6 +26,8 @@ import McConfirm from '../../../src/components/McConfirm.vue';
 import McDrawer from '../../../src/components/McDrawer.vue';
 import McFormattedText from '../../../src/components/McFormattedText.vue';
 import McTcode from '../../../src/components/McTcode.vue';
+import McIcon from '../../../src/components/McIcon.vue';
+import McIconGallery from './McIconGallery.vue';
 
 import './mcui-doc.css';
 import './custom.css';
@@ -55,6 +57,8 @@ const components = {
   'mc-drawer': McDrawer,
   'mc-formatted-text': McFormattedText,
   'mc-tcode': McTcode,
+  'mc-icon': McIcon,
+  'mc-icon-gallery': McIconGallery,
 };
 
 const theme: Theme = {

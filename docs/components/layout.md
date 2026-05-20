@@ -19,7 +19,7 @@
           <p>这里是页面内容区域，可放置任意 McUI 组件。</p>
           <p>文档站中用固定高度容器模拟全屏页面，实际项目可直接作为页面根布局使用。</p>
         </mc-panel>
-        <mc-button variant="green">进入世界</mc-button>
+        <mc-button variant="primary">进入世界</mc-button>
       </div>
     </mc-scroll-view>
   </mc-layout>
