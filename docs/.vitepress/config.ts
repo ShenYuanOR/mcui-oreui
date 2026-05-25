@@ -43,6 +43,7 @@ export default defineConfig({
         items: [
           { text: '图标总览', link: '/styles/icons' },
           { text: '格式化代码', link: '/styles/format-codes' },
+          { text: '└ 颜色代码', link: '/styles/colors' },
         ],
       },
       {
@@ -54,6 +55,7 @@ export default defineConfig({
           { text: 'Panel 面板', link: '/components/panel' },
           { text: 'Tooltip 提示', link: '/components/tooltip' },
           { text: 'Progress 进度条', link: '/components/progress' },
+          { text: 'SkinViewer 皮肤展示', link: '/components/skinviewer' },
         ],
       },
       {

@@ -26,6 +26,7 @@ import McDrawer from './components/McDrawer.vue';
 import McFormattedText from './components/McFormattedText.vue';
 import McTcode from './components/McTcode.vue';
 import McIcon from './components/McIcon.vue';
+import McSkinViewer from './components/McSkinViewer.vue';
 
 export {
   McButton as McButton,
@@ -53,6 +54,7 @@ export {
   McFormattedText as McFormattedText,
   McTcode,
   McIcon,
+  McSkinViewer,
 };
 
 export type { McRadioValue } from './components/McRadio.vue';
@@ -116,6 +118,7 @@ const components = {
   'mc-formatted-text': McFormattedText,
   'mc-tcode': McTcode,
   'mc-icon': McIcon,
+  'mc-skin-viewer': McSkinViewer,
 };
 
 const McUIVue: Plugin = {

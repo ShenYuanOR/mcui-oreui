@@ -217,13 +217,13 @@ body::-webkit-scrollbar-corner,
 
 .mc-icon-gallery__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
+  gap: 6px;
 }
 
 .mc-icon-gallery__item {
   position: relative;
-  min-height: 96px;
+  min-height: 76px;
   border: 2px solid #1f2021;
   background: #343536;
   color: #ffffff;
@@ -231,8 +231,8 @@ body::-webkit-scrollbar-corner,
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 12px 8px;
+  gap: 6px;
+  padding: 8px 4px;
   cursor: pointer;
   font: inherit;
   box-shadow:
@@ -254,8 +254,8 @@ body::-webkit-scrollbar-corner,
 .mc-icon-gallery__name {
   max-width: 100%;
   color: #e7e8eb;
-  font-size: 12px;
-  line-height: 1.35;
+  font-size: 11px;
+  line-height: 1.3;
   overflow-wrap: anywhere;
   text-align: center;
 }
@@ -276,4 +276,63 @@ body::-webkit-scrollbar-corner,
 
 .mc-icon-gallery__copied.is-active {
   opacity: 1;
+}
+
+.mc-icon-gallery__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 14px;
+  border: 2px solid #1e1e1f;
+  background: #48494a;
+  margin-bottom: 4px;
+  box-shadow:
+    inset 2px 2px 0 rgba(255, 255, 255, 0.16),
+    inset -2px -2px 0 rgba(0, 0, 0, 0.38);
+}
+
+.mc-icon-gallery__search {
+  flex: 1 1 240px;
+  min-width: 0;
+  border: 2px solid #1f2021;
+  background: #2a2b2c;
+  color: #fff;
+  padding: 6px 10px;
+  font: inherit;
+  font-size: 13px;
+  box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.45);
+}
+.mc-icon-gallery__search:focus {
+  outline: 2px solid #6fb23f;
+  outline-offset: 1px;
+}
+
+.mc-icon-gallery__sizebox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #d0d1d4;
+  font-size: 12px;
+}
+.mc-icon-gallery__sizebox input[type='range'] {
+  width: 110px;
+}
+.mc-icon-gallery__sizeval {
+  min-width: 40px;
+  text-align: right;
+  color: #b1b2b5;
+}
+
+.mc-icon-gallery__total {
+  color: #b1b2b5;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.mc-icon-gallery__empty {
+  color: #b1b2b5;
+  font-size: 13px;
+  text-align: center;
+  padding: 24px 0;
 }

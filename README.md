@@ -8,7 +8,7 @@
 
 **📖 在线文档（组件实时 Demo + API）：<https://shenyuanor.github.io/mcui-oreui/>**
 
-把 Minecraft 基岩版界面的观感（Minecraft 像素字体、灰色立体面板、主/默认/错误三态按钮、卡片扫光、按键音效）封装为 **25 个标准 Vue 3 组件**，并附带一套 VitePress 实时文档站。
+把 Minecraft 基岩版界面的观感（Minecraft 像素字体、灰色立体面板、主/默认/错误三态按钮、卡片扫光、按键音效）封装为 **26 个标准 Vue 3 组件**，并附带一套 VitePress 实时文档站。
 
 > ⚠️ **非官方声明**：本项目为第三方复刻，与 Mojang Studios **无任何从属关系**，不含 Minecraft 官方代码或美术资产。设计语言移植自社区项目 [Spectrollay-OreUI/OreUI](https://github.com/Spectrollay-OreUI/OreUI)（MIT）。它与官方仓库 `Mojang/mc-ui`（仅开源 `@react-facet` 状态管理库）是完全不同的两个东西。
 
@@ -77,6 +77,7 @@ import 'mcui-oreui/style.css'
 | 表单 | `<mc-checkbox>` · `<mc-radio>` · `<mc-radio-group>` · `<mc-form-field>` · `<mc-switch>` · `<mc-dropdown>` · `<mc-text-field>` · `<mc-slider>` |
 | 布局 | `<mc-layout>` · `<mc-header>` · `<mc-tabs>` · `<mc-scroll-view>` |
 | 反馈 | `<mc-modal>` · `<mc-confirm>` · `<mc-drawer>` · `<mc-loading-mask>` · `<mc-pop-host>` |
+| 特殊 | `<mc-skin-viewer>` —— Minecraft 皮肤 3D 折叠展示（64×32 / 64×64 / 128×128） |
 | 样式 | `<mc-tcode>` · `<mc-formatted-text>` · `parseMcFormatCodes` · `renderMcFormatCodes` · `stripMcFormatCodes` |
 
 `<mc-tcode>` 默认按 Java 格式化代码解析，`§m` / `§n` 会显示为删除线 / 下划线；需要基岩版材料色时可使用 `edition="bedrock"`。
