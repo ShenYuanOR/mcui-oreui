@@ -74,7 +74,10 @@ export default defineConfig({
         text: '布局',
         items: [
           { text: 'Layout / Header', link: '/components/layout' },
+          { text: 'Appbar 顶栏', link: '/components/appbar' },
           { text: 'Tabs 标签页', link: '/components/tabs' },
+          { text: 'ButtonTabs 按钮式标签', link: '/components/button-tabs' },
+          { text: 'List 列表', link: '/components/list' },
           { text: 'ScrollView 滚动区', link: '/components/scrollview' },
         ],
       },

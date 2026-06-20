@@ -11,6 +11,7 @@ import McSlider from '../../../src/components/McSlider.vue';
 import McCard from '../../../src/components/McCard.vue';
 import McLayout from '../../../src/components/McLayout.vue';
 import McHeader from '../../../src/components/McHeader.vue';
+import McAppbar from '../../../src/components/McAppbar.vue';
 import McScrollView from '../../../src/components/McScrollView.vue';
 import McModal from '../../../src/components/McModal.vue';
 import McLoadingMask from '../../../src/components/McLoadingMask.vue';
@@ -20,6 +21,8 @@ import McProgress from '../../../src/components/McProgress.vue';
 import McRadio from '../../../src/components/McRadio.vue';
 import McRadioGroup from '../../../src/components/McRadioGroup.vue';
 import McTabs from '../../../src/components/McTabs.vue';
+import McButtonTabs from '../../../src/components/McButtonTabs.vue';
+import McList from '../../../src/components/McList.vue';
 import McPanel from '../../../src/components/McPanel.vue';
 import McFormField from '../../../src/components/McFormField.vue';
 import McConfirm from '../../../src/components/McConfirm.vue';
@@ -43,6 +46,7 @@ const components = {
   'mc-card': McCard,
   'mc-layout': McLayout,
   'mc-header': McHeader,
+  'mc-appbar': McAppbar,
   'mc-scroll-view': McScrollView,
   'mc-modal': McModal,
   'mc-loading-mask': McLoadingMask,
@@ -52,6 +56,8 @@ const components = {
   'mc-radio': McRadio,
   'mc-radio-group': McRadioGroup,
   'mc-tabs': McTabs,
+  'mc-button-tabs': McButtonTabs,
+  'mc-list': McList,
   'mc-panel': McPanel,
   'mc-form-field': McFormField,
   'mc-confirm': McConfirm,

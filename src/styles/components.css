@@ -399,6 +399,213 @@
     padding: 14px;
 }
 
+/* ButtonTabs 按钮式标签 */
+.mc-button-tabs__title {
+    color: #FFFFFF;
+    display: block;
+    font-family: "Minecraft Seven", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.mc-button-tabs__nav {
+    align-items: flex-end;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0;
+    justify-content: center;
+}
+
+.mc-button-tabs__tab {
+    flex: 1 1 0;
+    margin: 0 !important;
+    min-width: 0;
+    position: relative;
+}
+
+.mc-button-tabs__tab + .mc-button-tabs__tab {
+    margin-left: -2px !important;
+}
+
+.mc-button-tabs__tab:hover,
+.mc-button-tabs__tab:active {
+    z-index: 1;
+}
+
+/* 未选中：由全局 normal_btn 提供灰色外观 */
+
+.mc-button-tabs__tab--active {
+    background-color: #3C8527 !important;
+    border: 2px solid #1E1E1F !important;
+    box-shadow:
+        inset 3px 3px rgba(255, 255, 255, 0.4),
+        inset -3px -3px rgba(255, 255, 255, 0.3) !important;
+    color: #FFFFFF;
+    font-family: "Minecraft Seven", "NotoSans Bold", sans-serif;
+    height: 38px !important;
+}
+
+.mc-button-tabs__tab--active:hover {
+    background-color: #2A641C !important;
+}
+
+.mc-button-tabs__tab--active::after {
+    background-color: #FFFFFF;
+    bottom: 0;
+    content: '';
+    height: 3px;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+    width: 33%;
+}
+
+.mc-button-tabs__tab:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.mc-button-tabs__panel {
+    margin-top: 16px;
+}
+
+/* List 列表 */
+.mc-list {
+    background-color: #313233;
+    border: 2px solid #1E1E1F;
+    color: #FFFFFF;
+    font-family: "Minecraft Seven", sans-serif;
+    padding: 8px 0;
+    width: 100%;
+}
+
+.mc-list__subtitle {
+    color: #B1B2B5;
+    font-family: "Minecraft Seven", sans-serif;
+    font-size: 12px;
+    padding: 0 12px 8px;
+    text-align: left;
+}
+
+.mc-list__item {
+    align-items: center;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+    box-shadow: none;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: flex;
+    font-family: "Minecraft Seven", sans-serif;
+    font-size: 14px;
+    gap: 8px;
+    padding: 10px 12px;
+    position: relative;
+    text-align: left;
+    width: 100%;
+}
+
+.mc-list__item-icon {
+    flex-shrink: 0;
+    height: 16px;
+    width: 16px;
+}
+
+.mc-list__item-label {
+    flex: 1 1 0;
+    min-width: 0;
+    overflow: hidden;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* 选中 */
+.mc-list__item--active {
+    background-color: #48494A;
+    border-top-color: #1D1E1F;
+    border-bottom-color: #454647;
+    box-shadow:
+        inset 0 1px 0 #2B2C2C,
+        inset 0 -1px 0 #5A5B5C;
+}
+
+/* 悬浮 */
+.mc-list__item:hover:not(.mc-list__item--active):not(:disabled) {
+    background-color: #48494A;
+    border-top-color: #454647;
+    border-bottom-color: #1D1E1F;
+    box-shadow:
+        inset 0 1px 0 #5A5B5C,
+        inset 0 -1px 0 #2D2E2E;
+}
+
+/* 按下（后于 hover，.mc-list__item 双写提至 0,4,0 覆盖 hover） */
+.mc-list__item.mc-list__item:active:not(:disabled) {
+    background-color: #242425;
+    border-top-color: #0A0A0A;
+    border-bottom-color: #454647;
+    box-shadow:
+        inset 0 1px 0 #070707,
+        inset 0 -1px 0 #39393A;
+}
+
+/* 禁用 */
+.mc-list__item:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+/* Appbar 顶栏 */
+.mc-appbar {
+    align-items: center;
+    background-color: #E6E8EB;
+    border-bottom: 3px solid #B1B2B5;
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+    color: #3C3C3C;
+    display: flex;
+    font-family: "Minecraft Seven", sans-serif;
+    font-size: 14px;
+    gap: 12px;
+    min-height: 42px;
+    padding: 6px 12px;
+    width: 100%;
+}
+
+.mc-appbar__title {
+    flex-shrink: 0;
+    font-family: "Minecraft Seven", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.mc-appbar__left {
+    align-items: center;
+    display: flex;
+    flex-shrink: 0;
+    gap: 8px;
+}
+
+.mc-appbar__center {
+    align-items: center;
+    display: flex;
+    flex: 1 1 0;
+    gap: 8px;
+    justify-content: center;
+    min-width: 0;
+}
+
+.mc-appbar__right {
+    align-items: center;
+    display: flex;
+    flex-shrink: 0;
+    gap: 8px;
+}
+
 /* Panel 面板 */
 .mc-panel {
     background-color: #313233;
