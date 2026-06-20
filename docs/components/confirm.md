@@ -2,12 +2,14 @@
 
 基于 `<mc-modal>` 封装的确认弹窗，适合删除、退出、覆盖存档等二次确认场景。
 
-`<mc-confirm>` 不显示右上角关闭按钮，也不会通过点击遮罩关闭。用户只能通过底部的确认或取消按钮完成操作，避免误触关闭导致确认流程不明确。
+`<mc-confirm>` 默认不显示右上角关闭按钮，也不会通过点击遮罩关闭。用户只能通过底部的确认或取消按钮完成操作，避免误触关闭导致确认流程不明确。如需显示关闭按钮，可设置 `show-close`。
 
 <script setup>
 import { ref } from 'vue'
 const open = ref(false)
 const dangerOpen = ref(false)
+const showCloseOpen = ref(false)
+const stackOpen = ref(false)
 </script>
 
 ## 基础用法
@@ -56,6 +58,42 @@ const dangerOpen = ref(false)
 </template>
 ```
 
+## 显示关闭按钮
+
+设置 `show-close` 可在标题栏右侧显示 `✕` 关闭按钮，效果等同于点击取消。
+
+<div class="mc-demo">
+  <mc-button variant="primary" @click="showCloseOpen = true">打开确认</mc-button>
+  <mc-confirm v-model:open="showCloseOpen" title="退出游戏？" confirm-text="退出" show-close>
+    确定要退出当前游戏吗？
+  </mc-confirm>
+</div>
+
+```vue
+<mc-button variant="primary" @click="showCloseOpen = true">打开确认</mc-button>
+<mc-confirm v-model:open="showCloseOpen" title="退出游戏？" confirm-text="退出" show-close>
+  确定要退出当前游戏吗？
+</mc-confirm>
+```
+
+## 按钮垂直排列
+
+设置 `stack-actions` 可使操作按钮垂直堆叠，适合按钮文本较长的场景。
+
+<div class="mc-demo">
+  <mc-button variant="primary" @click="stackOpen = true">打开确认</mc-button>
+  <mc-confirm v-model:open="stackOpen" title="覆盖存档？" confirm-text="覆盖并继续" cancel-text="返回存档列表" stack-actions>
+    当前存档已存在，是否覆盖？
+  </mc-confirm>
+</div>
+
+```vue
+<mc-button variant="primary" @click="stackOpen = true">打开确认</mc-button>
+<mc-confirm v-model:open="stackOpen" title="覆盖存档？" confirm-text="覆盖并继续" cancel-text="返回存档列表" stack-actions>
+  当前存档已存在，是否覆盖？
+</mc-confirm>
+```
+
 ## Props
 
 | 名称 | 类型 | 默认 | 说明 |
@@ -65,9 +103,11 @@ const dangerOpen = ref(false)
 | `confirmText` | `string` | `确认` | 确认按钮文本 |
 | `cancelText` | `string` | `取消` | 取消按钮文本 |
 | `danger` | `boolean` | `false` | 是否使用危险确认样式 |
+| `showClose` | `boolean` | `false` | 是否显示右上角关闭按钮 |
+| `stackActions` | `boolean` | `false` | 按钮是否垂直排列 |
 
 ::: tip 操作限制
-`<mc-confirm>` 固定隐藏右上角 `X` 关闭按钮，并禁用遮罩关闭。确认弹窗只会通过 `confirm` 或 `cancel` 两个明确动作关闭。
+`<mc-confirm>` 默认隐藏右上角 `X` 关闭按钮，并禁用遮罩关闭。确认弹窗只会通过 `confirm` 或 `cancel` 两个明确动作关闭。设置 `show-close` 可启用关闭按钮。
 :::
 
 ## Events

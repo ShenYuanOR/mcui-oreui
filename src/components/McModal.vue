@@ -41,9 +41,9 @@ function onOverlay() {
           <modal_close_btn v-if="showClose" class="modal_close_btn"
             style="color:#fff;font-family:'Minecraft Seven',sans-serif;" @click="close">✕</modal_close_btn>
         </modal_title_area>
-        <div style="padding: 16px 20px;">
+        <!-- <div style="padding: 16px 20px;"> -->
           <slot />
-        </div>
+        <!-- </div> -->
       </modal>
     </modal_area>
   </Teleport>

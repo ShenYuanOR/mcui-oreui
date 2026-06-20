@@ -758,14 +758,29 @@
 
 .mc-confirm__content {
     line-height: 1.5;
-    padding: 6px 0 16px;
+    /* padding: 6px 0 16px; */
+    padding: 16px;
 }
 
 .mc-confirm__actions {
     align-items: center;
+    background-color: #48494a;
+    border-top: 2px solid #5a5b5c;
+    border-bottom: 2px solid #333334;
     display: flex;
-    gap: 10px;
+    /* gap: 10px; */
     justify-content: center;
+    /* padding: 10px 0; */
+}
+
+.mc-confirm__actions--stack {
+    flex-direction: column;
+    padding: 8px 8px;
+}
+
+.mc-confirm__actions--stack .btn {
+    width: 100%;
+    margin: 2px;
 }
 
 /* Drawer 抽屉 */

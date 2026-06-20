@@ -1422,7 +1422,8 @@ modal_button_list {
     border: 2px solid #1E1E1F;
     box-shadow: inset 2px 2px rgba(255, 255, 255, 0.4), inset -2px -2px rgba(255, 255, 255, 0.2);
     cursor: pointer;
-    height: 8px; /* 进度条高度 */
+    /* height: 8px; 进度条高度 */
+    height: 12px; /* 进度条高度 */
     margin: 6px;
     position: relative; /* 相对定位,用于子元素绝对定位的参考 */
     width: 100%; /* 进度条宽度 */
