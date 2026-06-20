@@ -94,6 +94,20 @@ const mode = ref('survival')
 </template>
 ```
 
+## 旋转显示
+
+设置 `rotate` 可将单选控件旋转 45 度，适合需要菱形视觉风格的场景。
+
+<div class="mc-demo">
+  <mc-radio v-model="mode" value="survival" rotate>生存</mc-radio>
+  <mc-radio v-model="mode" value="creative" rotate>创造</mc-radio>
+</div>
+
+```vue
+<mc-radio v-model="mode" value="survival" rotate>生存</mc-radio>
+<mc-radio v-model="mode" value="creative" rotate>创造</mc-radio>
+```
+
 ## mc-radio Props
 
 | 名称 | 类型 | 默认 | 说明 |
@@ -101,6 +115,7 @@ const mode = ref('survival')
 | `modelValue` | `string \| number \| boolean` | `''` | 当前选中值（v-model） |
 | `value` | `string \| number \| boolean` | `''` | 当前单选项值 |
 | `disabled` | `boolean` | `false` | 是否禁用 |
+| `rotate` | `boolean` | `false` | 控件是否旋转 45 度 |
 
 ## mc-radio-group Props
 

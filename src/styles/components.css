@@ -298,6 +298,10 @@
     background-color: #48494A;
 }
 
+.mc-radio--rotate .mc-radio__control {
+    transform: rotate(45deg);
+}
+
 .mc-radio__label {
     line-height: 1.2;
 }
@@ -418,9 +422,9 @@
 }
 
 .mc-button-tabs__tab {
-    flex: 1 1 0;
+    flex: 1 1 auto;
     margin: 0 !important;
-    min-width: 0;
+    min-width: max-content;
     position: relative;
 }
 

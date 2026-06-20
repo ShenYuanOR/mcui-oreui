@@ -27,6 +27,7 @@ export default defineConfig({
     nav: [
       { text: '文档', link: '/guide/getting-started' },
       { text: '设计 Token', link: '/guide/design-tokens' },
+      { text: '贡献者', link: '/contributors' },
     ],
     // 全站统一侧边栏（数组形式）：指南与组件同处一个导航空间，任意页面均完整可见
     sidebar: [
@@ -44,6 +45,12 @@ export default defineConfig({
           { text: '图标总览', link: '/styles/icons' },
           { text: '格式化代码', link: '/styles/format-codes' },
           { text: '└ 颜色代码', link: '/styles/colors' },
+        ],
+      },
+      {
+        text: '组件总览',
+        items: [
+          { text: '组件总览', link: '/components/overview' },
         ],
       },
       {

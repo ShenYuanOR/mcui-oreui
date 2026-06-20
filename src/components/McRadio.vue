@@ -12,8 +12,10 @@ const props = withDefaults(
         value?: McRadioValue;
         /** 是否禁用 */
         disabled?: boolean;
+        /** 旋转 45 度显示 */
+        rotate?: boolean;
     }>(),
-    { modelValue: '', value: '', disabled: false },
+    { modelValue: '', value: '', disabled: false, rotate: false },
 );
 
 const emit = defineEmits<{
@@ -32,7 +34,7 @@ function select() {
 </script>
 
 <template>
-    <label class="mc-radio" :class="{ 'mc-radio--checked': checked, 'mc-radio--disabled': disabled }">
+    <label class="mc-radio" :class="{ 'mc-radio--checked': checked, 'mc-radio--disabled': disabled, 'mc-radio--rotate': rotate }">
         <span class="mc-radio__control" role="radio" :aria-checked="checked" :aria-disabled="disabled"
             :tabindex="disabled ? -1 : 0" @click="select" @keydown.enter.prevent="select"
             @keydown.space.prevent="select">

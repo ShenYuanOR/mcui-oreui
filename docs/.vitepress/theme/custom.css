@@ -336,3 +336,12 @@ body::-webkit-scrollbar-corner,
   text-align: center;
   padding: 24px 0;
 }
+
+/* ===== 导航栏特定项颜色 ===== */
+.VPNavBarMenuLink[href*="/guide/design-tokens"] {
+  color: #6fb23f !important;
+}
+
+.VPNavBarMenuLink[href*="/contributors"] {
+  color: #f5a623 !important;
+}

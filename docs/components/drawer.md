@@ -5,6 +5,8 @@
 <script setup>
 import { ref } from 'vue'
 const rightOpen = ref(false)
+const leftOpen = ref(false)
+const topOpen = ref(false)
 const bottomOpen = ref(false)
 </script>
 
@@ -36,30 +38,49 @@ const open = ref(false)
 </template>
 ```
 
-## 底部抽屉
+## 左侧抽屉
+
+设置 `placement="left"` 可使抽屉从左侧滑出，适合导航菜单等场景。
 
 <div class="mc-demo">
-  <mc-button @click="bottomOpen = true">打开底部面板</mc-button>
-  <mc-drawer v-model:open="bottomOpen" title="快捷操作" placement="bottom">
-    <mc-button>邀请好友</mc-button>
-    <mc-button>复制地址</mc-button>
+  <mc-button @click="leftOpen = true">打开菜单</mc-button>
+  <mc-drawer v-model:open="leftOpen" title="导航菜单" placement="left">
+    <mc-button>首页</mc-button>
+    <mc-button>服务器列表</mc-button>
+    <mc-button>玩家中心</mc-button>
+    <mc-button>设置</mc-button>
   </mc-drawer>
 </div>
 
 ```vue
-<script setup lang="ts">
-import { ref } from 'vue'
-const bottomOpen = ref(false)
-</script>
-
-<template>
-  <mc-button @click="bottomOpen = true">打开底部面板</mc-button>
-  <mc-drawer v-model:open="bottomOpen" title="快捷操作" placement="bottom">
-    <mc-button>邀请好友</mc-button>
-    <mc-button>复制地址</mc-button>
-  </mc-drawer>
-</template>
+<mc-button @click="leftOpen = true">打开菜单</mc-button>
+<mc-drawer v-model:open="leftOpen" title="导航菜单" placement="left">
+  <mc-button>首页</mc-button>
+  <mc-button>服务器列表</mc-button>
+  <mc-button>玩家中心</mc-button>
+  <mc-button>设置</mc-button>
+</mc-drawer>
 ```
+
+## 顶部抽屉
+
+设置 `placement="top"` 可使抽屉从顶部滑出。
+
+<div class="mc-demo">
+  <mc-button @click="topOpen = true">打开通知</mc-button>
+  <mc-drawer v-model:open="topOpen" title="系统通知" placement="top">
+    暂无新通知
+  </mc-drawer>
+</div>
+
+```vue
+<mc-button @click="topOpen = true">打开通知</mc-button>
+<mc-drawer v-model:open="topOpen" title="系统通知" placement="top">
+  暂无新通知
+</mc-drawer>
+```
+
+## 底部抽屉
 
 ## Props
 

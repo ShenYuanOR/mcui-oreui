@@ -1543,7 +1543,8 @@ modal_button_list {
 
 .switch_style.right {
     /* right: 7px; 改动*/
-    right: 4px;
+    /* 3看起来更居中？ */
+    right: 3px;
 }
 
 .switch_style.left img, .switch_style.right img {
