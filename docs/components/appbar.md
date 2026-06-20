@@ -35,16 +35,21 @@
 </div>
 
 ```vue
-<mc-appbar>
-  <template #left>
-    <mc-button size="small">返回</mc-button>
-  </template>
-  世界编辑
-  <template #right>
-    <mc-button size="small">帮助</mc-button>
-    <mc-button variant="primary" size="small">完成</mc-button>
-  </template>
-</mc-appbar>
+<script setup lang="ts">
+</script>
+
+<template>
+  <mc-appbar>
+    <template #left>
+      <mc-button size="small">返回</mc-button>
+    </template>
+    <span style="font-family:'Minecraft Seven'">世界编辑</span>
+    <template #right>
+      <mc-button size="small">帮助</mc-button>
+      <mc-button variant="primary" size="small">完成</mc-button>
+    </template>
+  </mc-appbar>
+</template>
 ```
 
 ## 外观说明

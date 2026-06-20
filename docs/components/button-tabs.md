@@ -69,9 +69,13 @@ const tab = ref('video')
 
 ```vue
 <mc-button-tabs
-  v-model="side"
+  v-model="titleTab"
   title="个人中心"
-  :items="[...]"
+  :items="[
+    { label: '资料', value: 'profile' },
+    { label: '皮肤', value: 'skin' },
+    { label: '好友', value: 'friends' }
+  ]"
 />
 ```
 

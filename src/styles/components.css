@@ -507,15 +507,37 @@
     width: 100%;
 }
 
+.mc-list__item-indicator {
+    flex-shrink: 0;
+    pointer-events: none;
+}
+
 .mc-list__item-icon {
     flex-shrink: 0;
     height: 16px;
     width: 16px;
 }
 
-.mc-list__item-label {
+.mc-list__item-content {
+    display: flex;
     flex: 1 1 0;
+    flex-direction: column;
     min-width: 0;
+    overflow: hidden;
+}
+
+.mc-list__item-label {
+    min-width: 0;
+    overflow: hidden;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.mc-list__item-subtitle {
+    color: #B1B2B5;
+    font-size: 10px;
+    line-height: 1.4;
     overflow: hidden;
     text-align: left;
     text-overflow: ellipsis;
@@ -557,6 +579,8 @@
     cursor: not-allowed;
     opacity: 0.5;
 }
+
+
 
 /* Appbar 顶栏 */
 .mc-appbar {

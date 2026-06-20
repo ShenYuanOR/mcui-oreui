@@ -1512,7 +1512,8 @@ modal_button_list {
     height: 24px;
     overflow: visible;
     position: relative;
-    width: 58px;
+    /* width: 58px; 改动*/
+    width: 52px;
 }
 
 .normal_switch {
@@ -1531,16 +1532,19 @@ modal_button_list {
     background-color: transparent;
     height: 16px;
     position: absolute;
-    top: 3px;
+    /* top: 3px; 改动*/
+    top: 2px;
     width: 16px;
 }
 
 .switch_style.left {
-    left: 6px;
+    /* left: 6px; 改动*/
+    left: 4px;
 }
 
 .switch_style.right {
-    right: 7px;
+    /* right: 7px; 改动*/
+    right: 4px;
 }
 
 .switch_style.left img, .switch_style.right img {
@@ -1614,7 +1618,8 @@ modal_button_list {
 }
 
 .switch.on .switch_slider {
-    left: 28px;
+    /* left: 28px; 改动*/
+    left: 22px;
 }
 
 
