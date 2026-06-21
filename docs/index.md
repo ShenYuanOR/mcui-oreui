@@ -49,7 +49,7 @@ const go = (path: string) => router.go(withBase(path))
 <div class="mc-demo mc-hero-features">
   <mc-card title="原汁原味的设计语言" description="直接复用 1700+ 行原始 CSS 与 Minecraft 像素字体，零视觉偏差。" @click="go('/guide/design-tokens.html')" />
   <mc-card title="标准 Vue 3 + TypeScript" description="script setup + 完整类型，v-model 受控，Vite 库模式打包。" @click="go('/guide/getting-started.html')" />
-  <mc-card title="24 组件 + 音效" description="按钮 / 表单 / 布局 / 反馈 / 样式组件可组合使用。" @click="go('/components/button.html')" />
+  <mc-card title="29 组件 + 音效" description="按钮 / 表单 / 布局 / 反馈 / 样式组件可组合使用。" @click="go('/components/button.html')" />
 </div>
 
 ```vue
