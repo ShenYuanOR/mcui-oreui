@@ -226,7 +226,7 @@ function onPointerDown(e: PointerEvent) {
 function onPointerMove(e: PointerEvent) {
   if (!dragging.value) return;
   userYaw.value += (e.clientX - lastX) * 0.6;
-  userPitch.value = Math.max(-60, Math.min(60, userPitch.value + (e.clientY - lastY) * 0.4));
+  userPitch.value = Math.max(-60, Math.min(60, userPitch.value - (e.clientY - lastY) * 0.4));
   lastX = e.clientX;
   lastY = e.clientY;
 }
