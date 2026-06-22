@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { playSound } from '../composables/useSound';
+import McButton from './McButton.vue';
 
 export type McTabValue = string | number;
 
@@ -8,6 +8,8 @@ export interface McButtonTabItem {
   label: string;
   value: McTabValue;
   disabled?: boolean;
+  /** 自定义背景色（如 #ff6b35），传递给内部 McButton */
+  bgcolor?: string;
 }
 
 const props = withDefaults(
@@ -33,7 +35,6 @@ const activeValue = computed(
 
 function select(item: McButtonTabItem) {
   if (item.disabled || item.value === activeValue.value) return;
-  playSound('click');
   emit('update:modelValue', item.value);
   emit('change', item.value);
 }
@@ -44,21 +45,21 @@ function select(item: McButtonTabItem) {
     <div class="mc-button-tabs__header">
       <span v-if="title" class="mc-button-tabs__title">{{ title }}</span>
       <div class="mc-button-tabs__nav">
-        <button
+        <McButton
           v-for="item in items"
           :key="String(item.value)"
-          class="mc-button-tabs__tab btn"
+          class="mc-button-tabs__tab"
           :class="{
-            'normal_btn': item.value !== activeValue,
             'mc-button-tabs__tab--active': item.value === activeValue,
-            'disabled_btn': item.disabled,
+            'mc-button-tabs__tab--custom': !!item.bgcolor,
           }"
+          :style="item.bgcolor ? { '--mc-tab-custom-bg': item.bgcolor } : {}"
           :disabled="item.disabled"
-          type="button"
+          :bgcolor="item.bgcolor"
           @click="select(item)"
         >
           {{ item.label }}
-        </button>
+        </McButton>
       </div>
     </div>
     <div class="mc-button-tabs__panel">

@@ -9,6 +9,7 @@ aside: false
 - 普通图标：`mc-xxx`，支持改色。
 - 按键映射图标：`mc-key-xxx`，保持原色。
 - 彩色图标：`mc-x-xxx`，保持原色。
+- MDI 像素图标：`mdi-xxx`，支持改色，基于 [Material Design Icons](https://pictogrammers.com/library/mdi/) 24×24 像素化渲染。
 
 <mc-icon-gallery />
 

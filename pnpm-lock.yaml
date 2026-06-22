@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@mdi/js':
+        specifier: ^7.4.47
+        version: 7.4.47
     devDependencies:
       '@types/node':
         specifier: ^20.14.9
@@ -297,6 +301,9 @@ packages:
 
   '@jridgewell/sourcemap-codec@1.5.5':
     resolution: {integrity: sha512-cYQ9310grqxueWbl+WuIUIaiUaDcj7WOq5fVhEljNVgRfOUhY9fy2zTvfoqWsnebh8Sl70VScFbICvJnLKB0Og==}
+
+  '@mdi/js@7.4.47':
+    resolution: {integrity: sha512-KPnNOtm5i2pMabqZxpUz7iQf+mfrYZyKCZ8QNz85czgEt7cuHcGorWfdzUMWYA0SD+a6Hn4FmJ+YhzzzjkTZrQ==}
 
   '@microsoft/api-extractor-model@7.28.13':
     resolution: {integrity: sha512-39v/JyldX4MS9uzHcdfmjjfS6cYGAoXV+io8B5a338pkHiSt+gy2eXQ0Q7cGFJ7quSa1VqqlMdlPrB6sLR/cAw==}
@@ -1382,6 +1389,8 @@ snapshots:
   '@iconify/types@2.0.0': {}
 
   '@jridgewell/sourcemap-codec@1.5.5': {}
+
+  '@mdi/js@7.4.47': {}
 
   '@microsoft/api-extractor-model@7.28.13(@types/node@20.19.43)':
     dependencies:

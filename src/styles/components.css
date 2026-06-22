@@ -426,6 +426,7 @@
     margin: 0 !important;
     min-width: max-content;
     position: relative;
+    width: auto !important;
 }
 
 .mc-button-tabs__tab + .mc-button-tabs__tab {
@@ -452,6 +453,15 @@
 
 .mc-button-tabs__tab--active:hover {
     background-color: #2A641C !important;
+}
+
+/* 自定义颜色选中态：使用 bgcolor + 白色边框高亮 */
+.mc-button-tabs__tab--custom.mc-button-tabs__tab--active {
+    background-color: var(--mc-tab-custom-bg) !important;
+}
+
+.mc-button-tabs__tab--custom.mc-button-tabs__tab--active:hover {
+    background-color: var(--mc-tab-custom-bg) !important;
 }
 
 .mc-button-tabs__tab--active::after {

@@ -7,6 +7,7 @@ import { ref } from 'vue'
 const tab = ref('video')
 const titleTab = ref('profile')
 const side = ref('profile')
+const colorTab = ref('world')
 </script>
 
 ## 基础用法
@@ -100,11 +101,41 @@ const tab = ref('video')
 - **未选中** — `normal_btn` 灰色按钮，带 Minecraft 立体阴影
 - **选中** — `primary_btn` 绿色按钮，呈现**按下态**（整体下沉、阴影变平），底部居中白色横条
 
+## 自定义颜色
+
+每个标签项可通过 `bgcolor` 指定按钮背景色，该项的选中/未选中按钮都会使用该颜色。
+
+<div class="mc-demo mc-demo--column">
+  <mc-button-tabs
+    v-model="colorTab"
+    :items="[
+      { label: '主世界', value: 'world', bgcolor: '#5b9a3f' },
+      { label: '下界', value: 'nether', bgcolor: '#b02e2e' },
+      { label: '末地', value: 'end', bgcolor: '#d4c43a',disabled: true }
+    ]"
+  >
+    <template #default="{ active }">
+      当前维度：{{ active }}
+    </template>
+  </mc-button-tabs>
+</div>
+
+```vue
+<mc-button-tabs
+  v-model="colorTab"
+  :items="[
+    { label: '主世界', value: 'world', bgcolor: '#5b9a3f' },
+    { label: '下界', value: 'nether', bgcolor: '#b02e2e' },
+    { label: '末地', value: 'end', bgcolor: '#d4c43a',disabled: true }
+  ]"
+/>
+```
+
 ## Props
 
 | 名称 | 类型 | 默认 | 说明 |
 |---|---|---|---|
-| `items` | `McButtonTabItem[]` | `[]` | 标签项 `{ label, value, disabled? }` |
+| `items` | `McButtonTabItem[]` | `[]` | 标签项 `{ label, value, disabled?, bgcolor? }` |
 | `modelValue` | `string \| number` | `''` | 当前选中值（v-model） |
 | `title` | `string` | `''` | 左上角标题 |
 

@@ -338,6 +338,58 @@ body::-webkit-scrollbar-corner,
   padding: 24px 0;
 }
 
+.mc-icon-gallery__mdi-hint {
+  color: #b1b2b5;
+  font-size: 13px;
+  text-align: center;
+  padding: 18px 0;
+  margin: 0;
+}
+.mc-icon-gallery__mdi-hint code {
+  background: #3f4041;
+  color: #e7e8eb;
+  padding: 1px 6px;
+  border-radius: 2px;
+  font-size: 12px;
+}
+
+.mc-icon-gallery__pager {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 12px 0 4px;
+  border-top: 1px solid #3f4041;
+  margin-top: 8px;
+}
+
+.mc-icon-gallery__pager-btn {
+  padding: 4px 16px;
+  background: #3f4041;
+  color: #e7e8eb;
+  border: 2px solid #1e1e1f;
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.mc-icon-gallery__pager-btn:hover:not(:disabled) {
+  background: #4e4f50;
+  border-color: #6fb23f;
+}
+
+.mc-icon-gallery__pager-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.mc-icon-gallery__pager-info {
+  color: #b1b2b5;
+  font-size: 13px;
+  min-width: 100px;
+  text-align: center;
+}
+
 /* ===== 导航栏特定项颜色 ===== */
 .VPNavBarMenuLink[href*="/guide/design-tokens"] {
   color: #6fb23f !important;
