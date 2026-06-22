@@ -64,7 +64,7 @@ function isManual(login) {
     target="_blank"
     rel="noopener"
     :title="`${c.login} — ${typeof c.contributions === 'number' ? c.contributions + ' 次提交' : c.contributions}`"
-    style="display:flex;flex-direction:column;align-items:center;gap:8px;text-decoration:none;color:#fff;width:100px"
+    style="display:flex;flex-direction:column;align-items:center;gap:8px;text-decoration:none;color:var(--vp-c-text-1);width:100px"
   >
     <img
       :src="c.avatar_url"
@@ -75,7 +75,7 @@ function isManual(login) {
       :style="{ border: isManual(c.login) ? '2px solid #f5a623' : '2px solid #3C8527' }"
     />
     <span style="font-size:13px;text-align:center;line-height:1.3">{{ c.login }}</span>
-    <span style="font-size:11px;color:#8C8D90">{{ typeof c.contributions === 'number' ? c.contributions + ' commits' : c.contributions }}</span>
+    <span style="font-size:11px;color:var(--vp-c-text-3)">{{ typeof c.contributions === 'number' ? c.contributions + ' commits' : c.contributions }}</span>
   </a>
 </div>
 
