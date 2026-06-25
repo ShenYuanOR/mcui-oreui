@@ -4,17 +4,18 @@ import { ref, onMounted } from 'vue'
 // 手动添加的贡献者（优先显示，不会和 GitHub API 结果去重）
 const manual = [
   {
+    login: 'ShenYuanOL',
+    html_url: 'https://github.com/ShenYuanOL',
+    avatar_url: 'https://github.com/ShenYuanOL.png',
+    contributions: '项目作者',
+  },
+  {
     login: 'Spectrollay',
     html_url: 'https://github.com/Spectrollay',
     avatar_url: 'https://github.com/Spectrollay.png',
-    contributions: '原 OreUI 作者',
+    contributions: 'MCUI-VUE启发者',
   },
-  {
-    login: 'ShenYuanOR',
-    html_url: 'https://github.com/ShenYuanOR',
-    avatar_url: 'https://github.com/ShenYuanOR.png',
-    contributions: '项目作者',
-  },
+
   {
     login: 'claude',
     html_url: 'https://github.com/claude',
@@ -25,7 +26,7 @@ const manual = [
     login: 'HaiGeMaster',
     html_url: 'https://github.com/HaiGeMaster',
     avatar_url: 'https://github.com/HaiGeMaster.png',
-    contributions: '新的贡献者',
+    contributions: '最初的贡献者',
   },
 ]
 
