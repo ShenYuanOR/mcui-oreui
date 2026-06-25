@@ -28,6 +28,13 @@ export default defineConfig({
     search: {
       provider: 'local',
     },
+    lastUpdated: {
+      text: '最后更新于',
+      formatOptions: {
+        dateStyle: 'short',
+        timeStyle: 'short',
+      },
+    },
     nav: [
       { text: '文档', link: '/guide/getting-started' },
       { text: '设计 Token', link: '/guide/design-tokens' },
