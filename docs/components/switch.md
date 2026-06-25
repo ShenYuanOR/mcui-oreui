@@ -6,6 +6,9 @@
 import { ref } from 'vue'
 const on = ref(true)
 const off = ref(false)
+const sc1 = ref(true)
+const sc2 = ref(true)
+const sc3 = ref(true)
 </script>
 
 <div class="mc-demo">
@@ -44,6 +47,22 @@ const enabled = ref(true)
 />
 ```
 
+## 自定义颜色
+
+通过 `bgcolor` 属性设置开启时的背景色，覆盖默认绿色。
+
+<div class="mc-demo">
+  <mc-switch v-model="sc1" bgcolor="#2E6BE5" />
+  <mc-switch v-model="sc2" bgcolor="#9a3f3f" />
+  <mc-switch v-model="sc3" bgcolor="#ff8800" />
+</div>
+
+```html
+<mc-switch v-model="enabled" bgcolor="#2E6BE5" />
+<mc-switch v-model="enabled" bgcolor="#9a3f3f" />
+<mc-switch v-model="enabled" bgcolor="#ff8800" />
+```
+
 ## Props
 
 | 名称 | 类型 | 默认 | 说明 |
@@ -52,6 +71,7 @@ const enabled = ref(true)
 | `disabled` | `boolean` | `false` | 是否禁用 |
 | `onIcon` | `string` | `''` | 自定义开启侧图标 URL；置空使用默认 |
 | `offIcon` | `string` | `''` | 自定义关闭侧图标 URL；置空使用默认 |
+| `bgcolor` | `string` | `''` | 开启时的自定义背景色 |
 
 ## Events
 

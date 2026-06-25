@@ -63,7 +63,7 @@ function onClick(ev: MouseEvent) {
       <McIcon v-if="icon" :name="icon" class="btn_icon" />
       <slot />
     </button>
-    <div class="btn_tooltip">{{ tip }}</div>
+    <div class="btn_tooltip mc-tooltip__content">{{ tip }}</div>
   </div>
   <button
     v-else

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import { playSound } from '../composables/useSound';
 
 export type McRadioValue = string | number | boolean;
@@ -14,8 +14,10 @@ const props = withDefaults(
         disabled?: boolean;
         /** 旋转 45 度显示 */
         rotate?: boolean;
+        /** 选中时的自定义背景色，设置后覆盖默认绿色 */
+        bgcolor?: string;
     }>(),
-    { modelValue: '', value: '', disabled: false, rotate: false },
+    { modelValue: '', value: '', disabled: false, rotate: false, bgcolor: '' },
 );
 
 const emit = defineEmits<{
@@ -24,6 +26,21 @@ const emit = defineEmits<{
 }>();
 
 const checked = computed(() => props.modelValue === props.value);
+
+const isHovered = ref(false);
+
+const controlCustomStyle = computed(() => {
+    if (!props.bgcolor || !checked.value) return {};
+    return { backgroundColor: isHovered.value ? darken(props.bgcolor, 0.85) : props.bgcolor };
+});
+
+function darken(hex: string, factor: number): string {
+    const v = parseInt(hex.replace('#', ''), 16);
+    const r = Math.round((v >> 16) * factor);
+    const g = Math.round(((v >> 8) & 0xff) * factor);
+    const b = Math.round((v & 0xff) * factor);
+    return `#${((r << 16) | (g << 8) | b).toString(16).padStart(6, '0')}`;
+}
 
 function select() {
     if (props.disabled || checked.value) return;
@@ -36,8 +53,11 @@ function select() {
 <template>
     <label class="mc-radio" :class="{ 'mc-radio--checked': checked, 'mc-radio--disabled': disabled, 'mc-radio--rotate': rotate }">
         <span class="mc-radio__control" role="radio" :aria-checked="checked" :aria-disabled="disabled"
-            :tabindex="disabled ? -1 : 0" @click="select" @keydown.enter.prevent="select"
-            @keydown.space.prevent="select">
+            :tabindex="disabled ? -1 : 0" :style="controlCustomStyle"
+            @click="select" @keydown.enter.prevent="select"
+            @keydown.space.prevent="select"
+            @mouseenter="isHovered = true"
+            @mouseleave="isHovered = false">
             <span class="mc-radio__dot"></span>
         </span>
         <span v-if="$slots.default" class="mc-radio__label" @click="select">

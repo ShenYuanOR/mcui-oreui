@@ -713,19 +713,51 @@ article_list_l4:before {
 }
 
 .extra_small_btn {
+    font-size: 12px;
+    height: 28px;
     width: 100px;
 }
 
+.extra_small_btn:active:not(.disabled_btn) {
+    height: 24px;
+    margin-top: 10px;
+    padding-bottom: 2px;
+}
+
 .small_btn {
+    font-size: 14px;
+    height: 32px;
     width: 130px;
 }
 
+.small_btn:active:not(.disabled_btn) {
+    height: 28px;
+    margin-top: 10px;
+    padding-bottom: 2px;
+}
+
 .middle_btn {
+    font-size: 16px;
+    height: 40px;
     width: 200px;
 }
 
+.middle_btn:active:not(.disabled_btn) {
+    height: 36px;
+    margin-top: 10px;
+    padding-bottom: 2px;
+}
+
 .large_btn {
+    font-size: 18px;
+    height: 48px;
     width: 272px;
+}
+
+.large_btn:active:not(.disabled_btn) {
+    height: 44px;
+    margin-top: 10px;
+    padding-bottom: 2px;
 }
 
 .normal_btn {

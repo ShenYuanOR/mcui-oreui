@@ -159,6 +159,24 @@
     display: none;
 }
 
+/* Slider 中 Tooltip 适配（撑满轨道以保持定位上下文一致） */
+.slider__tip-wrapper {
+    display: block;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.slider__tip-wrapper .slider_slider {
+    pointer-events: auto;
+}
+
+/* Tooltip 内容跟随滑块位置 */
+.slider__tip-wrapper .mc-tooltip__content {
+    bottom: calc(100% + 18px);
+    left: var(--thumb-pos, 50%);
+}
+
 /* Progress 进度条 */
 .mc-progress {
     color: #FFFFFF;
@@ -222,6 +240,21 @@
 @keyframes mc-progress-indeterminate {
     0% { transform: translateX(-110%); }
     100% { transform: translateX(230%); }
+}
+
+/* Spinner 加载动画 */
+.mc-spinner {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    position: relative;
+    vertical-align: middle;
+}
+
+.mc-spinner__icon {
+    display: block;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
 }
 
 /* Radio 单选 */

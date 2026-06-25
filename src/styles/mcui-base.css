@@ -714,19 +714,51 @@ button {
 }
 
 .extra_small_btn {
+    font-size: 12px;
+    height: 28px;
     width: 100px;
 }
 
+.extra_small_btn:active:not(.disabled_btn) {
+    height: 24px;
+    margin-top: 10px;
+    padding-bottom: 2px;
+}
+
 .small_btn {
+    font-size: 14px;
+    height: 32px;
     width: 130px;
 }
 
+.small_btn:active:not(.disabled_btn) {
+    height: 28px;
+    margin-top: 10px;
+    padding-bottom: 2px;
+}
+
 .middle_btn {
+    font-size: 16px;
+    height: 40px;
     width: 200px;
 }
 
+.middle_btn:active:not(.disabled_btn) {
+    height: 36px;
+    margin-top: 10px;
+    padding-bottom: 2px;
+}
+
 .large_btn {
+    font-size: 18px;
+    height: 48px;
     width: 272px;
+}
+
+.large_btn:active:not(.disabled_btn) {
+    height: 44px;
+    margin-top: 10px;
+    padding-bottom: 2px;
 }
 
 .normal_btn {
@@ -844,17 +876,8 @@ button {
 }
 
 .btn_tooltip {
-    background-color: #1F1F1F;
-    color: #FFFFFF;
-    opacity: 0;
-    padding: 5px;
-    position: absolute;
     right: 10px;
-    text-align: center;
     top: -30px;
-    transition: opacity 0.6s;
-    visibility: hidden;
-    z-index: 1;
 }
 
 .btn_with_tooltip_content:hover .btn_tooltip {

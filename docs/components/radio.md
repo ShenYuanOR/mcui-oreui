@@ -108,6 +108,20 @@ const mode = ref('survival')
 <mc-radio v-model="mode" value="creative" rotate>创造</mc-radio>
 ```
 
+## 自定义颜色
+
+通过 `bgcolor` 属性设置选中时的背景色，覆盖默认绿色，hover 时自动变暗。
+
+<div class="mc-demo">
+  <mc-radio v-model="mode" value="survival" bgcolor="#2E6BE5">生存</mc-radio>
+  <mc-radio v-model="mode" value="creative" bgcolor="#e52e2e">创造</mc-radio>
+</div>
+
+```html
+  <mc-radio v-model="mode" value="survival" bgcolor="#2E6BE5">生存</mc-radio>
+  <mc-radio v-model="mode" value="creative" bgcolor="#e52e2e">创造</mc-radio>
+```
+
 ## mc-radio Props
 
 | 名称 | 类型 | 默认 | 说明 |
@@ -116,6 +130,7 @@ const mode = ref('survival')
 | `value` | `string \| number \| boolean` | `''` | 当前单选项值 |
 | `disabled` | `boolean` | `false` | 是否禁用 |
 | `rotate` | `boolean` | `false` | 控件是否旋转 45 度 |
+| `bgcolor` | `string` | `''` | 选中时的自定义背景色 |
 
 ## mc-radio-group Props
 

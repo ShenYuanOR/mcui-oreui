@@ -8,7 +8,7 @@
 
 **📖 在线文档（组件实时 Demo + API）：<https://shenyuanor.github.io/mcui-oreui/>**
 
-把 Minecraft 基岩版界面的观感（Minecraft 像素字体、灰色立体面板、主/默认/错误三态按钮、卡片扫光、按键音效）封装为 **30 个标准 Vue 3 组件**，并附带一套 VitePress 实时文档站。
+把 Minecraft 基岩版界面的观感（Minecraft 像素字体、灰色立体面板、主/默认/错误三态按钮、卡片扫光、按键音效）封装为 **31 个标准 Vue 3 组件**，并附带一套 VitePress 实时文档站。
 
 > ⚠️ **非官方声明**：本项目为第三方复刻，与 Mojang Studios **无任何从属关系**，不含 Minecraft 官方代码或美术资产。设计语言移植自社区项目 [Spectrollay-OreUI/OreUI](https://github.com/Spectrollay-OreUI/OreUI)（MIT）。它与官方仓库 `Mojang/mc-ui`（仅开源 `@react-facet` 状态管理库）是完全不同的两个东西。
 
@@ -73,7 +73,7 @@ import 'mcui-oreui/style.css'
 
 | 类别 | 组件 |
 |---|---|
-| 基础 | `<mc-icon>` · `<mc-button>` · `<mc-card>` · `<mc-panel>` · `<mc-tooltip>` · `<mc-progress>` |
+| 基础 | `<mc-icon>` · `<mc-button>` · `<mc-card>` · `<mc-panel>` · `<mc-tooltip>` · `<mc-progress>` · `<mc-spinner>`|
 | 表单 | `<mc-checkbox>` · `<mc-radio>` · `<mc-radio-group>` · `<mc-form-field>` · `<mc-switch>` · `<mc-dropdown>` · `<mc-text-field>` · `<mc-slider>` |
 | 布局 | `<mc-layout>` · `<mc-header>` · `<mc-appbar>` · `<mc-tabs>` · `<mc-button-tabs>` · `<mc-list>` · `<mc-list-item>` · `<mc-scroll-view>` |
 | 反馈 | `<mc-modal>` · `<mc-confirm>` · `<mc-drawer>` · `<mc-loading-mask>` · `<mc-pop-host>` |

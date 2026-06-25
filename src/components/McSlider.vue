@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+import McTooltip from './McTooltip.vue'
 
 const props = withDefaults(
   defineProps<{
@@ -20,6 +21,10 @@ const props = withDefaults(
     /** 自定义分段值数组（含两端，长度 segments+1） */
     segmentValues?: (string | number)[]
     disabled?: boolean
+    /** 进度条自定义颜色，覆盖默认绿色 */
+    bgcolor?: string
+    /** 拖动时是否在上方显示当前值 Tooltip */
+    tip?: boolean
   }>(),
   {
     modelValue: 0,
@@ -32,6 +37,8 @@ const props = withDefaults(
     customSegments: false,
     segmentValues: () => [],
     disabled: false,
+    bgcolor: '',
+    tip: false,
   },
 )
 
@@ -50,6 +57,11 @@ const position = computed(() => {
   const span = props.max - props.min
   if (span <= 0) return 0
   return Math.max(0, Math.min(((props.modelValue - props.min) / span) * 100, 100))
+})
+
+const processStyle = computed(() => {
+  if (!props.bgcolor || props.disabled) return {}
+  return { backgroundColor: props.bgcolor }
 })
 
 const tooltip = computed(() => {
@@ -179,8 +191,19 @@ function onKeydown(e: KeyboardEvent) {
         @pointercancel="stopDragging"
         @lostpointercapture="stopDragging"
       >
-        <div class="slider_process" :style="{ width: position + '%' }"></div>
+        <div class="slider_process" :style="{ width: position + '%', ...processStyle }"></div>
+        <mc-tooltip v-if="tip" :content="tooltip" placement="top" class="slider__tip-wrapper" :style="{ '--thumb-pos': position + '%' }">
+          <div
+            ref="thumb"
+            class="slider_slider"
+            :class="{ disabled_slider: disabled }"
+            :style="{ left: position + '%' }"
+            :tabindex="disabled ? -1 : 0"
+            @keydown="onKeydown"
+          ></div>
+        </mc-tooltip>
         <div
+          v-else
           ref="thumb"
           class="slider_slider"
           :class="{ disabled_slider: disabled }"
