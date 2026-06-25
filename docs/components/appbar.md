@@ -10,7 +10,7 @@
   </mc-appbar>
 </div>
 
-```vue
+```html
 <mc-appbar title="设置">
   <mc-button variant="primary" size="small">保存</mc-button>
 </mc-appbar>

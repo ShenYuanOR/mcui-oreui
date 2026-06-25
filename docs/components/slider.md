@@ -1,6 +1,6 @@
 # Slider 滑动条
 
-支持连续（range）与分段（set）两种模式，支持拖动、点击轨道、方向键。
+支持连续（range）与分段（set）两种模式，支持拖动滑块、点击或拖动轨道、方向键。
 
 <script setup>
 import { ref } from 'vue'

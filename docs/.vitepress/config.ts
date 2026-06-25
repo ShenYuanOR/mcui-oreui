@@ -4,6 +4,7 @@ export default defineConfig({
   title: 'McUI Vue',
   description: 'Minecraft 基岩版风格的 Vue 3 组件库（第三方复刻）',
   lang: 'zh-CN',
+  head: [['meta', { name: 'color-scheme', content: 'only light' }]],
   // GitHub Pages（project pages）部署在 https://shenyuanol.github.io/mcui-oreui/
   base: '/mcui-oreui/',
   lastUpdated: true,

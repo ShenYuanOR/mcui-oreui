@@ -116,7 +116,7 @@ console.log(MC_FORMAT_CODE_COLORS.a.foreground) // #55FF55
   </div>
 </div>
 
-```vue
+```html
 <mc-tcode>§l粗体 §o斜体 §n下划线 §m删除线 §r重置</mc-tcode>
 ```
 

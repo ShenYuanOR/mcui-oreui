@@ -22,6 +22,7 @@ import McRadioGroup from './components/McRadioGroup.vue';
 import McTabs from './components/McTabs.vue';
 import McButtonTabs from './components/McButtonTabs.vue';
 import McList from './components/McList.vue';
+import McListItem from './components/McListItem.vue';
 import McPanel from './components/McPanel.vue';
 import McFormField from './components/McFormField.vue';
 import McConfirm from './components/McConfirm.vue';
@@ -53,6 +54,7 @@ export {
   McTabs as McTabs,
   McButtonTabs,
   McList,
+  McListItem,
   McPanel as McPanel,
   McFormField as McFormField,
   McConfirm as McConfirm,
@@ -67,7 +69,7 @@ export type { McRadioValue } from './components/McRadio.vue';
 export type { McRadioOption } from './components/McRadioGroup.vue';
 export type { McTabItem, McTabValue } from './components/McTabs.vue';
 export type { McButtonTabItem } from './components/McButtonTabs.vue';
-export type { McListItem, McListValue } from './components/McList.vue';
+export type { McListItemProps, McListValue } from './components/McList.vue';
 export {
   MC_FORMAT_CODE_COLORS,
   MC_FORMAT_CODE_STYLES,
@@ -122,6 +124,7 @@ const components = {
   'mc-tabs': McTabs,
   'mc-button-tabs': McButtonTabs,
   'mc-list': McList,
+  'mc-list-item': McListItem,
   'mc-panel': McPanel,
   'mc-form-field': McFormField,
   'mc-confirm': McConfirm,

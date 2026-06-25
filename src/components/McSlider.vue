@@ -41,6 +41,7 @@ const emit = defineEmits<{
 }>()
 
 const track = ref<HTMLElement | null>(null)
+const thumb = ref<HTMLElement | null>(null)
 
 const fmtInt = (v: number) => v.toFixed(2).replace(/\.?0+$/, '')
 const fmtDec = (v: number) => v.toFixed(2)
@@ -112,24 +113,32 @@ function clientToPos(clientX: number): number {
 }
 
 const dragging = ref(false)
+const activePointerId = ref<number | null>(null)
 
 function onPointerDown(e: PointerEvent) {
-  if (props.disabled) return
+  if (props.disabled || activePointerId.value !== null) return
+  e.preventDefault()
   dragging.value = true
-  ;(e.target as Element).setPointerCapture?.(e.pointerId)
+  activePointerId.value = e.pointerId
+  thumb.value?.focus({ preventScroll: true })
+  ;(e.currentTarget as Element).setPointerCapture?.(e.pointerId)
   emitValue(posToValue(clientToPos(e.clientX)))
-}
-function onPointerMove(e: PointerEvent) {
-  if (props.disabled || !dragging.value) return
-  emitValue(posToValue(clientToPos(e.clientX)))
-}
-function onPointerUp() {
-  dragging.value = false
 }
 
-function onTrackClick(e: MouseEvent) {
-  if (props.disabled || dragging.value) return
+function onPointerMove(e: PointerEvent) {
+  if (props.disabled || !dragging.value || activePointerId.value !== e.pointerId) return
+  e.preventDefault()
   emitValue(posToValue(clientToPos(e.clientX)))
+}
+
+function stopDragging(e: PointerEvent) {
+  if (activePointerId.value !== e.pointerId) return
+  const target = e.currentTarget as Element
+  if (target.hasPointerCapture?.(e.pointerId)) {
+    target.releasePointerCapture?.(e.pointerId)
+  }
+  dragging.value = false
+  activePointerId.value = null
 }
 
 function onKeydown(e: KeyboardEvent) {
@@ -159,17 +168,24 @@ function onKeydown(e: KeyboardEvent) {
 <template>
   <div class="slider_area">
     <div>Selected: <span class="slider_tooltip">{{ tooltip }}</span></div>
-    <div class="slider_content" @click="onTrackClick">
-      <div ref="track" class="slider" :class="{ disabled_slider: disabled }">
+    <div class="slider_content">
+      <div
+        ref="track"
+        class="slider"
+        :class="{ disabled_slider: disabled, 'slider--dragging': dragging }"
+        @pointerdown="onPointerDown"
+        @pointermove="onPointerMove"
+        @pointerup="stopDragging"
+        @pointercancel="stopDragging"
+        @lostpointercapture="stopDragging"
+      >
         <div class="slider_process" :style="{ width: position + '%' }"></div>
         <div
+          ref="thumb"
           class="slider_slider"
           :class="{ disabled_slider: disabled }"
           :style="{ left: position + '%' }"
           :tabindex="disabled ? -1 : 0"
-          @pointerdown="onPointerDown"
-          @pointermove="onPointerMove"
-          @pointerup="onPointerUp"
           @keydown="onKeydown"
         ></div>
         <div

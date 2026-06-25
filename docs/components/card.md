@@ -7,7 +7,7 @@
   <mc-card title="模块化构建" description="组件可独立或组合使用。" style="width:220px" />
 </div>
 
-```vue
+```html
 <mc-card title="纯原生实现" description="不依赖任何第三方库，轻量高效。" @click="go" />
 
 <!-- 或使用插槽 -->

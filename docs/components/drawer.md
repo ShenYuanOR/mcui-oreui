@@ -52,7 +52,7 @@ const open = ref(false)
   </mc-drawer>
 </div>
 
-```vue
+```html
 <mc-button @click="leftOpen = true">打开菜单</mc-button>
 <mc-drawer v-model:open="leftOpen" title="导航菜单" placement="left">
   <mc-button>首页</mc-button>
@@ -73,7 +73,7 @@ const open = ref(false)
   </mc-drawer>
 </div>
 
-```vue
+```html
 <mc-button @click="topOpen = true">打开通知</mc-button>
 <mc-drawer v-model:open="topOpen" title="系统通知" placement="top">
   暂无新通知

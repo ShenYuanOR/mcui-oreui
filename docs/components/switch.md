@@ -36,7 +36,7 @@ const enabled = ref(true)
   <span style="color:#fff">on = {{ on }}</span>
 </div>
 
-```vue
+```html
 <mc-switch
   v-model="enabled"
   on-icon="/mcui-oreui/eye.svg"

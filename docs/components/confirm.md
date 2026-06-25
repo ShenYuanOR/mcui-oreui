@@ -69,7 +69,7 @@ const dangerOpen = ref(false)
   </mc-confirm>
 </div>
 
-```vue
+```html
 <mc-button variant="primary" @click="showCloseOpen = true">打开确认</mc-button>
 <mc-confirm v-model:open="showCloseOpen" title="退出游戏？" confirm-text="退出" show-close>
   确定要退出当前游戏吗？
@@ -87,7 +87,7 @@ const dangerOpen = ref(false)
   </mc-confirm>
 </div>
 
-```vue
+```html
 <mc-button variant="primary" @click="stackOpen = true">打开确认</mc-button>
 <mc-confirm v-model:open="stackOpen" title="覆盖存档？" confirm-text="覆盖并继续" cancel-text="返回存档列表" stack-actions>
   当前存档已存在，是否覆盖？

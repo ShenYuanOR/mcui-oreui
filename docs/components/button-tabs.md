@@ -68,7 +68,7 @@ const tab = ref('video')
   </p>
 </div>
 
-```vue
+```html
 <mc-button-tabs
   v-model="titleTab"
   title="个人中心"
@@ -120,7 +120,7 @@ const tab = ref('video')
   </mc-button-tabs>
 </div>
 
-```vue
+```html
 <mc-button-tabs
   v-model="colorTab"
   :items="[

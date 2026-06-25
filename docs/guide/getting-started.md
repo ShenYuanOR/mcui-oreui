@@ -85,7 +85,7 @@ export default {
 
 内置图标统一通过 `<mc-icon>` 或组件 `icon` 属性使用：
 
-```vue
+```html
 <template>
   <mc-icon>mc-add</mc-icon>
   <mc-icon name="mc-key-enter" />

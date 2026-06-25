@@ -10,7 +10,7 @@
   </mc-tooltip>
 </div>
 
-```vue
+```html
 <mc-tooltip content="保存当前设置">
   <mc-button variant="primary">悬停查看</mc-button>
 </mc-tooltip>
@@ -25,7 +25,7 @@
   <mc-tooltip content="右侧" placement="right"><mc-button>Right</mc-button></mc-tooltip>
 </div>
 
-```vue
+```html
 <mc-tooltip content="顶部" placement="top"><mc-button>Top</mc-button></mc-tooltip>
 <mc-tooltip content="底部" placement="bottom"><mc-button>Bottom</mc-button></mc-tooltip>
 <mc-tooltip content="左侧" placement="left"><mc-button>Left</mc-button></mc-tooltip>
@@ -43,7 +43,7 @@
   </mc-tooltip>
 </div>
 
-```vue
+```html
 <mc-tooltip>
   <mc-button variant="normal">复杂提示</mc-button>
   <template #content>

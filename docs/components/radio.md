@@ -103,7 +103,7 @@ const mode = ref('survival')
   <mc-radio v-model="mode" value="creative" rotate>创造</mc-radio>
 </div>
 
-```vue
+```html
 <mc-radio v-model="mode" value="survival" rotate>生存</mc-radio>
 <mc-radio v-model="mode" value="creative" rotate>创造</mc-radio>
 ```

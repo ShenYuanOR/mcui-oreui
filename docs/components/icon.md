@@ -21,7 +21,7 @@
   <mc-icon name="mc-x-creative" />
 </div>
 
-```vue
+```html
 <mc-icon>mc-add</mc-icon>
 <mc-icon name="mc-save" color="#6fb23f" />
 <mc-icon name="mc-delete" color="#ff5555" />
@@ -40,7 +40,7 @@
   <mc-icon name="mc-key-space" :size="72" />
 </div>
 
-```vue
+```html
 <mc-icon name="mc-add" :size="24" />
 <mc-icon name="mc-add" :size="36" />
 <mc-icon name="mc-add" :size="48" />
@@ -58,7 +58,7 @@
   <mc-icon name="mdi-account-circle" color="#66bb6a" :size="32" />
 </div>
 
-```vue
+```html
 <mc-icon name="mdi-home" color="#4fc3f7" :size="32" />
 <mc-icon name="mdi-cog" color="#ff5722" :size="32" />
 <mc-icon name="mdi-heart" color="#f44336" :size="32" />
@@ -75,7 +75,7 @@
   <mc-button icon="mc-key-enter">确认</mc-button>
 </div>
 
-```vue
+```html
 <mc-button icon="mc-save" variant="primary">保存</mc-button>
 <mc-button icon="mc-delete" variant="error">删除</mc-button>
 <mc-button icon="mc-key-enter">确认</mc-button>
@@ -90,7 +90,7 @@
   <mc-button icon="mdi-delete" variant="error">删除</mc-button>
 </div>
 
-```vue
+```html
 <mc-button icon="mdi-home">主页</mc-button>
 <mc-button icon="mdi-cog">设置</mc-button>
 <mc-button icon="mdi-plus-circle" variant="primary">新建</mc-button>

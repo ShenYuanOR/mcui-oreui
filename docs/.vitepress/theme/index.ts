@@ -23,6 +23,7 @@ import McRadioGroup from '../../../src/components/McRadioGroup.vue';
 import McTabs from '../../../src/components/McTabs.vue';
 import McButtonTabs from '../../../src/components/McButtonTabs.vue';
 import McList from '../../../src/components/McList.vue';
+import McListItem from '../../../src/components/McListItem.vue';
 import McPanel from '../../../src/components/McPanel.vue';
 import McFormField from '../../../src/components/McFormField.vue';
 import McConfirm from '../../../src/components/McConfirm.vue';
@@ -58,6 +59,7 @@ const components = {
   'mc-tabs': McTabs,
   'mc-button-tabs': McButtonTabs,
   'mc-list': McList,
+  'mc-list-item': McListItem,
   'mc-panel': McPanel,
   'mc-form-field': McFormField,
   'mc-confirm': McConfirm,

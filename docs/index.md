@@ -52,7 +52,7 @@ const go = (path: string) => router.go(withBase(path))
   <mc-card title="29 组件 + 音效" description="按钮 / 表单 / 布局 / 反馈 / 样式组件可组合使用。" @click="go('/components/button.html')" />
 </div>
 
-```vue
+```html
 <div class="mc-demo mc-hero-features">
   <mc-card
     title="原汁原味的设计语言"

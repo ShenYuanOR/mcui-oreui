@@ -10,7 +10,7 @@
   </mc-panel>
 </div>
 
-```vue
+```html
 <mc-panel title="世界设置" subtitle="调整游戏体验与资源选项">
   这里可以放置表单、列表或任意内容。
 </mc-panel>
@@ -30,7 +30,7 @@
   </mc-panel>
 </div>
 
-```vue
+```html
 <mc-panel title="资源包">
   <template #actions>
     <mc-button size="small">刷新</mc-button>

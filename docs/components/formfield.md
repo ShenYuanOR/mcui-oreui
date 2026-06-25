@@ -16,7 +16,7 @@ const sound = ref(true)
   </mc-form-field>
 </div>
 
-```vue
+```html
 <mc-form-field label="玩家名" description="用于多人游戏和本地存档展示" required>
   <mc-text-field v-model="name" hint="请输入玩家名" />
 </mc-form-field>
@@ -30,7 +30,7 @@ const sound = ref(true)
   </mc-form-field>
 </div>
 
-```vue
+```html
 <mc-form-field label="服务器地址" error="服务器地址不能为空" required>
   <mc-text-field hint="play.example.com" />
 </mc-form-field>

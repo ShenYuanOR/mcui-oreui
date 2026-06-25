@@ -14,7 +14,7 @@ const value = ref(64)
   <mc-slider v-model="value" :min="0" :max="100" :show-segments="false" />
 </div>
 
-```vue
+```html
 <mc-progress :value="64" label="正在生成世界" />
 ```
 
@@ -25,7 +25,7 @@ const value = ref(64)
   <mc-progress :value="35" label="连接失败" status="error" />
 </div>
 
-```vue
+```html
 <mc-progress :value="80" label="资源加载" status="success" />
 <mc-progress :value="35" label="连接失败" status="error" />
 ```
@@ -36,7 +36,7 @@ const value = ref(64)
   <mc-progress label="正在搜索服务器" indeterminate />
 </div>
 
-```vue
+```html
 <mc-progress label="正在搜索服务器" indeterminate />
 ```
 

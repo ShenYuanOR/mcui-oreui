@@ -22,12 +22,12 @@
 
 /* 防止反色以杜绝出现奇怪的显示问题 */
 :root {
-    color-scheme: light !important;
+    color-scheme: only light !important;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        color-scheme: light !important;
+        color-scheme: only light !important;
     }
 }
 
@@ -75,11 +75,13 @@
 
 .mc-demo * {
     -webkit-tap-highlight-color: transparent; /* 禁用高亮 */
+    color-scheme: only light !important;
     touch-action: manipulation; /* 禁用长按菜单 */
 }
 
 /* 总体样式 */
 .mc-demo {
+    color-scheme: only light !important;
     font-family: "NotoSans Bold", sans-serif;
     height: 100%;
     overscroll-behavior: contain;
@@ -1411,6 +1413,8 @@ modal_button_list {
     height: 30px;
     justify-content: center;
     margin: 14px 0;
+    touch-action: none;
+    user-select: none;
     width: 100%;
 }
 
@@ -1423,6 +1427,7 @@ modal_button_list {
     height: 12px; /* 进度条高度 */
     margin: 6px;
     position: relative; /* 相对定位,用于子元素绝对定位的参考 */
+    touch-action: none;
     width: 100%; /* 进度条宽度 */
 }
 
@@ -1446,8 +1451,14 @@ modal_button_list {
     top: 50%; /* 滑块垂直居中 */
     transform: translate(-50%, -50%); /* 水平和垂直居中 */
     transition: left 100ms linear;
+    touch-action: none;
     width: 28px;
     z-index: 1;
+}
+
+.slider--dragging .slider_process,
+.slider--dragging .slider_slider {
+    transition: none;
 }
 
 .slider_slider:hover, .slider_slider:active, .slider_content:hover .slider_slider, .slider_slider.active {

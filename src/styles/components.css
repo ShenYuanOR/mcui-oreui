@@ -489,16 +489,8 @@
     border: 2px solid #1E1E1F;
     color: #FFFFFF;
     font-family: "Minecraft Seven", sans-serif;
-    padding: 8px 0;
+    padding: 0;
     width: 100%;
-}
-
-.mc-list__subtitle {
-    color: #B1B2B5;
-    font-family: "Minecraft Seven", sans-serif;
-    font-size: 12px;
-    padding: 0 12px 8px;
-    text-align: left;
 }
 
 .mc-list__item {
@@ -509,7 +501,6 @@
     border-top: 1px solid transparent;
     box-shadow: none;
     color: #FFFFFF;
-    cursor: pointer;
     display: flex;
     font-family: "Minecraft Seven", sans-serif;
     font-size: 14px;
@@ -520,9 +511,29 @@
     width: 100%;
 }
 
+.mc-list__item--interactive {
+    cursor: pointer;
+}
+
 .mc-list__item-indicator {
+    align-items: center;
+    display: flex;
     flex-shrink: 0;
+    height: 30px;
+    justify-content: center;
     pointer-events: none;
+    width: 30px;
+}
+
+.mc-list__item-indicator .mc-radio,
+.mc-list__item-indicator .custom-checkbox {
+    margin: 0;
+}
+
+.mc-list__item-slot {
+    align-items: center;
+    display: flex;
+    flex-shrink: 0;
 }
 
 .mc-list__item-icon {
@@ -567,8 +578,17 @@
         inset 0 -1px 0 #5A5B5C;
 }
 
+.mc-list__item--interactive:focus {
+    outline: none;
+}
+
+.mc-list__item--interactive:focus-visible {
+    outline: 2px solid #FFFFFF;
+    outline-offset: -2px;
+}
+
 /* 悬浮 */
-.mc-list__item:hover:not(.mc-list__item--active):not(:disabled) {
+.mc-list__item--interactive:hover:not(.mc-list__item--active):not(.mc-list__item--disabled) {
     background-color: #48494A;
     border-top-color: #454647;
     border-bottom-color: #1D1E1F;
@@ -578,7 +598,7 @@
 }
 
 /* 按下（后于 hover，.mc-list__item 双写提至 0,4,0 覆盖 hover） */
-.mc-list__item.mc-list__item:active:not(:disabled) {
+.mc-list__item--interactive.mc-list__item:active:not(.mc-list__item--disabled) {
     background-color: #242425;
     border-top-color: #0A0A0A;
     border-bottom-color: #454647;
@@ -588,7 +608,7 @@
 }
 
 /* 禁用 */
-.mc-list__item:disabled {
+.mc-list__item--disabled {
     cursor: not-allowed;
     opacity: 0.5;
 }

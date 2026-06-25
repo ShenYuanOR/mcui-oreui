@@ -14,7 +14,7 @@ McUI 风格的自定义滚动区。基于原生滚动 + 联动滚动条 thumb（
   </div>
 </div>
 
-```vue
+```html
 <template>
   <div style="height: 400px">
     <mc-scroll-view>
