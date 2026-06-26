@@ -35,6 +35,7 @@ import McDrawer from '../../../src/components/McDrawer.vue';
 import McFormattedText from '../../../src/components/McFormattedText.vue';
 import McTcode from '../../../src/components/McTcode.vue';
 import McIcon from '../../../src/components/McIcon.vue';
+import McSpinner from '../../../src/components/McSpinner.vue';
 import McSkinViewer from '../../../src/components/McSkinViewer.vue';
 import McIconGallery from './McIconGallery.vue';
 
@@ -75,6 +76,7 @@ const components = {
   'mc-formatted-text': McFormattedText,
   'mc-tcode': McTcode,
   'mc-icon': McIcon,
+  'mc-spinner': McSpinner,
   'mc-skin-viewer': McSkinViewer,
   'mc-icon-gallery': McIconGallery,
 };

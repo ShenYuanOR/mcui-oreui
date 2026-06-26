@@ -82,6 +82,26 @@ const open = ref(false)
 
 ## 底部抽屉
 
+设置 `placement="bottom"` 可使抽屉从底部滑出，适合操作面板、移动端菜单等场景。
+
+<div class="mc-demo">
+  <mc-button @click="bottomOpen = true">打开操作面板</mc-button>
+  <mc-drawer v-model:open="bottomOpen" title="操作面板" placement="bottom">
+    <mc-button variant="primary">新建存档</mc-button>
+    <mc-button>加载存档</mc-button>
+    <mc-button variant="error">删除存档</mc-button>
+  </mc-drawer>
+</div>
+
+```html
+<mc-button @click="bottomOpen = true">打开操作面板</mc-button>
+<mc-drawer v-model:open="bottomOpen" title="操作面板" placement="bottom">
+  <mc-button variant="primary">新建存档</mc-button>
+  <mc-button>加载存档</mc-button>
+  <mc-button variant="error">删除存档</mc-button>
+</mc-drawer>
+```
+
 ## Props
 
 | 名称 | 类型 | 默认 | 说明 |

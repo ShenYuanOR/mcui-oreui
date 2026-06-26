@@ -64,7 +64,5 @@
         "vue": "^3.4.31",
         "vue-tsc": "^2.0.24"
     },
-    "dependencies": {
-        "@mdi/js": "^7.4.47"
-    }
+    "dependencies": {}
 }

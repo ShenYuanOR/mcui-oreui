@@ -1,23 +1,25 @@
 <script setup lang="ts">
 import { computed, ref, watch, useSlots } from 'vue'
 import { getMcIcon } from '../utils/iconRegistry'
-import * as mdi from '@mdi/js'
 
 const props = withDefaults(
   defineProps<{
-    /** 图标名称：普通 mc-xxx，按键 mc-key-xxx，彩色 mc-x-xxx；
-     *  MDI 像素图标用 mdi-xxx，如 mdi-home、mdi-account-circle */
+    /** 图标名称：mc-xxx / mc-key-xxx / mc-x-xxx */
     name?: string
+    /** 自定义 SVG 路径 d 属性值，传入后将像素化渲染 */
+    path?: string
+    /** SVG viewBox，配合 path 使用，默认 "0 0 24 24" */
+    viewBox?: string
     /** 图标尺寸：数字按 px；字符串可传 24px / 2em 等 */
     size?: number | string
-    /** 图标颜色（MDI 像素图标和普通图标均支持） */
+    /** 图标颜色（像素化和普通图标均支持） */
     color?: string
-    /** MDI 像素图标光栅化分辨率，默认 24（24×24 像素） */
+    /** 像素化光栅化分辨率，默认 24（24×24 像素） */
     pixelSize?: number
     /** 可访问性标签；不传则作为装饰图标隐藏给读屏器 */
     label?: string
   }>(),
-  { name: '', size: 24, pixelSize: 24, color: '', label: '' },
+  { name: '', path: '', viewBox: '0 0 24 24', size: 24, pixelSize: 24, color: '', label: '' },
 )
 
 const slots = useSlots()
@@ -28,51 +30,26 @@ const iconName = computed(() => {
   return text ?? ''
 })
 
-// ==================== MDI 像素化渲染 ====================
-const isMdiIcon = computed(() => iconName.value.startsWith('mdi-'))
-const mdiPixelSrc = ref('')
-const mdiError = ref(false)
+// ==================== 像素化渲染（通过 path prop） ====================
+const isPixelIcon = computed(() => !!props.path)
+const pixelSrc = ref('')
+const pixelError = ref(false)
+const hasColor = computed(() => !!props.color)
 
-/** mdi-account-circle → mdiAccountCircle */
-function mdiNameToExport(raw: string): string {
-  const name = raw.replace(/^mdi-/, '')
-  const parts = name.split('-')
-  const camel = parts
-    .map((p, i) => (i === 0 ? p : p.charAt(0).toUpperCase() + p.slice(1)))
-    .join('')
-  return `mdi${camel.charAt(0).toUpperCase()}${camel.slice(1)}`
-}
+const pixelCache = new Map<string, string>()
 
-/** 跨组件实例的像素化缓存，避免重复渲染 */
-const mdiCache = new Map<string, string>()
+function generatePixel() {
+  pixelSrc.value = ''
+  pixelError.value = false
 
-/** 是否传入了 color */
-const mdiHasColor = computed(() => !!props.color)
-
-function generateMdiPixel() {
-  mdiPixelSrc.value = ''
-  mdiError.value = false
-
-  if (!isMdiIcon.value) return
+  if (!isPixelIcon.value) return
   if (typeof window === 'undefined') return
 
-  const exportName = mdiNameToExport(iconName.value)
-  const mdiPath = (mdi as Record<string, string>)[exportName]
-
-  if (!mdiPath) {
-    console.error(
-      `[McIcon] MDI icon "${iconName.value}" not found (expected export: ${exportName})`,
-    )
-    mdiError.value = true
-    return
-  }
-
-  // 有颜色用指定色，无颜色用白色（后续通过 CSS mask + currentColor 着色）
   const fillColor = props.color || '#ffffff'
-  const cacheKey = `${exportName}:${fillColor}:${props.pixelSize}`
+  const cacheKey = `${props.path}:${props.viewBox}:${fillColor}:${props.pixelSize}`
 
-  if (mdiCache.has(cacheKey)) {
-    mdiPixelSrc.value = mdiCache.get(cacheKey)!
+  if (pixelCache.has(cacheKey)) {
+    pixelSrc.value = pixelCache.get(cacheKey)!
     return
   }
 
@@ -80,8 +57,8 @@ function generateMdiPixel() {
 
   // 1. 构造 SVG（crispEdges 禁抗锯齿）
   const svgMarkup =
-    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="${ps}" height="${ps}">` +
-    `<path d="${mdiPath}" fill="${fillColor}" stroke="none" shape-rendering="crispEdges"/>` +
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${props.viewBox}" width="${ps}" height="${ps}">` +
+    `<path d="${props.path}" fill="${fillColor}" stroke="none" shape-rendering="crispEdges"/>` +
     `</svg>`
 
   // 2. 加载 SVG → Canvas 光栅化 → 导出为像素 PNG
@@ -99,20 +76,20 @@ function generateMdiPixel() {
     ctx.imageSmoothingEnabled = false
     ctx.drawImage(img, 0, 0, ps, ps)
     const dataUrl = canvas.toDataURL('image/png')
-    mdiCache.set(cacheKey, dataUrl)
-    mdiPixelSrc.value = dataUrl
+    pixelCache.set(cacheKey, dataUrl)
+    pixelSrc.value = dataUrl
     cleanup()
   }
   img.onerror = () => {
-    console.error(`[McIcon] Failed to rasterize MDI icon: ${exportName}`)
-    mdiError.value = true
+    console.error(`[McIcon] Failed to rasterize pixel icon`)
+    pixelError.value = true
     cleanup()
   }
 
   img.src = blobUrl
 }
 
-watch([() => iconName.value, () => props.color, () => props.pixelSize], generateMdiPixel, { immediate: true })
+watch([() => props.path, () => props.color, () => props.pixelSize, () => props.viewBox], generatePixel, { immediate: true })
 
 // ==================== 原有图标逻辑 ====================
 const icon = computed(() => getMcIcon(iconName.value))
@@ -130,33 +107,33 @@ const ariaHidden = computed(() => (props.label ? undefined : 'true'))
 </script>
 
 <template>
-  <!-- MDI 有指定颜色：像素化光栅 PNG -->
+  <!-- 像素图标有指定颜色：像素化光栅 PNG -->
   <img
-    v-if="isMdiIcon && mdiHasColor"
-    :src="mdiPixelSrc || ''"
-    :alt="label || iconName"
-    class="mc-icon mc-icon--mdi-pixel"
-    :class="{ 'mc-icon--missing': mdiError || !mdiPixelSrc }"
+    v-if="isPixelIcon && hasColor"
+    :src="pixelSrc || ''"
+    :alt="label || 'pixel icon'"
+    class="mc-icon mc-icon--pixel"
+    :class="{ 'mc-icon--missing': pixelError || !pixelSrc }"
     :style="{ width: iconSize, height: iconSize }"
     :role="label ? 'img' : undefined"
     :aria-label="label || undefined"
-    :aria-hidden="!mdiError && !label ? 'true' : undefined"
+    :aria-hidden="!pixelError && !label ? 'true' : undefined"
   />
 
-  <!-- MDI 无颜色：CSS mask 方案，PNG 做遮罩 → currentColor 着色，保留像素化 -->
+  <!-- 像素图标无颜色：CSS mask 方案，PNG 做遮罩 → currentColor 着色 -->
   <span
-    v-else-if="isMdiIcon"
-    class="mc-icon mc-icon--mdi-mask"
-    :class="{ 'mc-icon--missing': mdiError || !mdiPixelSrc }"
+    v-else-if="isPixelIcon"
+    class="mc-icon mc-icon--pixel-mask"
+    :class="{ 'mc-icon--missing': pixelError || !pixelSrc }"
     :style="{
       width: iconSize,
       height: iconSize,
-      WebkitMaskImage: mdiPixelSrc ? `url(${mdiPixelSrc})` : undefined,
-      maskImage: mdiPixelSrc ? `url(${mdiPixelSrc})` : undefined,
+      WebkitMaskImage: pixelSrc ? `url(${pixelSrc})` : undefined,
+      maskImage: pixelSrc ? `url(${pixelSrc})` : undefined,
     }"
     :role="label ? 'img' : undefined"
     :aria-label="label || undefined"
-    :aria-hidden="!mdiError && !label ? 'true' : undefined"
+    :aria-hidden="!pixelError && !label ? 'true' : undefined"
   />
 
   <!-- 原有注册图标（mc-xxx / mc-key-xxx / mc-x-xxx） -->
@@ -179,14 +156,14 @@ const ariaHidden = computed(() => (props.label ? undefined : 'true'))
 </template>
 
 <style scoped>
-.mc-icon--mdi-pixel {
+.mc-icon--pixel {
   display: inline-block;
   flex: none;
   image-rendering: pixelated;
   image-rendering: crisp-edges;
 }
 
-.mc-icon--mdi-mask {
+.mc-icon--pixel-mask {
   display: inline-block;
   flex: none;
   background-color: currentColor;

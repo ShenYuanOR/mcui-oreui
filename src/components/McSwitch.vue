@@ -14,8 +14,10 @@ const props = withDefaults(
     onIcon?: string
     /** 自定义关闭侧图标（SVG/图片 URL），置空使用默认 */
     offIcon?: string
+    /** 开启时的自定义背景色，设置后覆盖默认绿色 */
+    bgcolor?: string
   }>(),
-  { modelValue: false, disabled: false, onIcon: '', offIcon: '' },
+  { modelValue: false, disabled: false, onIcon: '', offIcon: '', bgcolor: '' },
 )
 
 const onSrc = computed(() => props.onIcon || switchOnIcon)
@@ -30,6 +32,12 @@ const switchClass = computed(() => [
   props.modelValue ? 'on' : 'off',
   props.disabled ? 'disabled_switch' : 'normal_switch',
 ])
+
+const switchCustomStyle = computed(() => {
+  if (!props.bgcolor || props.disabled) return {}
+  const base = props.modelValue ? props.bgcolor : '#8C8D90'
+  return { background: `linear-gradient(to right, ${base} 50%, #8C8D90 50%)` }
+})
 
 const bounceClass = ref('')
 const startX = ref(0)
@@ -79,6 +87,7 @@ function onClick() {
     <div
       class="switch"
       :class="switchClass"
+      :style="switchCustomStyle"
       role="switch"
       :aria-checked="modelValue"
       @pointerdown="onPointerDown"

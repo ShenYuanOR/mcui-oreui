@@ -127,6 +127,11 @@ import { McPopHost, showPop } from 'mcui-oreui'
 按键音效随组件自动播放（移植自原项目 7 个 ogg）。可全局开关：
 
 ```ts
-import { setSoundEnabled } from 'mcui-oreui'
-setSoundEnabled(false) // 静音
+import { setSoundEnabled, playSound, playSoundType } from 'mcui-oreui'
+
+setSoundEnabled(false)                             // 全局静音
+playSound('click')                                 // 手动播放点击音效
+playSoundType('primary')                          // primary → button 音，其余 → click 音
 ```
+
+完整 API 请参阅 [音效（useSound）](/guide/useSound)。
