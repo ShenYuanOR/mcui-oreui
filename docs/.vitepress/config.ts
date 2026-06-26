@@ -82,6 +82,7 @@ export default defineConfig({
         text: '布局',
         items: [
           { text: 'Layout / Header', link: '/components/layout' },
+          { text: 'Grid 栅格', link: '/components/grid' },
           { text: 'Appbar 顶栏', link: '/components/appbar' },
           { text: 'Tabs 标签页', link: '/components/tabs' },
           { text: 'ButtonTabs 按钮式标签', link: '/components/button-tabs' },

@@ -9,6 +9,10 @@ import McTextField from './components/McTextField.vue';
 import McSlider from './components/McSlider.vue';
 import McCard from './components/McCard.vue';
 import McLayout from './components/McLayout.vue';
+import McContainer from './components/McContainer.vue';
+import McRow from './components/McRow.vue';
+import McCol from './components/McCol.vue';
+import McSpacer from './components/McSpacer.vue';
 import McHeader from './components/McHeader.vue';
 import McAppbar from './components/McAppbar.vue';
 import McScrollView from './components/McScrollView.vue';
@@ -41,6 +45,10 @@ export {
   McSlider as McSlider,
   McCard as McCard,
   McLayout as McLayout,
+  McContainer,
+  McRow,
+  McCol,
+  McSpacer,
   McHeader as McHeader,
   McAppbar,
   McScrollView as McScrollView,
@@ -70,6 +78,8 @@ export type { McRadioOption } from './components/McRadioGroup.vue';
 export type { McTabItem, McTabValue } from './components/McTabs.vue';
 export type { McButtonTabItem } from './components/McButtonTabs.vue';
 export type { McListItemProps, McListValue } from './components/McList.vue';
+export type { McGridAlign, McGridJustify } from './components/McRow.vue';
+export type { McGridAlignSelf, McGridColumnValue, McGridOrderValue } from './components/McCol.vue';
 export {
   MC_FORMAT_CODE_COLORS,
   MC_FORMAT_CODE_STYLES,
@@ -111,6 +121,10 @@ const components = {
   'mc-slider': McSlider,
   'mc-card': McCard,
   'mc-layout': McLayout,
+  'mc-container': McContainer,
+  'mc-row': McRow,
+  'mc-col': McCol,
+  'mc-spacer': McSpacer,
   'mc-header': McHeader,
   'mc-appbar': McAppbar,
   'mc-scroll-view': McScrollView,

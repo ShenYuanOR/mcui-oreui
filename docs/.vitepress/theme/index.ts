@@ -10,6 +10,10 @@ import McTextField from '../../../src/components/McTextField.vue';
 import McSlider from '../../../src/components/McSlider.vue';
 import McCard from '../../../src/components/McCard.vue';
 import McLayout from '../../../src/components/McLayout.vue';
+import McContainer from '../../../src/components/McContainer.vue';
+import McRow from '../../../src/components/McRow.vue';
+import McCol from '../../../src/components/McCol.vue';
+import McSpacer from '../../../src/components/McSpacer.vue';
 import McHeader from '../../../src/components/McHeader.vue';
 import McAppbar from '../../../src/components/McAppbar.vue';
 import McScrollView from '../../../src/components/McScrollView.vue';
@@ -46,6 +50,10 @@ const components = {
   'mc-slider': McSlider,
   'mc-card': McCard,
   'mc-layout': McLayout,
+  'mc-container': McContainer,
+  'mc-row': McRow,
+  'mc-col': McCol,
+  'mc-spacer': McSpacer,
   'mc-header': McHeader,
   'mc-appbar': McAppbar,
   'mc-scroll-view': McScrollView,

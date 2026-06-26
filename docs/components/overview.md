@@ -171,6 +171,24 @@ McUI Vue 所有可用组件一览，分类展示、点击标题可跳转到对�
 
 ## 布局
 
+### [Grid 栅格](/components/grid)
+
+<div class="mc-demo mc-demo--column" style="width: 100%">
+  <mc-container fluid class="mc-overview-grid">
+    <mc-row dense>
+      <mc-col cols="12" md="6" lg="4">
+        <div class="mc-overview-grid__cell">12 / 6 / 4</div>
+      </mc-col>
+      <mc-col cols="12" md="6" lg="4">
+        <div class="mc-overview-grid__cell mc-overview-grid__cell--moss">12 / 6 / 4</div>
+      </mc-col>
+      <mc-col cols="12" md="6" lg="4">
+        <div class="mc-overview-grid__cell mc-overview-grid__cell--copper">12 / 6 / 4</div>
+      </mc-col>
+    </mc-row>
+  </mc-container>
+</div>
+
 ### [Layout / Header](/components/layout)
 
 <div class="mc-demo mc-demo--column" style="width: 100%; padding: 0">
@@ -277,3 +295,38 @@ McUI Vue 所有可用组件一览，分类展示、点击标题可跳转到对�
   <mc-button @click="showLoading">显示加载遮罩（1.8s）</mc-button>
   <mc-loading-mask :visible="loadingVisible" text="生成世界中" />
 </div>
+
+<style scoped>
+.mc-overview-grid {
+  background: #242526;
+  border: 2px solid #1e1e1f;
+  box-sizing: border-box;
+  overflow: hidden;
+  width: 100%;
+}
+
+.mc-overview-grid__cell {
+  align-items: center;
+  background: #4f6f8f;
+  border: 2px solid #1d2b38;
+  box-shadow: inset 0 2px rgba(255, 255, 255, 0.22), inset 0 -3px rgba(0, 0, 0, 0.24);
+  box-sizing: border-box;
+  color: #fff;
+  display: flex;
+  font-family: 'Minecraft Seven', sans-serif;
+  justify-content: center;
+  min-height: 42px;
+  padding: 10px;
+  text-align: center;
+}
+
+.mc-overview-grid__cell--moss {
+  background: #5f7d4b;
+  border-color: #25351d;
+}
+
+.mc-overview-grid__cell--copper {
+  background: #9b6a43;
+  border-color: #3d2618;
+}
+</style>
