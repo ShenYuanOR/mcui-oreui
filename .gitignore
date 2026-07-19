@@ -20,6 +20,7 @@ Thumbs.db
 .idea/
 .vscode/*
 !.vscode/extensions.json
+.codebuddy/
 
 # 本地私有 / AI 协作文件（含 token 名等，禁止上传网络）
 CLAUDE.md

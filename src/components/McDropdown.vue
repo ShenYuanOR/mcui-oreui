@@ -38,6 +38,7 @@ function toggle() {
 
 function select(index1: number) {
   if (props.disabled) return
+  playSound('click')
   if (index1 !== props.modelValue) {
     emit('update:modelValue', index1)
     emit('change', index1)

@@ -159,6 +159,24 @@
     display: none;
 }
 
+/* Slider 中 Tooltip 适配（撑满轨道以保持定位上下文一致） */
+.slider__tip-wrapper {
+    display: block;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.slider__tip-wrapper .slider_slider {
+    pointer-events: auto;
+}
+
+/* Tooltip 内容跟随滑块位置 */
+.slider__tip-wrapper .mc-tooltip__content {
+    bottom: calc(100% + 18px);
+    left: var(--thumb-pos, 50%);
+}
+
 /* Progress 进度条 */
 .mc-progress {
     color: #FFFFFF;
@@ -222,6 +240,21 @@
 @keyframes mc-progress-indeterminate {
     0% { transform: translateX(-110%); }
     100% { transform: translateX(230%); }
+}
+
+/* Spinner 加载动画 */
+.mc-spinner {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    position: relative;
+    vertical-align: middle;
+}
+
+.mc-spinner__icon {
+    display: block;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
 }
 
 /* Radio 单选 */
@@ -626,9 +659,7 @@
     display: flex;
     font-family: "Minecraft Seven", sans-serif;
     font-size: 14px;
-    gap: 12px;
-    min-height: 42px;
-    padding: 6px 12px;
+    height: 100px;
     width: 100%;
 }
 
@@ -637,31 +668,135 @@
     font-family: "Minecraft Seven", sans-serif;
     font-size: 16px;
     font-weight: 700;
+    padding: 0 12px;
     white-space: nowrap;
 }
 
 .mc-appbar__left {
     align-items: center;
+    align-self: stretch;
     display: flex;
     flex-shrink: 0;
-    gap: 8px;
+    margin-bottom: 1px;
 }
 
 .mc-appbar__center {
     align-items: center;
+    align-self: stretch;
     display: flex;
     flex: 1 1 0;
-    gap: 8px;
     justify-content: center;
+    margin-bottom: 1px;
     min-width: 0;
 }
 
 .mc-appbar__right {
     align-items: center;
+    align-self: stretch;
     display: flex;
     flex-shrink: 0;
-    gap: 8px;
+    margin-bottom: 1px;
 }
+
+/* 当左区有按钮时，中间区左边框变白 */
+.mc-appbar:has(.mc-appbar__left .mc-appbar-button) .mc-appbar__center,
+.mc-appbar:has(.mc-appbar__left .mc-appbar-icon) .mc-appbar__center,
+.mc-appbar:has(.mc-appbar__left .btn_with_tooltip_content) .mc-appbar__center {
+    border-left: 2px solid #FFFFFF;
+}
+
+/* 当右区有按钮时，中间区右边框变灰 */
+.mc-appbar:has(.mc-appbar__right .mc-appbar-button) .mc-appbar__center,
+.mc-appbar:has(.mc-appbar__right .mc-appbar-icon) .mc-appbar__center,
+.mc-appbar:has(.mc-appbar__right .btn_with_tooltip_content) .mc-appbar__center {
+    border-right: 2px solid #A1A3A5;
+}
+
+/* Appbar 专用按钮（参考 McButton 用 box-shadow 实现边框，避免遮挡顶栏底部） */
+.mc-appbar-button {
+    align-items: center;
+    align-self: stretch;
+    background-color: transparent;
+    border: none;
+    box-shadow: inset 2px 0 0 #FFFFFF, inset -2px 0 0 #A1A3A5;
+    box-sizing: border-box;
+    color: #3C3C3C;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "Minecraft Seven", sans-serif;
+    font-size: 14px;
+    gap: 4px;
+    height: auto;
+    margin: 0;
+    min-width: unset;
+    padding: 0 12px;
+    width: auto;
+}
+
+.mc-appbar-button:hover:not(:disabled) {
+    background-color: #F4F6F9;
+}
+
+.mc-appbar-button:active:not(:disabled) {
+    background-color: #D0D1D4;
+    box-shadow: inset 2px 0 0 #FFFFFF, inset -2px 0 0 #E6E8EB,
+                inset 0 2px 0 #E6E8EB, inset 0 -2px 0 #EBEDEF;
+}
+
+.mc-appbar-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.mc-appbar-button .btn_icon {
+    --mc-icon-size: 16px;
+}
+
+/* Appbar 图标按钮 */
+.mc-appbar-icon {
+    align-items: center;
+    align-self: stretch;
+    aspect-ratio: 1 / 1;
+    background-color: transparent;
+    border: none;
+    box-shadow: inset 2px 0 0 #FFFFFF, inset -2px 0 0 #A1A3A5;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-flex;
+    height: auto;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    width: auto;
+}
+
+.mc-appbar-icon:hover:not(:disabled) {
+    background-color: #F4F6F9;
+}
+
+.mc-appbar-icon:active:not(:disabled) {
+    background-color: #D0D1D4;
+}
+
+.mc-appbar-icon:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.mc-appbar-icon .btn_icon {
+    --mc-icon-size: 16px;
+}
+
+.mc-appbar .btn_with_tooltip_content {
+    align-self: stretch;
+    display: flex;
+    margin: 0;
+}
+
+.mc-appbar .btn_with_tooltip_content .mc-appbar-button {
+    margin: 0;
+}
+
 
 /* Panel 面板 */
 .mc-panel {
@@ -833,7 +968,7 @@
     flex-direction: column;
     font-family: "Minecraft Seven", sans-serif;
     position: fixed;
-    z-index: 22;
+    z-index: 40;
 }
 
 .mc-drawer--left,
@@ -915,6 +1050,16 @@
     padding: 10px 12px;
 }
 
+/* 内联模式（teleport="false"）：覆盖层与抽屉使用 absolute 定位，
+   父容器需设置 position: relative; overflow: hidden */
+.mc-drawer-overlay--inline {
+    position: absolute;
+}
+
+.mc-drawer--inline {
+    position: absolute;
+}
+
 /* ScrollView 滚动区 */
 .mc-scroll-view {
     position: relative;
@@ -926,6 +1071,7 @@
     min-width: 0;
     overflow-x: hidden;
     overflow-y: auto;
+    padding-left: 22px;
     padding-right: 22px;
     scrollbar-width: none;
     width: 100%;

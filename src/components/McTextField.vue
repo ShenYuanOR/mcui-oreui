@@ -3,6 +3,8 @@ import { nextTick, onMounted, ref, watch } from 'vue'
 
 type FilterType = 'text' | 'all' | 'number' | 'letter' | 'operator' | 'base' | 'none'
 
+defineOptions({ inheritAttrs: false })
+
 const props = withDefaults(
   defineProps<{
     /** 输入内容（v-model） */
@@ -17,6 +19,8 @@ const props = withDefaults(
     hint?: string
     /** 是否禁用 */
     disabled?: boolean
+    /** 密码模式（替换为 input[type=password]，自动启用单行） */
+    password?: boolean
   }>(),
   {
     modelValue: '',
@@ -25,6 +29,7 @@ const props = withDefaults(
     maxLength: 0,
     hint: '',
     disabled: false,
+    password: false,
   },
 )
 
@@ -34,9 +39,12 @@ const emit = defineEmits<{
   (e: 'invalid-input'): void
 }>()
 
-const input = ref<HTMLTextAreaElement | null>(null)
+const input = ref<HTMLTextAreaElement | HTMLInputElement | null>(null)
 const composing = ref(false)
 const focused = ref(false)
+
+/** 输入元素是否为密码模式（据此调整 DOM 操作） */
+const isPasswordInput = () => props.password && input.value instanceof HTMLInputElement
 
 const hintVisible = ref(true)
 function refreshHint() {
@@ -76,6 +84,7 @@ function filterValue(value: string): { valid: boolean; filtered: string } {
 }
 
 function autoResize() {
+  if (isPasswordInput()) return
   const el = input.value
   if (!el) return
   el.style.height = 'auto'
@@ -103,16 +112,16 @@ function commit(raw: string) {
 
 function onInput(e: Event) {
   if (composing.value) return
-  commit((e.target as HTMLTextAreaElement).value)
+  commit((e.target as HTMLTextAreaElement | HTMLInputElement).value)
 }
 
 function onCompositionEnd(e: CompositionEvent) {
   composing.value = false
-  commit((e.target as HTMLTextAreaElement).value)
+  commit((e.target as HTMLTextAreaElement | HTMLInputElement).value)
 }
 
 function onKeydown(e: KeyboardEvent) {
-  if (props.singleLine && e.key === 'Enter') e.preventDefault()
+  if (!isPasswordInput() && props.singleLine && e.key === 'Enter') e.preventDefault()
 }
 
 function onFocus() {
@@ -137,10 +146,27 @@ onMounted(() => {
 
 <template>
   <text-field :class="{ disabled_text_field: disabled }">
+    <input
+      v-if="password"
+      ref="input"
+      class="input"
+      type="password"
+      autocomplete="off"
+      v-bind="$attrs"
+      :value="modelValue"
+      :disabled="disabled"
+      @input="onInput"
+      @focus="onFocus"
+      @blur="onBlur"
+      @compositionstart="composing = true"
+      @compositionend="onCompositionEnd"
+    />
     <textarea
+      v-else
       ref="input"
       class="input"
       rows="1"
+      v-bind="$attrs"
       :value="modelValue"
       :disabled="disabled"
       @input="onInput"

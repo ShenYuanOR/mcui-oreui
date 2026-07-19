@@ -12,6 +12,8 @@ import McCard from '../../../src/components/McCard.vue';
 import McLayout from '../../../src/components/McLayout.vue';
 import McHeader from '../../../src/components/McHeader.vue';
 import McAppbar from '../../../src/components/McAppbar.vue';
+import McAppbarButton from '../../../src/components/McAppbarButton.vue';
+import McAppbarIcon from '../../../src/components/McAppbarIcon.vue';
 import McScrollView from '../../../src/components/McScrollView.vue';
 import McModal from '../../../src/components/McModal.vue';
 import McLoadingMask from '../../../src/components/McLoadingMask.vue';
@@ -31,6 +33,7 @@ import McDrawer from '../../../src/components/McDrawer.vue';
 import McFormattedText from '../../../src/components/McFormattedText.vue';
 import McTcode from '../../../src/components/McTcode.vue';
 import McIcon from '../../../src/components/McIcon.vue';
+import McSpinner from '../../../src/components/McSpinner.vue';
 import McSkinViewer from '../../../src/components/McSkinViewer.vue';
 import McIconGallery from './McIconGallery.vue';
 
@@ -48,6 +51,8 @@ const components = {
   'mc-layout': McLayout,
   'mc-header': McHeader,
   'mc-appbar': McAppbar,
+  'mc-appbar-button': McAppbarButton,
+  'mc-appbar-icon': McAppbarIcon,
   'mc-scroll-view': McScrollView,
   'mc-modal': McModal,
   'mc-loading-mask': McLoadingMask,
@@ -67,6 +72,7 @@ const components = {
   'mc-formatted-text': McFormattedText,
   'mc-tcode': McTcode,
   'mc-icon': McIcon,
+  'mc-spinner': McSpinner,
   'mc-skin-viewer': McSkinViewer,
   'mc-icon-gallery': McIconGallery,
 };

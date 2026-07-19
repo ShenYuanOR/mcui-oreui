@@ -25,6 +25,16 @@ export default defineConfig({
     },
   },
   themeConfig: {
+    search: {
+      provider: 'local',
+    },
+    lastUpdated: {
+      text: '最后更新于',
+      formatOptions: {
+        dateStyle: 'short',
+        timeStyle: 'short',
+      },
+    },
     nav: [
       { text: '文档', link: '/guide/getting-started' },
       { text: '设计 Token', link: '/guide/design-tokens' },
@@ -36,6 +46,7 @@ export default defineConfig({
         text: '指南',
         items: [
           { text: '快速开始', link: '/guide/getting-started' },
+          { text: '音效（useSound）', link: '/guide/useSound' },
           { text: '设计 Token', link: '/guide/design-tokens' },
           { text: '与 OreUI 的区别', link: '/guide/about' },
         ],
@@ -59,10 +70,12 @@ export default defineConfig({
         items: [
           { text: 'Icon 图标', link: '/components/icon' },
           { text: 'Button 按钮', link: '/components/button' },
+
           { text: 'Card 链接卡片', link: '/components/card' },
           { text: 'Panel 面板', link: '/components/panel' },
           { text: 'Tooltip 提示', link: '/components/tooltip' },
           { text: 'Progress 进度条', link: '/components/progress' },
+          { text: 'Spinner 加载动画', link: '/components/spinner' },
           { text: 'SkinViewer 皮肤展示', link: '/components/skinviewer' },
         ],
       },
@@ -81,8 +94,10 @@ export default defineConfig({
       {
         text: '布局',
         items: [
-          { text: 'Layout / Header', link: '/components/layout' },
+          { text: 'Layout 布局', link: '/components/layout' },
           { text: 'Appbar 顶栏', link: '/components/appbar' },
+          { text: '└ AppbarButton 顶栏按钮', link: '/components/appbar-button' },
+          { text: '└ AppbarIcon 图标按钮', link: '/components/appbar-icon' },
           { text: 'Tabs 标签页', link: '/components/tabs' },
           { text: 'ButtonTabs 按钮式标签', link: '/components/button-tabs' },
           { text: 'List 列表', link: '/components/list' },

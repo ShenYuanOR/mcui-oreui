@@ -40,6 +40,22 @@ const value = ref(64)
 <mc-progress label="正在搜索服务器" indeterminate />
 ```
 
+## 自定义颜色
+
+通过 `bgcolor` 属性设置进度条颜色，设置后 `status` 颜色不再生效。
+
+<div class="mc-demo mc-demo--column">
+  <mc-progress :value="64" label="下载资源包" bgcolor="#2E6BE5" />
+  <mc-progress :value="64" label="加载世界" bgcolor="#9a3f3f" />
+  <mc-progress :value="64" label="提交表单" bgcolor="#ff8800" />
+</div>
+
+```html
+<mc-progress :value="64" label="下载资源包" bgcolor="#2E6BE5" />
+<mc-progress :value="64" label="加载世界" bgcolor="#9a3f3f" />
+<mc-progress :value="64" label="提交表单" bgcolor="#ff8800" />
+```
+
 ## Props
 
 | 名称 | 类型 | 默认 | 说明 |
@@ -50,3 +66,4 @@ const value = ref(64)
 | `showValue` | `boolean` | `true` | 是否显示百分比 |
 | `indeterminate` | `boolean` | `false` | 是否为不确定进度 |
 | `status` | `'normal' \| 'success' \| 'error'` | `normal` | 语义状态 |
+| `bgcolor` | `string` | `''` | 自定义进度条颜色，设置后 status 颜色失效 |
