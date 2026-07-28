@@ -31,11 +31,13 @@
         "**/*.css"
     ],
     "files": [
-        "dist"
+        "dist",
+        "web-types.json"
     ],
     "main": "./dist/mcui-oreui.umd.cjs",
     "module": "./dist/mcui-oreui.js",
     "types": "./dist/index.d.ts",
+    "web-types": "./web-types.json",
     "exports": {
         ".": {
             "types": "./dist/index.d.ts",
@@ -45,7 +47,7 @@
         "./style.css": "./dist/mcui-oreui.css"
     },
     "scripts": {
-        "build": "vue-tsc -p tsconfig.build.json && vite build",
+        "build": "vue-tsc -p tsconfig.build.json && vite build && node scripts/write-dist-package.mjs",
         "docs:dev": "vitepress dev docs",
         "docs:build": "vitepress build docs",
         "docs:preview": "vitepress preview docs",

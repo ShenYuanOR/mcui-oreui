@@ -1,0 +1,189 @@
+{
+    "$schema": "https://json.schemastore.org/web-types",
+    "name": "mcui-oreui",
+    "version": "1.2.1",
+    "framework": "vue",
+    "description-markup": "markdown",
+    "js-types-syntax": "typescript",
+    "contributions": {
+        "html": {
+            "tags": [
+                {
+                    "name": "mc-icon",
+                    "description": "内置图标组件。",
+                    "source": { "module": "mcui-oreui", "symbol": "McIcon" }
+                },
+                {
+                    "name": "mc-button",
+                    "description": "Minecraft Ore UI 风格按钮，支持图标、状态色、尺寸和点击音效。",
+                    "source": { "module": "mcui-oreui", "symbol": "McButton" }
+                },
+                {
+                    "name": "mc-card",
+                    "description": "可点击的信息卡片。",
+                    "source": { "module": "mcui-oreui", "symbol": "McCard" }
+                },
+                {
+                    "name": "mc-panel",
+                    "description": "Minecraft 风格面板容器。",
+                    "source": { "module": "mcui-oreui", "symbol": "McPanel" }
+                },
+                {
+                    "name": "mc-tooltip",
+                    "description": "悬浮提示组件。",
+                    "source": { "module": "mcui-oreui", "symbol": "McTooltip" }
+                },
+                {
+                    "name": "mc-progress",
+                    "description": "进度条组件。",
+                    "source": { "module": "mcui-oreui", "symbol": "McProgress" }
+                },
+                {
+                    "name": "mc-spinner",
+                    "description": "旋转加载图标。",
+                    "source": { "module": "mcui-oreui", "symbol": "McSpinner" }
+                },
+                {
+                    "name": "mc-checkbox",
+                    "description": "勾选框组件。",
+                    "source": { "module": "mcui-oreui", "symbol": "McCheckbox" }
+                },
+                {
+                    "name": "mc-radio",
+                    "description": "单选框组件。",
+                    "source": { "module": "mcui-oreui", "symbol": "McRadio" }
+                },
+                {
+                    "name": "mc-radio-group",
+                    "description": "单选框组。",
+                    "source": { "module": "mcui-oreui", "symbol": "McRadioGroup" }
+                },
+                {
+                    "name": "mc-form-field",
+                    "description": "表单字段容器。",
+                    "source": { "module": "mcui-oreui", "symbol": "McFormField" }
+                },
+                {
+                    "name": "mc-switch",
+                    "description": "开关切换组件。",
+                    "source": { "module": "mcui-oreui", "symbol": "McSwitch" }
+                },
+                {
+                    "name": "mc-dropdown",
+                    "description": "下拉选择器。",
+                    "source": { "module": "mcui-oreui", "symbol": "McDropdown" }
+                },
+                {
+                    "name": "mc-text-field",
+                    "description": "文本输入框。",
+                    "source": { "module": "mcui-oreui", "symbol": "McTextField" }
+                },
+                {
+                    "name": "mc-slider",
+                    "description": "滑块选择器。",
+                    "source": { "module": "mcui-oreui", "symbol": "McSlider" }
+                },
+                {
+                    "name": "mc-layout",
+                    "description": "页面布局容器。",
+                    "source": { "module": "mcui-oreui", "symbol": "McLayout" }
+                },
+                {
+                    "name": "mc-container",
+                    "description": "响应式栅格容器。",
+                    "source": { "module": "mcui-oreui", "symbol": "McContainer" }
+                },
+                {
+                    "name": "mc-row",
+                    "description": "响应式栅格行。",
+                    "source": { "module": "mcui-oreui", "symbol": "McRow" }
+                },
+                {
+                    "name": "mc-col",
+                    "description": "响应式栅格列。",
+                    "source": { "module": "mcui-oreui", "symbol": "McCol" }
+                },
+                {
+                    "name": "mc-spacer",
+                    "description": "栅格弹性占位组件。",
+                    "source": { "module": "mcui-oreui", "symbol": "McSpacer" }
+                },
+                {
+                    "name": "mc-header",
+                    "description": "标题栏组件。",
+                    "source": { "module": "mcui-oreui", "symbol": "McHeader" }
+                },
+                {
+                    "name": "mc-appbar",
+                    "description": "应用栏组件。",
+                    "source": { "module": "mcui-oreui", "symbol": "McAppbar" }
+                },
+                {
+                    "name": "mc-tabs",
+                    "description": "标签页组件。",
+                    "source": { "module": "mcui-oreui", "symbol": "McTabs" }
+                },
+                {
+                    "name": "mc-button-tabs",
+                    "description": "按钮式标签页组件。",
+                    "source": { "module": "mcui-oreui", "symbol": "McButtonTabs" }
+                },
+                {
+                    "name": "mc-list",
+                    "description": "列表容器，配合 mc-list-item 使用。",
+                    "source": { "module": "mcui-oreui", "symbol": "McList" }
+                },
+                {
+                    "name": "mc-list-item",
+                    "description": "声明式列表项。",
+                    "source": { "module": "mcui-oreui", "symbol": "McListItem" }
+                },
+                {
+                    "name": "mc-scroll-view",
+                    "description": "滚动视图组件。",
+                    "source": { "module": "mcui-oreui", "symbol": "McScrollView" }
+                },
+                {
+                    "name": "mc-modal",
+                    "description": "模态弹窗。",
+                    "source": { "module": "mcui-oreui", "symbol": "McModal" }
+                },
+                {
+                    "name": "mc-confirm",
+                    "description": "确认弹窗。",
+                    "source": { "module": "mcui-oreui", "symbol": "McConfirm" }
+                },
+                {
+                    "name": "mc-drawer",
+                    "description": "抽屉面板。",
+                    "source": { "module": "mcui-oreui", "symbol": "McDrawer" }
+                },
+                {
+                    "name": "mc-loading-mask",
+                    "description": "加载遮罩。",
+                    "source": { "module": "mcui-oreui", "symbol": "McLoadingMask" }
+                },
+                {
+                    "name": "mc-pop-host",
+                    "description": "全局 Pop 提示宿主组件。",
+                    "source": { "module": "mcui-oreui", "symbol": "McPopHost" }
+                },
+                {
+                    "name": "mc-skin-viewer",
+                    "description": "Minecraft 皮肤 3D 折叠展示。",
+                    "source": { "module": "mcui-oreui", "symbol": "McSkinViewer" }
+                },
+                {
+                    "name": "mc-tcode",
+                    "description": "Minecraft § 格式化代码文本渲染。",
+                    "source": { "module": "mcui-oreui", "symbol": "McTcode" }
+                },
+                {
+                    "name": "mc-formatted-text",
+                    "description": "Minecraft 格式化文本渲染组件。",
+                    "source": { "module": "mcui-oreui", "symbol": "McFormattedText" }
+                }
+            ]
+        }
+    }
+}

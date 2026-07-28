@@ -158,6 +158,127 @@ const components = {
   'mc-skin-viewer': McSkinViewer,
 };
 
+export interface McUIVueGlobalComponentNames {
+  McButton: typeof McButton;
+  McCheckbox: typeof McCheckbox;
+  McSwitch: typeof McSwitch;
+  McDropdown: typeof McDropdown;
+  McTextField: typeof McTextField;
+  McSlider: typeof McSlider;
+  McCard: typeof McCard;
+  McLayout: typeof McLayout;
+  McContainer: typeof McContainer;
+  McRow: typeof McRow;
+  McCol: typeof McCol;
+  McSpacer: typeof McSpacer;
+  McHeader: typeof McHeader;
+  McAppbar: typeof McAppbar;
+  McScrollView: typeof McScrollView;
+  McModal: typeof McModal;
+  McLoadingMask: typeof McLoadingMask;
+  McPopHost: typeof McPopHost;
+  McTooltip: typeof McTooltip;
+  McProgress: typeof McProgress;
+  McRadio: typeof McRadio;
+  McRadioGroup: typeof McRadioGroup;
+  McTabs: typeof McTabs;
+  McButtonTabs: typeof McButtonTabs;
+  McList: typeof McList;
+  McListItem: typeof McListItem;
+  McPanel: typeof McPanel;
+  McFormField: typeof McFormField;
+  McConfirm: typeof McConfirm;
+  McDrawer: typeof McDrawer;
+  McFormattedText: typeof McFormattedText;
+  McTcode: typeof McTcode;
+  McIcon: typeof McIcon;
+  McSpinner: typeof McSpinner;
+  McSkinViewer: typeof McSkinViewer;
+}
+
+export interface McUIVueGlobalKebabComponents {
+  /** Minecraft Ore UI 风格按钮。 */
+  'mc-button': typeof McButton;
+  /** 勾选框。 */
+  'mc-checkbox': typeof McCheckbox;
+  /** 开关切换。 */
+  'mc-switch': typeof McSwitch;
+  /** 下拉选择器。 */
+  'mc-dropdown': typeof McDropdown;
+  /** 文本输入框。 */
+  'mc-text-field': typeof McTextField;
+  /** 滑块选择器。 */
+  'mc-slider': typeof McSlider;
+  /** 信息卡片。 */
+  'mc-card': typeof McCard;
+  /** 页面布局容器。 */
+  'mc-layout': typeof McLayout;
+  /** 响应式栅格容器。 */
+  'mc-container': typeof McContainer;
+  /** 响应式栅格行。 */
+  'mc-row': typeof McRow;
+  /** 响应式栅格列。 */
+  'mc-col': typeof McCol;
+  /** 栅格弹性占位。 */
+  'mc-spacer': typeof McSpacer;
+  /** 标题栏。 */
+  'mc-header': typeof McHeader;
+  /** 应用栏。 */
+  'mc-appbar': typeof McAppbar;
+  /** 滚动视图。 */
+  'mc-scroll-view': typeof McScrollView;
+  /** 模态弹窗。 */
+  'mc-modal': typeof McModal;
+  /** 加载遮罩。 */
+  'mc-loading-mask': typeof McLoadingMask;
+  /** 全局 Pop 提示宿主。 */
+  'mc-pop-host': typeof McPopHost;
+  /** Tooltip 提示。 */
+  'mc-tooltip': typeof McTooltip;
+  /** 进度条。 */
+  'mc-progress': typeof McProgress;
+  /** 单选框。 */
+  'mc-radio': typeof McRadio;
+  /** 单选框组。 */
+  'mc-radio-group': typeof McRadioGroup;
+  /** 标签页。 */
+  'mc-tabs': typeof McTabs;
+  /** 按钮式标签页。 */
+  'mc-button-tabs': typeof McButtonTabs;
+  /** 列表容器。 */
+  'mc-list': typeof McList;
+  /** 列表项。 */
+  'mc-list-item': typeof McListItem;
+  /** 面板容器。 */
+  'mc-panel': typeof McPanel;
+  /** 表单字段容器。 */
+  'mc-form-field': typeof McFormField;
+  /** 确认弹窗。 */
+  'mc-confirm': typeof McConfirm;
+  /** 抽屉面板。 */
+  'mc-drawer': typeof McDrawer;
+  /** Minecraft 格式化文本渲染。 */
+  'mc-formatted-text': typeof McFormattedText;
+  /** Minecraft § 代码文本渲染。 */
+  'mc-tcode': typeof McTcode;
+  /** 内置图标。 */
+  'mc-icon': typeof McIcon;
+  /** 旋转加载图标。 */
+  'mc-spinner': typeof McSpinner;
+  /** Minecraft 皮肤查看器。 */
+  'mc-skin-viewer': typeof McSkinViewer;
+}
+
+export type McUIVueGlobalComponents = McUIVueGlobalComponentNames & McUIVueGlobalKebabComponents;
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents extends McUIVueGlobalComponents {}
+}
+
+declare module 'vue' {
+  export interface GlobalComponents extends McUIVueGlobalComponents {}
+}
+
 const McUIVue: Plugin = {
   install(app: App) {
     for (const [name, comp] of Object.entries(components)) {

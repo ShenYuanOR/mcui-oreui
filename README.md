@@ -19,6 +19,8 @@
 - 🔌 **组合式 / 选项式 API 通用** —— 导入一次全局可用，两种风格皆可
 - 🔊 **内置音效** —— 移植原项目 7 个按键音效，可全局开关
 - 🧰 **内置图标库** —— 支持普通图标、按键映射图标、彩色图标，统一通过 `<mc-icon>` 或组件 `icon` 属性使用
+- 💡 **编辑器组件补全** —— 内置 Vue 全局组件类型与 web-types，VSCode / Volar 等工具可补全 `mc-*` 标签与组件 props
+- 🧱 **稳定布局反馈** —— 按钮按下时固定外框与内部层高度，仅改变文字/图标位置和压感阴影
 - 🎨 **Minecraft 格式化代码** —— 支持 `§` 颜色 / 样式代码解析与渲染，可用于 MOTD、世界名等文本预览
 - 📦 **Vite 库模式打包** —— 产出 ESM / UMD / `.d.ts` 类型声明
 
@@ -53,6 +55,12 @@ createApp(App).use(McUIVue).mount('#app')
   <mc-switch v-model="enabled" />
 </template>
 ```
+
+### 编辑器组件补全
+
+包内置了 Vue `@vue/runtime-core` 的 `GlobalComponents` 类型增强和 `web-types.json`。在项目入口导入并安装 `mcui-oreui` 后，VSCode / Volar 等开发工具会在 Vue 模板中提示 `<mc-button>`、`<mc-list>`、`<mc-skin-viewer>` 等 `mc-*` 标签，并继续提供组件 props / 事件类型提示；使用方不需要额外配置 `jsconfig`、`tsconfig` 或 Volar 插件。
+
+如果编辑器已打开但没有立刻刷新提示，重启 TypeScript / Vue language server 即可重新读取依赖类型。
 
 ### 按需引入
 
@@ -99,6 +107,8 @@ npm run docs:preview  # 预览已构建文档
 
 npm run build         # 构建组件库（类型检查 + Vite 库打包 → dist/）
 ```
+
+`npm run build` 会在 `dist/` 内写入独立的 `package.json` 与 `web-types.json`。需要在本地业务项目中验证未发布产物时，推荐依赖 `file:../oreui-vue/dist`，这样编辑器和 Vite 读取的是接近 npm 发布形态的干净产物包。
 
 ## 技术栈
 

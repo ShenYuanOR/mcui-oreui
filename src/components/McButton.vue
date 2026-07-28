@@ -52,7 +52,6 @@ const btnCustomStyle = computed(() => {
   return {
     backgroundColor: props.bgcolor,
     boxShadow: `inset 0 -4px ${baseShadow}, inset 3px 3px ${hl}, inset -3px -7px ${hl2}`,
-    paddingBottom: '6px',
   }
 })
 
@@ -81,8 +80,10 @@ function onClick(ev: MouseEvent) {
       @mousedown="isPressed = true"
       @mouseup="isPressed = false"
     >
-      <McIcon v-if="icon" :name="icon" class="btn_icon" />
-      <slot />
+      <span class="btn__content">
+        <mc-icon v-if="icon" :name="icon" class="btn_icon" />
+        <slot />
+      </span>
     </button>
     <div
       class="btn_tooltip mc-tooltip__content"
@@ -101,7 +102,9 @@ function onClick(ev: MouseEvent) {
     @mousedown="isPressed = true"
     @mouseup="isPressed = false"
   >
-    <McIcon v-if="icon" :name="icon" class="btn_icon" />
-    <slot />
+    <span class="btn__content">
+      <mc-icon v-if="icon" :name="icon" class="btn_icon" />
+      <slot />
+    </span>
   </button>
 </template>

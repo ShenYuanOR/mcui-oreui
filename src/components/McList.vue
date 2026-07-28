@@ -168,13 +168,13 @@ function handleItemKeydown(event: KeyboardEvent, item: McListRenderedItem) {
     >
       <!-- 单选/多选指示器 -->
       <span v-if="mode && (mode === 'single' ? showRadio : true)" class="mc-list__item-indicator">
-        <McRadio
+        <mc-radio
           v-if="mode === 'single'"
           :model-value="(modelValue as McListValue)"
           :value="item.value"
           :disabled="item.disabled"
         />
-        <McCheckbox
+        <mc-checkbox
           v-if="mode === 'multiple'"
           :model-value="Array.isArray(modelValue) && modelValue.includes(item.value)"
           :disabled="item.disabled"
@@ -190,9 +190,9 @@ function handleItemKeydown(event: KeyboardEvent, item: McListRenderedItem) {
         @pointerup.stop
         @keydown.stop
       >
-        <McListSlotOutlet :slot="item.itemLeft" :item="item" />
+        <mc-list-slot-outlet :slot="item.itemLeft" :item="item" />
       </div>
-      <McIcon v-else-if="item.icon" :name="item.icon" class="mc-list__item-icon mc-list__item-icon--left" />
+      <mc-icon v-else-if="item.icon" :name="item.icon" class="mc-list__item-icon mc-list__item-icon--left" />
 
       <div class="mc-list__item-content">
         <span class="mc-list__item-label">{{ item.label }}</span>
@@ -208,9 +208,9 @@ function handleItemKeydown(event: KeyboardEvent, item: McListRenderedItem) {
         @pointerup.stop
         @keydown.stop
       >
-        <McListSlotOutlet :slot="item.itemRight" :item="item" />
+        <mc-list-slot-outlet :slot="item.itemRight" :item="item" />
       </div>
-      <McIcon v-else-if="item.iconRight" :name="item.iconRight" class="mc-list__item-icon mc-list__item-icon--right" />
+      <mc-icon v-else-if="item.iconRight" :name="item.iconRight" class="mc-list__item-icon mc-list__item-icon--right" />
     </div>
   </div>
 </template>

@@ -630,65 +630,76 @@ button {
 }
 
 .btn {
+    box-sizing: border-box;
     cursor: pointer;
     font-family: "NotoSans Bold", sans-serif;
     height: 40px;
     justify-self: center;
     margin: 6px;
+    max-height: 40px;
+    min-height: 40px;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
 }
 
 .btn:active:not(.disabled_btn) {
-    height: 36px;
-    margin-top: 10px;
-    padding-bottom: 2px;
+    height: 40px;
+    margin-top: 6px;
+    padding: 0;
+    transform: none;
 }
 
 .extra_small_btn {
     font-size: 12px;
     height: 28px;
+    max-height: 28px;
+    min-height: 28px;
     width: 100px;
 }
 
 .extra_small_btn:active:not(.disabled_btn) {
-    height: 24px;
-    margin-top: 10px;
-    padding-bottom: 2px;
+    height: 28px;
+    margin-top: 6px;
 }
 
 .small_btn {
     font-size: 14px;
     height: 32px;
+    max-height: 32px;
+    min-height: 32px;
     width: 130px;
 }
 
 .small_btn:active:not(.disabled_btn) {
-    height: 28px;
-    margin-top: 10px;
-    padding-bottom: 2px;
+    height: 32px;
+    margin-top: 6px;
 }
 
 .middle_btn {
     font-size: 16px;
     height: 40px;
+    max-height: 40px;
+    min-height: 40px;
     width: 200px;
 }
 
 .middle_btn:active:not(.disabled_btn) {
-    height: 36px;
-    margin-top: 10px;
-    padding-bottom: 2px;
+    height: 40px;
+    margin-top: 6px;
 }
 
 .large_btn {
     font-size: 18px;
     height: 48px;
+    max-height: 48px;
+    min-height: 48px;
     width: 272px;
 }
 
 .large_btn:active:not(.disabled_btn) {
-    height: 44px;
-    margin-top: 10px;
-    padding-bottom: 2px;
+    height: 48px;
+    margin-top: 6px;
 }
 
 .normal_btn {
@@ -696,7 +707,6 @@ button {
     border: 2px solid #1E1E1F;
     box-shadow: inset 0 -4px #58585A, inset 3px 3px rgba(255, 255, 255, 0.6), inset -3px -7px rgba(255, 255, 255, 0.4);
     color: #000000;
-    padding-bottom: 6px;
 }
 
 .normal_btn:hover:not(.disabled_btn) {
@@ -706,7 +716,7 @@ button {
 
 .normal_btn:active:not(.disabled_btn) {
     background-color: #B1B2B5;
-    box-shadow: inset 3px 3px rgba(255, 255, 255, 0.8), inset -3px -3px rgba(255, 255, 255, 0.6);
+    box-shadow: inset 0 -4px #58585A, inset 3px 3px rgba(255, 255, 255, 0.8), inset -3px -7px rgba(255, 255, 255, 0.6);
 }
 
 .primary_btn {
@@ -714,7 +724,6 @@ button {
     border: 2px solid #1E1E1F;
     box-shadow: inset 0 -4px #1D4D13, inset 3px 3px rgba(255, 255, 255, 0.2), inset -3px -7px rgba(255, 255, 255, 0.1);
     color: #FFFFFF;
-    padding-bottom: 6px;
 }
 
 .primary_btn:hover {
@@ -724,7 +733,7 @@ button {
 
 .primary_btn:active {
     background-color: #1D4D13;
-    box-shadow: inset 3px 3px rgba(255, 255, 255, 0.4), inset -3px -3px rgba(255, 255, 255, 0.3);
+    box-shadow: inset 0 -4px #0F2D0A, inset 3px 3px rgba(255, 255, 255, 0.4), inset -3px -7px rgba(255, 255, 255, 0.3);
 }
 
 .error_btn {
@@ -732,7 +741,6 @@ button {
     border: 2px solid #1E1E1F;
     box-shadow: inset 0 -4px #AD1D1D, inset 3px 3px rgba(255, 255, 255, 0.2), inset -3px -7px rgba(255, 255, 255, 0.1);
     color: #FFFFFF;
-    padding-bottom: 6px;
 }
 
 .error_btn:hover {
@@ -742,7 +750,7 @@ button {
 
 .error_btn:active {
     background-color: #AD1D1D;
-    box-shadow: inset 3px 3px rgba(255, 255, 255, 0.5), inset -3px -3px rgba(255, 255, 255, 0.4);
+    box-shadow: inset 0 -4px #7F1111, inset 3px 3px rgba(255, 255, 255, 0.5), inset -3px -7px rgba(255, 255, 255, 0.4);
 }
 
 .disabled_btn {
@@ -751,7 +759,6 @@ button {
     box-shadow: inset 0 -4px #B1B2B5;
     color: #48494A;
     cursor: not-allowed;
-    padding-bottom: 6px;
 }
 
 .disabled_btn img {

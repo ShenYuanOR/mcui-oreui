@@ -54,15 +54,15 @@ function confirm() {
 </script>
 
 <template>
-    <McModal :open="props.open" :title="title" :close-on-overlay="false" :show-close="showClose" @update:open="updateOpen">
+    <mc-modal :open="props.open" :title="title" :close-on-overlay="false" :show-close="showClose" @update:open="updateOpen">
         <div class="mc-confirm">
             <div class="mc-confirm__content">
                 <slot />
             </div>
             <div class="mc-confirm__actions" :class="{ 'mc-confirm__actions--stack': stackActions }">
-                <McButton variant="normal" @click="cancel">{{ cancelText }}</McButton>
-                <McButton :variant="danger ? 'error' : 'primary'" @click="confirm">{{ confirmText }}</McButton>
+                <mc-button variant="normal" @click="cancel">{{ cancelText }}</mc-button>
+                <mc-button :variant="danger ? 'error' : 'primary'" @click="confirm">{{ confirmText }}</mc-button>
             </div>
         </div>
-    </McModal>
+    </mc-modal>
 </template>

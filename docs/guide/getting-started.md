@@ -23,6 +23,11 @@ createApp(App).use(McUIVue).mount('#app')
 此后任意组件（组合式或选项式）的 `<template>` 里直接写 `<mc-button>`、`<mc-switch v-model>` 等，
 **无需再单独 import**。
 
+包内置 Vue `@vue/runtime-core` 的 `GlobalComponents` 类型增强和 `web-types.json`，在 VSCode / Volar 等开发工具中会提示
+`<mc-button>`、`<mc-list>`、`<mc-skin-viewer>` 等 `mc-*` 标签，并继续提供 props / 事件类型提示。
+使用方不需要额外配置 `jsconfig`、`tsconfig` 或 Volar 插件。如果编辑器已打开但没有立刻刷新，
+重启 TypeScript / Vue language server 即可重新读取依赖类型。
+
 > **ESM（Vite / 现代构建，绝大多数场景）**：`import McUIVue from 'mcui-oreui'` 直接拿到插件，默认导出即插件对象。
 > **CommonJS（`require`）**：因库同时提供具名与默认导出，需写 `const McUIVue = require('mcui-oreui').default`。现代 Vue 项目走 ESM 一般无需关心此点。
 

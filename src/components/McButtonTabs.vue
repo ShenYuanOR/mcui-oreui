@@ -45,7 +45,7 @@ function select(item: McButtonTabItem) {
     <div class="mc-button-tabs__header">
       <span v-if="title" class="mc-button-tabs__title">{{ title }}</span>
       <div class="mc-button-tabs__nav">
-        <McButton
+        <mc-button
           v-for="item in items"
           :key="String(item.value)"
           class="mc-button-tabs__tab"
@@ -59,7 +59,7 @@ function select(item: McButtonTabItem) {
           @click="select(item)"
         >
           {{ item.label }}
-        </McButton>
+        </mc-button>
       </div>
     </div>
     <div class="mc-button-tabs__panel">

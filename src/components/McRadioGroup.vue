@@ -35,10 +35,10 @@ function update(v: McRadioValue) {
 <template>
     <div class="mc-radio-group" :class="`mc-radio-group--${direction}`" role="radiogroup">
         <slot>
-            <McRadio v-for="option in options" :key="String(option.value)" :model-value="props.modelValue"
+            <mc-radio v-for="option in options" :key="String(option.value)" :model-value="props.modelValue"
                 :value="option.value" :disabled="disabled || option.disabled" @update:model-value="update">
                 {{ option.label }}
-            </McRadio>
+            </mc-radio>
         </slot>
     </div>
 </template>

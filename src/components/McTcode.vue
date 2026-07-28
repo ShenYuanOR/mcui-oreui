@@ -39,5 +39,5 @@ const content = computed(() => props.text ?? slotToText(slots.default?.()));
 </script>
 
 <template>
-    <McFormattedText :text="content" :edition="edition" :as="as" />
+    <mc-formatted-text :text="content" :edition="edition" :as="as" />
 </template>
