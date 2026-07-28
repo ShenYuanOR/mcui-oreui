@@ -8,7 +8,7 @@
 
 **📖 在线文档（组件实时 Demo + API）：<https://shenyuanor.github.io/mcui-oreui/>**
 
-把 Minecraft 基岩版界面的观感（Minecraft 像素字体、灰色立体面板、主/默认/错误三态按钮、卡片扫光、按键音效）封装为 **35 个标准 Vue 3 组件**，并附带一套 VitePress 实时文档站。
+把 Minecraft 基岩版界面的观感（Minecraft 像素字体、灰色立体面板、主/默认/错误三态按钮、卡片扫光、按键音效）封装为 **37 个标准 Vue 3 组件**，并附带一套 VitePress 实时文档站。
 
 > ⚠️ **非官方声明**：本项目为第三方复刻，与 Mojang Studios **无任何从属关系**，不含 Minecraft 官方代码或美术资产。设计语言移植自社区项目 [Spectrollay-OreUI/OreUI](https://github.com/Spectrollay-OreUI/OreUI)（MIT）。它与官方仓库 `Mojang/mc-ui`（仅开源 `@react-facet` 状态管理库）是完全不同的两个东西。
 
@@ -75,16 +75,16 @@ import 'mcui-oreui/style.css'
 |---|---|
 | 基础 | `<mc-icon>` · `<mc-button>` · `<mc-card>` · `<mc-panel>` · `<mc-tooltip>` · `<mc-progress>` · `<mc-spinner>` |
 | 表单 | `<mc-checkbox>` · `<mc-radio>` · `<mc-radio-group>` · `<mc-form-field>` · `<mc-switch>` · `<mc-dropdown>` · `<mc-text-field>` · `<mc-slider>` |
-| 布局 | `<mc-layout>` · `<mc-container>` · `<mc-row>` · `<mc-col>` · `<mc-spacer>` · `<mc-header>` · `<mc-appbar>` · `<mc-tabs>` · `<mc-button-tabs>` · `<mc-list>` · `<mc-list-item>` · `<mc-scroll-view>` |
+| 布局 | `<mc-layout>` · `<mc-container>` · `<mc-row>` · `<mc-col>` · `<mc-spacer>` · `<mc-header>` · `<mc-appbar>` · `<mc-appbar-button>` · `<mc-appbar-icon>` · `<mc-tabs>` · `<mc-button-tabs>` · `<mc-list>` · `<mc-list-item>` · `<mc-scroll-view>` |
 | 反馈 | `<mc-modal>` · `<mc-confirm>` · `<mc-drawer>` · `<mc-loading-mask>` · `<mc-pop-host>` |
-| 特殊 | `<mc-skin-viewer>` —— Minecraft 皮肤 3D 折叠展示（64×32 / 64×64 / 128×128） |
+| 特殊 | `<mc-skin-viewer>` |
 | 样式 | `<mc-tcode>` · `<mc-formatted-text>` · `parseMcFormatCodes` · `renderMcFormatCodes` · `stripMcFormatCodes` |
+| 能力 | `useSound` / `playSound` / `setSoundEnabled` · `usePop` / `showPop` |
 
-`<mc-tcode>` 默认按 Java 格式化代码解析，`§m` / `§n` 会显示为删除线 / 下划线；需要基岩版材料色时可使用 `edition="bedrock"`。
-`<mc-container>` / `<mc-row>` / `<mc-col>` / `<mc-spacer>` 提供仿 Vuetify 的 12 列响应式 Flex 栅格，支持 `sm`、`md`、`lg`、`xl`、`xxl` 断点、offset、order、对齐与 gutter 控制。
-`<mc-list>` 只负责列表容器与选择模式，使用子节点 `<mc-list-item>` 声明列表项；标题/副标题信息放在列表项上，动态数据可通过 Vue 的 `v-for` 渲染，并支持在单个列表项上设置 `interactive: false` 关闭悬浮、按下和焦点响应样式。
-
-组合式能力：`useSound` / `playSound` / `setSoundEnabled` · `usePop` / `showPop`。
+> - **`<mc-skin-viewer>`** — Minecraft 皮肤 3D 折叠展示（64×32 / 64×64 / 128×128）
+> - **`<mc-tcode>`** — 默认按 Java 格式化代码解析，`§m` / `§n` 显示为删除线 / 下划线；需要基岩版材料色时使用 `edition="bedrock"`
+> - **`<mc-container>` / `<mc-row>` / `<mc-col>` / `<mc-spacer>`** — 仿 Vuetify 的 12 列响应式 Flex 栅格，支持断点、offset、order、对齐与 gutter 控制
+> - **`<mc-list>`** — 列表容器与选择模式，使用 `<mc-list-item>` 声明列表项；支持 `v-for` 动态渲染及 `interactive: false` 关闭交互样式
 
 完整 Props / 事件 / 在线 Demo 见文档站。
 

@@ -45,20 +45,30 @@ const open = ref(false)
 <div class="mc-demo">
   <mc-button @click="leftOpen = true">打开菜单</mc-button>
   <mc-drawer v-model:open="leftOpen" title="导航菜单" placement="left">
-    <mc-button>首页</mc-button>
-    <mc-button>服务器列表</mc-button>
-    <mc-button>玩家中心</mc-button>
-    <mc-button>设置</mc-button>
+    <mc-list @change="(v) => console.log('点击了', v)">
+      <mc-list-item label="首页" value="home" />
+      <mc-list-item label="服务器列表" value="servers" />
+      <mc-list-item label="玩家中心" value="players" />
+      <mc-list-item label="设置" value="settings" />
+    </mc-list>
+    <mc-button variant="primary">新建存档</mc-button>
+    <mc-button>加载存档</mc-button>
+    <mc-button variant="error">删除存档</mc-button>
   </mc-drawer>
 </div>
 
 ```html
 <mc-button @click="leftOpen = true">打开菜单</mc-button>
 <mc-drawer v-model:open="leftOpen" title="导航菜单" placement="left">
-  <mc-button>首页</mc-button>
-  <mc-button>服务器列表</mc-button>
-  <mc-button>玩家中心</mc-button>
-  <mc-button>设置</mc-button>
+  <mc-list @change="(v) => console.log('点击了', v)">
+    <mc-list-item label="首页" value="home" />
+    <mc-list-item label="服务器列表" value="servers" />
+    <mc-list-item label="玩家中心" value="players" />
+    <mc-list-item label="设置" value="settings" />
+  </mc-list>
+  <mc-button variant="primary">新建存档</mc-button>
+  <mc-button>加载存档</mc-button>
+  <mc-button variant="error">删除存档</mc-button>
 </mc-drawer>
 ```
 
@@ -102,6 +112,14 @@ const open = ref(false)
 </mc-drawer>
 ```
 
+## Teleport 渲染位置
+
+默认情况下抽屉使用 `<Teleport to="body">` 将内容渲染到 `<body>` 末尾，避免被父容器 `overflow: hidden` 裁剪。
+
+当抽屉放在固定高度的演示容器内（如 Layout 页面中的布局示例），需要设置 `:teleport="false"` 使其就地渲染，方可正确显示。
+
+参考 [Layout 页面](./layout) 中的导航抽屉使用方式。
+
 ## Props
 
 | 名称 | 类型 | 默认 | 说明 |
@@ -110,6 +128,7 @@ const open = ref(false)
 | `title` | `string` | `''` | 标题 |
 | `placement` | `'left' \| 'right' \| 'top' \| 'bottom'` | `right` | 出现位置 |
 | `closeOnOverlay` | `boolean` | `true` | 点击遮罩是否关闭 |
+| `teleport` | `string \| boolean` | `'body'` | Teleport 目标选择器，传 `false` 则在父容器内就地渲染 |
 
 ## Events
 

@@ -70,6 +70,7 @@ export default defineConfig({
         items: [
           { text: 'Icon 图标', link: '/components/icon' },
           { text: 'Button 按钮', link: '/components/button' },
+
           { text: 'Card 链接卡片', link: '/components/card' },
           { text: 'Panel 面板', link: '/components/panel' },
           { text: 'Tooltip 提示', link: '/components/tooltip' },
@@ -93,9 +94,11 @@ export default defineConfig({
       {
         text: '布局',
         items: [
-          { text: 'Layout / Header', link: '/components/layout' },
+          { text: 'Layout 布局', link: '/components/layout' },
           { text: 'Grid 栅格', link: '/components/grid' },
           { text: 'Appbar 顶栏', link: '/components/appbar' },
+          { text: '└ AppbarButton 顶栏按钮', link: '/components/appbar-button' },
+          { text: '└ AppbarIcon 图标按钮', link: '/components/appbar-icon' },
           { text: 'Tabs 标签页', link: '/components/tabs' },
           { text: 'ButtonTabs 按钮式标签', link: '/components/button-tabs' },
           { text: 'List 列表', link: '/components/list' },

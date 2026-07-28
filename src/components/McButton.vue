@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { playSoundType } from '../composables/useSound'
+import { useTooltipFlip } from '../composables/useTooltipFlip'
 import McIcon from './McIcon.vue'
 
 type Variant = 'normal' | 'primary' | 'error'
@@ -28,10 +29,23 @@ const emit = defineEmits<{ (e: 'click', ev: MouseEvent): void }>()
 
 const statusClass = computed(() => (props.disabled ? 'disabled' : props.variant))
 const isHovered = ref(false)
+const isPressed = ref(false)
 
-/** 自定义颜色时的动态样式（含 hover 变暗效果） */
+const { containerRef, tooltipStyle, updatePosition } = useTooltipFlip()
+
+/** 自定义颜色时的动态样式（含 hover 与 active 效果） */
 const btnCustomStyle = computed(() => {
   if (!props.bgcolor) return {}
+  if (isPressed.value) {
+    // 按下状态：移除底部阴影、降低 padding-bottom 模拟按平效果
+    const hl = 'rgba(255,255,255,0.4)'
+    const hl2 = 'rgba(255,255,255,0.3)'
+    return {
+      backgroundColor: props.bgcolor,
+      boxShadow: `inset 3px 3px ${hl}, inset -3px -3px ${hl2}`,
+      paddingBottom: '2px',
+    }
+  }
   const baseShadow = isHovered.value ? 'rgba(0,0,0,0.45)' : 'rgba(0,0,0,0.35)'
   const hl = isHovered.value ? 'rgba(255,255,255,0.4)' : 'rgba(255,255,255,0.2)'
   const hl2 = isHovered.value ? 'rgba(255,255,255,0.3)' : 'rgba(255,255,255,0.1)'
@@ -50,7 +64,12 @@ function onClick(ev: MouseEvent) {
 </script>
 
 <template>
-  <div v-if="tip" class="btn_with_tooltip_content">
+  <div
+    v-if="tip"
+    ref="containerRef"
+    class="btn_with_tooltip_content"
+    @mouseenter="updatePosition"
+  >
     <button
       class="btn"
       :class="[`${size}_btn`, `${statusClass}_btn`]"
@@ -58,12 +77,17 @@ function onClick(ev: MouseEvent) {
       :disabled="disabled"
       @click="onClick"
       @mouseenter="isHovered = true"
-      @mouseleave="isHovered = false"
+      @mouseleave="isHovered = false; isPressed = false"
+      @mousedown="isPressed = true"
+      @mouseup="isPressed = false"
     >
       <McIcon v-if="icon" :name="icon" class="btn_icon" />
       <slot />
     </button>
-    <div class="btn_tooltip mc-tooltip__content">{{ tip }}</div>
+    <div
+      class="btn_tooltip mc-tooltip__content"
+      :style="tooltipStyle"
+    >{{ tip }}</div>
   </div>
   <button
     v-else
@@ -73,7 +97,9 @@ function onClick(ev: MouseEvent) {
     :disabled="disabled"
     @click="onClick"
     @mouseenter="isHovered = true"
-    @mouseleave="isHovered = false"
+    @mouseleave="isHovered = false; isPressed = false"
+    @mousedown="isPressed = true"
+    @mouseup="isPressed = false"
   >
     <McIcon v-if="icon" :name="icon" class="btn_icon" />
     <slot />

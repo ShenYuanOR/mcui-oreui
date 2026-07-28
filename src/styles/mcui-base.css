@@ -113,136 +113,66 @@ dispaly-area {
     height: 100%;
 }
 
-/* 顶部标题栏 */
-header {
-    align-items: center;
+/* ===========================
+   McHeader — 顶部标题栏
+   =========================== */
+.mc-header {
+    align-items: stretch;
     background-color: #E6E8EB;
     border-bottom: 4px solid #B1B2B5;
     display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
     height: 40px;
-    justify-content: space-between;
     min-width: 330px;
     position: relative;
+    width: 100%;
     z-index: 10;
 }
 
-.header_left {
+.mc-header__left,
+.mc-header__right {
     align-items: center;
     display: flex;
-    height: 100%;
-    justify-content: flex-start;
-    z-index: 1;
-}
-
-.header_right {
-    align-items: center;
-    display: flex;
-    height: 100%;
-    justify-content: flex-end;
-    z-index: 1;
-}
-
-.header_logo {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-/* 顶栏元素 */
-.header_item, .header_logo {
-    align-items: center;
-    display: flex;
+    flex-shrink: 0;
     height: 100%;
     justify-content: center;
-}
-
-.header_item {
-    cursor: pointer;
+    width: 42px;
     z-index: 1;
 }
 
-.header_item:hover {
-    background-color: #F4F6F9;
-}
-
-.header_item:active {
-    background-color: #D0D1D4;
-}
-
-/* 顶栏左侧按钮 */
-.header_item_left {
+.mc-header__left {
     border-right: 2px solid #A1A3A5;
     box-shadow: inset -2px 0 #FFFFFF;
-    width: 42px;
 }
 
-/* 顶栏右侧按钮 */
-.header_item_right {
+.mc-header__right {
     border-left: 2px solid #FFFFFF;
     box-shadow: inset 2px 0 #A1A3A5;
-    width: 42px;
 }
 
-.header_item_blank {
-    border: 0;
-    box-shadow: unset;
-    cursor: default;
-    pointer-events: none;
-    width: 44px;
-}
-
-.header_item_blank:hover, .header_item_blank:active {
-    background-color: unset;
-}
-
-/* 顶栏按钮图标 */
-.header_left_icon, .header_right_icon {
-    height: 32px;
-}
-
-.header_left_icon {
-    padding: 4px 6px 4px 4px;
-}
-
-.header_right_icon {
-    padding: 4px 4px 4px 6px;
-}
-
-#back.with_menu {
-    display: none;
-}
-
-@media screen and (min-width: 1200px) {
-    #menu {
-        display: none;
-    }
-
-    #back.with_menu {
-        display: flex;
-    }
-}
-
-/* 标题区域 */
-.title_icon {
-    padding: 0 8px;
-    width: 30px;
-}
-
-/* 标题图标 */
-.header_logo {
+/* 中间标题区 */
+.mc-header__center {
+    align-items: center;
+    display: flex;
     flex: 1;
-    width: 100%;
+    height: 100%;
+    justify-content: center;
+    min-width: 0;
+    overflow: hidden;
 }
 
 /* 标题文字 */
-.header_title {
+.mc-header__title {
     align-items: center;
     display: flex;
     font-family: "Minecraft Ten", sans-serif;
     font-size: 30px;
+    height: 100%;
     justify-content: center;
     line-height: 1;
-    height: 38px;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 /* 主体框架 */
@@ -876,8 +806,11 @@ button {
 }
 
 .btn_tooltip {
-    right: 10px;
-    top: -30px;
+    bottom: auto;
+    left: 50%;
+    right: auto;
+    top: auto;
+    transform: translateX(-50%);
 }
 
 .btn_with_tooltip_content:hover .btn_tooltip {

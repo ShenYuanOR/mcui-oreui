@@ -208,6 +208,14 @@ const dynamicItems = [
     :icon-right="item.iconRight"
   />
 </mc-list>
+
+<script setup>
+const dynamicItems = [
+  { label: '世界一 · 生存模式', value: 'w1', subtitle: '本地存档' },
+  { label: '世界二 · 创造模式', value: 'w2', subtitle: '测试地图' },
+  { label: '服务器入口', value: 'server', iconRight: 'mc-server' },
+]
+</script>
 ```
 
 ## 隐藏单选框指示器

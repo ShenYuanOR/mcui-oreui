@@ -26,7 +26,7 @@ const manual = [
     login: 'HaiGeMaster',
     html_url: 'https://github.com/HaiGeMaster',
     avatar_url: 'https://github.com/HaiGeMaster.png',
-    contributions: '最初的贡献者',
+    contributions: '最初的贡献者，为了更好的MCUI',
   },
 ]
 

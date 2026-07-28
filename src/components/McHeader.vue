@@ -3,14 +3,16 @@ withDefaults(defineProps<{ title?: string }>(), { title: '' })
 </script>
 
 <template>
-  <header>
-    <div class="header_item header_item_left header_item_blank">
+  <header class="mc-header">
+    <div class="mc-header__left">
       <slot name="left" />
     </div>
-    <div class="header_logo">
-      <div class="header_title"><slot name="title">{{ title }}</slot></div>
+    <div class="mc-header__center">
+      <div class="mc-header__title">
+        <slot name="title">{{ title }}</slot>
+      </div>
     </div>
-    <div class="header_item header_item_right">
+    <div class="mc-header__right">
       <slot name="right" />
     </div>
   </header>

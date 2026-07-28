@@ -16,6 +16,8 @@ import McCol from '../../../src/components/McCol.vue';
 import McSpacer from '../../../src/components/McSpacer.vue';
 import McHeader from '../../../src/components/McHeader.vue';
 import McAppbar from '../../../src/components/McAppbar.vue';
+import McAppbarButton from '../../../src/components/McAppbarButton.vue';
+import McAppbarIcon from '../../../src/components/McAppbarIcon.vue';
 import McScrollView from '../../../src/components/McScrollView.vue';
 import McModal from '../../../src/components/McModal.vue';
 import McLoadingMask from '../../../src/components/McLoadingMask.vue';
@@ -57,6 +59,8 @@ const components = {
   'mc-spacer': McSpacer,
   'mc-header': McHeader,
   'mc-appbar': McAppbar,
+  'mc-appbar-button': McAppbarButton,
+  'mc-appbar-icon': McAppbarIcon,
   'mc-scroll-view': McScrollView,
   'mc-modal': McModal,
   'mc-loading-mask': McLoadingMask,
