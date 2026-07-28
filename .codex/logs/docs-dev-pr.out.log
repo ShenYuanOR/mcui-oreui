@@ -1,0 +1,16 @@
+
+> mcui-oreui@1.2.0 docs:dev
+> vitepress dev docs --host 127.0.0.1
+
+
+  [32m[1mvitepress[22m v1.6.4[39m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://127.0.0.1:[1m5175[22m/mcui-oreui/[39m
+[2m[32m  ➜[39m[22m[2m  press [22m[1mh[22m[2m to show help[22m
+[2m12:35:32[22m [36m[1m[vitepress][22m[39m [32m✨ new dependencies optimized: [33m@mdi/js[32m[39m
+[2m12:35:32[22m [36m[1m[vitepress][22m[39m [32m✨ optimized dependencies changed. reloading[39m
+[2m12:48:36[22m [36m[1m[vitepress][22m[39m [32mhmr update [39m[2m/contributors.md[22m
+[2m12:48:41[22m [36m[1m[vitepress][22m[39m [32mhmr update [39m[2m/contributors.md[22m
+[2m12:48:55[22m [36m[1m[vitepress][22m[39m [32mhmr update [39m[2m/contributors.md[22m
+[2m12:50:36[22m [36m[1m[vitepress][22m[39m [32mhmr update [39m[2m/contributors.md[22m
+[2m12:52:40[22m [36m[1m[vitepress][22m[39m [32mhmr update [39m[2m/contributors.md[22m

@@ -1,0 +1,28 @@
+
+> mcui-oreui@1.2.0 docs:dev
+> vitepress dev docs --host 127.0.0.1 --port 5175 --strictPort
+
+
+  [32m[1mvitepress[22m v1.6.4[39m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://127.0.0.1:[1m5175[22m/mcui-oreui/[39m
+[2m[32m  ➜[39m[22m[2m  press [22m[1mh[22m[2m to show help[22m
+[2m12:29:52[22m [36m[1m[vitepress][22m[39m [32mdocs\.vitepress\config.ts changed, restarting server...
+[39m
+[2m12:29:52[22m [36m[1m[vitepress][22m[39m [32mhmr update [39m[2m/.vitepress/theme/custom.css[22m
+[2m12:29:52[22m [36m[1m[vitepress][22m[39m [32mpage reload [39m[2m.vitepress/theme/index.ts[22m
+[2m12:29:52[22m [36m[1m[vitepress][22m[39m [32mhmr update [39m[2m/.vitepress/theme/mcui-doc.css[22m
+[2m12:29:52[22m [36m[1m[vitepress][22m[39m [32mhmr update [39m[2m/.vitepress/theme/mcui-doc.css[22m
+[2m12:29:52[22m [36m[1m[vitepress][22m[39m [32mhmr update [39m[2m/.vitepress/theme/McIconGallery.vue[22m
+[2m12:29:53[22m [36m[1m[vitepress][22m[39m [32mhmr update [39m[2m/@fs/F:/MCWEB/oreui-vue/src/components/McButton.vue[22m
+[2m12:29:53[22m [36m[1m[vitepress][22m[39m [32mhmr update [39m[2m/@fs/F:/MCWEB/oreui-vue/src/components/McModal.vue[22m
+[2m12:29:53[22m [36m[1m[vitepress][22m[39m [32mhmr update [39m[2m/@fs/F:/MCWEB/oreui-vue/src/components/McSwitch.vue[22m
+[2m12:29:53[22m [36m[1m[vitepress][22m[39m [32mhmr update [39m[2m/@fs/F:/MCWEB/oreui-vue/src/components/McConfirm.vue[22m
+[2m12:29:53[22m [36m[1m[vitepress][22m[39m [32mhmr update [39m[2m/@fs/F:/MCWEB/oreui-vue/src/components/McIcon.vue[22m
+[2m12:29:53[22m [36m[1m[vitepress][22m[39m [32mhmr update [39m[2m/@fs/F:/MCWEB/oreui-vue/src/components/McRadio.vue, /@fs/F:/MCWEB/oreui-vue/src/components/McRadioGroup.vue[22m
+[2m12:29:53[22m [36m[1m[vitepress][22m[39m [32mhmr update [39m[2m/@fs/F:/MCWEB/oreui-vue/src/components/McSkinViewer.vue[22m
+
+  [32m[1mvitepress[22m v1.6.4[39m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://127.0.0.1:[1m5175[22m/mcui-oreui/[39m
+[2m[32m  ➜[39m[22m[2m  press [22m[1mh[22m[2m to show help[22m
