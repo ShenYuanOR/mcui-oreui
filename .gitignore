@@ -12,6 +12,9 @@ docs/.vitepress/cache/
 *.log
 npm-debug.log*
 .eslintcache
+test-results/
+playwright-report/
+coverage/
 .codex/
 
 # 系统/编辑器

@@ -1,0 +1,83 @@
+{
+  "generatedBy": "scripts/generate-utilities.mjs",
+  "families": [
+    "Overflow"
+  ],
+  "classes": [
+    {
+      "name": "overflow-auto",
+      "family": "Overflow",
+      "declaration": "overflow: auto"
+    },
+    {
+      "name": "overflow-hidden",
+      "family": "Overflow",
+      "declaration": "overflow: hidden"
+    },
+    {
+      "name": "overflow-visible",
+      "family": "Overflow",
+      "declaration": "overflow: visible"
+    },
+    {
+      "name": "overflow-scroll",
+      "family": "Overflow",
+      "declaration": "overflow: scroll"
+    },
+    {
+      "name": "overflow-clip",
+      "family": "Overflow",
+      "declaration": "overflow: clip"
+    },
+    {
+      "name": "overflow-x-auto",
+      "family": "Overflow",
+      "declaration": "overflow-x: auto"
+    },
+    {
+      "name": "overflow-x-hidden",
+      "family": "Overflow",
+      "declaration": "overflow-x: hidden"
+    },
+    {
+      "name": "overflow-x-visible",
+      "family": "Overflow",
+      "declaration": "overflow-x: visible"
+    },
+    {
+      "name": "overflow-x-scroll",
+      "family": "Overflow",
+      "declaration": "overflow-x: scroll"
+    },
+    {
+      "name": "overflow-x-clip",
+      "family": "Overflow",
+      "declaration": "overflow-x: clip"
+    },
+    {
+      "name": "overflow-y-auto",
+      "family": "Overflow",
+      "declaration": "overflow-y: auto"
+    },
+    {
+      "name": "overflow-y-hidden",
+      "family": "Overflow",
+      "declaration": "overflow-y: hidden"
+    },
+    {
+      "name": "overflow-y-visible",
+      "family": "Overflow",
+      "declaration": "overflow-y: visible"
+    },
+    {
+      "name": "overflow-y-scroll",
+      "family": "Overflow",
+      "declaration": "overflow-y: scroll"
+    },
+    {
+      "name": "overflow-y-clip",
+      "family": "Overflow",
+      "declaration": "overflow-y: clip"
+    }
+  ]
+}

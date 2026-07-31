@@ -1,0 +1,6 @@
+/* McApp component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-app {
+  background: var(--mc-background, #48494a);
+  color: var(--mc-text, #fff);
+  font-family: var(--mc-font-body, sans-serif);
+}

@@ -1,9 +1,10 @@
 name: Deploy Docs to GitHub Pages
 
 on:
-  push:
+  workflow_run:
+    workflows: ['Publish to npm']
     branches: [main]
-  workflow_dispatch:
+    types: [completed]
 
 permissions:
   contents: read
@@ -17,10 +18,13 @@ concurrency:
 
 jobs:
   build:
+    if: github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
 
       - name: Setup Node
         uses: actions/setup-node@v4

@@ -1,0 +1,133 @@
+{
+  "generatedBy": "scripts/generate-utilities.mjs",
+  "families": [
+    "Elevation"
+  ],
+  "classes": [
+    {
+      "name": "elevation-0",
+      "family": "Elevation",
+      "declaration": "box-shadow: none"
+    },
+    {
+      "name": "elevation-1",
+      "family": "Elevation",
+      "declaration": "box-shadow: 1px 1px 0 var(--mc-shadow, #000000)"
+    },
+    {
+      "name": "elevation-2",
+      "family": "Elevation",
+      "declaration": "box-shadow: 2px 2px 0 var(--mc-shadow, #000000)"
+    },
+    {
+      "name": "elevation-3",
+      "family": "Elevation",
+      "declaration": "box-shadow: 3px 3px 0 var(--mc-shadow, #000000)"
+    },
+    {
+      "name": "elevation-4",
+      "family": "Elevation",
+      "declaration": "box-shadow: 4px 4px 0 var(--mc-shadow, #000000)"
+    },
+    {
+      "name": "elevation-5",
+      "family": "Elevation",
+      "declaration": "box-shadow: 5px 5px 0 var(--mc-shadow, #000000)"
+    },
+    {
+      "name": "elevation-6",
+      "family": "Elevation",
+      "declaration": "box-shadow: 6px 6px 0 var(--mc-shadow, #000000)"
+    },
+    {
+      "name": "elevation-7",
+      "family": "Elevation",
+      "declaration": "box-shadow: 7px 7px 0 var(--mc-shadow, #000000)"
+    },
+    {
+      "name": "elevation-8",
+      "family": "Elevation",
+      "declaration": "box-shadow: 8px 8px 0 var(--mc-shadow, #000000)"
+    },
+    {
+      "name": "elevation-9",
+      "family": "Elevation",
+      "declaration": "box-shadow: 9px 9px 0 var(--mc-shadow, #000000)"
+    },
+    {
+      "name": "elevation-10",
+      "family": "Elevation",
+      "declaration": "box-shadow: 10px 10px 0 var(--mc-shadow, #000000)"
+    },
+    {
+      "name": "elevation-11",
+      "family": "Elevation",
+      "declaration": "box-shadow: 11px 11px 0 var(--mc-shadow, #000000)"
+    },
+    {
+      "name": "elevation-12",
+      "family": "Elevation",
+      "declaration": "box-shadow: 12px 12px 0 var(--mc-shadow, #000000)"
+    },
+    {
+      "name": "elevation-13",
+      "family": "Elevation",
+      "declaration": "box-shadow: 13px 13px 0 var(--mc-shadow, #000000)"
+    },
+    {
+      "name": "elevation-14",
+      "family": "Elevation",
+      "declaration": "box-shadow: 14px 14px 0 var(--mc-shadow, #000000)"
+    },
+    {
+      "name": "elevation-15",
+      "family": "Elevation",
+      "declaration": "box-shadow: 15px 15px 0 var(--mc-shadow, #000000)"
+    },
+    {
+      "name": "elevation-16",
+      "family": "Elevation",
+      "declaration": "box-shadow: 16px 16px 0 var(--mc-shadow, #000000)"
+    },
+    {
+      "name": "elevation-17",
+      "family": "Elevation",
+      "declaration": "box-shadow: 17px 17px 0 var(--mc-shadow, #000000)"
+    },
+    {
+      "name": "elevation-18",
+      "family": "Elevation",
+      "declaration": "box-shadow: 18px 18px 0 var(--mc-shadow, #000000)"
+    },
+    {
+      "name": "elevation-19",
+      "family": "Elevation",
+      "declaration": "box-shadow: 19px 19px 0 var(--mc-shadow, #000000)"
+    },
+    {
+      "name": "elevation-20",
+      "family": "Elevation",
+      "declaration": "box-shadow: 20px 20px 0 var(--mc-shadow, #000000)"
+    },
+    {
+      "name": "elevation-21",
+      "family": "Elevation",
+      "declaration": "box-shadow: 21px 21px 0 var(--mc-shadow, #000000)"
+    },
+    {
+      "name": "elevation-22",
+      "family": "Elevation",
+      "declaration": "box-shadow: 22px 22px 0 var(--mc-shadow, #000000)"
+    },
+    {
+      "name": "elevation-23",
+      "family": "Elevation",
+      "declaration": "box-shadow: 23px 23px 0 var(--mc-shadow, #000000)"
+    },
+    {
+      "name": "elevation-24",
+      "family": "Elevation",
+      "declaration": "box-shadow: 24px 24px 0 var(--mc-shadow, #000000)"
+    }
+  ]
+}

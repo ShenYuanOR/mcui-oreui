@@ -1,0 +1,43 @@
+/* McBadge component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-badge {
+  display: inline-flex;
+  position: relative;
+}
+.mc-badge__content {
+  align-items: center;
+  background: var(--mc-error, #c33636);
+  border: 2px solid var(--mc-border, #1e1e1f);
+  color: #fff;
+  display: inline-flex;
+  font: 700 11px/1 sans-serif;
+  justify-content: center;
+  min-height: 18px;
+  min-width: 18px;
+  padding: 1px 4px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translate(50%, -50%);
+}
+.mc-badge--inline {
+  align-items: center;
+  gap: 6px;
+}
+.mc-badge--inline .mc-badge__content {
+  position: static;
+  transform: none;
+}
+.mc-badge__content--dot {
+  min-height: 10px;
+  min-width: 10px;
+  padding: 0;
+}
+.mc-badge__content {
+  color: var(--mc-on-primary, #fff);
+}
+.mc-badge__content {
+  box-shadow:
+    inset 2px 2px rgba(255, 255, 255, 0.2),
+    inset -2px -2px rgba(255, 255, 255, 0.12),
+    3px 3px rgba(0, 0, 0, 0.3);
+}

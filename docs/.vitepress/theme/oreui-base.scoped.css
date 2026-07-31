@@ -1,0 +1,29 @@
+/* VitePress demo environment only. Library component styles remain host-safe. */
+:where(.ore-demo, .mc-demo) {
+  --mc-background: #48494a;
+  --mc-surface: #313233;
+  --mc-surface-light: #58585a;
+  --mc-primary: #3c8527;
+  --mc-primary-hover: #2a641c;
+  --mc-primary-active: #1d4d13;
+  --mc-secondary: #d0d1d4;
+  --mc-secondary-hover: #b1b2b5;
+  --mc-border: #1e1e1f;
+  --mc-text: #fff;
+  --mc-text-muted: #d0d1d4;
+  --mc-text-dimmest: #b1b2b5;
+  --mc-focus: #fff;
+  color-scheme: only light;
+  font-family: var(--mc-font-body, Arial, sans-serif);
+}
+
+:where(.ore-demo, .mc-demo),
+:where(.ore-demo, .mc-demo) *,
+:where(.ore-demo, .mc-demo) *::before,
+:where(.ore-demo, .mc-demo) *::after {
+  box-sizing: border-box;
+}
+
+:where(.ore-demo, .mc-demo) ::selection {
+  background: rgba(108, 195, 73, 0.5);
+}

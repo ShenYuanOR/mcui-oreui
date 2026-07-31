@@ -1,0 +1,58 @@
+/* McHeader component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-header {
+  background: var(--mc-surface-bright, #e6e8eb);
+  border-color: var(--mc-text-muted, #b1b2b5);
+  color: var(--mc-text-inverse, #3c3c3c);
+}
+.mc-header__left {
+  border-color: var(--mc-border-muted, #a1a3a5);
+  box-shadow: inset -2px 0 var(--mc-focus, #fff);
+}
+.mc-header__right {
+  border-color: var(--mc-focus, #fff);
+  box-shadow: inset 2px 0 var(--mc-border-muted, #a1a3a5);
+}
+.mc-header {
+  align-items: stretch;
+  background: var(--mc-surface-bright, #e6e8eb);
+  border-bottom: 4px solid var(--mc-secondary-hover, #b1b2b5);
+  color: var(--mc-text-inverse, #1e1e1f);
+  display: flex;
+  flex-shrink: 0;
+  height: 40px;
+  min-width: 330px;
+  position: relative;
+  width: 100%;
+  z-index: 10;
+}
+.mc-header__left,
+.mc-header__right {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  height: 100%;
+  justify-content: center;
+  width: 42px;
+}
+.mc-header__left {
+  border-right: 2px solid var(--mc-border-muted, #a1a3a5);
+  box-shadow: inset -2px 0 var(--mc-focus, #fff);
+}
+.mc-header__right {
+  border-left: 2px solid var(--mc-focus, #fff);
+  box-shadow: inset 2px 0 var(--mc-border-muted, #a1a3a5);
+}
+.mc-header__center {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  min-width: 0;
+  overflow: hidden;
+}
+.mc-header__title {
+  font: 30px/1 var(--mc-font-title, sans-serif);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

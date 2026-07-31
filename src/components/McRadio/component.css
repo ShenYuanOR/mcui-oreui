@@ -1,0 +1,89 @@
+/* McRadio component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-radio {
+  align-items: center;
+  color: var(--mc-text, #fff);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--mc-font-body, sans-serif);
+  gap: 8px;
+  min-height: 28px;
+}
+.mc-radio__input {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  position: absolute;
+  width: 1px;
+}
+.mc-radio__control {
+  align-items: center;
+  background: var(--mc-control-inactive, #8c8d90);
+  border: 2px solid var(--mc-border, #1e1e1f);
+  box-shadow:
+    inset 2px 2px var(--mc-specular-neutral, rgba(255, 255, 255, 0.2)),
+    inset -2px -2px var(--mc-specular-neutral-low, rgba(255, 255, 255, 0.1));
+  box-sizing: border-box;
+  display: inline-flex;
+  flex: none;
+  height: 24px;
+  justify-content: center;
+  width: 24px;
+}
+.mc-radio:hover:not(.mc-radio--disabled) .mc-radio__control {
+  background: var(--mc-secondary-hover, #b1b2b5);
+}
+.mc-radio:active:not(.mc-radio--disabled) .mc-radio__control {
+  background: var(--mc-surface-light, #58585a);
+}
+.mc-radio__input:focus-visible + .mc-radio__control {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+.mc-radio--disabled {
+  color: var(--mc-disabled-text, #48494a);
+  cursor: not-allowed;
+}
+.mc-radio--disabled .mc-radio__control {
+  background: var(--mc-disabled, #d0d1d4);
+  border-color: var(--mc-disabled-border, #8c8d90);
+  box-shadow: none;
+}
+.mc-radio--readonly {
+  cursor: default;
+}
+.mc-radio__control {
+  border-radius: 0;
+}
+.mc-radio__dot {
+  background: var(--mc-on-primary, #fff);
+  height: 10px;
+  opacity: 0;
+  width: 10px;
+}
+.mc-radio__input:checked + .mc-radio__control {
+  background: var(--mc-control-color, var(--mc-primary, #3c8527));
+}
+.mc-radio:hover:not(.mc-radio--disabled) .mc-radio__input:checked + .mc-radio__control {
+  background: color-mix(in srgb, var(--mc-control-color, var(--mc-primary, #3c8527)) 82%, #000);
+}
+.mc-radio:active:not(.mc-radio--disabled) .mc-radio__input:checked + .mc-radio__control {
+  background: color-mix(in srgb, var(--mc-control-color, var(--mc-primary, #3c8527)) 68%, #000);
+}
+.mc-radio__input:checked + .mc-radio__control .mc-radio__dot {
+  opacity: 1;
+}
+.mc-radio--rotate .mc-radio__control {
+  transform: rotate(45deg);
+}
+.mc-radio__control {
+  background: var(--mc-control-inactive, #8c8d90);
+}
+.mc-radio__dot {
+  color: var(--mc-on-primary, #fff);
+}
+.mc-radio__dot {
+  background: var(--mc-focus, #fff);
+}
+.mc-radio__input:focus-visible + .mc-radio__control {
+  outline-color: var(--mc-focus, #fff);
+}

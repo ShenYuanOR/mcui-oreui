@@ -1,0 +1,44 @@
+/* McTable component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-table-wrapper {
+  max-width: 100%;
+  overflow: auto;
+}
+.mc-table {
+  border-collapse: collapse;
+  color: var(--mc-text, #fff);
+  width: 100%;
+}
+.mc-table caption {
+  padding: 8px;
+  text-align: start;
+}
+.mc-table th,
+.mc-table td {
+  border: 2px solid var(--mc-border, #1e1e1f);
+  padding: 10px 12px;
+  text-align: start;
+}
+.mc-table th {
+  background: var(--mc-surface-light, #58585a);
+}
+.mc-table td {
+  background: var(--mc-surface, #313233);
+}
+.mc-table--striped tbody tr:nth-child(even) td,
+.mc-table--hover tbody tr:hover td {
+  background: var(--mc-surface-light, #58585a);
+}
+.mc-table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+.mc-table th {
+  box-shadow:
+    inset 0 -3px var(--mc-surface, #313233),
+    inset 2px 2px rgba(255, 255, 255, 0.15);
+}
+.mc-table td {
+  box-shadow:
+    inset 0 1px var(--mc-surface-light, #58585a),
+    inset 0 -1px var(--mc-border, #1e1e1f);
+}

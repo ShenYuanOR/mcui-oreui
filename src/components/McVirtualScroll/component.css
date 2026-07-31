@@ -1,0 +1,20 @@
+/* McVirtualScroll component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-virtual-scroll {
+  min-width: 0;
+  overflow: auto;
+  position: relative;
+  width: 100%;
+}
+.mc-virtual-scroll__spacer {
+  position: relative;
+}
+.mc-virtual-scroll__window {
+  inset-inline: 0;
+  position: absolute;
+  top: 0;
+  will-change: transform;
+}
+.mc-virtual-scroll__item {
+  box-sizing: border-box;
+  overflow: hidden;
+}

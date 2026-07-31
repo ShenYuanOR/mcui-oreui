@@ -1,0 +1,23 @@
+/* McRadioGroup component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-radio-group {
+  border: 0;
+  display: flex;
+  gap: 10px;
+  margin: 0;
+  min-width: 0;
+  padding: 0;
+}
+.mc-radio-group--vertical {
+  align-items: flex-start;
+  flex-direction: column;
+}
+.mc-radio-group-field {
+  border: 0;
+  margin: 0;
+  min-width: 0;
+  padding: 0;
+}
+.mc-radio-group-field__legend {
+  font-weight: 700;
+  margin-block-end: 6px;
+}

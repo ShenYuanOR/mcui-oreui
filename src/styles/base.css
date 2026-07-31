@@ -1,0 +1,21 @@
+@import './tokens.css';
+
+/* Optional page environment. Nothing applies until a host opts into .mc-page. */
+.mc-page {
+  background: var(--mc-background, #48494a);
+  color: var(--mc-text, #fff);
+  font-family: var(--mc-font-body, Arial, sans-serif);
+  min-height: 100%;
+  margin: 0;
+}
+
+.mc-page,
+.mc-page *,
+.mc-page *::before,
+.mc-page *::after {
+  box-sizing: border-box;
+}
+
+.mc-page ::selection {
+  background: color-mix(in srgb, var(--mc-primary-tint, #6cc349) 50%, transparent);
+}

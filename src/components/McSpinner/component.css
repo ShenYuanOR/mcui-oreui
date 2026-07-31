@@ -1,0 +1,12 @@
+/* McSpinner component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-spinner {
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  position: relative;
+  vertical-align: middle;
+}
+.mc-spinner__icon {
+  display: block;
+  image-rendering: pixelated;
+}

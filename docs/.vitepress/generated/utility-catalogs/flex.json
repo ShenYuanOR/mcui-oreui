@@ -1,0 +1,2018 @@
+{
+  "generatedBy": "scripts/generate-utilities.mjs",
+  "families": [
+    "Flex"
+  ],
+  "classes": [
+    {
+      "name": "flex-fill",
+      "family": "Flex",
+      "declaration": "flex: 1 1 auto"
+    },
+    {
+      "name": "flex-sm-fill",
+      "family": "Flex",
+      "declaration": "flex: 1 1 auto"
+    },
+    {
+      "name": "flex-md-fill",
+      "family": "Flex",
+      "declaration": "flex: 1 1 auto"
+    },
+    {
+      "name": "flex-lg-fill",
+      "family": "Flex",
+      "declaration": "flex: 1 1 auto"
+    },
+    {
+      "name": "flex-xl-fill",
+      "family": "Flex",
+      "declaration": "flex: 1 1 auto"
+    },
+    {
+      "name": "flex-xxl-fill",
+      "family": "Flex",
+      "declaration": "flex: 1 1 auto"
+    },
+    {
+      "name": "flex-1-1",
+      "family": "Flex",
+      "declaration": "flex: 1 1 auto"
+    },
+    {
+      "name": "flex-sm-1-1",
+      "family": "Flex",
+      "declaration": "flex: 1 1 auto"
+    },
+    {
+      "name": "flex-md-1-1",
+      "family": "Flex",
+      "declaration": "flex: 1 1 auto"
+    },
+    {
+      "name": "flex-lg-1-1",
+      "family": "Flex",
+      "declaration": "flex: 1 1 auto"
+    },
+    {
+      "name": "flex-xl-1-1",
+      "family": "Flex",
+      "declaration": "flex: 1 1 auto"
+    },
+    {
+      "name": "flex-xxl-1-1",
+      "family": "Flex",
+      "declaration": "flex: 1 1 auto"
+    },
+    {
+      "name": "flex-1-0",
+      "family": "Flex",
+      "declaration": "flex: 1 0 auto"
+    },
+    {
+      "name": "flex-sm-1-0",
+      "family": "Flex",
+      "declaration": "flex: 1 0 auto"
+    },
+    {
+      "name": "flex-md-1-0",
+      "family": "Flex",
+      "declaration": "flex: 1 0 auto"
+    },
+    {
+      "name": "flex-lg-1-0",
+      "family": "Flex",
+      "declaration": "flex: 1 0 auto"
+    },
+    {
+      "name": "flex-xl-1-0",
+      "family": "Flex",
+      "declaration": "flex: 1 0 auto"
+    },
+    {
+      "name": "flex-xxl-1-0",
+      "family": "Flex",
+      "declaration": "flex: 1 0 auto"
+    },
+    {
+      "name": "flex-0-1",
+      "family": "Flex",
+      "declaration": "flex: 0 1 auto"
+    },
+    {
+      "name": "flex-sm-0-1",
+      "family": "Flex",
+      "declaration": "flex: 0 1 auto"
+    },
+    {
+      "name": "flex-md-0-1",
+      "family": "Flex",
+      "declaration": "flex: 0 1 auto"
+    },
+    {
+      "name": "flex-lg-0-1",
+      "family": "Flex",
+      "declaration": "flex: 0 1 auto"
+    },
+    {
+      "name": "flex-xl-0-1",
+      "family": "Flex",
+      "declaration": "flex: 0 1 auto"
+    },
+    {
+      "name": "flex-xxl-0-1",
+      "family": "Flex",
+      "declaration": "flex: 0 1 auto"
+    },
+    {
+      "name": "flex-0-0",
+      "family": "Flex",
+      "declaration": "flex: 0 0 auto"
+    },
+    {
+      "name": "flex-sm-0-0",
+      "family": "Flex",
+      "declaration": "flex: 0 0 auto"
+    },
+    {
+      "name": "flex-md-0-0",
+      "family": "Flex",
+      "declaration": "flex: 0 0 auto"
+    },
+    {
+      "name": "flex-lg-0-0",
+      "family": "Flex",
+      "declaration": "flex: 0 0 auto"
+    },
+    {
+      "name": "flex-xl-0-0",
+      "family": "Flex",
+      "declaration": "flex: 0 0 auto"
+    },
+    {
+      "name": "flex-xxl-0-0",
+      "family": "Flex",
+      "declaration": "flex: 0 0 auto"
+    },
+    {
+      "name": "flex-1-1-100",
+      "family": "Flex",
+      "declaration": "flex: 1 1 100%"
+    },
+    {
+      "name": "flex-sm-1-1-100",
+      "family": "Flex",
+      "declaration": "flex: 1 1 100%"
+    },
+    {
+      "name": "flex-md-1-1-100",
+      "family": "Flex",
+      "declaration": "flex: 1 1 100%"
+    },
+    {
+      "name": "flex-lg-1-1-100",
+      "family": "Flex",
+      "declaration": "flex: 1 1 100%"
+    },
+    {
+      "name": "flex-xl-1-1-100",
+      "family": "Flex",
+      "declaration": "flex: 1 1 100%"
+    },
+    {
+      "name": "flex-xxl-1-1-100",
+      "family": "Flex",
+      "declaration": "flex: 1 1 100%"
+    },
+    {
+      "name": "flex-1-0-100",
+      "family": "Flex",
+      "declaration": "flex: 1 0 100%"
+    },
+    {
+      "name": "flex-sm-1-0-100",
+      "family": "Flex",
+      "declaration": "flex: 1 0 100%"
+    },
+    {
+      "name": "flex-md-1-0-100",
+      "family": "Flex",
+      "declaration": "flex: 1 0 100%"
+    },
+    {
+      "name": "flex-lg-1-0-100",
+      "family": "Flex",
+      "declaration": "flex: 1 0 100%"
+    },
+    {
+      "name": "flex-xl-1-0-100",
+      "family": "Flex",
+      "declaration": "flex: 1 0 100%"
+    },
+    {
+      "name": "flex-xxl-1-0-100",
+      "family": "Flex",
+      "declaration": "flex: 1 0 100%"
+    },
+    {
+      "name": "flex-0-1-100",
+      "family": "Flex",
+      "declaration": "flex: 0 1 100%"
+    },
+    {
+      "name": "flex-sm-0-1-100",
+      "family": "Flex",
+      "declaration": "flex: 0 1 100%"
+    },
+    {
+      "name": "flex-md-0-1-100",
+      "family": "Flex",
+      "declaration": "flex: 0 1 100%"
+    },
+    {
+      "name": "flex-lg-0-1-100",
+      "family": "Flex",
+      "declaration": "flex: 0 1 100%"
+    },
+    {
+      "name": "flex-xl-0-1-100",
+      "family": "Flex",
+      "declaration": "flex: 0 1 100%"
+    },
+    {
+      "name": "flex-xxl-0-1-100",
+      "family": "Flex",
+      "declaration": "flex: 0 1 100%"
+    },
+    {
+      "name": "flex-0-0-100",
+      "family": "Flex",
+      "declaration": "flex: 0 0 100%"
+    },
+    {
+      "name": "flex-sm-0-0-100",
+      "family": "Flex",
+      "declaration": "flex: 0 0 100%"
+    },
+    {
+      "name": "flex-md-0-0-100",
+      "family": "Flex",
+      "declaration": "flex: 0 0 100%"
+    },
+    {
+      "name": "flex-lg-0-0-100",
+      "family": "Flex",
+      "declaration": "flex: 0 0 100%"
+    },
+    {
+      "name": "flex-xl-0-0-100",
+      "family": "Flex",
+      "declaration": "flex: 0 0 100%"
+    },
+    {
+      "name": "flex-xxl-0-0-100",
+      "family": "Flex",
+      "declaration": "flex: 0 0 100%"
+    },
+    {
+      "name": "flex-1-1-0",
+      "family": "Flex",
+      "declaration": "flex: 1 1 0"
+    },
+    {
+      "name": "flex-sm-1-1-0",
+      "family": "Flex",
+      "declaration": "flex: 1 1 0"
+    },
+    {
+      "name": "flex-md-1-1-0",
+      "family": "Flex",
+      "declaration": "flex: 1 1 0"
+    },
+    {
+      "name": "flex-lg-1-1-0",
+      "family": "Flex",
+      "declaration": "flex: 1 1 0"
+    },
+    {
+      "name": "flex-xl-1-1-0",
+      "family": "Flex",
+      "declaration": "flex: 1 1 0"
+    },
+    {
+      "name": "flex-xxl-1-1-0",
+      "family": "Flex",
+      "declaration": "flex: 1 1 0"
+    },
+    {
+      "name": "flex-1-0-0",
+      "family": "Flex",
+      "declaration": "flex: 1 0 0"
+    },
+    {
+      "name": "flex-sm-1-0-0",
+      "family": "Flex",
+      "declaration": "flex: 1 0 0"
+    },
+    {
+      "name": "flex-md-1-0-0",
+      "family": "Flex",
+      "declaration": "flex: 1 0 0"
+    },
+    {
+      "name": "flex-lg-1-0-0",
+      "family": "Flex",
+      "declaration": "flex: 1 0 0"
+    },
+    {
+      "name": "flex-xl-1-0-0",
+      "family": "Flex",
+      "declaration": "flex: 1 0 0"
+    },
+    {
+      "name": "flex-xxl-1-0-0",
+      "family": "Flex",
+      "declaration": "flex: 1 0 0"
+    },
+    {
+      "name": "flex-0-1-0",
+      "family": "Flex",
+      "declaration": "flex: 0 1 0"
+    },
+    {
+      "name": "flex-sm-0-1-0",
+      "family": "Flex",
+      "declaration": "flex: 0 1 0"
+    },
+    {
+      "name": "flex-md-0-1-0",
+      "family": "Flex",
+      "declaration": "flex: 0 1 0"
+    },
+    {
+      "name": "flex-lg-0-1-0",
+      "family": "Flex",
+      "declaration": "flex: 0 1 0"
+    },
+    {
+      "name": "flex-xl-0-1-0",
+      "family": "Flex",
+      "declaration": "flex: 0 1 0"
+    },
+    {
+      "name": "flex-xxl-0-1-0",
+      "family": "Flex",
+      "declaration": "flex: 0 1 0"
+    },
+    {
+      "name": "flex-0-0-0",
+      "family": "Flex",
+      "declaration": "flex: 0 0 0"
+    },
+    {
+      "name": "flex-sm-0-0-0",
+      "family": "Flex",
+      "declaration": "flex: 0 0 0"
+    },
+    {
+      "name": "flex-md-0-0-0",
+      "family": "Flex",
+      "declaration": "flex: 0 0 0"
+    },
+    {
+      "name": "flex-lg-0-0-0",
+      "family": "Flex",
+      "declaration": "flex: 0 0 0"
+    },
+    {
+      "name": "flex-xl-0-0-0",
+      "family": "Flex",
+      "declaration": "flex: 0 0 0"
+    },
+    {
+      "name": "flex-xxl-0-0-0",
+      "family": "Flex",
+      "declaration": "flex: 0 0 0"
+    },
+    {
+      "name": "flex-row",
+      "family": "Flex",
+      "declaration": "flex-direction: row"
+    },
+    {
+      "name": "flex-sm-row",
+      "family": "Flex",
+      "declaration": "flex-direction: row"
+    },
+    {
+      "name": "flex-md-row",
+      "family": "Flex",
+      "declaration": "flex-direction: row"
+    },
+    {
+      "name": "flex-lg-row",
+      "family": "Flex",
+      "declaration": "flex-direction: row"
+    },
+    {
+      "name": "flex-xl-row",
+      "family": "Flex",
+      "declaration": "flex-direction: row"
+    },
+    {
+      "name": "flex-xxl-row",
+      "family": "Flex",
+      "declaration": "flex-direction: row"
+    },
+    {
+      "name": "flex-column",
+      "family": "Flex",
+      "declaration": "flex-direction: column"
+    },
+    {
+      "name": "flex-sm-column",
+      "family": "Flex",
+      "declaration": "flex-direction: column"
+    },
+    {
+      "name": "flex-md-column",
+      "family": "Flex",
+      "declaration": "flex-direction: column"
+    },
+    {
+      "name": "flex-lg-column",
+      "family": "Flex",
+      "declaration": "flex-direction: column"
+    },
+    {
+      "name": "flex-xl-column",
+      "family": "Flex",
+      "declaration": "flex-direction: column"
+    },
+    {
+      "name": "flex-xxl-column",
+      "family": "Flex",
+      "declaration": "flex-direction: column"
+    },
+    {
+      "name": "flex-row-reverse",
+      "family": "Flex",
+      "declaration": "flex-direction: row-reverse"
+    },
+    {
+      "name": "flex-sm-row-reverse",
+      "family": "Flex",
+      "declaration": "flex-direction: row-reverse"
+    },
+    {
+      "name": "flex-md-row-reverse",
+      "family": "Flex",
+      "declaration": "flex-direction: row-reverse"
+    },
+    {
+      "name": "flex-lg-row-reverse",
+      "family": "Flex",
+      "declaration": "flex-direction: row-reverse"
+    },
+    {
+      "name": "flex-xl-row-reverse",
+      "family": "Flex",
+      "declaration": "flex-direction: row-reverse"
+    },
+    {
+      "name": "flex-xxl-row-reverse",
+      "family": "Flex",
+      "declaration": "flex-direction: row-reverse"
+    },
+    {
+      "name": "flex-column-reverse",
+      "family": "Flex",
+      "declaration": "flex-direction: column-reverse"
+    },
+    {
+      "name": "flex-sm-column-reverse",
+      "family": "Flex",
+      "declaration": "flex-direction: column-reverse"
+    },
+    {
+      "name": "flex-md-column-reverse",
+      "family": "Flex",
+      "declaration": "flex-direction: column-reverse"
+    },
+    {
+      "name": "flex-lg-column-reverse",
+      "family": "Flex",
+      "declaration": "flex-direction: column-reverse"
+    },
+    {
+      "name": "flex-xl-column-reverse",
+      "family": "Flex",
+      "declaration": "flex-direction: column-reverse"
+    },
+    {
+      "name": "flex-xxl-column-reverse",
+      "family": "Flex",
+      "declaration": "flex-direction: column-reverse"
+    },
+    {
+      "name": "flex-grow-0",
+      "family": "Flex",
+      "declaration": "flex-grow: 0"
+    },
+    {
+      "name": "flex-sm-grow-0",
+      "family": "Flex",
+      "declaration": "flex-grow: 0"
+    },
+    {
+      "name": "flex-md-grow-0",
+      "family": "Flex",
+      "declaration": "flex-grow: 0"
+    },
+    {
+      "name": "flex-lg-grow-0",
+      "family": "Flex",
+      "declaration": "flex-grow: 0"
+    },
+    {
+      "name": "flex-xl-grow-0",
+      "family": "Flex",
+      "declaration": "flex-grow: 0"
+    },
+    {
+      "name": "flex-xxl-grow-0",
+      "family": "Flex",
+      "declaration": "flex-grow: 0"
+    },
+    {
+      "name": "flex-grow-1",
+      "family": "Flex",
+      "declaration": "flex-grow: 1"
+    },
+    {
+      "name": "flex-sm-grow-1",
+      "family": "Flex",
+      "declaration": "flex-grow: 1"
+    },
+    {
+      "name": "flex-md-grow-1",
+      "family": "Flex",
+      "declaration": "flex-grow: 1"
+    },
+    {
+      "name": "flex-lg-grow-1",
+      "family": "Flex",
+      "declaration": "flex-grow: 1"
+    },
+    {
+      "name": "flex-xl-grow-1",
+      "family": "Flex",
+      "declaration": "flex-grow: 1"
+    },
+    {
+      "name": "flex-xxl-grow-1",
+      "family": "Flex",
+      "declaration": "flex-grow: 1"
+    },
+    {
+      "name": "flex-shrink-0",
+      "family": "Flex",
+      "declaration": "flex-shrink: 0"
+    },
+    {
+      "name": "flex-sm-shrink-0",
+      "family": "Flex",
+      "declaration": "flex-shrink: 0"
+    },
+    {
+      "name": "flex-md-shrink-0",
+      "family": "Flex",
+      "declaration": "flex-shrink: 0"
+    },
+    {
+      "name": "flex-lg-shrink-0",
+      "family": "Flex",
+      "declaration": "flex-shrink: 0"
+    },
+    {
+      "name": "flex-xl-shrink-0",
+      "family": "Flex",
+      "declaration": "flex-shrink: 0"
+    },
+    {
+      "name": "flex-xxl-shrink-0",
+      "family": "Flex",
+      "declaration": "flex-shrink: 0"
+    },
+    {
+      "name": "flex-shrink-1",
+      "family": "Flex",
+      "declaration": "flex-shrink: 1"
+    },
+    {
+      "name": "flex-sm-shrink-1",
+      "family": "Flex",
+      "declaration": "flex-shrink: 1"
+    },
+    {
+      "name": "flex-md-shrink-1",
+      "family": "Flex",
+      "declaration": "flex-shrink: 1"
+    },
+    {
+      "name": "flex-lg-shrink-1",
+      "family": "Flex",
+      "declaration": "flex-shrink: 1"
+    },
+    {
+      "name": "flex-xl-shrink-1",
+      "family": "Flex",
+      "declaration": "flex-shrink: 1"
+    },
+    {
+      "name": "flex-xxl-shrink-1",
+      "family": "Flex",
+      "declaration": "flex-shrink: 1"
+    },
+    {
+      "name": "flex-wrap",
+      "family": "Flex",
+      "declaration": "flex-wrap: wrap"
+    },
+    {
+      "name": "flex-sm-wrap",
+      "family": "Flex",
+      "declaration": "flex-wrap: wrap"
+    },
+    {
+      "name": "flex-md-wrap",
+      "family": "Flex",
+      "declaration": "flex-wrap: wrap"
+    },
+    {
+      "name": "flex-lg-wrap",
+      "family": "Flex",
+      "declaration": "flex-wrap: wrap"
+    },
+    {
+      "name": "flex-xl-wrap",
+      "family": "Flex",
+      "declaration": "flex-wrap: wrap"
+    },
+    {
+      "name": "flex-xxl-wrap",
+      "family": "Flex",
+      "declaration": "flex-wrap: wrap"
+    },
+    {
+      "name": "flex-nowrap",
+      "family": "Flex",
+      "declaration": "flex-wrap: nowrap"
+    },
+    {
+      "name": "flex-sm-nowrap",
+      "family": "Flex",
+      "declaration": "flex-wrap: nowrap"
+    },
+    {
+      "name": "flex-md-nowrap",
+      "family": "Flex",
+      "declaration": "flex-wrap: nowrap"
+    },
+    {
+      "name": "flex-lg-nowrap",
+      "family": "Flex",
+      "declaration": "flex-wrap: nowrap"
+    },
+    {
+      "name": "flex-xl-nowrap",
+      "family": "Flex",
+      "declaration": "flex-wrap: nowrap"
+    },
+    {
+      "name": "flex-xxl-nowrap",
+      "family": "Flex",
+      "declaration": "flex-wrap: nowrap"
+    },
+    {
+      "name": "flex-wrap-reverse",
+      "family": "Flex",
+      "declaration": "flex-wrap: wrap-reverse"
+    },
+    {
+      "name": "flex-sm-wrap-reverse",
+      "family": "Flex",
+      "declaration": "flex-wrap: wrap-reverse"
+    },
+    {
+      "name": "flex-md-wrap-reverse",
+      "family": "Flex",
+      "declaration": "flex-wrap: wrap-reverse"
+    },
+    {
+      "name": "flex-lg-wrap-reverse",
+      "family": "Flex",
+      "declaration": "flex-wrap: wrap-reverse"
+    },
+    {
+      "name": "flex-xl-wrap-reverse",
+      "family": "Flex",
+      "declaration": "flex-wrap: wrap-reverse"
+    },
+    {
+      "name": "flex-xxl-wrap-reverse",
+      "family": "Flex",
+      "declaration": "flex-wrap: wrap-reverse"
+    },
+    {
+      "name": "justify-start",
+      "family": "Flex",
+      "declaration": "justify-content: flex-start"
+    },
+    {
+      "name": "justify-sm-start",
+      "family": "Flex",
+      "declaration": "justify-content: flex-start"
+    },
+    {
+      "name": "justify-md-start",
+      "family": "Flex",
+      "declaration": "justify-content: flex-start"
+    },
+    {
+      "name": "justify-lg-start",
+      "family": "Flex",
+      "declaration": "justify-content: flex-start"
+    },
+    {
+      "name": "justify-xl-start",
+      "family": "Flex",
+      "declaration": "justify-content: flex-start"
+    },
+    {
+      "name": "justify-xxl-start",
+      "family": "Flex",
+      "declaration": "justify-content: flex-start"
+    },
+    {
+      "name": "justify-end",
+      "family": "Flex",
+      "declaration": "justify-content: flex-end"
+    },
+    {
+      "name": "justify-sm-end",
+      "family": "Flex",
+      "declaration": "justify-content: flex-end"
+    },
+    {
+      "name": "justify-md-end",
+      "family": "Flex",
+      "declaration": "justify-content: flex-end"
+    },
+    {
+      "name": "justify-lg-end",
+      "family": "Flex",
+      "declaration": "justify-content: flex-end"
+    },
+    {
+      "name": "justify-xl-end",
+      "family": "Flex",
+      "declaration": "justify-content: flex-end"
+    },
+    {
+      "name": "justify-xxl-end",
+      "family": "Flex",
+      "declaration": "justify-content: flex-end"
+    },
+    {
+      "name": "justify-center",
+      "family": "Flex",
+      "declaration": "justify-content: center"
+    },
+    {
+      "name": "justify-sm-center",
+      "family": "Flex",
+      "declaration": "justify-content: center"
+    },
+    {
+      "name": "justify-md-center",
+      "family": "Flex",
+      "declaration": "justify-content: center"
+    },
+    {
+      "name": "justify-lg-center",
+      "family": "Flex",
+      "declaration": "justify-content: center"
+    },
+    {
+      "name": "justify-xl-center",
+      "family": "Flex",
+      "declaration": "justify-content: center"
+    },
+    {
+      "name": "justify-xxl-center",
+      "family": "Flex",
+      "declaration": "justify-content: center"
+    },
+    {
+      "name": "justify-space-between",
+      "family": "Flex",
+      "declaration": "justify-content: space-between"
+    },
+    {
+      "name": "justify-sm-space-between",
+      "family": "Flex",
+      "declaration": "justify-content: space-between"
+    },
+    {
+      "name": "justify-md-space-between",
+      "family": "Flex",
+      "declaration": "justify-content: space-between"
+    },
+    {
+      "name": "justify-lg-space-between",
+      "family": "Flex",
+      "declaration": "justify-content: space-between"
+    },
+    {
+      "name": "justify-xl-space-between",
+      "family": "Flex",
+      "declaration": "justify-content: space-between"
+    },
+    {
+      "name": "justify-xxl-space-between",
+      "family": "Flex",
+      "declaration": "justify-content: space-between"
+    },
+    {
+      "name": "justify-space-around",
+      "family": "Flex",
+      "declaration": "justify-content: space-around"
+    },
+    {
+      "name": "justify-sm-space-around",
+      "family": "Flex",
+      "declaration": "justify-content: space-around"
+    },
+    {
+      "name": "justify-md-space-around",
+      "family": "Flex",
+      "declaration": "justify-content: space-around"
+    },
+    {
+      "name": "justify-lg-space-around",
+      "family": "Flex",
+      "declaration": "justify-content: space-around"
+    },
+    {
+      "name": "justify-xl-space-around",
+      "family": "Flex",
+      "declaration": "justify-content: space-around"
+    },
+    {
+      "name": "justify-xxl-space-around",
+      "family": "Flex",
+      "declaration": "justify-content: space-around"
+    },
+    {
+      "name": "justify-space-evenly",
+      "family": "Flex",
+      "declaration": "justify-content: space-evenly"
+    },
+    {
+      "name": "justify-sm-space-evenly",
+      "family": "Flex",
+      "declaration": "justify-content: space-evenly"
+    },
+    {
+      "name": "justify-md-space-evenly",
+      "family": "Flex",
+      "declaration": "justify-content: space-evenly"
+    },
+    {
+      "name": "justify-lg-space-evenly",
+      "family": "Flex",
+      "declaration": "justify-content: space-evenly"
+    },
+    {
+      "name": "justify-xl-space-evenly",
+      "family": "Flex",
+      "declaration": "justify-content: space-evenly"
+    },
+    {
+      "name": "justify-xxl-space-evenly",
+      "family": "Flex",
+      "declaration": "justify-content: space-evenly"
+    },
+    {
+      "name": "justify-items-start",
+      "family": "Flex",
+      "declaration": "justify-items: start"
+    },
+    {
+      "name": "justify-items-sm-start",
+      "family": "Flex",
+      "declaration": "justify-items: start"
+    },
+    {
+      "name": "justify-items-md-start",
+      "family": "Flex",
+      "declaration": "justify-items: start"
+    },
+    {
+      "name": "justify-items-lg-start",
+      "family": "Flex",
+      "declaration": "justify-items: start"
+    },
+    {
+      "name": "justify-items-xl-start",
+      "family": "Flex",
+      "declaration": "justify-items: start"
+    },
+    {
+      "name": "justify-items-xxl-start",
+      "family": "Flex",
+      "declaration": "justify-items: start"
+    },
+    {
+      "name": "justify-items-end",
+      "family": "Flex",
+      "declaration": "justify-items: end"
+    },
+    {
+      "name": "justify-items-sm-end",
+      "family": "Flex",
+      "declaration": "justify-items: end"
+    },
+    {
+      "name": "justify-items-md-end",
+      "family": "Flex",
+      "declaration": "justify-items: end"
+    },
+    {
+      "name": "justify-items-lg-end",
+      "family": "Flex",
+      "declaration": "justify-items: end"
+    },
+    {
+      "name": "justify-items-xl-end",
+      "family": "Flex",
+      "declaration": "justify-items: end"
+    },
+    {
+      "name": "justify-items-xxl-end",
+      "family": "Flex",
+      "declaration": "justify-items: end"
+    },
+    {
+      "name": "justify-items-center",
+      "family": "Flex",
+      "declaration": "justify-items: center"
+    },
+    {
+      "name": "justify-items-sm-center",
+      "family": "Flex",
+      "declaration": "justify-items: center"
+    },
+    {
+      "name": "justify-items-md-center",
+      "family": "Flex",
+      "declaration": "justify-items: center"
+    },
+    {
+      "name": "justify-items-lg-center",
+      "family": "Flex",
+      "declaration": "justify-items: center"
+    },
+    {
+      "name": "justify-items-xl-center",
+      "family": "Flex",
+      "declaration": "justify-items: center"
+    },
+    {
+      "name": "justify-items-xxl-center",
+      "family": "Flex",
+      "declaration": "justify-items: center"
+    },
+    {
+      "name": "justify-items-stretch",
+      "family": "Flex",
+      "declaration": "justify-items: stretch"
+    },
+    {
+      "name": "justify-items-sm-stretch",
+      "family": "Flex",
+      "declaration": "justify-items: stretch"
+    },
+    {
+      "name": "justify-items-md-stretch",
+      "family": "Flex",
+      "declaration": "justify-items: stretch"
+    },
+    {
+      "name": "justify-items-lg-stretch",
+      "family": "Flex",
+      "declaration": "justify-items: stretch"
+    },
+    {
+      "name": "justify-items-xl-stretch",
+      "family": "Flex",
+      "declaration": "justify-items: stretch"
+    },
+    {
+      "name": "justify-items-xxl-stretch",
+      "family": "Flex",
+      "declaration": "justify-items: stretch"
+    },
+    {
+      "name": "align-start",
+      "family": "Flex",
+      "declaration": "align-items: flex-start"
+    },
+    {
+      "name": "align-sm-start",
+      "family": "Flex",
+      "declaration": "align-items: flex-start"
+    },
+    {
+      "name": "align-md-start",
+      "family": "Flex",
+      "declaration": "align-items: flex-start"
+    },
+    {
+      "name": "align-lg-start",
+      "family": "Flex",
+      "declaration": "align-items: flex-start"
+    },
+    {
+      "name": "align-xl-start",
+      "family": "Flex",
+      "declaration": "align-items: flex-start"
+    },
+    {
+      "name": "align-xxl-start",
+      "family": "Flex",
+      "declaration": "align-items: flex-start"
+    },
+    {
+      "name": "align-end",
+      "family": "Flex",
+      "declaration": "align-items: flex-end"
+    },
+    {
+      "name": "align-sm-end",
+      "family": "Flex",
+      "declaration": "align-items: flex-end"
+    },
+    {
+      "name": "align-md-end",
+      "family": "Flex",
+      "declaration": "align-items: flex-end"
+    },
+    {
+      "name": "align-lg-end",
+      "family": "Flex",
+      "declaration": "align-items: flex-end"
+    },
+    {
+      "name": "align-xl-end",
+      "family": "Flex",
+      "declaration": "align-items: flex-end"
+    },
+    {
+      "name": "align-xxl-end",
+      "family": "Flex",
+      "declaration": "align-items: flex-end"
+    },
+    {
+      "name": "align-center",
+      "family": "Flex",
+      "declaration": "align-items: center"
+    },
+    {
+      "name": "align-sm-center",
+      "family": "Flex",
+      "declaration": "align-items: center"
+    },
+    {
+      "name": "align-md-center",
+      "family": "Flex",
+      "declaration": "align-items: center"
+    },
+    {
+      "name": "align-lg-center",
+      "family": "Flex",
+      "declaration": "align-items: center"
+    },
+    {
+      "name": "align-xl-center",
+      "family": "Flex",
+      "declaration": "align-items: center"
+    },
+    {
+      "name": "align-xxl-center",
+      "family": "Flex",
+      "declaration": "align-items: center"
+    },
+    {
+      "name": "align-baseline",
+      "family": "Flex",
+      "declaration": "align-items: baseline"
+    },
+    {
+      "name": "align-sm-baseline",
+      "family": "Flex",
+      "declaration": "align-items: baseline"
+    },
+    {
+      "name": "align-md-baseline",
+      "family": "Flex",
+      "declaration": "align-items: baseline"
+    },
+    {
+      "name": "align-lg-baseline",
+      "family": "Flex",
+      "declaration": "align-items: baseline"
+    },
+    {
+      "name": "align-xl-baseline",
+      "family": "Flex",
+      "declaration": "align-items: baseline"
+    },
+    {
+      "name": "align-xxl-baseline",
+      "family": "Flex",
+      "declaration": "align-items: baseline"
+    },
+    {
+      "name": "align-stretch",
+      "family": "Flex",
+      "declaration": "align-items: stretch"
+    },
+    {
+      "name": "align-sm-stretch",
+      "family": "Flex",
+      "declaration": "align-items: stretch"
+    },
+    {
+      "name": "align-md-stretch",
+      "family": "Flex",
+      "declaration": "align-items: stretch"
+    },
+    {
+      "name": "align-lg-stretch",
+      "family": "Flex",
+      "declaration": "align-items: stretch"
+    },
+    {
+      "name": "align-xl-stretch",
+      "family": "Flex",
+      "declaration": "align-items: stretch"
+    },
+    {
+      "name": "align-xxl-stretch",
+      "family": "Flex",
+      "declaration": "align-items: stretch"
+    },
+    {
+      "name": "align-content-start",
+      "family": "Flex",
+      "declaration": "align-content: flex-start"
+    },
+    {
+      "name": "align-content-sm-start",
+      "family": "Flex",
+      "declaration": "align-content: flex-start"
+    },
+    {
+      "name": "align-content-md-start",
+      "family": "Flex",
+      "declaration": "align-content: flex-start"
+    },
+    {
+      "name": "align-content-lg-start",
+      "family": "Flex",
+      "declaration": "align-content: flex-start"
+    },
+    {
+      "name": "align-content-xl-start",
+      "family": "Flex",
+      "declaration": "align-content: flex-start"
+    },
+    {
+      "name": "align-content-xxl-start",
+      "family": "Flex",
+      "declaration": "align-content: flex-start"
+    },
+    {
+      "name": "align-content-end",
+      "family": "Flex",
+      "declaration": "align-content: flex-end"
+    },
+    {
+      "name": "align-content-sm-end",
+      "family": "Flex",
+      "declaration": "align-content: flex-end"
+    },
+    {
+      "name": "align-content-md-end",
+      "family": "Flex",
+      "declaration": "align-content: flex-end"
+    },
+    {
+      "name": "align-content-lg-end",
+      "family": "Flex",
+      "declaration": "align-content: flex-end"
+    },
+    {
+      "name": "align-content-xl-end",
+      "family": "Flex",
+      "declaration": "align-content: flex-end"
+    },
+    {
+      "name": "align-content-xxl-end",
+      "family": "Flex",
+      "declaration": "align-content: flex-end"
+    },
+    {
+      "name": "align-content-center",
+      "family": "Flex",
+      "declaration": "align-content: center"
+    },
+    {
+      "name": "align-content-sm-center",
+      "family": "Flex",
+      "declaration": "align-content: center"
+    },
+    {
+      "name": "align-content-md-center",
+      "family": "Flex",
+      "declaration": "align-content: center"
+    },
+    {
+      "name": "align-content-lg-center",
+      "family": "Flex",
+      "declaration": "align-content: center"
+    },
+    {
+      "name": "align-content-xl-center",
+      "family": "Flex",
+      "declaration": "align-content: center"
+    },
+    {
+      "name": "align-content-xxl-center",
+      "family": "Flex",
+      "declaration": "align-content: center"
+    },
+    {
+      "name": "align-content-space-between",
+      "family": "Flex",
+      "declaration": "align-content: space-between"
+    },
+    {
+      "name": "align-content-sm-space-between",
+      "family": "Flex",
+      "declaration": "align-content: space-between"
+    },
+    {
+      "name": "align-content-md-space-between",
+      "family": "Flex",
+      "declaration": "align-content: space-between"
+    },
+    {
+      "name": "align-content-lg-space-between",
+      "family": "Flex",
+      "declaration": "align-content: space-between"
+    },
+    {
+      "name": "align-content-xl-space-between",
+      "family": "Flex",
+      "declaration": "align-content: space-between"
+    },
+    {
+      "name": "align-content-xxl-space-between",
+      "family": "Flex",
+      "declaration": "align-content: space-between"
+    },
+    {
+      "name": "align-content-space-around",
+      "family": "Flex",
+      "declaration": "align-content: space-around"
+    },
+    {
+      "name": "align-content-sm-space-around",
+      "family": "Flex",
+      "declaration": "align-content: space-around"
+    },
+    {
+      "name": "align-content-md-space-around",
+      "family": "Flex",
+      "declaration": "align-content: space-around"
+    },
+    {
+      "name": "align-content-lg-space-around",
+      "family": "Flex",
+      "declaration": "align-content: space-around"
+    },
+    {
+      "name": "align-content-xl-space-around",
+      "family": "Flex",
+      "declaration": "align-content: space-around"
+    },
+    {
+      "name": "align-content-xxl-space-around",
+      "family": "Flex",
+      "declaration": "align-content: space-around"
+    },
+    {
+      "name": "align-content-space-evenly",
+      "family": "Flex",
+      "declaration": "align-content: space-evenly"
+    },
+    {
+      "name": "align-content-sm-space-evenly",
+      "family": "Flex",
+      "declaration": "align-content: space-evenly"
+    },
+    {
+      "name": "align-content-md-space-evenly",
+      "family": "Flex",
+      "declaration": "align-content: space-evenly"
+    },
+    {
+      "name": "align-content-lg-space-evenly",
+      "family": "Flex",
+      "declaration": "align-content: space-evenly"
+    },
+    {
+      "name": "align-content-xl-space-evenly",
+      "family": "Flex",
+      "declaration": "align-content: space-evenly"
+    },
+    {
+      "name": "align-content-xxl-space-evenly",
+      "family": "Flex",
+      "declaration": "align-content: space-evenly"
+    },
+    {
+      "name": "align-content-stretch",
+      "family": "Flex",
+      "declaration": "align-content: stretch"
+    },
+    {
+      "name": "align-content-sm-stretch",
+      "family": "Flex",
+      "declaration": "align-content: stretch"
+    },
+    {
+      "name": "align-content-md-stretch",
+      "family": "Flex",
+      "declaration": "align-content: stretch"
+    },
+    {
+      "name": "align-content-lg-stretch",
+      "family": "Flex",
+      "declaration": "align-content: stretch"
+    },
+    {
+      "name": "align-content-xl-stretch",
+      "family": "Flex",
+      "declaration": "align-content: stretch"
+    },
+    {
+      "name": "align-content-xxl-stretch",
+      "family": "Flex",
+      "declaration": "align-content: stretch"
+    },
+    {
+      "name": "align-self-auto",
+      "family": "Flex",
+      "declaration": "align-self: auto"
+    },
+    {
+      "name": "align-self-sm-auto",
+      "family": "Flex",
+      "declaration": "align-self: auto"
+    },
+    {
+      "name": "align-self-md-auto",
+      "family": "Flex",
+      "declaration": "align-self: auto"
+    },
+    {
+      "name": "align-self-lg-auto",
+      "family": "Flex",
+      "declaration": "align-self: auto"
+    },
+    {
+      "name": "align-self-xl-auto",
+      "family": "Flex",
+      "declaration": "align-self: auto"
+    },
+    {
+      "name": "align-self-xxl-auto",
+      "family": "Flex",
+      "declaration": "align-self: auto"
+    },
+    {
+      "name": "align-self-start",
+      "family": "Flex",
+      "declaration": "align-self: flex-start"
+    },
+    {
+      "name": "align-self-sm-start",
+      "family": "Flex",
+      "declaration": "align-self: flex-start"
+    },
+    {
+      "name": "align-self-md-start",
+      "family": "Flex",
+      "declaration": "align-self: flex-start"
+    },
+    {
+      "name": "align-self-lg-start",
+      "family": "Flex",
+      "declaration": "align-self: flex-start"
+    },
+    {
+      "name": "align-self-xl-start",
+      "family": "Flex",
+      "declaration": "align-self: flex-start"
+    },
+    {
+      "name": "align-self-xxl-start",
+      "family": "Flex",
+      "declaration": "align-self: flex-start"
+    },
+    {
+      "name": "align-self-end",
+      "family": "Flex",
+      "declaration": "align-self: flex-end"
+    },
+    {
+      "name": "align-self-sm-end",
+      "family": "Flex",
+      "declaration": "align-self: flex-end"
+    },
+    {
+      "name": "align-self-md-end",
+      "family": "Flex",
+      "declaration": "align-self: flex-end"
+    },
+    {
+      "name": "align-self-lg-end",
+      "family": "Flex",
+      "declaration": "align-self: flex-end"
+    },
+    {
+      "name": "align-self-xl-end",
+      "family": "Flex",
+      "declaration": "align-self: flex-end"
+    },
+    {
+      "name": "align-self-xxl-end",
+      "family": "Flex",
+      "declaration": "align-self: flex-end"
+    },
+    {
+      "name": "align-self-center",
+      "family": "Flex",
+      "declaration": "align-self: center"
+    },
+    {
+      "name": "align-self-sm-center",
+      "family": "Flex",
+      "declaration": "align-self: center"
+    },
+    {
+      "name": "align-self-md-center",
+      "family": "Flex",
+      "declaration": "align-self: center"
+    },
+    {
+      "name": "align-self-lg-center",
+      "family": "Flex",
+      "declaration": "align-self: center"
+    },
+    {
+      "name": "align-self-xl-center",
+      "family": "Flex",
+      "declaration": "align-self: center"
+    },
+    {
+      "name": "align-self-xxl-center",
+      "family": "Flex",
+      "declaration": "align-self: center"
+    },
+    {
+      "name": "align-self-baseline",
+      "family": "Flex",
+      "declaration": "align-self: baseline"
+    },
+    {
+      "name": "align-self-sm-baseline",
+      "family": "Flex",
+      "declaration": "align-self: baseline"
+    },
+    {
+      "name": "align-self-md-baseline",
+      "family": "Flex",
+      "declaration": "align-self: baseline"
+    },
+    {
+      "name": "align-self-lg-baseline",
+      "family": "Flex",
+      "declaration": "align-self: baseline"
+    },
+    {
+      "name": "align-self-xl-baseline",
+      "family": "Flex",
+      "declaration": "align-self: baseline"
+    },
+    {
+      "name": "align-self-xxl-baseline",
+      "family": "Flex",
+      "declaration": "align-self: baseline"
+    },
+    {
+      "name": "align-self-stretch",
+      "family": "Flex",
+      "declaration": "align-self: stretch"
+    },
+    {
+      "name": "align-self-sm-stretch",
+      "family": "Flex",
+      "declaration": "align-self: stretch"
+    },
+    {
+      "name": "align-self-md-stretch",
+      "family": "Flex",
+      "declaration": "align-self: stretch"
+    },
+    {
+      "name": "align-self-lg-stretch",
+      "family": "Flex",
+      "declaration": "align-self: stretch"
+    },
+    {
+      "name": "align-self-xl-stretch",
+      "family": "Flex",
+      "declaration": "align-self: stretch"
+    },
+    {
+      "name": "align-self-xxl-stretch",
+      "family": "Flex",
+      "declaration": "align-self: stretch"
+    },
+    {
+      "name": "order-0",
+      "family": "Flex",
+      "declaration": "order: 0"
+    },
+    {
+      "name": "order-sm-0",
+      "family": "Flex",
+      "declaration": "order: 0"
+    },
+    {
+      "name": "order-md-0",
+      "family": "Flex",
+      "declaration": "order: 0"
+    },
+    {
+      "name": "order-lg-0",
+      "family": "Flex",
+      "declaration": "order: 0"
+    },
+    {
+      "name": "order-xl-0",
+      "family": "Flex",
+      "declaration": "order: 0"
+    },
+    {
+      "name": "order-xxl-0",
+      "family": "Flex",
+      "declaration": "order: 0"
+    },
+    {
+      "name": "order-1",
+      "family": "Flex",
+      "declaration": "order: 1"
+    },
+    {
+      "name": "order-sm-1",
+      "family": "Flex",
+      "declaration": "order: 1"
+    },
+    {
+      "name": "order-md-1",
+      "family": "Flex",
+      "declaration": "order: 1"
+    },
+    {
+      "name": "order-lg-1",
+      "family": "Flex",
+      "declaration": "order: 1"
+    },
+    {
+      "name": "order-xl-1",
+      "family": "Flex",
+      "declaration": "order: 1"
+    },
+    {
+      "name": "order-xxl-1",
+      "family": "Flex",
+      "declaration": "order: 1"
+    },
+    {
+      "name": "order-2",
+      "family": "Flex",
+      "declaration": "order: 2"
+    },
+    {
+      "name": "order-sm-2",
+      "family": "Flex",
+      "declaration": "order: 2"
+    },
+    {
+      "name": "order-md-2",
+      "family": "Flex",
+      "declaration": "order: 2"
+    },
+    {
+      "name": "order-lg-2",
+      "family": "Flex",
+      "declaration": "order: 2"
+    },
+    {
+      "name": "order-xl-2",
+      "family": "Flex",
+      "declaration": "order: 2"
+    },
+    {
+      "name": "order-xxl-2",
+      "family": "Flex",
+      "declaration": "order: 2"
+    },
+    {
+      "name": "order-3",
+      "family": "Flex",
+      "declaration": "order: 3"
+    },
+    {
+      "name": "order-sm-3",
+      "family": "Flex",
+      "declaration": "order: 3"
+    },
+    {
+      "name": "order-md-3",
+      "family": "Flex",
+      "declaration": "order: 3"
+    },
+    {
+      "name": "order-lg-3",
+      "family": "Flex",
+      "declaration": "order: 3"
+    },
+    {
+      "name": "order-xl-3",
+      "family": "Flex",
+      "declaration": "order: 3"
+    },
+    {
+      "name": "order-xxl-3",
+      "family": "Flex",
+      "declaration": "order: 3"
+    },
+    {
+      "name": "order-4",
+      "family": "Flex",
+      "declaration": "order: 4"
+    },
+    {
+      "name": "order-sm-4",
+      "family": "Flex",
+      "declaration": "order: 4"
+    },
+    {
+      "name": "order-md-4",
+      "family": "Flex",
+      "declaration": "order: 4"
+    },
+    {
+      "name": "order-lg-4",
+      "family": "Flex",
+      "declaration": "order: 4"
+    },
+    {
+      "name": "order-xl-4",
+      "family": "Flex",
+      "declaration": "order: 4"
+    },
+    {
+      "name": "order-xxl-4",
+      "family": "Flex",
+      "declaration": "order: 4"
+    },
+    {
+      "name": "order-5",
+      "family": "Flex",
+      "declaration": "order: 5"
+    },
+    {
+      "name": "order-sm-5",
+      "family": "Flex",
+      "declaration": "order: 5"
+    },
+    {
+      "name": "order-md-5",
+      "family": "Flex",
+      "declaration": "order: 5"
+    },
+    {
+      "name": "order-lg-5",
+      "family": "Flex",
+      "declaration": "order: 5"
+    },
+    {
+      "name": "order-xl-5",
+      "family": "Flex",
+      "declaration": "order: 5"
+    },
+    {
+      "name": "order-xxl-5",
+      "family": "Flex",
+      "declaration": "order: 5"
+    },
+    {
+      "name": "order-6",
+      "family": "Flex",
+      "declaration": "order: 6"
+    },
+    {
+      "name": "order-sm-6",
+      "family": "Flex",
+      "declaration": "order: 6"
+    },
+    {
+      "name": "order-md-6",
+      "family": "Flex",
+      "declaration": "order: 6"
+    },
+    {
+      "name": "order-lg-6",
+      "family": "Flex",
+      "declaration": "order: 6"
+    },
+    {
+      "name": "order-xl-6",
+      "family": "Flex",
+      "declaration": "order: 6"
+    },
+    {
+      "name": "order-xxl-6",
+      "family": "Flex",
+      "declaration": "order: 6"
+    },
+    {
+      "name": "order-7",
+      "family": "Flex",
+      "declaration": "order: 7"
+    },
+    {
+      "name": "order-sm-7",
+      "family": "Flex",
+      "declaration": "order: 7"
+    },
+    {
+      "name": "order-md-7",
+      "family": "Flex",
+      "declaration": "order: 7"
+    },
+    {
+      "name": "order-lg-7",
+      "family": "Flex",
+      "declaration": "order: 7"
+    },
+    {
+      "name": "order-xl-7",
+      "family": "Flex",
+      "declaration": "order: 7"
+    },
+    {
+      "name": "order-xxl-7",
+      "family": "Flex",
+      "declaration": "order: 7"
+    },
+    {
+      "name": "order-8",
+      "family": "Flex",
+      "declaration": "order: 8"
+    },
+    {
+      "name": "order-sm-8",
+      "family": "Flex",
+      "declaration": "order: 8"
+    },
+    {
+      "name": "order-md-8",
+      "family": "Flex",
+      "declaration": "order: 8"
+    },
+    {
+      "name": "order-lg-8",
+      "family": "Flex",
+      "declaration": "order: 8"
+    },
+    {
+      "name": "order-xl-8",
+      "family": "Flex",
+      "declaration": "order: 8"
+    },
+    {
+      "name": "order-xxl-8",
+      "family": "Flex",
+      "declaration": "order: 8"
+    },
+    {
+      "name": "order-9",
+      "family": "Flex",
+      "declaration": "order: 9"
+    },
+    {
+      "name": "order-sm-9",
+      "family": "Flex",
+      "declaration": "order: 9"
+    },
+    {
+      "name": "order-md-9",
+      "family": "Flex",
+      "declaration": "order: 9"
+    },
+    {
+      "name": "order-lg-9",
+      "family": "Flex",
+      "declaration": "order: 9"
+    },
+    {
+      "name": "order-xl-9",
+      "family": "Flex",
+      "declaration": "order: 9"
+    },
+    {
+      "name": "order-xxl-9",
+      "family": "Flex",
+      "declaration": "order: 9"
+    },
+    {
+      "name": "order-10",
+      "family": "Flex",
+      "declaration": "order: 10"
+    },
+    {
+      "name": "order-sm-10",
+      "family": "Flex",
+      "declaration": "order: 10"
+    },
+    {
+      "name": "order-md-10",
+      "family": "Flex",
+      "declaration": "order: 10"
+    },
+    {
+      "name": "order-lg-10",
+      "family": "Flex",
+      "declaration": "order: 10"
+    },
+    {
+      "name": "order-xl-10",
+      "family": "Flex",
+      "declaration": "order: 10"
+    },
+    {
+      "name": "order-xxl-10",
+      "family": "Flex",
+      "declaration": "order: 10"
+    },
+    {
+      "name": "order-11",
+      "family": "Flex",
+      "declaration": "order: 11"
+    },
+    {
+      "name": "order-sm-11",
+      "family": "Flex",
+      "declaration": "order: 11"
+    },
+    {
+      "name": "order-md-11",
+      "family": "Flex",
+      "declaration": "order: 11"
+    },
+    {
+      "name": "order-lg-11",
+      "family": "Flex",
+      "declaration": "order: 11"
+    },
+    {
+      "name": "order-xl-11",
+      "family": "Flex",
+      "declaration": "order: 11"
+    },
+    {
+      "name": "order-xxl-11",
+      "family": "Flex",
+      "declaration": "order: 11"
+    },
+    {
+      "name": "order-12",
+      "family": "Flex",
+      "declaration": "order: 12"
+    },
+    {
+      "name": "order-sm-12",
+      "family": "Flex",
+      "declaration": "order: 12"
+    },
+    {
+      "name": "order-md-12",
+      "family": "Flex",
+      "declaration": "order: 12"
+    },
+    {
+      "name": "order-lg-12",
+      "family": "Flex",
+      "declaration": "order: 12"
+    },
+    {
+      "name": "order-xl-12",
+      "family": "Flex",
+      "declaration": "order: 12"
+    },
+    {
+      "name": "order-xxl-12",
+      "family": "Flex",
+      "declaration": "order: 12"
+    },
+    {
+      "name": "order-first",
+      "family": "Flex",
+      "declaration": "order: -1"
+    },
+    {
+      "name": "order-sm-first",
+      "family": "Flex",
+      "declaration": "order: -1"
+    },
+    {
+      "name": "order-md-first",
+      "family": "Flex",
+      "declaration": "order: -1"
+    },
+    {
+      "name": "order-lg-first",
+      "family": "Flex",
+      "declaration": "order: -1"
+    },
+    {
+      "name": "order-xl-first",
+      "family": "Flex",
+      "declaration": "order: -1"
+    },
+    {
+      "name": "order-xxl-first",
+      "family": "Flex",
+      "declaration": "order: -1"
+    },
+    {
+      "name": "order-last",
+      "family": "Flex",
+      "declaration": "order: 13"
+    },
+    {
+      "name": "order-sm-last",
+      "family": "Flex",
+      "declaration": "order: 13"
+    },
+    {
+      "name": "order-md-last",
+      "family": "Flex",
+      "declaration": "order: 13"
+    },
+    {
+      "name": "order-lg-last",
+      "family": "Flex",
+      "declaration": "order: 13"
+    },
+    {
+      "name": "order-xl-last",
+      "family": "Flex",
+      "declaration": "order: 13"
+    },
+    {
+      "name": "order-xxl-last",
+      "family": "Flex",
+      "declaration": "order: 13"
+    }
+  ]
+}

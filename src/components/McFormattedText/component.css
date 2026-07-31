@@ -1,0 +1,53 @@
+/* McFormattedText component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-formatted-text {
+  color: var(--mc-text, #fff);
+}
+.mc-formatted-text {
+  color: var(--mc-text, #fff);
+  font-family: var(--mc-font-ui, sans-serif);
+  line-height: 1.35;
+  white-space: pre-wrap;
+}
+.mc-formatted-text__segment--bold {
+  font-family: var(--mc-font-body, sans-serif);
+  font-weight: 700;
+}
+.mc-formatted-text__segment--italic {
+  font-style: italic;
+}
+.mc-formatted-text__segment--underline {
+  text-decoration-line: underline;
+}
+.mc-formatted-text__segment--strikethrough {
+  text-decoration-line: line-through;
+}
+.mc-formatted-text__segment--underline.mc-formatted-text__segment--strikethrough {
+  text-decoration-line: underline line-through;
+}
+.mc-formatted-text__segment--obfuscated {
+  animation: mc-formatted-text-obfuscated 0.85s steps(2, end) infinite;
+  filter: blur(0.35px);
+  text-shadow:
+    0.08em 0 currentColor,
+    -0.08em 0 currentColor;
+}
+@keyframes mc-formatted-text-obfuscated {
+  0% {
+    opacity: 0.72;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-1px);
+  }
+  100% {
+    opacity: 0.82;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mc-formatted-text__segment--obfuscated {
+    animation: none !important;
+    transition: none !important;
+  }
+}

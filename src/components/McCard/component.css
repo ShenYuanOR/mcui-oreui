@@ -1,0 +1,59 @@
+/* McCard component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-card {
+  background: var(--mc-surface, #313233);
+  border: 2px solid var(--mc-border, #1e1e1f);
+  box-sizing: border-box;
+  color: var(--mc-text, #fff);
+  display: block;
+  font: inherit;
+  padding: 16px;
+  text-align: left;
+  text-decoration: none;
+}
+.mc-card--interactive {
+  cursor: pointer;
+  width: 100%;
+}
+.mc-card--interactive:hover {
+  border-color: #fff;
+  filter: brightness(1.1);
+}
+.mc-card--interactive:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+.mc-card--disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+.mc-card__title {
+  font: 700 18px/1.2 var(--mc-font-title, sans-serif);
+  margin-bottom: 8px;
+}
+.mc-card__actions {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+}
+.mc-card--interactive:focus-visible {
+  outline-color: var(--mc-focus, #fff);
+}
+.mc-card {
+  box-shadow:
+    inset 2px 2px rgba(255, 255, 255, 0.12),
+    inset -2px -2px rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  position: relative;
+}
+.mc-card--interactive:hover {
+  background: var(--mc-surface-light, #58585a);
+  border-color: var(--mc-surface-hover, #8c8d90);
+  filter: none;
+}
+.mc-card--interactive:active {
+  background: var(--mc-surface, #313233);
+  box-shadow:
+    inset 3px 3px rgba(0, 0, 0, 0.45),
+    inset -3px -3px rgba(255, 255, 255, 0.08);
+}

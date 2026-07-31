@@ -1,0 +1,120 @@
+/* McSkinViewer component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-skin-viewer {
+  position: relative;
+  display: inline-block;
+  user-select: none;
+  touch-action: none;
+  overflow: visible;
+}
+.mc-skin-viewer.is-interactive {
+  cursor: grab;
+}
+.mc-skin-viewer.is-interactive:active {
+  cursor: grabbing;
+}
+
+.mc-skin-stage {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 4%;
+  box-sizing: border-box;
+}
+
+/* character：以角色脚底中心为原点，所有部位 pivot 都从这里出发 */
+.mc-skin-character {
+  position: relative;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+  transition: transform 0.05s linear;
+}
+
+/* idle 浮动：仅做 Y 平移，套在 character 内部不影响 yaw/pitch */
+.mc-skin-float {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+}
+.mc-skin-viewer.is-idle .mc-skin-float {
+  animation: mc-skin-float 3.6s ease-in-out infinite;
+}
+@keyframes mc-skin-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+.mc-skin-pivot {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+}
+
+/* swing：绕关节点（即 pivot 原点）旋转 */
+.mc-skin-swing {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+  transform-origin: 0 0 0;
+}
+.mc-skin-viewer.is-walking .mc-skin-swing.swing-a {
+  animation: mc-swing-a 1s ease-in-out infinite;
+}
+.mc-skin-viewer.is-walking .mc-skin-swing.swing-b {
+  animation: mc-swing-b 1s ease-in-out infinite;
+}
+@keyframes mc-swing-a {
+  0%,
+  100% {
+    transform: rotateX(30deg);
+  }
+  50% {
+    transform: rotateX(-30deg);
+  }
+}
+@keyframes mc-swing-b {
+  0%,
+  100% {
+    transform: rotateX(-30deg);
+  }
+  50% {
+    transform: rotateX(30deg);
+  }
+}
+
+.mc-skin-center {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+}
+
+.mc-skin-face {
+  position: absolute;
+  left: 0;
+  top: 0;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  backface-visibility: hidden;
+  transform-origin: 0 0 0;
+}

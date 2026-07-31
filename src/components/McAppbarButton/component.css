@@ -1,0 +1,53 @@
+/* McAppbarButton component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-appbar-button {
+  box-shadow:
+    inset 2px 0 var(--mc-focus, #fff),
+    inset -2px 0 var(--mc-border-muted, #a1a3a5);
+  color: var(--mc-text-inverse, #3c3c3c);
+}
+.mc-appbar-button:hover:not(:disabled) {
+  background: var(--mc-surface-high, #f4f6f9);
+}
+.mc-appbar-button:active:not(:disabled) {
+  background: var(--mc-secondary, #d0d1d4);
+}
+.mc-appbar-button {
+  align-items: center;
+  align-self: stretch;
+  background: var(--mc-appbar-button-color, transparent);
+  border: 0;
+  border-radius: 0;
+  box-shadow:
+    inset 2px 0 var(--mc-focus, #fff),
+    inset -2px 0 var(--mc-border-muted, #a1a3a5);
+  box-sizing: border-box;
+  color: var(--mc-text-inverse, #1e1e1f);
+  cursor: pointer;
+  display: inline-flex;
+  font: 700 14px/1 var(--mc-font-body, sans-serif);
+  justify-content: center;
+  margin: 0;
+  padding: 0 12px;
+}
+.mc-appbar-button:hover:not(:disabled) {
+  background: var(--mc-appbar-button-color, var(--mc-surface-high, #f4f6f9));
+  filter: brightness(0.96);
+}
+.mc-appbar-button:active:not(:disabled) {
+  background: color-mix(in srgb, var(--mc-appbar-button-color, var(--mc-secondary, #d0d1d4)) 82%, #000);
+}
+.mc-appbar-button:focus-visible {
+  outline: 3px solid var(--mc-border, #1e1e1f);
+  outline-offset: -4px;
+}
+.mc-appbar-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+.mc-appbar-button__tooltip {
+  align-self: stretch;
+  margin: 0;
+}
+.mc-appbar-button__icon {
+  --mc-icon-size: 16px;
+}

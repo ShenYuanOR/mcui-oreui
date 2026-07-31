@@ -1,0 +1,230 @@
+{
+  "generatedBy": "scripts/generate-utilities.mjs",
+  "families": [
+    "Float / RTL",
+    "Float / Print",
+    "Position"
+  ],
+  "classes": [
+    {
+      "name": "float-none",
+      "family": "Float / RTL",
+      "declaration": "float: none"
+    },
+    {
+      "name": "float-sm-none",
+      "family": "Float / RTL",
+      "declaration": "float: none"
+    },
+    {
+      "name": "float-md-none",
+      "family": "Float / RTL",
+      "declaration": "float: none"
+    },
+    {
+      "name": "float-lg-none",
+      "family": "Float / RTL",
+      "declaration": "float: none"
+    },
+    {
+      "name": "float-xl-none",
+      "family": "Float / RTL",
+      "declaration": "float: none"
+    },
+    {
+      "name": "float-xxl-none",
+      "family": "Float / RTL",
+      "declaration": "float: none"
+    },
+    {
+      "name": "float-left",
+      "family": "Float / RTL",
+      "declaration": "float: left"
+    },
+    {
+      "name": "float-sm-left",
+      "family": "Float / RTL",
+      "declaration": "float: left"
+    },
+    {
+      "name": "float-md-left",
+      "family": "Float / RTL",
+      "declaration": "float: left"
+    },
+    {
+      "name": "float-lg-left",
+      "family": "Float / RTL",
+      "declaration": "float: left"
+    },
+    {
+      "name": "float-xl-left",
+      "family": "Float / RTL",
+      "declaration": "float: left"
+    },
+    {
+      "name": "float-xxl-left",
+      "family": "Float / RTL",
+      "declaration": "float: left"
+    },
+    {
+      "name": "float-right",
+      "family": "Float / RTL",
+      "declaration": "float: right"
+    },
+    {
+      "name": "float-sm-right",
+      "family": "Float / RTL",
+      "declaration": "float: right"
+    },
+    {
+      "name": "float-md-right",
+      "family": "Float / RTL",
+      "declaration": "float: right"
+    },
+    {
+      "name": "float-lg-right",
+      "family": "Float / RTL",
+      "declaration": "float: right"
+    },
+    {
+      "name": "float-xl-right",
+      "family": "Float / RTL",
+      "declaration": "float: right"
+    },
+    {
+      "name": "float-xxl-right",
+      "family": "Float / RTL",
+      "declaration": "float: right"
+    },
+    {
+      "name": "float-start",
+      "family": "Float / RTL",
+      "declaration": "float: left"
+    },
+    {
+      "name": "float-sm-start",
+      "family": "Float / RTL",
+      "declaration": "float: left"
+    },
+    {
+      "name": "float-md-start",
+      "family": "Float / RTL",
+      "declaration": "float: left"
+    },
+    {
+      "name": "float-lg-start",
+      "family": "Float / RTL",
+      "declaration": "float: left"
+    },
+    {
+      "name": "float-xl-start",
+      "family": "Float / RTL",
+      "declaration": "float: left"
+    },
+    {
+      "name": "float-xxl-start",
+      "family": "Float / RTL",
+      "declaration": "float: left"
+    },
+    {
+      "name": "float-end",
+      "family": "Float / RTL",
+      "declaration": "float: right"
+    },
+    {
+      "name": "float-sm-end",
+      "family": "Float / RTL",
+      "declaration": "float: right"
+    },
+    {
+      "name": "float-md-end",
+      "family": "Float / RTL",
+      "declaration": "float: right"
+    },
+    {
+      "name": "float-lg-end",
+      "family": "Float / RTL",
+      "declaration": "float: right"
+    },
+    {
+      "name": "float-xl-end",
+      "family": "Float / RTL",
+      "declaration": "float: right"
+    },
+    {
+      "name": "float-xxl-end",
+      "family": "Float / RTL",
+      "declaration": "float: right"
+    },
+    {
+      "name": "float-print-none",
+      "family": "Float / Print",
+      "declaration": "float: none"
+    },
+    {
+      "name": "float-print-left",
+      "family": "Float / Print",
+      "declaration": "float: left"
+    },
+    {
+      "name": "float-print-right",
+      "family": "Float / Print",
+      "declaration": "float: right"
+    },
+    {
+      "name": "float-print-start",
+      "family": "Float / Print",
+      "declaration": "float: left"
+    },
+    {
+      "name": "float-print-end",
+      "family": "Float / Print",
+      "declaration": "float: right"
+    },
+    {
+      "name": "position-static",
+      "family": "Position",
+      "declaration": "position: static"
+    },
+    {
+      "name": "position-relative",
+      "family": "Position",
+      "declaration": "position: relative"
+    },
+    {
+      "name": "position-fixed",
+      "family": "Position",
+      "declaration": "position: fixed"
+    },
+    {
+      "name": "position-absolute",
+      "family": "Position",
+      "declaration": "position: absolute"
+    },
+    {
+      "name": "position-sticky",
+      "family": "Position",
+      "declaration": "position: sticky"
+    },
+    {
+      "name": "top-0",
+      "family": "Position",
+      "declaration": "top: 0"
+    },
+    {
+      "name": "right-0",
+      "family": "Position",
+      "declaration": "right: 0"
+    },
+    {
+      "name": "bottom-0",
+      "family": "Position",
+      "declaration": "bottom: 0"
+    },
+    {
+      "name": "left-0",
+      "family": "Position",
+      "declaration": "left: 0"
+    }
+  ]
+}

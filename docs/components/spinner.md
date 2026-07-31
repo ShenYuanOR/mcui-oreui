@@ -16,10 +16,18 @@ import { ref } from 'vue'
   <mc-spinner :size="80" />
 </div>
 
-```html
-<mc-spinner />
-<mc-spinner :size="64" />
-<mc-spinner :size="80" />
+```vue
+<script setup lang="ts">
+import { ref } from 'vue'
+</script>
+
+<template>
+  <div class="mc-demo">
+    <mc-spinner />
+    <mc-spinner :size="64" />
+    <mc-spinner :size="80" />
+  </div>
+</template>
 ```
 
 ## 颜色
@@ -35,17 +43,26 @@ import { ref } from 'vue'
   </div>
 </div>
 
-```html
-<!-- 白色，适合深色背景 -->
-<mc-spinner color="white" />
+```vue
+<script setup lang="ts">
+import { ref } from 'vue'
+</script>
 
-<!-- 深色，适合浅色背景 -->
-<mc-spinner color="dark" />
+<template>
+  <div class="mc-demo">
+    <div style="background:#1E1E1F;padding:12px;display:inline-flex;border-radius:4px">
+      <mc-spinner color="white" />
+    </div>
+    <div style="background:#D0D1D4;padding:12px;display:inline-flex;border-radius:4px">
+      <mc-spinner color="dark" />
+    </div>
+  </div>
+</template>
 ```
 
 ## Props
 
-| 名称 | 类型 | 默认 | 说明 |
-|---|---|---|---|
-| `size` | `number` | `48` | 圆形尺寸（px） |
-| `color` | `'white' \| 'dark'` | `'white'` | GIF 颜色 |
+| 名称    | 类型                | 默认      | 说明           |
+| ------- | ------------------- | --------- | -------------- |
+| `size`  | `number`            | `48`      | 圆形尺寸（px） |
+| `color` | `'white' \| 'dark'` | `'white'` | GIF 颜色       |

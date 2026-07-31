@@ -1,0 +1,35 @@
+/* McConfirm component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-confirm {
+  color: var(--mc-text, #fff);
+}
+.mc-confirm__actions {
+  background: var(--mc-background, #48494a);
+  border-color: var(--mc-border, #1e1e1f);
+}
+.mc-confirm {
+  color: var(--mc-text, #fff);
+  font-family: var(--mc-font-ui, sans-serif);
+  min-width: 280px;
+}
+.mc-confirm__content {
+  line-height: 1.5;
+  padding: 16px;
+}
+.mc-confirm__actions {
+  align-items: center;
+  background: var(--mc-background, #48494a);
+  border-block: 2px solid var(--mc-surface-light, #58585a);
+  display: flex;
+  justify-content: center;
+}
+.mc-confirm__actions--stack {
+  flex-direction: column;
+  padding: 8px;
+}
+.mc-confirm__actions--stack .mc-confirm__action {
+  margin: 2px;
+  width: 100%;
+}
+.mc-confirm__actions--stack .mc-confirm__action > button {
+  width: 100%;
+}

@@ -1,0 +1,132 @@
+/* McSwitch component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-switch {
+  align-items: center;
+  color: var(--mc-text, #fff);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--mc-font-body, sans-serif);
+  gap: 8px;
+  min-height: 28px;
+}
+.mc-switch__input {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  position: absolute;
+  width: 1px;
+}
+.mc-switch__input:focus-visible + .mc-switch__track {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+.mc-switch--disabled {
+  color: var(--mc-disabled-text, #48494a);
+  cursor: not-allowed;
+}
+.mc-switch--readonly {
+  cursor: default;
+}
+.mc-switch__track {
+  background: linear-gradient(
+    to right,
+    var(--mc-control-color, var(--mc-primary, #3c8527)) 0 50%,
+    var(--mc-control-inactive, #8c8d90) 50% 100%
+  );
+  border: 2px solid var(--mc-border, #1e1e1f);
+  box-shadow:
+    inset 2px 2px var(--mc-specular-neutral, rgba(255, 255, 255, 0.2)),
+    inset -2px -2px var(--mc-specular-neutral-low, rgba(255, 255, 255, 0.1));
+  box-sizing: border-box;
+  display: inline-block;
+  flex: none;
+  height: 28px;
+  overflow: visible;
+  position: relative;
+  transition: background var(--mc-motion-fast, 100ms) linear;
+  width: 62px;
+}
+.mc-switch__mark {
+  height: 16px;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+}
+.mc-switch__mark--on {
+  left: 6px;
+}
+.mc-switch__mark--off {
+  right: 7px;
+}
+.mc-switch__mark img {
+  display: block;
+  height: 16px;
+  image-rendering: pixelated;
+  width: 16px;
+}
+.mc-switch__thumb {
+  background: var(--mc-secondary, #d0d1d4);
+  border: 2px solid var(--mc-border, #1e1e1f);
+  box-sizing: border-box;
+  box-shadow:
+    inset 0 -4px var(--mc-surface-light, #58585a),
+    inset 2px 2px var(--mc-specular-secondary, rgba(255, 255, 255, 0.6)),
+    inset -2px -6px var(--mc-specular-secondary-low, rgba(255, 255, 255, 0.4));
+  height: 32px;
+  left: -2px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition:
+    transform 125ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    background-color var(--mc-motion-fast, 100ms) linear;
+  width: 32px;
+  z-index: 1;
+}
+.mc-switch:hover:not(.mc-switch--disabled):not(.mc-switch--readonly) .mc-switch__thumb,
+.mc-switch:active:not(.mc-switch--disabled):not(.mc-switch--readonly) .mc-switch__thumb {
+  background: var(--mc-secondary-hover, #b1b2b5);
+  box-shadow:
+    inset 0 -4px var(--mc-surface-light, #58585a),
+    inset 2px 2px var(--mc-specular-hover, rgba(255, 255, 255, 0.8)),
+    inset -2px -6px var(--mc-specular-hover-low, rgba(255, 255, 255, 0.6));
+}
+.mc-switch__input:checked + .mc-switch__track .mc-switch__thumb {
+  transform: translate(30px, -50%);
+}
+.mc-switch__input[aria-invalid='true'] + .mc-switch__track {
+  border-color: var(--mc-error, #ca3636);
+}
+.mc-switch--disabled .mc-switch__track {
+  background: var(--mc-disabled, #d0d1d4);
+  border-color: var(--mc-disabled-border, #8c8d90);
+  box-shadow: none;
+}
+.mc-switch--disabled .mc-switch__mark img {
+  filter: grayscale(1) brightness(0.5);
+}
+.mc-switch--disabled .mc-switch__thumb {
+  background: var(--mc-disabled, #d0d1d4);
+  border-color: var(--mc-disabled-border, #8c8d90);
+  box-shadow:
+    inset 0 -4px var(--mc-disabled-shadow, #b1b2b5),
+    inset 2px 2px var(--mc-specular-secondary, rgba(255, 255, 255, 0.6)),
+    inset -2px -6px var(--mc-specular-secondary-low, rgba(255, 255, 255, 0.4));
+}
+.mc-switch:dir(rtl) .mc-switch__thumb {
+  left: auto;
+  right: -2px;
+}
+.mc-switch:dir(rtl) .mc-switch__input:checked + .mc-switch__track .mc-switch__thumb {
+  transform: translate(-30px, -50%);
+}
+.mc-switch__input:focus-visible + .mc-switch__track {
+  outline-color: var(--mc-focus, #fff);
+}
+@media (prefers-reduced-motion: reduce) {
+  .mc-switch__thumb {
+    animation: none !important;
+    transition: none !important;
+  }
+}

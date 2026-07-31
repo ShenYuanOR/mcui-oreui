@@ -1,0 +1,6 @@
+{
+  "composables": ["defaults", "display", "form", "icons", "locale", "overlay", "sounds", "theme", "usePop", "useSound"],
+  "icons": ["all", "key", "normal", "x"],
+  "sounds": ["default"],
+  "styles": ["base.css", "tokens.css", "components.css", "utilities.css", "fonts.css"]
+}

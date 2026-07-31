@@ -1,0 +1,120 @@
+{
+  "generatedBy": "scripts/generate-utilities.mjs",
+  "families": [
+    "Accessibility",
+    "Pointer events",
+    "Responsive hidden"
+  ],
+  "classes": [
+    {
+      "name": "d-sr-only",
+      "family": "Accessibility",
+      "declaration": "border: 0; clip: rect(0, 0, 0, 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; white-space: nowrap; width: 1px"
+    },
+    {
+      "name": "d-sr-only-focusable",
+      "family": "Accessibility",
+      "declaration": "border: 0; clip: rect(0, 0, 0, 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; white-space: nowrap; width: 1px"
+    },
+    {
+      "name": "pointer-events-none",
+      "family": "Pointer events",
+      "declaration": "pointer-events: none"
+    },
+    {
+      "name": "pointer-events-auto",
+      "family": "Pointer events",
+      "declaration": "pointer-events: auto"
+    },
+    {
+      "name": "pointer-pass-through",
+      "family": "Pointer events",
+      "declaration": "pointer-events: none"
+    },
+    {
+      "name": "hidden-xs",
+      "family": "Responsive hidden",
+      "declaration": "display: none"
+    },
+    {
+      "name": "hidden-sm",
+      "family": "Responsive hidden",
+      "declaration": "display: none"
+    },
+    {
+      "name": "hidden-md",
+      "family": "Responsive hidden",
+      "declaration": "display: none"
+    },
+    {
+      "name": "hidden-lg",
+      "family": "Responsive hidden",
+      "declaration": "display: none"
+    },
+    {
+      "name": "hidden-xl",
+      "family": "Responsive hidden",
+      "declaration": "display: none"
+    },
+    {
+      "name": "hidden-xxl",
+      "family": "Responsive hidden",
+      "declaration": "display: none"
+    },
+    {
+      "name": "hidden-sm-and-up",
+      "family": "Responsive hidden",
+      "declaration": "display: none"
+    },
+    {
+      "name": "hidden-md-and-up",
+      "family": "Responsive hidden",
+      "declaration": "display: none"
+    },
+    {
+      "name": "hidden-lg-and-up",
+      "family": "Responsive hidden",
+      "declaration": "display: none"
+    },
+    {
+      "name": "hidden-xl-and-up",
+      "family": "Responsive hidden",
+      "declaration": "display: none"
+    },
+    {
+      "name": "hidden-xxl-and-up",
+      "family": "Responsive hidden",
+      "declaration": "display: none"
+    },
+    {
+      "name": "hidden-sm-and-down",
+      "family": "Responsive hidden",
+      "declaration": "display: none"
+    },
+    {
+      "name": "hidden-md-and-down",
+      "family": "Responsive hidden",
+      "declaration": "display: none"
+    },
+    {
+      "name": "hidden-lg-and-down",
+      "family": "Responsive hidden",
+      "declaration": "display: none"
+    },
+    {
+      "name": "hidden-xl-and-down",
+      "family": "Responsive hidden",
+      "declaration": "display: none"
+    },
+    {
+      "name": "hidden-print-only",
+      "family": "Responsive hidden",
+      "declaration": "display: none"
+    },
+    {
+      "name": "hidden-screen-only",
+      "family": "Responsive hidden",
+      "declaration": "display: none"
+    }
+  ]
+}

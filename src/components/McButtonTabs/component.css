@@ -1,0 +1,107 @@
+/* McButtonTabs component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-button-tabs__title {
+  color: var(--mc-text, #fff);
+}
+.mc-button-tabs__tab--active > button {
+  background: var(--mc-primary, #3c8527) !important;
+  border-color: var(--mc-border, #1e1e1f) !important;
+  color: var(--mc-on-primary, #fff);
+}
+.mc-button-tabs__tab--active:hover > button {
+  background: var(--mc-primary-hover, #2a641c) !important;
+}
+.mc-button-tabs__tab--active::after {
+  background: var(--mc-focus, #fff);
+}
+.mc-button-tabs {
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
+  width: 100%;
+}
+.mc-button-tabs__header {
+  max-width: 100%;
+  min-width: 0;
+  width: 100%;
+}
+.mc-button-tabs__title {
+  color: var(--mc-text, #fff);
+  display: block;
+  font: 700 14px/1.2 var(--mc-font-ui, sans-serif);
+  margin-bottom: 6px;
+}
+.mc-button-tabs__nav {
+  align-items: flex-end;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0;
+  justify-content: center;
+  max-width: 100%;
+  min-width: 0;
+  width: 100%;
+}
+.mc-button-tabs__tab {
+  align-items: stretch;
+  display: flex;
+  flex: 1 1 0%;
+  margin: 0 !important;
+  max-width: 100%;
+  min-width: 0;
+  position: relative;
+  width: auto !important;
+}
+.mc-button-tabs__tab > button {
+  flex: 1 1 auto;
+  max-width: 100%;
+  min-width: 0;
+  width: 100% !important;
+}
+.mc-button-tabs__tab > button > span {
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  width: 100%;
+}
+.mc-button-tabs__label {
+  display: block;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.mc-button-tabs__tab + .mc-button-tabs__tab {
+  margin-inline-start: -2px !important;
+}
+.mc-button-tabs__tab:hover,
+.mc-button-tabs__tab:active {
+  z-index: 1;
+}
+.mc-button-tabs__tab--active > button {
+  --mc-button-background: var(--mc-primary, #3c8527);
+  --mc-button-hover: var(--mc-primary-hover, #2a641c);
+  background: var(--mc-primary, #3c8527) !important;
+  box-shadow:
+    inset 3px 3px rgba(255, 255, 255, 0.4),
+    inset -3px -3px rgba(255, 255, 255, 0.3) !important;
+  color: var(--mc-on-primary, #fff);
+  height: 38px !important;
+  max-height: 38px !important;
+  min-height: 38px !important;
+}
+.mc-button-tabs__tab--custom.mc-button-tabs__tab--active > button {
+  background: var(--mc-tab-custom-bg) !important;
+}
+.mc-button-tabs__tab--active::after {
+  background: var(--mc-focus, #fff);
+  bottom: 0;
+  content: '';
+  height: 3px;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 33%;
+}
+.mc-button-tabs__panel {
+  margin-top: 16px;
+}

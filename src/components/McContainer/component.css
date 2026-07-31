@@ -1,0 +1,36 @@
+/* McContainer component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-container {
+  box-sizing: border-box;
+  margin-inline: auto;
+  max-width: 100%;
+  padding-inline: 12px;
+  width: 100%;
+}
+.mc-container--fluid {
+  max-width: 100% !important;
+}
+@media (min-width: 600px) {
+  .mc-container {
+    max-width: 540px;
+  }
+}
+@media (min-width: 960px) {
+  .mc-container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 1280px) {
+  .mc-container {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1920px) {
+  .mc-container {
+    max-width: 1140px;
+  }
+}
+@media (min-width: 2560px) {
+  .mc-container {
+    max-width: 1320px;
+  }
+}

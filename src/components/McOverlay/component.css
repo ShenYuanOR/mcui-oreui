@@ -1,0 +1,44 @@
+/* McOverlay component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-overlay {
+  align-items: center;
+  background: transparent;
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  padding: 24px;
+  position: fixed;
+}
+.mc-overlay--scrim {
+  background: var(--mc-scrim, rgba(0, 0, 0, 0.62));
+}
+.mc-overlay__content {
+  max-height: 100%;
+  max-width: 100%;
+  outline: none;
+}
+.mc-overlay--connected {
+  display: block;
+  padding: 0;
+  pointer-events: none;
+}
+.mc-overlay--connected .mc-overlay__content {
+  max-height: none;
+  max-width: none;
+  pointer-events: auto;
+  position: fixed;
+}
+.mc-overlay-fade-enter-active,
+.mc-overlay-fade-leave-active {
+  transition: opacity 0.16s ease;
+}
+.mc-overlay-fade-enter-from,
+.mc-overlay-fade-leave-to {
+  opacity: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .mc-overlay-fade-enter-active,
+  .mc-overlay-fade-leave-active {
+    animation: none !important;
+    transition: none !important;
+  }
+}

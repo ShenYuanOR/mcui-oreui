@@ -1,4 +1,4 @@
-# 格式化代码
+# 格式化代码 / Format Codes
 
 Minecraft 旧式文本格式化机制使用分节符 `§` 加一个字符来切换颜色或文字样式，例如 `§e黄色`、`§l粗体`、`§r重置`。
 本库通过特殊标签 `<mc-tcode></mc-tcode>` 让格式化代码生效；未包裹在 `<mc-tcode>` 中的普通文本不会被解析。
@@ -64,11 +64,7 @@ const text = ref('§l§6McUI §r§aVue §b格式化§r 文本')
 </div>
 
 ```ts
-import {
-  parseMcFormatCodes,
-  renderMcFormatCodes,
-  stripMcFormatCodes,
-} from 'mcui-oreui'
+import { parseMcFormatCodes, renderMcFormatCodes, stripMcFormatCodes } from 'mcui-oreui'
 
 // 1. 解析为 token：适合调试、分析源字符串
 parseMcFormatCodes('§aHello §lWorld')
@@ -124,23 +120,23 @@ console.log(MC_FORMAT_CODE_COLORS.a.foreground) // #55FF55
 
 ### mc-tcode Props
 
-| 名称 | 类型 | 默认 | 说明 |
-|---|---|---|---|
-| `text` | `string` | — | 带 `§` 格式化代码的源文本；未传时读取默认插槽文本 |
+| 名称      | 类型                  | 默认     | 说明                                                                    |
+| --------- | --------------------- | -------- | ----------------------------------------------------------------------- |
+| `text`    | `string`              | —        | 带 `§` 格式化代码的源文本；未传时读取默认插槽文本                       |
 | `edition` | `'java' \| 'bedrock'` | `'java'` | 解析模式；`java` 下 `§m` / `§n` 为删除线 / 下划线，`bedrock` 下为材料色 |
-| `as` | `string` | `'span'` | 渲染为指定 HTML 标签或组件 |
+| `as`      | `string`              | `'span'` | 渲染为指定 HTML 标签或组件                                              |
 
 ### 导出项
 
-| 名称 | 说明 |
-|---|---|
-| `<mc-tcode>` | 特殊包裹标签，用于让内部 `§` 格式化代码生效 |
-| `<mc-formatted-text>` | 底层渲染组件，适合需要显式传入 `text` 的高级场景 |
-| `MC_FORMAT_CODE_COLORS` | 颜色代码表，包含前景色、背景色、中文标签与基岩版标记 |
-| `MC_FORMAT_CODE_STYLES` | 样式代码表，包含粗体、斜体、混淆、删除线、下划线、重置 |
-| `parseMcFormatCodes(text, edition?)` | 将源文本解析为 token 列表，默认 `edition` 为 `'java'` |
+| 名称                                  | 说明                                                     |
+| ------------------------------------- | -------------------------------------------------------- |
+| `<mc-tcode>`                          | 特殊包裹标签，用于让内部 `§` 格式化代码生效              |
+| `<mc-formatted-text>`                 | 底层渲染组件，适合需要显式传入 `text` 的高级场景         |
+| `MC_FORMAT_CODE_COLORS`               | 颜色代码表，包含前景色、背景色、中文标签与基岩版标记     |
+| `MC_FORMAT_CODE_STYLES`               | 样式代码表，包含粗体、斜体、混淆、删除线、下划线、重置   |
+| `parseMcFormatCodes(text, edition?)`  | 将源文本解析为 token 列表，默认 `edition` 为 `'java'`    |
 | `renderMcFormatCodes(text, edition?)` | 将源文本解析为可渲染文本片段，默认 `edition` 为 `'java'` |
-| `stripMcFormatCodes(text)` | 移除所有 `§x` 格式代码，返回纯文本 |
+| `stripMcFormatCodes(text)`            | 移除所有 `§x` 格式代码，返回纯文本                       |
 
 <style scoped>
 .mc-format-code-pre {

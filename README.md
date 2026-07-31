@@ -1,28 +1,8 @@
-# McUI Vue
+# mcui-oreui 2
 
-> Minecraft 基岩版风格的 Vue 3 组件库 —— 像素质感、立体按钮、按键音效，开箱即用。
+面向 Vue 3.5+ 的 Minecraft / OreUI 专用组件库。2.0 保留像素视觉、格式化文本、皮肤查看器、图标和可选音效，同时加入 Theme、Defaults、Locale、Display、Form、Overlay、SSR 与无障碍基础设施。
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](#许可)
-![Vue](https://img.shields.io/badge/Vue-3.3%2B-42b883)
-![TypeScript](https://img.shields.io/badge/TypeScript-Ready-3178c6)
-
-**📖 在线文档（组件实时 Demo + API）：<https://shenyuanor.github.io/mcui-oreui/>**
-
-把 Minecraft 基岩版界面的观感（Minecraft 像素字体、灰色立体面板、主/默认/错误三态按钮、卡片扫光、按键音效）封装为 **37 个标准 Vue 3 组件**，并附带一套 VitePress 实时文档站。
-
-> ⚠️ **非官方声明**：本项目为第三方复刻，与 Mojang Studios **无任何从属关系**，不含 Minecraft 官方代码或美术资产。设计语言移植自社区项目 [Spectrollay-OreUI/OreUI](https://github.com/Spectrollay-OreUI/OreUI)（MIT）。它与官方仓库 `Mojang/mc-ui`（仅开源 `@react-facet` 状态管理库）是完全不同的两个东西。
-
-## 特性
-
-- 🎮 **原汁原味** —— 直接复用原项目 1700+ 行 CSS 与 Minecraft 字体，零视觉偏差
-- 🧩 **标准 Vue 3 + TypeScript** —— 全部 `<script setup lang="ts">`，`v-model` 受控、类型完整
-- 🔌 **组合式 / 选项式 API 通用** —— 导入一次全局可用，两种风格皆可
-- 🔊 **内置音效** —— 移植原项目 7 个按键音效，可全局开关
-- 🧰 **内置图标库** —— 支持普通图标、按键映射图标、彩色图标，统一通过 `<mc-icon>` 或组件 `icon` 属性使用
-- 💡 **编辑器组件补全** —— 内置 Vue 全局组件类型与 web-types，VSCode / Volar 等工具可补全 `mc-*` 标签与组件 props
-- 🧱 **稳定布局反馈** —— 按钮按下时固定外框与内部层高度，仅改变文字/图标位置和压感阴影
-- 🎨 **Minecraft 格式化代码** —— 支持 `§` 颜色 / 样式代码解析与渲染，可用于 MOTD、世界名等文本预览
-- 📦 **Vite 库模式打包** —— 产出 ESM / UMD / `.d.ts` 类型声明
+> 非官方第三方项目，与 Mojang Studios 无从属关系。视觉基准来自 [Spectrollay-OreUI/OreUI](https://github.com/Spectrollay-OreUI/OreUI)（MIT），本轮对照 revision [`0bf8f466`](https://github.com/Spectrollay-OreUI/OreUI/commit/0bf8f46655878da872e4ddfa03db9ac663212438)。
 
 ## 安装
 
@@ -30,97 +10,211 @@
 npm install mcui-oreui
 ```
 
-需要 Vue `^3.3`（peerDependency）。
+需要 `vue: ^3.5.0`。
 
-## 快速开始
+使用文档：[快速开始](./docs/guide/getting-started.md)只介绍安装与基础使用；Theme、Defaults、Locale、Display、Icons、Sounds、按需入口和可选样式统一见[配置选项](./docs/guide/configuration.md)。
 
-### 全局注册（导入一次，全局可用）
+## 全局插件
+
+以下代码放在**使用本组件库的 Vue 应用客户端入口文件**，通常是 `src/main.ts`。`createMcUI({...})` 是运行时插件配置；只有传给 `app.use()` 后才会生效，库不会自动读取 `mcui.config.ts`、`vite.config.ts` 或其他配置文件。
 
 ```ts
-// main.ts
+// src/main.ts
 import { createApp } from 'vue'
+import { createMcUI } from 'mcui-oreui'
+import { mcNormalIconSet } from 'mcui-oreui/icons/normal'
 import App from './App.vue'
-import McUIVue from 'mcui-oreui'
-import 'mcui-oreui/style.css'   // 样式需引入一次
 
-createApp(App).use(McUIVue).mount('#app')
+const app = createApp(App)
+const mcui = createMcUI({
+  icons: { sets: { mc: mcNormalIconSet } },
+  sounds: { enabled: false },
+})
+
+app.use(mcui)
+app.mount('#app')
 ```
 
-之后任意组件（组合式或选项式）的 `<template>` 中直接使用，无需再 import：
+在消费应用的根组件 `src/App.vue` 中，建议用 `<mc-app>` 包裹应用内容，它会应用当前主题 CSS 变量与 Locale 的 `dir`：
 
 ```vue
 <template>
-  <mc-button icon="mc-enter" variant="primary" @click="onStart">开始游戏</mc-button>
-  <mc-icon name="mc-key-enter" />
-  <mc-switch v-model="enabled" />
+  <mc-app>
+    <mc-button variant="primary">开始游戏</mc-button>
+  </mc-app>
 </template>
 ```
 
-### 编辑器组件补全
+`createMcUI()` 会引用全部公共组件，因此安装全量插件时会自动携带完整组件 CSS。2.0 不再提供旧 `McUIVue` 默认导出，也不再默认加载全局 reset、Utilities、字体、图标或声音。
 
-包内置了 Vue `@vue/runtime-core` 的 `GlobalComponents` 类型增强和 `web-types.json`。在项目入口导入并安装 `mcui-oreui` 后，VSCode / Volar 等开发工具会在 Vue 模板中提示 `<mc-button>`、`<mc-list>`、`<mc-skin-viewer>` 等 `mc-*` 标签，并继续提供组件 props / 事件类型提示；使用方不需要额外配置 `jsconfig`、`tsconfig` 或 Volar 插件。
-
-如果编辑器已打开但没有立刻刷新提示，重启 TypeScript / Vue language server 即可重新读取依赖类型。
-
-### 按需引入
+## 按需使用
 
 ```vue
 <script setup lang="ts">
-import { McButton, showPop } from 'mcui-oreui'
-import 'mcui-oreui/style.css'
+import McButton from 'mcui-oreui/components/McButton'
+import { useMcTheme } from 'mcui-oreui/composables/theme'
+
+const theme = useMcTheme()
 </script>
 
 <template>
-  <mc-button icon="mc-save" variant="primary" @click="showPop('已保存', 2000, 'success')">保存</mc-button>
+  <mc-button @click="theme.setTheme('ore')">Ore UI</mc-button>
 </template>
 ```
 
-> CommonJS `require` 场景需 `require('mcui-oreui').default`；现代 ESM 工具链无需关心。
+根入口的命名导入与 `components/*` 按需入口都会通过静态 ESM import 自动携带实际使用组件及其依赖组件的 CSS；不使用运行时 `document` 注入，可由 Vite、Rollup 等消费端继续 tree-shake。通常不再手动导入 `components.css`。
 
-## 组件一览
+样式同时保留五个手动入口：
 
-| 类别 | 组件 |
-|---|---|
-| 基础 | `<mc-icon>` · `<mc-button>` · `<mc-card>` · `<mc-panel>` · `<mc-tooltip>` · `<mc-progress>` · `<mc-spinner>` |
-| 表单 | `<mc-checkbox>` · `<mc-radio>` · `<mc-radio-group>` · `<mc-form-field>` · `<mc-switch>` · `<mc-dropdown>` · `<mc-text-field>` · `<mc-slider>` |
-| 布局 | `<mc-layout>` · `<mc-container>` · `<mc-row>` · `<mc-col>` · `<mc-spacer>` · `<mc-header>` · `<mc-appbar>` · `<mc-appbar-button>` · `<mc-appbar-icon>` · `<mc-tabs>` · `<mc-button-tabs>` · `<mc-list>` · `<mc-list-item>` · `<mc-scroll-view>` |
-| 反馈 | `<mc-modal>` · `<mc-confirm>` · `<mc-drawer>` · `<mc-loading-mask>` · `<mc-pop-host>` |
-| 特殊 | `<mc-skin-viewer>` |
-| 样式 | `<mc-tcode>` · `<mc-formatted-text>` · `parseMcFormatCodes` · `renderMcFormatCodes` · `stripMcFormatCodes` |
-| 能力 | `useSound` / `playSound` / `setSoundEnabled` · `usePop` / `showPop` |
+- `styles/tokens.css`：主题变量；组件必要样式已通过内部 `component-core.css` 自动依赖它。
+- `styles/components.css`：确定性生成的全量组件样式聚合入口，适合非 JS 场景或显式预加载；不包含 Utilities。
+- `styles/utilities.css`：Vuetify 4.1.6 对等工具类，始终显式可选，不会被组件入口或 `components.css` 自动加载。
+- `styles/fonts.css`：可选的 Minecraft Ten / Seven / Five 字体声明；默认包不会自动加载字体。
+- `styles/base.css`：只为显式添加的 `.mc-page` 页面环境提供 opt-in 样式，不承担组件视觉或 1.x 兼容层。
 
-> - **`<mc-skin-viewer>`** — Minecraft 皮肤 3D 折叠展示（64×32 / 64×64 / 128×128）
-> - **`<mc-tcode>`** — 默认按 Java 格式化代码解析，`§m` / `§n` 显示为删除线 / 下划线；需要基岩版材料色时使用 `edition="bedrock"`
-> - **`<mc-container>` / `<mc-row>` / `<mc-col>` / `<mc-spacer>`** — 仿 Vuetify 的 12 列响应式 Flex 栅格，支持断点、offset、order、对齐与 gutter 控制
-> - **`<mc-list>`** — 列表容器与选择模式，使用 `<mc-list-item>` 声明列表项；支持 `v-for` 动态渲染及 `interactive: false` 关闭交互样式
+需要完整视觉时，在应用入口额外导入字体：
 
-完整 Props / 事件 / 在线 Demo 见文档站。
-
-## 本地开发
-
-```bash
-npm install           # 安装依赖
-
-npm run docs:dev      # 启动 VitePress 文档站（默认 http://localhost:5175）
-npm run docs:build    # 构建文档站静态产物
-npm run docs:preview  # 预览已构建文档
-
-npm run build         # 构建组件库（类型检查 + Vite 库打包 → dist/）
+```ts
+import 'mcui-oreui/styles/fonts.css'
 ```
 
-`npm run build` 会在 `dist/` 内写入独立的 `package.json` 与 `web-types.json`。需要在本地业务项目中验证未发布产物时，推荐依赖 `file:../oreui-vue/dist`，这样编辑器和 Vite 读取的是接近 npm 发布形态的干净产物包。
+需要 `d-flex`、`ma-4` 等工具类时再单独导入：
 
-## 技术栈
+```ts
+import 'mcui-oreui/styles/utilities.css'
+```
 
-Vue 3 · Vite 5（库模式）· TypeScript · vite-plugin-dts · VitePress
+Utilities 使用 `d-flex`、`ma-4`、`justify-center` 等 Vuetify 类名，固定采用 `sm/md/lg/xl/xxl` 断点；间距单位为 `--mc-spacer: 4px`，支持 `auto` margin、`n1–n16` 负 margin、RTL 逻辑方向、打印类、主题 `text-*` / `bg-*` / `border-*` 和 `elevation-0–24`。文档按样式工具族分章，尺寸变体以 `{breakpoint}` 汇总；用法见[分辨率](./docs/styles/breakpoints.md)，跨工具族查询见[样式类名索引](./docs/styles/utility-index.md)。Grid、图片适配和宽高比仍由对应组件负责，不会生成 `d-grid` 或 `object-fit-*` 等额外类。
 
-## 致谢
+Slider 与 Switch 保留原生表单语义，但可见部分由独立的 Ore UI 像素轨道、双色状态层和凸起手柄绘制，不依赖浏览器默认 range/checkbox 外观。Slider 使用 20px 手柄与 12px 轨道的近黄金比例，透明交互层仍保持 36px 高；单行输入框以 20px 整数行高和对称内边距保持文字垂直居中。
 
-- 设计语言与原始 CSS / 字体 / 音效移植自 [Spectrollay-OreUI/OreUI](https://github.com/Spectrollay-OreUI/OreUI)
-- 灵感源自 Minecraft 基岩版界面
+ButtonTabs 会按容器宽度等分标签；内部按钮不使用普通 Button 的固定宽度，窄布局和长标签不会撑破父容器。
+
+Checkbox（包括 List 多选指示器）使用 crispEdges 像素勾号与 CSS 像素混合态横杠，不依赖系统字体字形；List 根节点会抵抗宿主 `ul` 的 margin、padding 与 list-style，避免文档或文章样式带来额外缩进。
+
+ScrollView 使用固定外框裁剪与内部原生滚动层，内容不会越过容器，Ore UI thumb 会随滚动和内容尺寸同步；Breadcrumbs、ExpansionPanels 与 Stepper 会隔离宿主 `ol/li/h3` 的 margin、padding 和排版偏移。
+
+## 配置选项
+
+配置较多时，可在消费应用中新建 `src/plugins/mcui.ts` 集中创建插件实例：
+
+```ts
+// src/plugins/mcui.ts
+import { createMcUI } from 'mcui-oreui'
+
+export const mcui = createMcUI({
+  theme: {
+    defaultTheme: 'ore',
+    themes: {
+      ore: { dark: true, colors: { primary: '#3c8527' } },
+    },
+  },
+  defaults: {
+    global: { disabled: false },
+    components: { McButton: { variant: 'primary' } },
+  },
+  locale: {
+    locale: 'zh-CN',
+    fallback: 'en',
+    messages: { 'zh-CN': { save: '保存' } },
+    rtl: ['ar'],
+  },
+  display: { ssrWidth: 1280, mobileBreakpoint: 'md' },
+})
+```
+
+这个文件不会自动执行；仍需在客户端入口显式安装：
+
+```ts
+// src/main.ts
+import { createApp } from 'vue'
+import App from './App.vue'
+import { mcui } from './plugins/mcui'
+
+createApp(App).use(mcui).mount('#app')
+```
+
+也可以把同一份 `createMcUI({...})` 配置直接写在 `src/main.ts`。每个 Vue app 只创建并安装一个 McUI 插件实例，同一插件实例不能安装到第二个 App。
+
+`createMcUI()` 返回兼容 Vue `Plugin` 的 `McUIPlugin`，并通过只读的 `services` 暴露当前 App 独立的 Theme、Defaults、Locale、Display、Icons、Sounds、Overlay、Form 和 Pop 实例。组件外触发服务时使用同一插件实例：
+
+```ts
+mcui.services.pop.show('已保存')
+mcui.services.sounds.play('click')
+```
+
+组件 `setup` 内使用 `usePop()`、`useSound()`、`useMcTheme()`、`useMcDefaults()`、`useMcLocale()`、`useMcDisplay()`、`useMcOverlay()` 和 `useMcForm()`。`usePop()` 与 `useSound()` 获取当前 App 注入的实例；2.0 不导出无作用域的 `showPop`、`popState`、`playSound`、`playSoundType` 或 `setSoundEnabled`。
+
+子树可用 `McThemeProvider`、`McDefaultsProvider`、`McLocaleProvider` 做嵌套作用域；局部主题、默认值和 RTL 不会泄漏到外部。Display 提供 `smAndUp`、`mdAndDown` 等范围状态，并支持 `ssrWidth`。
+
+## 图标与声音
+
+核心入口不会加载 302 个 SVG。图标拆为：
+
+```ts
+import { mcNormalIconSet } from 'mcui-oreui/icons/normal'
+import { mcKeyIconSet } from 'mcui-oreui/icons/key'
+import { mcXIconSet } from 'mcui-oreui/icons/x'
+// 或显式加载全部：mcui-oreui/icons/all
+```
+
+声音也需要显式引入，并合并到上述同一个 `createMcUI()` 配置中：
+
+```ts
+// src/plugins/mcui.ts（或直接写在 src/main.ts）
+import { createMcUI } from 'mcui-oreui'
+import { mcDefaultSounds } from 'mcui-oreui/sounds/default'
+
+export const mcui = createMcUI({
+  sounds: { enabled: true, sounds: mcDefaultSounds },
+})
+```
+
+不要为了启用声音再次调用 `app.use(createMcUI(...))`；应把 `sounds`、`icons`、`theme` 等配置合并到同一个插件实例。
+
+在组件外播放声音使用 `mcui.services.sounds.play('click')`；在组件 `setup` 内使用 `const sound = useSound()` 和 `sound.play('click')`。
+
+## 组件
+
+- 基础：App、Button、Icon、Card、Panel、Divider。
+- 表单：Form、FormField、TextField、Textarea、Select、Autocomplete、Checkbox、Radio、RadioGroup、Switch、Slider、FileInput、NumberInput。
+- 导航：Tabs、ButtonTabs、List、Breadcrumbs、Pagination、ExpansionPanels / ExpansionPanel、Stepper。
+- 布局：Container、Row、Col、Spacer、Layout、Appbar、AppbarButton、AppbarIcon、Main、Drawer、ScrollView、VirtualScroll。
+- 数据展示：Table、DataTable、Badge、Chip、SkinViewer。
+- 浮层：Overlay、Dialog、Menu、Tooltip、Confirm。
+- 反馈：Alert、Snackbar、Progress、Spinner、Skeleton、LoadingMask、PopHost。
+- Minecraft：FormattedText、Tcode。
+
+VitePress 文档按上述职责分组，侧边栏统一使用“中文 / English”组件名称；每个独立功能组件均有自己的页面与实时 Demo，只有 Grid、ExpansionPanels 等紧密协作的组件族保留在同一页面。
+
+2.0 已删除 `McDropdown` 与 `McModal`：分别迁移到 `McSelect` 和 `McDialog`。所有受控显隐组件统一使用 `v-model`，不再提供 `open` / `update:open`。
+
+## 表单与浮层
+
+`McForm` 提供 `v-model` 有效状态、`validateOn: input | blur | submit | lazy`、`fastFail`、`validating`、`dirty` 与字段错误聚合，并暴露 `validate()`、`reset()`、`resetValidation()`。所有输入控件共享同步/异步 `rules`、`required`、`disabled`、`readonly`、`errorMessages` 和 `validateOn`。
+
+表单控件统一接受 `label`、`description`、`hint`、`disabled`、`readonly`、`required`、`rules`、`errorMessages`、`validateOn` 与 `id`。标准原生属性和 `aria-*` 直接写在组件上：`class`、`style`、`data-*` 保留在组件外层，其余原生属性、ARIA 与交互监听器会路由到实际的 `button`、`input`、`textarea`、`nav` 或浮层语义元素。
+
+`McOverlay` 支持 static / connected 定位、逻辑方向 location、offset、边缘 flip/shift、`block | close | reposition | none` 滚动策略、`trap | restore | none` 焦点策略、Teleport、Escape、遮罩和叠层。Menu、Select、Autocomplete、Tooltip 共用 Connected Overlay；Dialog 与临时 Drawer 使用 static + focus trap。
+
+`McLayout` 内的 Appbar 与 Drawer 会注册占位，`McMain` 通过逻辑方向 CSS 变量避开四向栏位。Drawer 提供 `temporary | persistent | permanent`，persistent 在移动断点自动转为 temporary。
+
+`McDataTable` 用单一 `options` / `update:options` 管理 `page`、`itemsPerPage`、`sortBy` 与 `search`，主 `v-model` 只管理行选择；server 模式同样只输出 `update:options`，不会内置网络请求。`McVirtualScroll` 默认填满父容器宽度、兼容 flex / Grid 宿主，2.0 仅支持固定 `itemHeight`。不包含固定列、列拖拽、树表或动态高度虚拟化。
+
+## 开发与验证
+
+维护者请先阅读[2.0 开发指南](./docs/guide/development.md)和[贡献说明](./CONTRIBUTING.md)，其中包含目录架构、样式隔离、SSR、无障碍、测试矩阵与分支发布约定。
+
+```bash
+npm run check
+npm run test:e2e
+npm run check:release
+```
+
+`npm run check` 包含格式、ESLint/Stylelint、生成文件漂移、组件文档 Demo/SFC 对应关系、类型、90/85 覆盖率、构建、消费端、文档和体积检查；`check:release` 还执行三浏览器 E2E、版本/CHANGELOG/npm pack 审计和运行时依赖审计。
+
+构建产物提供 `components/*`、`composables/*`、`icons/*`、`sounds/*` 与 `styles/*` 子路径。每个组件 JS 入口包含构建期生成的静态 CSS import；单组件入口只携带自身、真实 JS 依赖、Core 与确实使用的中性共享样式，不会包含无关兄弟组件 CSS、全量 SVG、音频、字体 data URI 或 Utilities。
 
 ## 许可
 
-[MIT](./LICENSE) · © 2020 Spectrollay（原项目）· Vue 移植版
-
-> 使用本库即表示你已知悉其为非官方第三方复刻，与 Mojang Studios 无从属关系。
+[MIT](./LICENSE)

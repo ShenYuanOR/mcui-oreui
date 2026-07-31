@@ -1,398 +1,221 @@
 <script setup>
 import { ref } from 'vue'
-import { showPop } from '../../src/composables/usePop'
-
-// Checkbox
-const chk1 = ref(false)
-const chk2 = ref(true)
-
-// Radio
-const radio = ref('a')
-
-// Switch
-const sw1 = ref(true)
-const sw2 = ref(false)
-
-// Dropdown
-const dropVal = ref(0)
-const dropVal2 = ref(0)
-const dropOpts = ['选项一', '选项二', '选项三']
-
-// Progress + Slider
-const progressVal = ref(60)
-const sliderVal = ref(50)
-
-// Tabs
-const tabVal = ref('tab1')
-const tabItems = [
-  { label: '标签一', value: 'tab1' },
-  { label: '标签二', value: 'tab2' },
-  { label: '标签三(禁用)', value: 'tab3', disabled: true },
-]
-
-// ButtonTabs
-const btnTabVal = ref('a')
-const btnTabItems = [
-  { label: '选项A', value: 'a', bgcolor: '#9a3f3f' },
-  { label: '选项B', value: 'b' },
-  { label: '选项C(禁用)', value: 'c', disabled: true },
-]
-
-// Feedback components
-const modalOpen = ref(false)
-const confirmOpen = ref(false)
-const drawerOpen = ref(false)
-const drawerDemoOpen = ref(false)
-const loadingVisible = ref(false)
-function showLoading() {
-  loadingVisible.value = true
-  setTimeout(() => (loadingVisible.value = false), 1800)
-}
+const enabled = ref(true)
+const checked = ref(false)
+const mode = ref('survival')
+const volume = ref(60)
+const dialog = ref(false)
+const tab = ref('worlds')
+const tabs = [{ label: '世界', value: 'worlds' }, { label: '服务器', value: 'servers' }]
+const modes = [{ title: '生存', value: 'survival' }, { title: '创造', value: 'creative' }]
 </script>
 
 # 组件总览
 
-McUI Vue 所有可用组件一览，分类展示、点击标题可跳转到对应文档页面。
+2.0 提供全局插件和逐组件入口，组件必要 CSS 会自动按需加载。下列 Demo 使用隔离的组件样式；Utilities 与 `base.css` 均为显式可选，Minecraft 字体由文档站单独导入 `fonts.css`。
 
-## 基础
-
-### [Icon 图标](/components/icon)
-
-<div class="mc-demo">
-  <mc-icon name="mc-clear" size="24" />
-  <mc-icon name="mc-check-white" size="24" />
-  <mc-icon name="mc-chevron-right" size="24" />
-  <mc-icon name="mc-chevron-left" size="24" />
-  <mc-icon name="mc-magnifying-glass" size="24" />
-  <mc-icon name="mc-settings" size="24" />
-  <mc-icon name="mc-home" size="24" />
-  <mc-icon name="mc-clipboard" size="24" />
-</div>
-
-### [Button 按钮](/components/button)
+## 基础与反馈预览
 
 <div class="mc-demo">
   <mc-button variant="primary">主按钮</mc-button>
   <mc-button>默认按钮</mc-button>
-  <mc-button variant="error">危险按钮</mc-button>
-  <mc-button bgcolor="#ff6b35">自定义</mc-button>
-  <mc-button disabled>禁用按钮</mc-button>
+  <mc-chip selected closable>生存模式</mc-chip>
+  <mc-badge content="3"><mc-button>消息</mc-button></mc-badge>
 </div>
 
-### [Card 链接卡片](/components/card)
+```vue
+<script setup lang="ts">
+import { ref } from 'vue'
+const enabled = ref(true)
+const checked = ref(false)
+const mode = ref('survival')
+const volume = ref(60)
+const dialog = ref(false)
+const tab = ref('worlds')
+const tabs = [
+  { label: '世界', value: 'worlds' },
+  { label: '服务器', value: 'servers' },
+]
+const modes = [
+  { title: '生存', value: 'survival' },
+  { title: '创造', value: 'creative' },
+]
+</script>
 
-<div class="mc-demo">
-  <mc-card href="#" text="关于我们" description="了解更多信息" />
-  <mc-card href="#" text="帮助中心" description="获取帮助" />
+<template>
+  <div class="mc-demo">
+    <mc-button variant="primary">主按钮</mc-button>
+    <mc-button>默认按钮</mc-button>
+    <mc-chip selected closable>生存模式</mc-chip>
+    <mc-badge content="3"><mc-button>消息</mc-button></mc-badge>
+  </div>
+</template>
+```
+
+## 状态反馈预览
+
+<div class="mc-demo mc-demo--column" style="width:100%">
+  <mc-alert variant="success"><template #title>保存完成</template>世界数据已写入</mc-alert>
+  <mc-skeleton height="34" />
 </div>
 
-### [Panel 面板](/components/panel)
+```vue
+<script setup lang="ts">
+import { ref } from 'vue'
+const enabled = ref(true)
+const checked = ref(false)
+const mode = ref('survival')
+const volume = ref(60)
+const dialog = ref(false)
+const tab = ref('worlds')
+const tabs = [
+  { label: '世界', value: 'worlds' },
+  { label: '服务器', value: 'servers' },
+]
+const modes = [
+  { title: '生存', value: 'survival' },
+  { title: '创造', value: 'creative' },
+]
+</script>
 
-<div class="mc-demo">
-  <mc-panel title="面板标题">
-    面板内容
-  </mc-panel>
-</div>
-
-### [Tooltip 提示](/components/tooltip)
-
-<div class="mc-demo">
-  <mc-tooltip content="这是一个提示">
-    <mc-button>悬停查看</mc-button>
-  </mc-tooltip>
-</div>
-
-### [SkinViewer 皮肤展示](/components/skinviewer)
-
-<div class="mc-demo">
-  <mc-skin-viewer skin="https://assets.mojang.com/SkinTemplates/steve.png"  style="width: 120px; height: 240px;" />
-</div>
+<template>
+  <div class="mc-demo mc-demo--column" style="width:100%">
+    <mc-alert variant="success"><template #title>保存完成</template>世界数据已写入</mc-alert>
+    <mc-skeleton height="34" />
+  </div>
+</template>
+```
 
 ## 表单
 
-### [Checkbox 复选框](/components/checkbox)
-
-<div class="mc-demo">
-  <mc-checkbox v-model="chk1">开启音效</mc-checkbox>
-  <mc-checkbox v-model="chk2">已选中</mc-checkbox>
-  <mc-checkbox :model-value="true" disabled>已禁用</mc-checkbox>
+<div class="mc-demo mc-demo--column" style="width:360px">
+  <mc-checkbox v-model="checked" label="允许作弊" />
+  <mc-switch v-model="enabled" label="启用音效" />
+  <mc-select v-model="mode" label="游戏模式" :options="modes" />
+  <mc-text-field label="世界名称" hint="至少 3 个字符" />
+  <mc-textarea label="描述" />
+  <mc-slider v-model="volume" label="音量" show-value />
 </div>
 
-### [Radio 单选](/components/radio)
+```vue
+<script setup lang="ts">
+import { ref } from 'vue'
+const enabled = ref(true)
+const checked = ref(false)
+const mode = ref('survival')
+const volume = ref(60)
+const dialog = ref(false)
+const tab = ref('worlds')
+const tabs = [
+  { label: '世界', value: 'worlds' },
+  { label: '服务器', value: 'servers' },
+]
+const modes = [
+  { title: '生存', value: 'survival' },
+  { title: '创造', value: 'creative' },
+]
+</script>
 
-<div class="mc-demo">
-  <mc-radio v-model="radio" value="a">选项 A</mc-radio>
-  <mc-radio v-model="radio" value="b">选项 B</mc-radio>
-  <mc-radio :model-value="'b'" value="b" disabled>已禁用</mc-radio>
-</div>
+<template>
+  <div class="mc-demo mc-demo--column" style="width:360px">
+    <mc-checkbox v-model="checked" label="允许作弊" />
+    <mc-switch v-model="enabled" label="启用音效" />
+    <mc-select v-model="mode" label="游戏模式" :options="modes" />
+    <mc-text-field label="世界名称" hint="至少 3 个字符" />
+    <mc-textarea label="描述" />
+    <mc-slider v-model="volume" label="音量" show-value />
+  </div>
+</template>
+```
 
-### [FormField 表单项](/components/formfield)
+## 布局与导航
 
-<div class="mc-demo mc-demo--column" style="width: 320px">
-  <mc-form-field label="用户名" description="请输入您的用户名。">
-    <mc-text-field placeholder="Steve" />
-  </mc-form-field>
-</div>
-
-### [Switch 开关](/components/switch)
-
-<div class="mc-demo">
-  <mc-switch v-model="sw1" />
-  <mc-switch v-model="sw2" />
-  <mc-switch :model-value="true" disabled />
-</div>
-
-### [Dropdown 下拉选择](/components/dropdown)
-
-<div class="mc-demo">
-  <mc-dropdown :options="dropOpts" v-model="dropVal" unselected-text="请选择" />
-  <mc-dropdown :options="dropOpts" v-model="dropVal2" disabled unselected-text="已禁用" />
-</div>
-
-### [TextField 文本框](/components/textfield)
-
-<div class="mc-demo">
-  <mc-text-field placeholder="请输入内容" />
-  <mc-text-field placeholder="已禁用" disabled />
-</div>
-
-### [Progress 进度条](/components/progress)
-
-<div class="mc-demo mc-demo--column" style="width: 300px">
-  <mc-progress :value="progressVal" label="进度值" />
-  <mc-slider v-model="progressVal" />
-</div>
-
-### [Spinner 加载动画](/components/spinner)
-
-<div class="mc-demo">
-  <mc-spinner :size="48" />
-  <mc-spinner :size="64" />
-</div>
-
-### [Slider 滑动条](/components/slider)
-
-<div class="mc-demo mc-demo--column" style="width: 300px">
-  <mc-slider v-model="sliderVal" />
-  <mc-slider :model-value="50" disabled />
-</div>
-
-## 布局
-
-### [Grid 栅格](/components/grid)
-
-<div class="mc-demo mc-demo--column" style="width: 100%">
-  <mc-container fluid class="mc-overview-grid">
-    <mc-row dense>
-      <mc-col cols="12" md="6" lg="4">
-        <div class="mc-overview-grid__cell">12 / 6 / 4</div>
-      </mc-col>
-      <mc-col cols="12" md="6" lg="4">
-        <div class="mc-overview-grid__cell mc-overview-grid__cell--moss">12 / 6 / 4</div>
-      </mc-col>
-      <mc-col cols="12" md="6" lg="4">
-        <div class="mc-overview-grid__cell mc-overview-grid__cell--copper">12 / 6 / 4</div>
-      </mc-col>
-    </mc-row>
-  </mc-container>
-</div>
-
-### [Layout](/components/layout)
-
-<div class="mc-layout-demo">
-  <mc-layout>
-    <mc-appbar>
-      <template #left>
-        <mc-appbar-icon icon="mc-menu" tip="抽屉栏" @click="drawerOpen = true" />
-        <mc-appbar-icon icon="mc-chevron-left" tip="返回" />
-      </template>
-      <template #right>
-        <mc-appbar-button icon="mc-home">制作</mc-appbar-button>
-        <mc-appbar-button icon="mc-world">世界</mc-appbar-button>
-        <mc-appbar-button icon="mc-friends">社交</mc-appbar-button>
-      </template>
-    </mc-appbar>
-    <mc-scroll-view>
-      <div class="mc-layout-demo__content">
-        <mc-panel title="存档列表" subtitle="Layout 会提供顶部标题栏与可滚动主体区域">
-          <p>这里是页面内容区域，可放置任意 McUI 组件。</p>
-          <p>文档站中用固定高度容器模拟全屏页面，实际项目可直接作为页面根布局使用。</p>
-        </mc-panel>
-        <mc-button variant="primary">进入世界</mc-button>
-      </div>
-    </mc-scroll-view>
-  </mc-layout>
-  <mc-drawer v-model:open="drawerOpen" title="导航菜单" placement="left" :teleport="false">
-    <mc-list @change="drawerOpen = false">
-      <mc-list-item label="首页" value="home" icon="mc-home" />
-      <mc-list-item label="服务器列表" value="servers" icon="mc-world" />
-      <mc-list-item label="玩家中心" value="players" icon="mc-friends" />
-      <mc-list-item label="设置" value="settings" icon="mc-settings" />
-    </mc-list>
-  </mc-drawer>
-</div>
-
-### [Appbar 顶栏](/components/appbar)
-
-<div class="mc-demo mc-demo--column" style="width: 100%; padding: 0">
-  <mc-appbar>
-    <template #left>
-      <mc-appbar-icon icon="mc-chevron-left" tip="返回" />
-    </template>
-    <template #right>
-      <mc-appbar-button icon="mc-home">制作</mc-appbar-button>
-      <mc-appbar-button icon="mc-world">世界</mc-appbar-button>
-    </template>
-  </mc-appbar>
-</div>
-
-### [Tabs 标签页](/components/tabs)
-
-<div class="mc-demo mc-demo--column">
-  <mc-tabs v-model="tabVal" :items="tabItems">
-    <div v-if="tabVal === 'tab1'">标签一的内容区域</div>
-    <div v-else-if="tabVal === 'tab2'">标签二的内容区域</div>
-  </mc-tabs>
-</div>
-
-### [ButtonTabs 按钮式标签](/components/button-tabs)
-
-<div class="mc-demo mc-demo--column">
-  <mc-button-tabs v-model="btnTabVal" :items="btnTabItems" />
-</div>
-
-### [List 列表](/components/list)
-
-<div class="mc-demo">
-  <mc-list>
-    <mc-list-item label="列表项一" value="a" subtitle="副标题" />
-    <mc-list-item label="列表项二" value="b" icon="mc-plus" />
-    <mc-list-item label="列表项三" value="c" />
-    <mc-list-item label="列表项四" value="d" disabled />
+<div class="mc-demo mc-demo--column" style="width:100%">
+  <mc-tabs v-model="tab" :items="tabs"><div>当前：{{ tab }}</div></mc-tabs>
+  <mc-list mode="single" v-model="mode">
+    <mc-list-item label="生存模式" value="survival" />
+    <mc-list-item label="创造模式" value="creative" />
   </mc-list>
 </div>
 
-### [ScrollView 滚动区](/components/scrollview)
+```vue
+<script setup lang="ts">
+import { ref } from 'vue'
+const enabled = ref(true)
+const checked = ref(false)
+const mode = ref('survival')
+const volume = ref(60)
+const dialog = ref(false)
+const tab = ref('worlds')
+const tabs = [
+  { label: '世界', value: 'worlds' },
+  { label: '服务器', value: 'servers' },
+]
+const modes = [
+  { title: '生存', value: 'survival' },
+  { title: '创造', value: 'creative' },
+]
+</script>
 
-<div class="mc-demo">
-  <mc-scroll-view style="width: 240px; height: 100px;">
-    <mc-list>
-      <mc-list-item label="世界一 · 生存模式" value="w1" />
-      <mc-list-item label="世界二 · 创造模式" value="w2" />
-      <mc-list-item label="世界三 · 冒险模式" value="w3" />
-      <mc-list-item label="世界四 · 服务器" value="w4" />
-      <mc-list-item label="世界五 · 测试存档" value="w5" />
+<template>
+  <div class="mc-demo mc-demo--column" style="width:100%">
+    <mc-tabs v-model="tab" :items="tabs"
+      ><div>当前：{{ tab }}</div></mc-tabs
+    >
+    <mc-list mode="single" v-model="mode">
+      <mc-list-item label="生存模式" value="survival" />
+      <mc-list-item label="创造模式" value="creative" />
     </mc-list>
-  </mc-scroll-view>
-</div>
+  </div>
+</template>
+```
 
-## 反馈
-
-### [Modal 弹窗](/components/modal)
-
-<div class="mc-demo">
-  <mc-button variant="primary" @click="modalOpen = true">打开弹窗</mc-button>
-  <mc-modal v-model:open="modalOpen" title="弹窗标题">
-    这是弹窗内容。
-  </mc-modal>
-</div>
-
-### [Confirm 确认弹窗](/components/confirm)
+## 浮层预览
 
 <div class="mc-demo">
-  <mc-button variant="error" @click="confirmOpen = true">危险操作</mc-button>
-  <mc-confirm
-    v-model:open="confirmOpen"
-    title="确认删除？"
-    @confirm="confirmOpen = false"
-  >
-    此操作不可撤销。
-  </mc-confirm>
+  <mc-dialog v-model="dialog" title="世界设置">
+    <template #activator="{ props }"><mc-button v-bind="props">打开 Dialog</mc-button></template>
+    Dialog、Menu 与 Drawer 共享 Escape、焦点、滚动策略和叠层服务。
+  </mc-dialog>
 </div>
 
-### [Drawer 抽屉](/components/drawer)
+```vue
+<script setup lang="ts">
+import { ref } from 'vue'
+const enabled = ref(true)
+const checked = ref(false)
+const mode = ref('survival')
+const volume = ref(60)
+const dialog = ref(false)
+const tab = ref('worlds')
+const tabs = [
+  { label: '世界', value: 'worlds' },
+  { label: '服务器', value: 'servers' },
+]
+const modes = [
+  { title: '生存', value: 'survival' },
+  { title: '创造', value: 'creative' },
+]
+</script>
 
-<div class="mc-demo">
-  <mc-button @click="drawerDemoOpen = true">打开抽屉</mc-button>
-  <mc-drawer v-model:open="drawerDemoOpen" title="抽屉标题">
-    抽屉内容区域。
-  </mc-drawer>
-</div>
+<template>
+  <div class="mc-demo">
+    <mc-dialog v-model="dialog" title="世界设置">
+      <template #activator="{ props }"><mc-button v-bind="props">打开 Dialog</mc-button></template>
+      Dialog、Menu 与 Drawer 共享 Escape、焦点、滚动策略和叠层服务。
+    </mc-dialog>
+  </div>
+</template>
+```
 
-### [Pop 提示](/components/pop)
+## 按职责浏览
 
-<div class="mc-demo">
-  <mc-pop-host />
-  <mc-button @click="showPop('已保存世界', 2000, 'success')">成功提示</mc-button>
-  <mc-button @click="showPop('保存失败', 2000, 'error')">错误提示</mc-button>
-</div>
+侧边栏统一使用“中文 / English”格式，中文说明用途，英文对应公开组件名。每个独立功能组件均使用单独页面和实时 Demo；Grid、ExpansionPanels 等紧密协作的组件族保留在同页。
 
-### [LoadingMask 加载遮罩](/components/loadingmask)
-
-<div class="mc-demo">
-  <mc-button @click="showLoading">显示加载遮罩（1.8s）</mc-button>
-  <mc-loading-mask :visible="loadingVisible" text="生成世界中" />
-</div>
-
-<style scoped>
-.mc-overview-grid {
-  background: #242526;
-  border: 2px solid #1e1e1f;
-  box-sizing: border-box;
-  overflow: hidden;
-  width: 100%;
-}
-
-.mc-overview-grid__cell {
-  align-items: center;
-  background: #4f6f8f;
-  border: 2px solid #1d2b38;
-  box-shadow: inset 0 2px rgba(255, 255, 255, 0.22), inset 0 -3px rgba(0, 0, 0, 0.24);
-  box-sizing: border-box;
-  color: #fff;
-  display: flex;
-  font-family: 'Minecraft Seven', sans-serif;
-  justify-content: center;
-  min-height: 42px;
-  padding: 10px;
-  text-align: center;
-}
-
-.mc-overview-grid__cell--moss {
-  background: #5f7d4b;
-  border-color: #25351d;
-}
-
-.mc-overview-grid__cell--copper {
-  background: #9b6a43;
-  border-color: #3d2618;
-}
-
-.mc-layout-demo {
-  background: #242526;
-  border: 2px solid #1e1e1f;
-  height: 360px;
-  margin: 18px 0;
-  overflow: hidden;
-  position: relative;
-}
-
-.mc-layout-demo :deep(dispaly-area) {
-  height: 100%;
-}
-
-.mc-layout-demo__content {
-  box-sizing: border-box;
-  color: #fff;
-  display: grid;
-  gap: 14px;
-  padding: 18px;
-  height: 600px;
-}
-
-.mc-layout-demo__content p {
-  color: #d0d1d4;
-  font-family: 'NotoSans Bold', sans-serif;
-  margin: 0 0 8px;
-}
-</style>
+- 基础：[Button](./button)、[Icon](./icon)、[Card](./card)、[Panel](./panel)、[Divider](./divider)
+- 表单：[Form](./form)、[FormField](./formfield)、[TextField](./textfield)、[Textarea](./textarea)、[Select](./select)、[Autocomplete](./autocomplete)、[Checkbox](./checkbox)、[Radio](./radio)、[RadioGroup](./radio-group)、[Switch](./switch)、[Slider](./slider)、[FileInput](./file-input)、[NumberInput](./number-input)
+- 导航：[Tabs](./tabs)、[ButtonTabs](./button-tabs)、[List](./list)、[Breadcrumbs](./breadcrumbs)、[Pagination](./pagination)、[ExpansionPanels](./expansion-panels)、[Stepper](./stepper)
+- 布局：[Layout](./layout)、[Grid](./grid)、[Appbar](./appbar)、[AppbarButton](./appbar-button)、[AppbarIcon](./appbar-icon)、[Drawer](./drawer)、[ScrollView](./scrollview)、[VirtualScroll](./virtual-scroll)
+- 数据展示：[Table](./table)、[DataTable](./data-table)、[Badge](./badge)、[Chip](./chip)、[SkinViewer](./skinviewer)
+- 浮层：[Overlay](./overlay)、[Dialog](./dialog)、[Menu](./menu)、[Tooltip](./tooltip)、[Confirm](./confirm)
+- 反馈：[Alert](./alert)、[Snackbar](./snackbar)、[Progress](./progress)、[Spinner](./spinner)、[Skeleton](./skeleton)、[LoadingMask](./loadingmask)、[Pop](./pop)

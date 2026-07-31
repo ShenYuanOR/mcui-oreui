@@ -1,0 +1,52 @@
+/* McAppbar component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-appbar--fixed {
+  inset-inline: 0;
+  position: fixed;
+  z-index: 30;
+}
+.mc-appbar--top {
+  top: 0;
+}
+.mc-appbar--bottom {
+  bottom: 0;
+}
+.mc-appbar {
+  background: var(--mc-surface-bright, #e6e8eb);
+  border-color: var(--mc-text-muted, #b1b2b5);
+  color: var(--mc-text-inverse, #3c3c3c);
+}
+.mc-appbar {
+  align-items: center;
+  background: var(--mc-surface-bright, #e6e8eb);
+  border-bottom: 3px solid var(--mc-secondary-hover, #b1b2b5);
+  box-shadow: inset 0 -1px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+  color: var(--mc-text-inverse, #1e1e1f);
+  display: flex;
+  font-family: var(--mc-font-ui, sans-serif);
+  width: 100%;
+}
+.mc-appbar__title {
+  flex-shrink: 0;
+  font-size: 16px;
+  font-weight: 700;
+  padding-inline: 12px;
+  white-space: nowrap;
+}
+.mc-appbar__left,
+.mc-appbar__center,
+.mc-appbar__right {
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  margin-bottom: 1px;
+}
+.mc-appbar__left,
+.mc-appbar__right {
+  flex-shrink: 0;
+}
+.mc-appbar__center {
+  flex: 1 1 0;
+  justify-content: center;
+  min-width: 0;
+}

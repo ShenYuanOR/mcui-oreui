@@ -1,0 +1,493 @@
+{
+  "generatedBy": "scripts/generate-utilities.mjs",
+  "families": [
+    "Sizing"
+  ],
+  "classes": [
+    {
+      "name": "fill-height",
+      "family": "Sizing",
+      "declaration": "height: 100%"
+    },
+    {
+      "name": "h-0",
+      "family": "Sizing",
+      "declaration": "height: 0"
+    },
+    {
+      "name": "h-sm-0",
+      "family": "Sizing",
+      "declaration": "height: 0"
+    },
+    {
+      "name": "h-md-0",
+      "family": "Sizing",
+      "declaration": "height: 0"
+    },
+    {
+      "name": "h-lg-0",
+      "family": "Sizing",
+      "declaration": "height: 0"
+    },
+    {
+      "name": "h-xl-0",
+      "family": "Sizing",
+      "declaration": "height: 0"
+    },
+    {
+      "name": "h-xxl-0",
+      "family": "Sizing",
+      "declaration": "height: 0"
+    },
+    {
+      "name": "h-25",
+      "family": "Sizing",
+      "declaration": "height: 25%"
+    },
+    {
+      "name": "h-sm-25",
+      "family": "Sizing",
+      "declaration": "height: 25%"
+    },
+    {
+      "name": "h-md-25",
+      "family": "Sizing",
+      "declaration": "height: 25%"
+    },
+    {
+      "name": "h-lg-25",
+      "family": "Sizing",
+      "declaration": "height: 25%"
+    },
+    {
+      "name": "h-xl-25",
+      "family": "Sizing",
+      "declaration": "height: 25%"
+    },
+    {
+      "name": "h-xxl-25",
+      "family": "Sizing",
+      "declaration": "height: 25%"
+    },
+    {
+      "name": "h-50",
+      "family": "Sizing",
+      "declaration": "height: 50%"
+    },
+    {
+      "name": "h-sm-50",
+      "family": "Sizing",
+      "declaration": "height: 50%"
+    },
+    {
+      "name": "h-md-50",
+      "family": "Sizing",
+      "declaration": "height: 50%"
+    },
+    {
+      "name": "h-lg-50",
+      "family": "Sizing",
+      "declaration": "height: 50%"
+    },
+    {
+      "name": "h-xl-50",
+      "family": "Sizing",
+      "declaration": "height: 50%"
+    },
+    {
+      "name": "h-xxl-50",
+      "family": "Sizing",
+      "declaration": "height: 50%"
+    },
+    {
+      "name": "h-75",
+      "family": "Sizing",
+      "declaration": "height: 75%"
+    },
+    {
+      "name": "h-sm-75",
+      "family": "Sizing",
+      "declaration": "height: 75%"
+    },
+    {
+      "name": "h-md-75",
+      "family": "Sizing",
+      "declaration": "height: 75%"
+    },
+    {
+      "name": "h-lg-75",
+      "family": "Sizing",
+      "declaration": "height: 75%"
+    },
+    {
+      "name": "h-xl-75",
+      "family": "Sizing",
+      "declaration": "height: 75%"
+    },
+    {
+      "name": "h-xxl-75",
+      "family": "Sizing",
+      "declaration": "height: 75%"
+    },
+    {
+      "name": "h-100",
+      "family": "Sizing",
+      "declaration": "height: 100%"
+    },
+    {
+      "name": "h-sm-100",
+      "family": "Sizing",
+      "declaration": "height: 100%"
+    },
+    {
+      "name": "h-md-100",
+      "family": "Sizing",
+      "declaration": "height: 100%"
+    },
+    {
+      "name": "h-lg-100",
+      "family": "Sizing",
+      "declaration": "height: 100%"
+    },
+    {
+      "name": "h-xl-100",
+      "family": "Sizing",
+      "declaration": "height: 100%"
+    },
+    {
+      "name": "h-xxl-100",
+      "family": "Sizing",
+      "declaration": "height: 100%"
+    },
+    {
+      "name": "h-auto",
+      "family": "Sizing",
+      "declaration": "height: auto"
+    },
+    {
+      "name": "h-sm-auto",
+      "family": "Sizing",
+      "declaration": "height: auto"
+    },
+    {
+      "name": "h-md-auto",
+      "family": "Sizing",
+      "declaration": "height: auto"
+    },
+    {
+      "name": "h-lg-auto",
+      "family": "Sizing",
+      "declaration": "height: auto"
+    },
+    {
+      "name": "h-xl-auto",
+      "family": "Sizing",
+      "declaration": "height: auto"
+    },
+    {
+      "name": "h-xxl-auto",
+      "family": "Sizing",
+      "declaration": "height: auto"
+    },
+    {
+      "name": "h-screen",
+      "family": "Sizing",
+      "declaration": "height: 100dvh"
+    },
+    {
+      "name": "h-sm-screen",
+      "family": "Sizing",
+      "declaration": "height: 100dvh"
+    },
+    {
+      "name": "h-md-screen",
+      "family": "Sizing",
+      "declaration": "height: 100dvh"
+    },
+    {
+      "name": "h-lg-screen",
+      "family": "Sizing",
+      "declaration": "height: 100dvh"
+    },
+    {
+      "name": "h-xl-screen",
+      "family": "Sizing",
+      "declaration": "height: 100dvh"
+    },
+    {
+      "name": "h-xxl-screen",
+      "family": "Sizing",
+      "declaration": "height: 100dvh"
+    },
+    {
+      "name": "w-0",
+      "family": "Sizing",
+      "declaration": "width: 0"
+    },
+    {
+      "name": "w-sm-0",
+      "family": "Sizing",
+      "declaration": "width: 0"
+    },
+    {
+      "name": "w-md-0",
+      "family": "Sizing",
+      "declaration": "width: 0"
+    },
+    {
+      "name": "w-lg-0",
+      "family": "Sizing",
+      "declaration": "width: 0"
+    },
+    {
+      "name": "w-xl-0",
+      "family": "Sizing",
+      "declaration": "width: 0"
+    },
+    {
+      "name": "w-xxl-0",
+      "family": "Sizing",
+      "declaration": "width: 0"
+    },
+    {
+      "name": "w-25",
+      "family": "Sizing",
+      "declaration": "width: 25%"
+    },
+    {
+      "name": "w-sm-25",
+      "family": "Sizing",
+      "declaration": "width: 25%"
+    },
+    {
+      "name": "w-md-25",
+      "family": "Sizing",
+      "declaration": "width: 25%"
+    },
+    {
+      "name": "w-lg-25",
+      "family": "Sizing",
+      "declaration": "width: 25%"
+    },
+    {
+      "name": "w-xl-25",
+      "family": "Sizing",
+      "declaration": "width: 25%"
+    },
+    {
+      "name": "w-xxl-25",
+      "family": "Sizing",
+      "declaration": "width: 25%"
+    },
+    {
+      "name": "w-33",
+      "family": "Sizing",
+      "declaration": "width: 33%"
+    },
+    {
+      "name": "w-sm-33",
+      "family": "Sizing",
+      "declaration": "width: 33%"
+    },
+    {
+      "name": "w-md-33",
+      "family": "Sizing",
+      "declaration": "width: 33%"
+    },
+    {
+      "name": "w-lg-33",
+      "family": "Sizing",
+      "declaration": "width: 33%"
+    },
+    {
+      "name": "w-xl-33",
+      "family": "Sizing",
+      "declaration": "width: 33%"
+    },
+    {
+      "name": "w-xxl-33",
+      "family": "Sizing",
+      "declaration": "width: 33%"
+    },
+    {
+      "name": "w-50",
+      "family": "Sizing",
+      "declaration": "width: 50%"
+    },
+    {
+      "name": "w-sm-50",
+      "family": "Sizing",
+      "declaration": "width: 50%"
+    },
+    {
+      "name": "w-md-50",
+      "family": "Sizing",
+      "declaration": "width: 50%"
+    },
+    {
+      "name": "w-lg-50",
+      "family": "Sizing",
+      "declaration": "width: 50%"
+    },
+    {
+      "name": "w-xl-50",
+      "family": "Sizing",
+      "declaration": "width: 50%"
+    },
+    {
+      "name": "w-xxl-50",
+      "family": "Sizing",
+      "declaration": "width: 50%"
+    },
+    {
+      "name": "w-66",
+      "family": "Sizing",
+      "declaration": "width: 66%"
+    },
+    {
+      "name": "w-sm-66",
+      "family": "Sizing",
+      "declaration": "width: 66%"
+    },
+    {
+      "name": "w-md-66",
+      "family": "Sizing",
+      "declaration": "width: 66%"
+    },
+    {
+      "name": "w-lg-66",
+      "family": "Sizing",
+      "declaration": "width: 66%"
+    },
+    {
+      "name": "w-xl-66",
+      "family": "Sizing",
+      "declaration": "width: 66%"
+    },
+    {
+      "name": "w-xxl-66",
+      "family": "Sizing",
+      "declaration": "width: 66%"
+    },
+    {
+      "name": "w-75",
+      "family": "Sizing",
+      "declaration": "width: 75%"
+    },
+    {
+      "name": "w-sm-75",
+      "family": "Sizing",
+      "declaration": "width: 75%"
+    },
+    {
+      "name": "w-md-75",
+      "family": "Sizing",
+      "declaration": "width: 75%"
+    },
+    {
+      "name": "w-lg-75",
+      "family": "Sizing",
+      "declaration": "width: 75%"
+    },
+    {
+      "name": "w-xl-75",
+      "family": "Sizing",
+      "declaration": "width: 75%"
+    },
+    {
+      "name": "w-xxl-75",
+      "family": "Sizing",
+      "declaration": "width: 75%"
+    },
+    {
+      "name": "w-100",
+      "family": "Sizing",
+      "declaration": "width: 100%"
+    },
+    {
+      "name": "w-sm-100",
+      "family": "Sizing",
+      "declaration": "width: 100%"
+    },
+    {
+      "name": "w-md-100",
+      "family": "Sizing",
+      "declaration": "width: 100%"
+    },
+    {
+      "name": "w-lg-100",
+      "family": "Sizing",
+      "declaration": "width: 100%"
+    },
+    {
+      "name": "w-xl-100",
+      "family": "Sizing",
+      "declaration": "width: 100%"
+    },
+    {
+      "name": "w-xxl-100",
+      "family": "Sizing",
+      "declaration": "width: 100%"
+    },
+    {
+      "name": "w-auto",
+      "family": "Sizing",
+      "declaration": "width: auto"
+    },
+    {
+      "name": "w-sm-auto",
+      "family": "Sizing",
+      "declaration": "width: auto"
+    },
+    {
+      "name": "w-md-auto",
+      "family": "Sizing",
+      "declaration": "width: auto"
+    },
+    {
+      "name": "w-lg-auto",
+      "family": "Sizing",
+      "declaration": "width: auto"
+    },
+    {
+      "name": "w-xl-auto",
+      "family": "Sizing",
+      "declaration": "width: auto"
+    },
+    {
+      "name": "w-xxl-auto",
+      "family": "Sizing",
+      "declaration": "width: auto"
+    },
+    {
+      "name": "w-screen",
+      "family": "Sizing",
+      "declaration": "width: 100dvw"
+    },
+    {
+      "name": "w-sm-screen",
+      "family": "Sizing",
+      "declaration": "width: 100dvw"
+    },
+    {
+      "name": "w-md-screen",
+      "family": "Sizing",
+      "declaration": "width: 100dvw"
+    },
+    {
+      "name": "w-lg-screen",
+      "family": "Sizing",
+      "declaration": "width: 100dvw"
+    },
+    {
+      "name": "w-xl-screen",
+      "family": "Sizing",
+      "declaration": "width: 100dvw"
+    },
+    {
+      "name": "w-xxl-screen",
+      "family": "Sizing",
+      "declaration": "width: 100dvw"
+    }
+  ]
+}

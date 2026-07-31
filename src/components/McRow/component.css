@@ -1,0 +1,61 @@
+/* McRow component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-row {
+  align-items: var(--mc-row-align, stretch);
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: var(--mc-row-justify, flex-start);
+  margin: calc(var(--mc-grid-gutter, 24px) / -2);
+  min-width: 0;
+}
+@media (min-width: 600px) {
+  .mc-row {
+    align-items: var(--mc-row-sm-align, var(--mc-row-align, stretch));
+    justify-content: var(--mc-row-sm-justify, var(--mc-row-justify, flex-start));
+  }
+}
+@media (min-width: 960px) {
+  .mc-row {
+    align-items: var(--mc-row-md-align, var(--mc-row-sm-align, var(--mc-row-align, stretch)));
+    justify-content: var(--mc-row-md-justify, var(--mc-row-sm-justify, var(--mc-row-justify, flex-start)));
+  }
+}
+@media (min-width: 1280px) {
+  .mc-row {
+    align-items: var(--mc-row-lg-align, var(--mc-row-md-align, var(--mc-row-sm-align, var(--mc-row-align, stretch))));
+    justify-content: var(
+      --mc-row-lg-justify,
+      var(--mc-row-md-justify, var(--mc-row-sm-justify, var(--mc-row-justify, flex-start)))
+    );
+  }
+}
+@media (min-width: 1920px) {
+  .mc-row {
+    align-items: var(
+      --mc-row-xl-align,
+      var(--mc-row-lg-align, var(--mc-row-md-align, var(--mc-row-sm-align, var(--mc-row-align, stretch))))
+    );
+    justify-content: var(
+      --mc-row-xl-justify,
+      var(--mc-row-lg-justify, var(--mc-row-md-justify, var(--mc-row-sm-justify, var(--mc-row-justify, flex-start))))
+    );
+  }
+}
+@media (min-width: 2560px) {
+  .mc-row {
+    align-items: var(
+      --mc-row-xxl-align,
+      var(
+        --mc-row-xl-align,
+        var(--mc-row-lg-align, var(--mc-row-md-align, var(--mc-row-sm-align, var(--mc-row-align, stretch))))
+      )
+    );
+    justify-content: var(
+      --mc-row-xxl-justify,
+      var(
+        --mc-row-xl-justify,
+        var(--mc-row-lg-justify, var(--mc-row-md-justify, var(--mc-row-sm-justify, var(--mc-row-justify, flex-start))))
+      )
+    );
+  }
+}

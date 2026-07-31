@@ -1,0 +1,98 @@
+/* McList component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-list {
+  background: var(--mc-surface, #313233);
+  border: 2px solid var(--mc-border, #1e1e1f);
+  box-sizing: border-box;
+  color: var(--mc-text, #fff);
+  width: 100%;
+}
+.mc-list.mc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.mc-list__item {
+  align-items: center;
+  display: flex;
+  gap: 9px;
+  padding: 10px 12px;
+}
+.mc-list__item--interactive {
+  cursor: pointer;
+}
+.mc-list__item--active {
+  background: var(--mc-surface-light, #58585a);
+}
+.mc-list__item:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: -2px;
+}
+.mc-list__item--disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+.mc-list__item-indicator {
+  align-items: center;
+  display: inline-flex;
+  height: 24px;
+  justify-content: center;
+  width: 24px;
+}
+.mc-list__radio,
+.mc-list__checkbox {
+  align-items: center;
+  border: 2px solid var(--mc-border, #1e1e1f);
+  box-sizing: border-box;
+  display: inline-flex;
+  height: 20px;
+  justify-content: center;
+  width: 20px;
+}
+.mc-list__radio {
+  border-radius: 50%;
+}
+.mc-list__radio--checked,
+.mc-list__checkbox--checked {
+  background: var(--mc-primary, #3c8527);
+}
+.mc-list__checkbox img {
+  display: block;
+  height: 16px;
+  image-rendering: pixelated;
+  width: 16px;
+}
+.mc-list__radio--checked::after {
+  background: #fff;
+  border-radius: 50%;
+  content: '';
+  height: 8px;
+  width: 8px;
+}
+.mc-list__item-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+.mc-list__item-subtitle {
+  color: var(--mc-text-muted, #b1b2b5);
+  font-size: 12px;
+}
+.mc-list__item {
+  box-shadow:
+    inset 0 1px var(--mc-surface-light, #58585a),
+    inset 0 -1px var(--mc-surface-light, #58585a);
+  min-height: 40px;
+}
+.mc-list__item--interactive:hover:not(.mc-list__item--disabled) {
+  background: var(--mc-surface-light, #58585a);
+  outline: 2px solid var(--mc-focus, #fff);
+  outline-offset: -2px;
+}
+.mc-list__item--interactive:active:not(.mc-list__item--disabled),
+.mc-list__item--active {
+  background: var(--mc-surface-pressed, #242425);
+  box-shadow:
+    inset 0 3px rgba(0, 0, 0, 0.45),
+    inset 0 -2px rgba(255, 255, 255, 0.08);
+}

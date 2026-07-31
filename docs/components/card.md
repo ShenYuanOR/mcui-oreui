@@ -1,31 +1,34 @@
-# Card 链接卡片
+# Card 卡片
 
-对应原 `link-block`，悬停时有 McUI 标志性的斜向扫光动画。
+Card 根据配置使用静态、按钮或链接语义，避免给不可交互内容伪造按钮角色。
 
-<div class="mc-demo">
-  <mc-card title="纯原生实现" description="不依赖任何第三方库，轻量高效。" style="width:220px" />
-  <mc-card title="模块化构建" description="组件可独立或组合使用。" style="width:220px" />
+## 内容与交互模式
+
+<div class="mc-demo mc-demo--column" style="width:360px">
+  <mc-card><template #title>静态卡片</template>默认渲染 article</mc-card>
+  <mc-card clickable><template #title>按钮卡片</template>可执行操作</mc-card>
+  <mc-card href="https://example.com"><template #title>链接卡片</template>前往页面</mc-card>
+  <mc-card clickable disabled><template #title>禁用卡片</template>暂不可操作</mc-card>
 </div>
 
-```html
-<mc-card title="纯原生实现" description="不依赖任何第三方库，轻量高效。" @click="go" />
+```vue
+<script setup lang="ts"></script>
 
-<!-- 或使用插槽 -->
-<mc-card>
-  <template #title>自定义标题</template>
-  自定义描述内容
-</mc-card>
+<template>
+  <div class="mc-demo mc-demo--column" style="width:360px">
+    <mc-card><template #title>静态卡片</template>默认渲染 article</mc-card>
+    <mc-card clickable><template #title>按钮卡片</template>可执行操作</mc-card>
+    <mc-card href="https://example.com"><template #title>链接卡片</template>前往页面</mc-card>
+    <mc-card clickable disabled><template #title>禁用卡片</template>暂不可操作</mc-card>
+  </div>
+</template>
 ```
 
-## Props
+| Prop          | 类型      | 默认      | 说明              |
+| ------------- | --------- | --------- | ----------------- |
+| `clickable`   | `boolean` | `false`   | 渲染为原生 button |
+| `href` / `to` | `string`  | -         | 渲染为链接        |
+| `tag`         | `string`  | `article` | 静态模式标签      |
+| `disabled`    | `boolean` | `false`   | 禁用交互模式      |
 
-| 名称 | 类型 | 默认 | 说明 |
-|---|---|---|---|
-| `title` | `string` | `''` | 标题（也可用 `#title` 插槽） |
-| `description` | `string` | `''` | 描述（也可用默认插槽） |
-
-## Events
-
-| 事件 | 参数 | 说明 |
-|---|---|---|
-| `click` | `MouseEvent` | 点击，自动播放 `click` 音效 |
+内容使用 `title`、默认和 `actions` 插槽；2.0 不再提供与这些插槽重复的 `title` / `description` 文本 Props。

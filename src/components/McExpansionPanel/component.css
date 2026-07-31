@@ -1,0 +1,49 @@
+/* McExpansionPanel component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-expansion-panel {
+  background: var(--mc-surface, #313233);
+  border: 2px solid var(--mc-border, #1e1e1f);
+}
+.mc-expansion-panel__heading.mc-expansion-panel__heading {
+  font: inherit;
+  letter-spacing: normal;
+  margin: 0;
+}
+.mc-expansion-panel__header {
+  align-items: center;
+  background: var(--mc-surface-light, #58585a);
+  border: 0;
+  color: var(--mc-text, #fff);
+  cursor: pointer;
+  display: flex;
+  font: inherit;
+  justify-content: space-between;
+  padding: 12px 14px;
+  text-align: start;
+  width: 100%;
+}
+.mc-expansion-panel__header:focus-visible {
+  outline: 3px solid var(--mc-focus, #fff);
+  outline-offset: -3px;
+}
+.mc-expansion-panel__icon {
+  transition: transform 0.15s;
+}
+.mc-expansion-panel--open .mc-expansion-panel__icon {
+  transform: rotate(180deg);
+}
+.mc-expansion-panel__content {
+  padding: 14px;
+}
+.mc-expansion-panel--disabled {
+  opacity: 0.5;
+}
+.mc-expansion-panel {
+  box-shadow:
+    inset 2px 2px rgba(255, 255, 255, 0.1),
+    inset -2px -2px rgba(255, 255, 255, 0.06);
+}
+.mc-expansion-panel__header {
+  box-shadow:
+    inset 0 -3px var(--mc-surface, #313233),
+    inset 2px 2px rgba(255, 255, 255, 0.16);
+}

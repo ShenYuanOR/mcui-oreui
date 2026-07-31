@@ -35,9 +35,7 @@ const go = (path: string) => router.go(withBase(path))
   <div class="mc-demo mc-hero">
     <div class="mc-hero-title">McUI Vue</div>
     <div class="mc-hero-sub">Minecraft 风格 Vue 3 组件库</div>
-    <div class="mc-hero-tagline">
-      把 Minecraft 基岩版风格的像素质感、立体按钮与音效带进 Vue 工程
-    </div>
+    <div class="mc-hero-tagline">把 Minecraft 基岩版风格的像素质感、立体按钮与音效带进 Vue 工程</div>
     <div class="mc-hero-actions">
       <mc-button variant="primary" size="large" @click="go('/guide/getting-started.html')">快速开始</mc-button>
       <mc-button variant="normal" size="large" @click="go('/components/button.html')">浏览组件</mc-button>
@@ -47,28 +45,22 @@ const go = (path: string) => router.go(withBase(path))
 ```
 
 <div class="mc-demo mc-hero-features">
-  <mc-card title="原汁原味的设计语言" description="直接复用 1700+ 行原始 CSS 与 Minecraft 像素字体，零视觉偏差。" @click="go('/guide/design-tokens.html')" />
-  <mc-card title="标准 Vue 3 + TypeScript" description="script setup + 完整类型，v-model 受控，Vite 库模式打包。" @click="go('/guide/getting-started.html')" />
-  <mc-card title="33 组件 + 音效" description="按钮 / 表单 / 布局 / 反馈 / 样式组件可组合使用。" @click="go('/components/button.html')" />
+  <mc-card clickable @click="go('/guide/design-tokens.html')"><template #title>原汁原味的设计语言</template>以固定 Spectrollay-OreUI revision 为视觉基准，字体保持可选。</mc-card>
+  <mc-card clickable @click="go('/guide/getting-started.html')"><template #title>标准 Vue 3 + TypeScript</template>script setup + 完整类型，v-model 受控，Vite 库模式打包。</mc-card>
+  <mc-card clickable @click="go('/components/overview.html')"><template #title>60+ 组件 + 音效</template>按钮 / 表单 / 数据 / 布局 / 反馈 / 样式组件可组合使用。</mc-card>
 </div>
 
 ```html
 <div class="mc-demo mc-hero-features">
-  <mc-card
-    title="原汁原味的设计语言"
-    description="直接复用原始 CSS 与 Minecraft 像素字体。"
-    @click="go('/guide/design-tokens.html')"
-  />
-  <mc-card
-    title="标准 Vue 3 + TypeScript"
-    description="script setup + 完整类型，v-model 受控。"
-    @click="go('/guide/getting-started.html')"
-  />
-  <mc-card
-    title="组件 + 音效"
-    description="按钮 / 表单 / 布局 / 反馈组件可组合使用。"
-    @click="go('/components/button.html')"
-  />
+  <mc-card clickable @click="go('/guide/design-tokens.html')"
+    ><template #title>原汁原味的设计语言</template>以固定 Spectrollay-OreUI revision 为视觉基准。</mc-card
+  >
+  <mc-card clickable @click="go('/guide/getting-started.html')"
+    ><template #title>标准 Vue 3 + TypeScript</template>script setup + 完整类型，v-model 受控。</mc-card
+  >
+  <mc-card clickable @click="go('/components/button.html')"
+    ><template #title>组件 + 音效</template>按钮 / 表单 / 布局 / 反馈组件可组合使用。</mc-card
+  >
 </div>
 ```
 

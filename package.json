@@ -1,70 +1,438 @@
 {
-    "name": "mcui-oreui",
-    "version": "1.2.2",
-    "description": "Minecraft 基岩版 Ore UI 设计语言的 Vue 3 组件库（第三方复刻，移植自 Spectrollay-OreUI）",
-    "keywords": [
-        "minecraft",
-        "ore-ui",
-        "oreui",
-        "bedrock",
-        "vue",
-        "vue3",
-        "vue-component",
-        "component-library",
-        "ui",
-        "ui-kit",
-        "pixel",
-        "minecraft-ui"
-    ],
-    "license": "MIT",
-    "author": "ShenYuanOL (https://github.com/ShenYuanOL)",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/ShenYuanOR/mcui-oreui.git"
+  "name": "mcui-oreui",
+  "version": "2.0.0",
+  "description": "Minecraft 基岩版 Ore UI 设计语言的 Vue 3 组件库（第三方复刻，移植自 Spectrollay-OreUI）",
+  "keywords": [
+    "minecraft",
+    "ore-ui",
+    "oreui",
+    "bedrock",
+    "vue",
+    "vue3",
+    "vue-component",
+    "component-library",
+    "ui",
+    "ui-kit",
+    "pixel",
+    "minecraft-ui"
+  ],
+  "license": "MIT",
+  "author": "ShenYuanOL (https://github.com/ShenYuanOL)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShenYuanOR/mcui-oreui.git"
+  },
+  "homepage": "https://shenyuanor.github.io/mcui-oreui/",
+  "bugs": {
+    "url": "https://github.com/ShenYuanOR/mcui-oreui/issues"
+  },
+  "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "dist/**/*.js",
+    "dist/**/*.d.ts",
+    "dist/**/*.css",
+    "dist/**/*.otf",
+    "dist/package.json",
+    "dist/web-types.json",
+    "web-types.json"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "web-types": "./web-types.json",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
     },
-    "homepage": "https://shenyuanor.github.io/mcui-oreui/",
-    "bugs": {
-        "url": "https://github.com/ShenYuanOR/mcui-oreui/issues"
+    "./styles/base.css": "./dist/styles/base.css",
+    "./styles/tokens.css": "./dist/styles/tokens.css",
+    "./styles/components.css": "./dist/styles/components.css",
+    "./styles/utilities.css": "./dist/styles/utilities.css",
+    "./styles/fonts.css": "./dist/styles/fonts.css",
+    "./components/McAlert": {
+      "types": "./dist/components/McAlert.d.ts",
+      "import": "./dist/components/McAlert.js"
     },
-    "type": "module",
-    "sideEffects": [
-        "**/*.css"
-    ],
-    "files": [
-        "dist",
-        "web-types.json"
-    ],
-    "main": "./dist/mcui-oreui.umd.cjs",
-    "module": "./dist/mcui-oreui.js",
-    "types": "./dist/index.d.ts",
-    "web-types": "./web-types.json",
-    "exports": {
-        ".": {
-            "types": "./dist/index.d.ts",
-            "import": "./dist/mcui-oreui.js",
-            "require": "./dist/mcui-oreui.umd.cjs"
-        },
-        "./style.css": "./dist/mcui-oreui.css"
+    "./components/McApp": {
+      "types": "./dist/components/McApp.d.ts",
+      "import": "./dist/components/McApp.js"
     },
-    "scripts": {
-        "build": "vue-tsc -p tsconfig.build.json && vite build && node scripts/write-dist-package.mjs",
-        "docs:dev": "vitepress dev docs",
-        "docs:build": "vitepress build docs",
-        "docs:preview": "vitepress preview docs",
-        "prepublishOnly": "npm run build"
+    "./components/McAppbar": {
+      "types": "./dist/components/McAppbar.d.ts",
+      "import": "./dist/components/McAppbar.js"
     },
-    "peerDependencies": {
-        "vue": "^3.3.0"
+    "./components/McAppbarButton": {
+      "types": "./dist/components/McAppbarButton.d.ts",
+      "import": "./dist/components/McAppbarButton.js"
     },
-    "devDependencies": {
-        "@types/node": "^20.14.9",
-        "@vitejs/plugin-vue": "^5.0.5",
-        "typescript": "^5.4.5",
-        "vite": "^5.3.1",
-        "vite-plugin-dts": "^3.9.1",
-        "vitepress": "^1.2.3",
-        "vue": "^3.4.31",
-        "vue-tsc": "^2.0.24"
+    "./components/McAppbarIcon": {
+      "types": "./dist/components/McAppbarIcon.d.ts",
+      "import": "./dist/components/McAppbarIcon.js"
     },
-    "dependencies": {}
+    "./components/McAutocomplete": {
+      "types": "./dist/components/McAutocomplete.d.ts",
+      "import": "./dist/components/McAutocomplete.js"
+    },
+    "./components/McBadge": {
+      "types": "./dist/components/McBadge.d.ts",
+      "import": "./dist/components/McBadge.js"
+    },
+    "./components/McBreadcrumbs": {
+      "types": "./dist/components/McBreadcrumbs.d.ts",
+      "import": "./dist/components/McBreadcrumbs.js"
+    },
+    "./components/McButton": {
+      "types": "./dist/components/McButton.d.ts",
+      "import": "./dist/components/McButton.js"
+    },
+    "./components/McButtonTabs": {
+      "types": "./dist/components/McButtonTabs.d.ts",
+      "import": "./dist/components/McButtonTabs.js"
+    },
+    "./components/McCard": {
+      "types": "./dist/components/McCard.d.ts",
+      "import": "./dist/components/McCard.js"
+    },
+    "./components/McCheckbox": {
+      "types": "./dist/components/McCheckbox.d.ts",
+      "import": "./dist/components/McCheckbox.js"
+    },
+    "./components/McChip": {
+      "types": "./dist/components/McChip.d.ts",
+      "import": "./dist/components/McChip.js"
+    },
+    "./components/McCol": {
+      "types": "./dist/components/McCol.d.ts",
+      "import": "./dist/components/McCol.js"
+    },
+    "./components/McConfirm": {
+      "types": "./dist/components/McConfirm.d.ts",
+      "import": "./dist/components/McConfirm.js"
+    },
+    "./components/McContainer": {
+      "types": "./dist/components/McContainer.d.ts",
+      "import": "./dist/components/McContainer.js"
+    },
+    "./components/McDataTable": {
+      "types": "./dist/components/McDataTable.d.ts",
+      "import": "./dist/components/McDataTable.js"
+    },
+    "./components/McDefaultsProvider": {
+      "types": "./dist/components/McDefaultsProvider.d.ts",
+      "import": "./dist/components/McDefaultsProvider.js"
+    },
+    "./components/McDialog": {
+      "types": "./dist/components/McDialog.d.ts",
+      "import": "./dist/components/McDialog.js"
+    },
+    "./components/McDivider": {
+      "types": "./dist/components/McDivider.d.ts",
+      "import": "./dist/components/McDivider.js"
+    },
+    "./components/McDrawer": {
+      "types": "./dist/components/McDrawer.d.ts",
+      "import": "./dist/components/McDrawer.js"
+    },
+    "./components/McExpansionPanel": {
+      "types": "./dist/components/McExpansionPanel.d.ts",
+      "import": "./dist/components/McExpansionPanel.js"
+    },
+    "./components/McExpansionPanels": {
+      "types": "./dist/components/McExpansionPanels.d.ts",
+      "import": "./dist/components/McExpansionPanels.js"
+    },
+    "./components/McFileInput": {
+      "types": "./dist/components/McFileInput.d.ts",
+      "import": "./dist/components/McFileInput.js"
+    },
+    "./components/McForm": {
+      "types": "./dist/components/McForm.d.ts",
+      "import": "./dist/components/McForm.js"
+    },
+    "./components/McFormField": {
+      "types": "./dist/components/McFormField.d.ts",
+      "import": "./dist/components/McFormField.js"
+    },
+    "./components/McFormattedText": {
+      "types": "./dist/components/McFormattedText.d.ts",
+      "import": "./dist/components/McFormattedText.js"
+    },
+    "./components/McHeader": {
+      "types": "./dist/components/McHeader.d.ts",
+      "import": "./dist/components/McHeader.js"
+    },
+    "./components/McIcon": {
+      "types": "./dist/components/McIcon.d.ts",
+      "import": "./dist/components/McIcon.js"
+    },
+    "./components/McLayout": {
+      "types": "./dist/components/McLayout.d.ts",
+      "import": "./dist/components/McLayout.js"
+    },
+    "./components/McList": {
+      "types": "./dist/components/McList.d.ts",
+      "import": "./dist/components/McList.js"
+    },
+    "./components/McListItem": {
+      "types": "./dist/components/McListItem.d.ts",
+      "import": "./dist/components/McListItem.js"
+    },
+    "./components/McLoadingMask": {
+      "types": "./dist/components/McLoadingMask.d.ts",
+      "import": "./dist/components/McLoadingMask.js"
+    },
+    "./components/McLocaleProvider": {
+      "types": "./dist/components/McLocaleProvider.d.ts",
+      "import": "./dist/components/McLocaleProvider.js"
+    },
+    "./components/McMain": {
+      "types": "./dist/components/McMain.d.ts",
+      "import": "./dist/components/McMain.js"
+    },
+    "./components/McMenu": {
+      "types": "./dist/components/McMenu.d.ts",
+      "import": "./dist/components/McMenu.js"
+    },
+    "./components/McNumberInput": {
+      "types": "./dist/components/McNumberInput.d.ts",
+      "import": "./dist/components/McNumberInput.js"
+    },
+    "./components/McOverlay": {
+      "types": "./dist/components/McOverlay.d.ts",
+      "import": "./dist/components/McOverlay.js"
+    },
+    "./components/McPagination": {
+      "types": "./dist/components/McPagination.d.ts",
+      "import": "./dist/components/McPagination.js"
+    },
+    "./components/McPanel": {
+      "types": "./dist/components/McPanel.d.ts",
+      "import": "./dist/components/McPanel.js"
+    },
+    "./components/McPopHost": {
+      "types": "./dist/components/McPopHost.d.ts",
+      "import": "./dist/components/McPopHost.js"
+    },
+    "./components/McProgress": {
+      "types": "./dist/components/McProgress.d.ts",
+      "import": "./dist/components/McProgress.js"
+    },
+    "./components/McRadio": {
+      "types": "./dist/components/McRadio.d.ts",
+      "import": "./dist/components/McRadio.js"
+    },
+    "./components/McRadioGroup": {
+      "types": "./dist/components/McRadioGroup.d.ts",
+      "import": "./dist/components/McRadioGroup.js"
+    },
+    "./components/McRow": {
+      "types": "./dist/components/McRow.d.ts",
+      "import": "./dist/components/McRow.js"
+    },
+    "./components/McScrollView": {
+      "types": "./dist/components/McScrollView.d.ts",
+      "import": "./dist/components/McScrollView.js"
+    },
+    "./components/McSelect": {
+      "types": "./dist/components/McSelect.d.ts",
+      "import": "./dist/components/McSelect.js"
+    },
+    "./components/McSkeleton": {
+      "types": "./dist/components/McSkeleton.d.ts",
+      "import": "./dist/components/McSkeleton.js"
+    },
+    "./components/McSkinViewer": {
+      "types": "./dist/components/McSkinViewer.d.ts",
+      "import": "./dist/components/McSkinViewer.js"
+    },
+    "./components/McSlider": {
+      "types": "./dist/components/McSlider.d.ts",
+      "import": "./dist/components/McSlider.js"
+    },
+    "./components/McSnackbar": {
+      "types": "./dist/components/McSnackbar.d.ts",
+      "import": "./dist/components/McSnackbar.js"
+    },
+    "./components/McSpacer": {
+      "types": "./dist/components/McSpacer.d.ts",
+      "import": "./dist/components/McSpacer.js"
+    },
+    "./components/McSpinner": {
+      "types": "./dist/components/McSpinner.d.ts",
+      "import": "./dist/components/McSpinner.js"
+    },
+    "./components/McStepper": {
+      "types": "./dist/components/McStepper.d.ts",
+      "import": "./dist/components/McStepper.js"
+    },
+    "./components/McSwitch": {
+      "types": "./dist/components/McSwitch.d.ts",
+      "import": "./dist/components/McSwitch.js"
+    },
+    "./components/McTable": {
+      "types": "./dist/components/McTable.d.ts",
+      "import": "./dist/components/McTable.js"
+    },
+    "./components/McTabs": {
+      "types": "./dist/components/McTabs.d.ts",
+      "import": "./dist/components/McTabs.js"
+    },
+    "./components/McTcode": {
+      "types": "./dist/components/McTcode.d.ts",
+      "import": "./dist/components/McTcode.js"
+    },
+    "./components/McTextField": {
+      "types": "./dist/components/McTextField.d.ts",
+      "import": "./dist/components/McTextField.js"
+    },
+    "./components/McTextarea": {
+      "types": "./dist/components/McTextarea.d.ts",
+      "import": "./dist/components/McTextarea.js"
+    },
+    "./components/McThemeProvider": {
+      "types": "./dist/components/McThemeProvider.d.ts",
+      "import": "./dist/components/McThemeProvider.js"
+    },
+    "./components/McTooltip": {
+      "types": "./dist/components/McTooltip.d.ts",
+      "import": "./dist/components/McTooltip.js"
+    },
+    "./components/McVirtualScroll": {
+      "types": "./dist/components/McVirtualScroll.d.ts",
+      "import": "./dist/components/McVirtualScroll.js"
+    },
+    "./composables/defaults": {
+      "types": "./dist/composables/defaults.d.ts",
+      "import": "./dist/composables/defaults.js"
+    },
+    "./composables/display": {
+      "types": "./dist/composables/display.d.ts",
+      "import": "./dist/composables/display.js"
+    },
+    "./composables/form": {
+      "types": "./dist/composables/form.d.ts",
+      "import": "./dist/composables/form.js"
+    },
+    "./composables/icons": {
+      "types": "./dist/composables/icons.d.ts",
+      "import": "./dist/composables/icons.js"
+    },
+    "./composables/locale": {
+      "types": "./dist/composables/locale.d.ts",
+      "import": "./dist/composables/locale.js"
+    },
+    "./composables/overlay": {
+      "types": "./dist/composables/overlay.d.ts",
+      "import": "./dist/composables/overlay.js"
+    },
+    "./composables/sounds": {
+      "types": "./dist/composables/sounds.d.ts",
+      "import": "./dist/composables/sounds.js"
+    },
+    "./composables/theme": {
+      "types": "./dist/composables/theme.d.ts",
+      "import": "./dist/composables/theme.js"
+    },
+    "./composables/usePop": {
+      "types": "./dist/composables/usePop.d.ts",
+      "import": "./dist/composables/usePop.js"
+    },
+    "./composables/useSound": {
+      "types": "./dist/composables/useSound.d.ts",
+      "import": "./dist/composables/useSound.js"
+    },
+    "./icons/all": {
+      "types": "./dist/icons/all.d.ts",
+      "import": "./dist/icons/all.js"
+    },
+    "./icons/key": {
+      "types": "./dist/icons/key.d.ts",
+      "import": "./dist/icons/key.js"
+    },
+    "./icons/normal": {
+      "types": "./dist/icons/normal.d.ts",
+      "import": "./dist/icons/normal.js"
+    },
+    "./icons/x": {
+      "types": "./dist/icons/x.d.ts",
+      "import": "./dist/icons/x.js"
+    },
+    "./sounds/default": {
+      "types": "./dist/sounds/default.d.ts",
+      "import": "./dist/sounds/default.js"
+    }
+  },
+  "scripts": {
+    "generate": "npm run generate:components && npm run generate:icons && npm run generate:utilities",
+    "generate:components": "node scripts/generate-components.mjs",
+    "generate:icons": "node scripts/generate-icons.mjs",
+    "generate:utilities": "node scripts/generate-utilities.mjs",
+    "check:generated": "node scripts/generate-components.mjs --check && node scripts/generate-icons.mjs --check && node scripts/generate-utilities.mjs --check",
+    "check:docs-examples": "node scripts/check-doc-examples.mjs",
+    "build": "npm run check:generated && vue-tsc -p tsconfig.build.json && vite build && node scripts/write-dist-package.mjs && node scripts/check-built-styles.mjs",
+    "typecheck": "vue-tsc -p tsconfig.build.json",
+    "lint": "eslint . && stylelint \"{src,docs,tests}/**/*.css\"",
+    "lint:fix": "eslint . --fix && stylelint \"{src,docs,tests}/**/*.css\" --fix",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:unit": "vitest run --project unit",
+    "test:ssr": "vitest run --project ssr",
+    "test:e2e": "playwright test",
+    "test:e2e:chromium": "playwright test --project chromium",
+    "e2e:serve": "vite --config tests/e2e/fixture/vite.config.ts tests/e2e/fixture",
+    "check:size": "node scripts/check-bundle-size.mjs",
+    "test:consumer": "vue-tsc -p tsconfig.consumer.json",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "check": "npm run format:check && npm run lint && npm run check:generated && npm run check:docs-examples && npm run typecheck && npm run test:coverage && npm run build && npm run test:consumer && npm run docs:build && npm run check:size",
+    "check:release": "npm run check && npm run test:e2e && node scripts/check-release.mjs && npm audit --omit=dev",
+    "prepublishOnly": "npm run build"
+  },
+  "engines": {
+    "node": ">=20 <23"
+  },
+  "packageManager": "npm@10.8.2",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "peerDependencies": {
+    "vue": "^3.5.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "@playwright/test": "^1.62.0",
+    "@types/node": "^20.14.9",
+    "@vitejs/plugin-vue": "^5.0.5",
+    "@vitest/coverage-v8": "^2.1.9",
+    "@vue/server-renderer": "^3.5.0",
+    "@vue/test-utils": "^2.4.11",
+    "axe-core": "^4.12.1",
+    "esbuild": "^0.21.5",
+    "eslint": "^9.39.5",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-vue": "^10.10.0",
+    "globals": "^16.5.0",
+    "jsdom": "^25.0.1",
+    "prettier": "^3.9.6",
+    "stylelint": "^16.26.1",
+    "stylelint-config-standard": "^38.0.0",
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^8.65.0",
+    "vite": "^5.3.1",
+    "vite-plugin-dts": "^3.9.1",
+    "vite-plugin-lib-inject-css": "^2.2.2",
+    "vitepress": "^1.2.3",
+    "vitest": "^2.1.9",
+    "vue": "^3.5.0",
+    "vue-eslint-parser": "^10.4.1",
+    "vue-tsc": "^2.0.24"
+  }
 }

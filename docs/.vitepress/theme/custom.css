@@ -91,8 +91,7 @@ body::-webkit-scrollbar-corner,
 }
 
 /* 仅对“无按下高度补偿”的组件清零外边距；按钮保留原 margin（其 :active 依赖补偿） */
-.mc-demo :is(.custom-checkbox, .switch_content, custom-dropdown,
-  text-field, .slider_area) {
+.mc-demo :is(.custom-checkbox, .switch_content, custom-dropdown, text-field, .slider_area) {
   margin: 0;
 }
 
@@ -391,10 +390,10 @@ body::-webkit-scrollbar-corner,
 }
 
 /* ===== 导航栏特定项颜色 ===== */
-.VPNavBarMenuLink[href*="/guide/design-tokens"] {
+.VPNavBarMenuLink[href*='/guide/design-tokens'] {
   color: #6fb23f !important;
 }
 
-.VPNavBarMenuLink[href*="/contributors"] {
+.VPNavBarMenuLink[href*='/contributors'] {
   color: #f5a623 !important;
 }

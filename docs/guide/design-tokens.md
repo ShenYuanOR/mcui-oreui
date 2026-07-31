@@ -1,41 +1,55 @@
-# 设计 Token
+# Theme 与设计 Token
 
-提炼自 Minecraft 基岩版风格的真实色值，以 CSS 变量提供（`src/styles/tokens.css`）。
-组件本体样式仍由原始 `mcui-base.css` 驱动，这些 token 作为定制与参考层。
+2.0 的组件颜色由 CSS 变量实际驱动。`tokens.css` 只在 `.mc-theme`、`.mc-app` 或 `[data-mc-theme]` 内声明默认值，不修改 `:root`。
 
-## 配色
+| Token                                                       | 默认值                        | 用途                                                          |
+| ----------------------------------------------------------- | ----------------------------- | ------------------------------------------------------------- |
+| `--mc-background`                                           | `#48494a`                     | 应用背景                                                      |
+| `--mc-surface`                                              | `#313233`                     | 卡片、输入、面板                                              |
+| `--mc-surface-light`                                        | `#58585a`                     | 浮层与高亮表面                                                |
+| `--mc-primary`                                              | `#3c8527`                     | 主操作、选中态                                                |
+| `--mc-secondary`                                            | `#d0d1d4`                     | 次要操作                                                      |
+| `--mc-error`                                                | `#c33636`                     | 错误与危险操作                                                |
+| `--mc-warning`                                              | `#f5a623`                     | 警告                                                          |
+| `--mc-info`                                                 | `#3d75a5`                     | 信息反馈                                                      |
+| `--mc-border`                                               | `#1e1e1f`                     | 深色像素描边                                                  |
+| `--mc-text`                                                 | `#ffffff`                     | 主文字                                                        |
+| `--mc-text-muted`                                           | `#b1b2b5`                     | 辅助文字                                                      |
+| `--mc-focus`                                                | `#ffffff`                     | 键盘焦点与高亮描边                                            |
+| `--mc-shadow`                                               | `#000000`                     | 像素投影                                                      |
+| `--mc-scrim`                                                | `rgba(0,0,0,.62)`             | 模态遮罩                                                      |
+| `--mc-on-primary` / `--mc-on-secondary` / `--mc-on-warning` | 语义前景色                    | 彩色表面的文字                                                |
+| `--mc-control-inactive`                                     | `#8c8d90`                     | 未选中控件                                                    |
+| `--mc-surface-bright` / `--mc-surface-high`                 | 浅表面色                      | Appbar 与兼容控件                                             |
+| `--mc-border-muted` / `--mc-border-strong`                  | 描边层级                      | 斜面与深描边                                                  |
+| `--mc-font-title`                                           | `Minecraft Ten, sans-serif`   | 标题                                                          |
+| `--mc-font-ui`                                              | `Minecraft Seven, sans-serif` | 控件文字                                                      |
+| `--mc-font-body`                                            | `Noto Sans, sans-serif`       | 正文                                                          |
+| `--mc-spacer`                                               | `4px`                         | Utilities 的 `ma/pa/ga` 数值单位；不改变既有 `--mc-space-1–5` |
 
-| Token | 值 | 用途 |
-|---|---|---|
-| `--mc-bg` | `#48494A` | 页面背景（深灰） |
-| `--mc-bg-header` | `#E6E8EB` | 顶栏背景 |
-| `--mc-bg-panel` | `#58585A` | 面板/卡片 |
-| `--mc-green` | `#3C8527` | 主操作按钮 |
-| `--mc-green-hover` | `#2A641C` | 主操作 hover |
-| `--mc-green-active` | `#1D4D13` | 主操作 active |
-| `--mc-normal` | `#D0D1D4` | 次要按钮 |
-| `--mc-red` | `#C33636` | 危险按钮 |
-| `--mc-border-dark` | `#1E1E1F` | 描边深色 |
-| `--mc-text-light` | `#D0D1D4` | 浅色文字 |
+## 配置主题
 
-## 字体
+把主题配置放入消费应用创建 McUI 插件的位置。以下示例采用 `src/plugins/mcui.ts`；该实例还需按[配置选项](./configuration)在 `src/main.ts` 中安装。
 
-| Token | 字体 | 用途 |
-|---|---|---|
-| `--mc-font-title` | Minecraft Ten | 大标题 |
-| `--mc-font-ui` | Minecraft Seven | UI 文字 |
-| `--mc-font-body` | NotoSans Bold | 中文正文 |
+```ts
+// src/plugins/mcui.ts
+import { createMcUI } from 'mcui-oreui'
 
-## 像素立体质感
+export const mcui = createMcUI({
+  theme: {
+    defaultTheme: 'copper',
+    themes: {
+      copper: {
+        dark: true,
+        colors: { primary: '#b36a3c', surface: '#352b27' },
+        variables: { radius: '0px' },
+        fonts: { ui: "'Minecraft Seven', sans-serif" },
+      },
+    },
+  },
+})
+```
 
-按钮的块状立体感由三层叠加（非贴图）：
+这不是 Vite 构建配置，也不会被自动扫描。通过 `useMcTheme().setTheme(name)` 运行时切换；`<mc-app>` 会应用对应变量和明暗 class。
 
-- 深色描边 `border: 2px solid #1E1E1F`
-- 底面厚度 `box-shadow: inset 0 -4px <暗色>`
-- 高光 `inset 3px 3px rgba(255,255,255,.x)`
-- 按下时高度收缩并下沉，模拟物理按压
-
-## 缺失图标说明
-
-原仓库未提供 `check_white.png` / `arrow-down` / `switch_on/off` 等图标文件。
-本库以**像素风 SVG** 重绘补齐（`src/assets/images/*.svg`），矢量、可着色、零缺失资源。
+Utilities 的 `text-*`、`bg-*` 和 `border-*` 类引用同名 `--mc-*` 变量，所以运行时切换主题会立即更新。工具类固定使用项目标准断点；`display.thresholds` 只影响组合式状态，不会重新编译 CSS。

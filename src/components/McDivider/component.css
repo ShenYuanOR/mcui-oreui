@@ -1,0 +1,12 @@
+/* McDivider component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-divider {
+  background: var(--mc-border, #1e1e1f);
+  height: 2px;
+  width: 100%;
+}
+.mc-divider--vertical {
+  align-self: stretch;
+  height: auto;
+  min-height: 24px;
+  width: 2px;
+}

@@ -1,0 +1,47 @@
+/* McPagination component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-pagination {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.mc-pagination__button {
+  background: var(--mc-surface-light, #58585a);
+  border: 2px solid var(--mc-border, #1e1e1f);
+  color: var(--mc-text, #fff);
+  cursor: pointer;
+  font: inherit;
+  min-height: 34px;
+  min-width: 34px;
+}
+.mc-pagination__button--active {
+  background: var(--mc-primary, #3c8527);
+  color: var(--mc-on-primary, #fff);
+}
+.mc-pagination__button:focus-visible {
+  outline: 3px solid var(--mc-focus, #fff);
+  outline-offset: 1px;
+}
+.mc-pagination__button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+.mc-pagination__ellipsis {
+  min-width: 24px;
+  text-align: center;
+}
+.mc-pagination__button {
+  box-shadow:
+    inset 0 -3px #313233,
+    inset 2px 2px rgba(255, 255, 255, 0.2),
+    inset -2px -5px rgba(255, 255, 255, 0.1);
+}
+.mc-pagination__button:hover:not(:disabled) {
+  background: var(--mc-surface-hover, #8c8d90);
+}
+.mc-pagination__button:active:not(:disabled) {
+  box-shadow:
+    inset 2px 2px rgba(0, 0, 0, 0.35),
+    inset -2px -2px rgba(255, 255, 255, 0.1);
+  transform: translateY(1px);
+}

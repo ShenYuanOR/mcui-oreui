@@ -1,0 +1,625 @@
+{
+  "generatedBy": "scripts/generate-utilities.mjs",
+  "families": [
+    "Theme colors / Text",
+    "Theme colors / Background",
+    "Theme colors / Border"
+  ],
+  "classes": [
+    {
+      "name": "text-background",
+      "family": "Theme colors / Text",
+      "declaration": "color: var(--mc-background, #48494a)"
+    },
+    {
+      "name": "bg-background",
+      "family": "Theme colors / Background",
+      "declaration": "background-color: var(--mc-background, #48494a)"
+    },
+    {
+      "name": "border-background",
+      "family": "Theme colors / Border",
+      "declaration": "border-color: color-mix(in srgb, var(--mc-background, #48494a) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "text-surface",
+      "family": "Theme colors / Text",
+      "declaration": "color: var(--mc-surface, #313233)"
+    },
+    {
+      "name": "bg-surface",
+      "family": "Theme colors / Background",
+      "declaration": "background-color: var(--mc-surface, #313233)"
+    },
+    {
+      "name": "border-surface",
+      "family": "Theme colors / Border",
+      "declaration": "border-color: color-mix(in srgb, var(--mc-surface, #313233) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "text-surface-pressed",
+      "family": "Theme colors / Text",
+      "declaration": "color: var(--mc-surface-pressed, #242425)"
+    },
+    {
+      "name": "bg-surface-pressed",
+      "family": "Theme colors / Background",
+      "declaration": "background-color: var(--mc-surface-pressed, #242425)"
+    },
+    {
+      "name": "border-surface-pressed",
+      "family": "Theme colors / Border",
+      "declaration": "border-color: color-mix(in srgb, var(--mc-surface-pressed, #242425) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "text-surface-light",
+      "family": "Theme colors / Text",
+      "declaration": "color: var(--mc-surface-light, #58585a)"
+    },
+    {
+      "name": "bg-surface-light",
+      "family": "Theme colors / Background",
+      "declaration": "background-color: var(--mc-surface-light, #58585a)"
+    },
+    {
+      "name": "border-surface-light",
+      "family": "Theme colors / Border",
+      "declaration": "border-color: color-mix(in srgb, var(--mc-surface-light, #58585a) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "text-surface-hover",
+      "family": "Theme colors / Text",
+      "declaration": "color: var(--mc-surface-hover, #8c8d90)"
+    },
+    {
+      "name": "bg-surface-hover",
+      "family": "Theme colors / Background",
+      "declaration": "background-color: var(--mc-surface-hover, #8c8d90)"
+    },
+    {
+      "name": "border-surface-hover",
+      "family": "Theme colors / Border",
+      "declaration": "border-color: color-mix(in srgb, var(--mc-surface-hover, #8c8d90) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "text-surface-bright",
+      "family": "Theme colors / Text",
+      "declaration": "color: var(--mc-surface-bright, #e6e8eb)"
+    },
+    {
+      "name": "bg-surface-bright",
+      "family": "Theme colors / Background",
+      "declaration": "background-color: var(--mc-surface-bright, #e6e8eb)"
+    },
+    {
+      "name": "border-surface-bright",
+      "family": "Theme colors / Border",
+      "declaration": "border-color: color-mix(in srgb, var(--mc-surface-bright, #e6e8eb) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "text-surface-high",
+      "family": "Theme colors / Text",
+      "declaration": "color: var(--mc-surface-high, #f4f6f9)"
+    },
+    {
+      "name": "bg-surface-high",
+      "family": "Theme colors / Background",
+      "declaration": "background-color: var(--mc-surface-high, #f4f6f9)"
+    },
+    {
+      "name": "border-surface-high",
+      "family": "Theme colors / Border",
+      "declaration": "border-color: color-mix(in srgb, var(--mc-surface-high, #f4f6f9) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "text-primary",
+      "family": "Theme colors / Text",
+      "declaration": "color: var(--mc-primary, #3c8527)"
+    },
+    {
+      "name": "bg-primary",
+      "family": "Theme colors / Background",
+      "declaration": "background-color: var(--mc-primary, #3c8527)"
+    },
+    {
+      "name": "border-primary",
+      "family": "Theme colors / Border",
+      "declaration": "border-color: color-mix(in srgb, var(--mc-primary, #3c8527) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "text-primary-hover",
+      "family": "Theme colors / Text",
+      "declaration": "color: var(--mc-primary-hover, #2a641c)"
+    },
+    {
+      "name": "bg-primary-hover",
+      "family": "Theme colors / Background",
+      "declaration": "background-color: var(--mc-primary-hover, #2a641c)"
+    },
+    {
+      "name": "border-primary-hover",
+      "family": "Theme colors / Border",
+      "declaration": "border-color: color-mix(in srgb, var(--mc-primary-hover, #2a641c) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "text-primary-active",
+      "family": "Theme colors / Text",
+      "declaration": "color: var(--mc-primary-active, #1d4d13)"
+    },
+    {
+      "name": "bg-primary-active",
+      "family": "Theme colors / Background",
+      "declaration": "background-color: var(--mc-primary-active, #1d4d13)"
+    },
+    {
+      "name": "border-primary-active",
+      "family": "Theme colors / Border",
+      "declaration": "border-color: color-mix(in srgb, var(--mc-primary-active, #1d4d13) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "text-primary-tint",
+      "family": "Theme colors / Text",
+      "declaration": "color: var(--mc-primary-tint, #6cc349)"
+    },
+    {
+      "name": "bg-primary-tint",
+      "family": "Theme colors / Background",
+      "declaration": "background-color: var(--mc-primary-tint, #6cc349)"
+    },
+    {
+      "name": "border-primary-tint",
+      "family": "Theme colors / Border",
+      "declaration": "border-color: color-mix(in srgb, var(--mc-primary-tint, #6cc349) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "text-secondary",
+      "family": "Theme colors / Text",
+      "declaration": "color: var(--mc-secondary, #d0d1d4)"
+    },
+    {
+      "name": "bg-secondary",
+      "family": "Theme colors / Background",
+      "declaration": "background-color: var(--mc-secondary, #d0d1d4)"
+    },
+    {
+      "name": "border-secondary",
+      "family": "Theme colors / Border",
+      "declaration": "border-color: color-mix(in srgb, var(--mc-secondary, #d0d1d4) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "text-secondary-hover",
+      "family": "Theme colors / Text",
+      "declaration": "color: var(--mc-secondary-hover, #b1b2b5)"
+    },
+    {
+      "name": "bg-secondary-hover",
+      "family": "Theme colors / Background",
+      "declaration": "background-color: var(--mc-secondary-hover, #b1b2b5)"
+    },
+    {
+      "name": "border-secondary-hover",
+      "family": "Theme colors / Border",
+      "declaration": "border-color: color-mix(in srgb, var(--mc-secondary-hover, #b1b2b5) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "text-secondary-active",
+      "family": "Theme colors / Text",
+      "declaration": "color: var(--mc-secondary-active, #b1b2b5)"
+    },
+    {
+      "name": "bg-secondary-active",
+      "family": "Theme colors / Background",
+      "declaration": "background-color: var(--mc-secondary-active, #b1b2b5)"
+    },
+    {
+      "name": "border-secondary-active",
+      "family": "Theme colors / Border",
+      "declaration": "border-color: color-mix(in srgb, var(--mc-secondary-active, #b1b2b5) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "text-error",
+      "family": "Theme colors / Text",
+      "declaration": "color: var(--mc-error, #ca3636)"
+    },
+    {
+      "name": "bg-error",
+      "family": "Theme colors / Background",
+      "declaration": "background-color: var(--mc-error, #ca3636)"
+    },
+    {
+      "name": "border-error",
+      "family": "Theme colors / Border",
+      "declaration": "border-color: color-mix(in srgb, var(--mc-error, #ca3636) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "text-error-hover",
+      "family": "Theme colors / Text",
+      "declaration": "color: var(--mc-error-hover, #c02d2d)"
+    },
+    {
+      "name": "bg-error-hover",
+      "family": "Theme colors / Background",
+      "declaration": "background-color: var(--mc-error-hover, #c02d2d)"
+    },
+    {
+      "name": "border-error-hover",
+      "family": "Theme colors / Border",
+      "declaration": "border-color: color-mix(in srgb, var(--mc-error-hover, #c02d2d) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "text-error-active",
+      "family": "Theme colors / Text",
+      "declaration": "color: var(--mc-error-active, #ad1d1d)"
+    },
+    {
+      "name": "bg-error-active",
+      "family": "Theme colors / Background",
+      "declaration": "background-color: var(--mc-error-active, #ad1d1d)"
+    },
+    {
+      "name": "border-error-active",
+      "family": "Theme colors / Border",
+      "declaration": "border-color: color-mix(in srgb, var(--mc-error-active, #ad1d1d) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "text-error-tint",
+      "family": "Theme colors / Text",
+      "declaration": "color: var(--mc-error-tint, #f46d6d)"
+    },
+    {
+      "name": "bg-error-tint",
+      "family": "Theme colors / Background",
+      "declaration": "background-color: var(--mc-error-tint, #f46d6d)"
+    },
+    {
+      "name": "border-error-tint",
+      "family": "Theme colors / Border",
+      "declaration": "border-color: color-mix(in srgb, var(--mc-error-tint, #f46d6d) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "text-warning",
+      "family": "Theme colors / Text",
+      "declaration": "color: var(--mc-warning, #ffe866)"
+    },
+    {
+      "name": "bg-warning",
+      "family": "Theme colors / Background",
+      "declaration": "background-color: var(--mc-warning, #ffe866)"
+    },
+    {
+      "name": "border-warning",
+      "family": "Theme colors / Border",
+      "declaration": "border-color: color-mix(in srgb, var(--mc-warning, #ffe866) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "text-warning-active",
+      "family": "Theme colors / Text",
+      "declaration": "color: var(--mc-warning-active, #e5c317)"
+    },
+    {
+      "name": "bg-warning-active",
+      "family": "Theme colors / Background",
+      "declaration": "background-color: var(--mc-warning-active, #e5c317)"
+    },
+    {
+      "name": "border-warning-active",
+      "family": "Theme colors / Border",
+      "declaration": "border-color: color-mix(in srgb, var(--mc-warning-active, #e5c317) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "text-info",
+      "family": "Theme colors / Text",
+      "declaration": "color: var(--mc-info, #2e6be5)"
+    },
+    {
+      "name": "bg-info",
+      "family": "Theme colors / Background",
+      "declaration": "background-color: var(--mc-info, #2e6be5)"
+    },
+    {
+      "name": "border-info",
+      "family": "Theme colors / Border",
+      "declaration": "border-color: color-mix(in srgb, var(--mc-info, #2e6be5) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "text-info-tint",
+      "family": "Theme colors / Text",
+      "declaration": "color: var(--mc-info-tint, #8cb3ff)"
+    },
+    {
+      "name": "bg-info-tint",
+      "family": "Theme colors / Background",
+      "declaration": "background-color: var(--mc-info-tint, #8cb3ff)"
+    },
+    {
+      "name": "border-info-tint",
+      "family": "Theme colors / Border",
+      "declaration": "border-color: color-mix(in srgb, var(--mc-info-tint, #8cb3ff) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "text-success",
+      "family": "Theme colors / Text",
+      "declaration": "color: var(--mc-success, #3c8527)"
+    },
+    {
+      "name": "bg-success",
+      "family": "Theme colors / Background",
+      "declaration": "background-color: var(--mc-success, #3c8527)"
+    },
+    {
+      "name": "border-success",
+      "family": "Theme colors / Border",
+      "declaration": "border-color: color-mix(in srgb, var(--mc-success, #3c8527) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "text-border",
+      "family": "Theme colors / Text",
+      "declaration": "color: var(--mc-border, #1e1e1f)"
+    },
+    {
+      "name": "bg-border",
+      "family": "Theme colors / Background",
+      "declaration": "background-color: var(--mc-border, #1e1e1f)"
+    },
+    {
+      "name": "border-border",
+      "family": "Theme colors / Border",
+      "declaration": "border-color: color-mix(in srgb, var(--mc-border, #1e1e1f) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "text-border-strong",
+      "family": "Theme colors / Text",
+      "declaration": "color: var(--mc-border-strong, #131313)"
+    },
+    {
+      "name": "bg-border-strong",
+      "family": "Theme colors / Background",
+      "declaration": "background-color: var(--mc-border-strong, #131313)"
+    },
+    {
+      "name": "border-border-strong",
+      "family": "Theme colors / Border",
+      "declaration": "border-color: color-mix(in srgb, var(--mc-border-strong, #131313) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "text-border-muted",
+      "family": "Theme colors / Text",
+      "declaration": "color: var(--mc-border-muted, #a1a3a5)"
+    },
+    {
+      "name": "bg-border-muted",
+      "family": "Theme colors / Background",
+      "declaration": "background-color: var(--mc-border-muted, #a1a3a5)"
+    },
+    {
+      "name": "border-border-muted",
+      "family": "Theme colors / Border",
+      "declaration": "border-color: color-mix(in srgb, var(--mc-border-muted, #a1a3a5) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "text-text",
+      "family": "Theme colors / Text",
+      "declaration": "color: var(--mc-text, #ffffff)"
+    },
+    {
+      "name": "bg-text",
+      "family": "Theme colors / Background",
+      "declaration": "background-color: var(--mc-text, #ffffff)"
+    },
+    {
+      "name": "border-text",
+      "family": "Theme colors / Border",
+      "declaration": "border-color: color-mix(in srgb, var(--mc-text, #ffffff) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "text-text-muted",
+      "family": "Theme colors / Text",
+      "declaration": "color: var(--mc-text-muted, #d0d1d4)"
+    },
+    {
+      "name": "bg-text-muted",
+      "family": "Theme colors / Background",
+      "declaration": "background-color: var(--mc-text-muted, #d0d1d4)"
+    },
+    {
+      "name": "border-text-muted",
+      "family": "Theme colors / Border",
+      "declaration": "border-color: color-mix(in srgb, var(--mc-text-muted, #d0d1d4) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "text-text-dimmest",
+      "family": "Theme colors / Text",
+      "declaration": "color: var(--mc-text-dimmest, #b1b2b5)"
+    },
+    {
+      "name": "bg-text-dimmest",
+      "family": "Theme colors / Background",
+      "declaration": "background-color: var(--mc-text-dimmest, #b1b2b5)"
+    },
+    {
+      "name": "border-text-dimmest",
+      "family": "Theme colors / Border",
+      "declaration": "border-color: color-mix(in srgb, var(--mc-text-dimmest, #b1b2b5) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "text-text-inverse",
+      "family": "Theme colors / Text",
+      "declaration": "color: var(--mc-text-inverse, #1e1e1f)"
+    },
+    {
+      "name": "bg-text-inverse",
+      "family": "Theme colors / Background",
+      "declaration": "background-color: var(--mc-text-inverse, #1e1e1f)"
+    },
+    {
+      "name": "border-text-inverse",
+      "family": "Theme colors / Border",
+      "declaration": "border-color: color-mix(in srgb, var(--mc-text-inverse, #1e1e1f) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "text-disabled",
+      "family": "Theme colors / Text",
+      "declaration": "color: var(--mc-disabled, #d0d1d4)"
+    },
+    {
+      "name": "bg-disabled",
+      "family": "Theme colors / Background",
+      "declaration": "background-color: var(--mc-disabled, #d0d1d4)"
+    },
+    {
+      "name": "border-disabled",
+      "family": "Theme colors / Border",
+      "declaration": "border-color: color-mix(in srgb, var(--mc-disabled, #d0d1d4) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "text-disabled-shadow",
+      "family": "Theme colors / Text",
+      "declaration": "color: var(--mc-disabled-shadow, #b1b2b5)"
+    },
+    {
+      "name": "bg-disabled-shadow",
+      "family": "Theme colors / Background",
+      "declaration": "background-color: var(--mc-disabled-shadow, #b1b2b5)"
+    },
+    {
+      "name": "border-disabled-shadow",
+      "family": "Theme colors / Border",
+      "declaration": "border-color: color-mix(in srgb, var(--mc-disabled-shadow, #b1b2b5) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "text-disabled-border",
+      "family": "Theme colors / Text",
+      "declaration": "color: var(--mc-disabled-border, #8c8d90)"
+    },
+    {
+      "name": "bg-disabled-border",
+      "family": "Theme colors / Background",
+      "declaration": "background-color: var(--mc-disabled-border, #8c8d90)"
+    },
+    {
+      "name": "border-disabled-border",
+      "family": "Theme colors / Border",
+      "declaration": "border-color: color-mix(in srgb, var(--mc-disabled-border, #8c8d90) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "text-disabled-text",
+      "family": "Theme colors / Text",
+      "declaration": "color: var(--mc-disabled-text, #48494a)"
+    },
+    {
+      "name": "bg-disabled-text",
+      "family": "Theme colors / Background",
+      "declaration": "background-color: var(--mc-disabled-text, #48494a)"
+    },
+    {
+      "name": "border-disabled-text",
+      "family": "Theme colors / Border",
+      "declaration": "border-color: color-mix(in srgb, var(--mc-disabled-text, #48494a) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "text-focus",
+      "family": "Theme colors / Text",
+      "declaration": "color: var(--mc-focus, #ffffff)"
+    },
+    {
+      "name": "bg-focus",
+      "family": "Theme colors / Background",
+      "declaration": "background-color: var(--mc-focus, #ffffff)"
+    },
+    {
+      "name": "border-focus",
+      "family": "Theme colors / Border",
+      "declaration": "border-color: color-mix(in srgb, var(--mc-focus, #ffffff) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "text-shadow",
+      "family": "Theme colors / Text",
+      "declaration": "color: var(--mc-shadow, #000000)"
+    },
+    {
+      "name": "bg-shadow",
+      "family": "Theme colors / Background",
+      "declaration": "background-color: var(--mc-shadow, #000000)"
+    },
+    {
+      "name": "border-shadow",
+      "family": "Theme colors / Border",
+      "declaration": "border-color: color-mix(in srgb, var(--mc-shadow, #000000) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "text-scrim",
+      "family": "Theme colors / Text",
+      "declaration": "color: var(--mc-scrim, rgba(0, 0, 0, .7))"
+    },
+    {
+      "name": "bg-scrim",
+      "family": "Theme colors / Background",
+      "declaration": "background-color: var(--mc-scrim, rgba(0, 0, 0, .7))"
+    },
+    {
+      "name": "border-scrim",
+      "family": "Theme colors / Border",
+      "declaration": "border-color: color-mix(in srgb, var(--mc-scrim, rgba(0, 0, 0, .7)) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "text-on-primary",
+      "family": "Theme colors / Text",
+      "declaration": "color: var(--mc-on-primary, #ffffff)"
+    },
+    {
+      "name": "bg-on-primary",
+      "family": "Theme colors / Background",
+      "declaration": "background-color: var(--mc-on-primary, #ffffff)"
+    },
+    {
+      "name": "border-on-primary",
+      "family": "Theme colors / Border",
+      "declaration": "border-color: color-mix(in srgb, var(--mc-on-primary, #ffffff) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "text-on-secondary",
+      "family": "Theme colors / Text",
+      "declaration": "color: var(--mc-on-secondary, #1e1e1f)"
+    },
+    {
+      "name": "bg-on-secondary",
+      "family": "Theme colors / Background",
+      "declaration": "background-color: var(--mc-on-secondary, #1e1e1f)"
+    },
+    {
+      "name": "border-on-secondary",
+      "family": "Theme colors / Border",
+      "declaration": "border-color: color-mix(in srgb, var(--mc-on-secondary, #1e1e1f) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "text-on-warning",
+      "family": "Theme colors / Text",
+      "declaration": "color: var(--mc-on-warning, #1e1e1f)"
+    },
+    {
+      "name": "bg-on-warning",
+      "family": "Theme colors / Background",
+      "declaration": "background-color: var(--mc-on-warning, #1e1e1f)"
+    },
+    {
+      "name": "border-on-warning",
+      "family": "Theme colors / Border",
+      "declaration": "border-color: color-mix(in srgb, var(--mc-on-warning, #1e1e1f) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "text-control-inactive",
+      "family": "Theme colors / Text",
+      "declaration": "color: var(--mc-control-inactive, #8c8d90)"
+    },
+    {
+      "name": "bg-control-inactive",
+      "family": "Theme colors / Background",
+      "declaration": "background-color: var(--mc-control-inactive, #8c8d90)"
+    },
+    {
+      "name": "border-control-inactive",
+      "family": "Theme colors / Border",
+      "declaration": "border-color: color-mix(in srgb, var(--mc-control-inactive, #8c8d90) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    }
+  ]
+}

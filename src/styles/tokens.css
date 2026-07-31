@@ -1,41 +1,96 @@
 /*
- * McUI 设计 Token —— 提炼自 Minecraft 基岩版风格真实色值
- * 这些变量作为定制与文档参考层；组件本体样式见 mcui-base.css
+ * Ore UI tokens adapted from Spectrollay-OreUI revision
+ * 0bf8f46655878da872e4ddfa03db9ac663212438 (MIT).
+ * Tokens stay scoped so importing the component layer never mutates the host.
  */
-:root {
-  /* —— 背景 —— */
-  --mc-bg: #48494A;
-  --mc-bg-header: #E6E8EB;
-  --mc-bg-panel: #58585A;
-  --mc-bg-panel-light: #5C5D5F;
+:where(.mc-theme, .mc-app, [data-mc-theme]) {
+  color-scheme: only light;
 
-  /* —— 主操作 绿 —— */
-  --mc-green: #3C8527;
-  --mc-green-hover: #2A641C;
-  --mc-green-active: #1D4D13;
+  /* Palette */
+  --mc-background: #48494a;
+  --mc-surface: #313233;
+  --mc-surface-pressed: #242425;
+  --mc-surface-light: #58585a;
+  --mc-surface-hover: #8c8d90;
+  --mc-surface-bright: #e6e8eb;
+  --mc-surface-high: #f4f6f9;
+  --mc-primary: #3c8527;
+  --mc-primary-hover: #2a641c;
+  --mc-primary-active: #1d4d13;
+  --mc-primary-tint: #6cc349;
+  --mc-secondary: #d0d1d4;
+  --mc-secondary-hover: #b1b2b5;
+  --mc-secondary-active: #b1b2b5;
+  --mc-error: #ca3636;
+  --mc-error-hover: #c02d2d;
+  --mc-error-active: #ad1d1d;
+  --mc-error-tint: #f46d6d;
+  --mc-warning: #ffe866;
+  --mc-warning-active: #e5c317;
+  --mc-info: #2e6be5;
+  --mc-info-tint: #8cb3ff;
+  --mc-success: #3c8527;
+  --mc-border: #1e1e1f;
+  --mc-border-strong: #131313;
+  --mc-border-muted: #a1a3a5;
+  --mc-text: #ffffff;
+  --mc-text-muted: #d0d1d4;
+  --mc-text-dimmest: #b1b2b5;
+  --mc-text-inverse: #1e1e1f;
+  --mc-disabled: #d0d1d4;
+  --mc-disabled-shadow: #b1b2b5;
+  --mc-disabled-border: #8c8d90;
+  --mc-disabled-text: #48494a;
+  --mc-focus: #ffffff;
+  --mc-shadow: #000000;
+  --mc-scrim: rgba(0, 0, 0, 0.7);
+  --mc-on-primary: #ffffff;
+  --mc-on-secondary: #1e1e1f;
+  --mc-on-warning: #1e1e1f;
+  --mc-control-inactive: #8c8d90;
 
-  /* —— 次要 灰 —— */
-  --mc-normal: #D0D1D4;
-  --mc-normal-hover: #B1B2B5;
-  --mc-normal-shadow: #58585A;
+  /* Pixel geometry */
+  --mc-pixel: 2px;
+  --mc-border-width: 2px;
+  --mc-control-height-xs: 28px;
+  --mc-control-height-sm: 34px;
+  --mc-control-height: 40px;
+  --mc-control-height-lg: 48px;
+  --mc-control-padding-inline: 14px;
+  --mc-radius: 0px;
+  --mc-space-1: 4px;
+  --mc-space-2: 8px;
+  --mc-space-3: 12px;
+  --mc-space-4: 16px;
+  --mc-space-5: 24px;
+  /* Vuetify-compatible utility unit; the public Ore UI scale above stays unchanged. */
+  --mc-spacer: 4px;
 
-  /* —— 危险 红 —— */
-  --mc-red: #C33636;
-  --mc-red-hover: #C02D2D;
-  --mc-red-active: #AD1D1D;
+  /* Ore UI bevels */
+  --mc-specular-neutral: rgba(255, 255, 255, 0.2);
+  --mc-specular-neutral-low: rgba(255, 255, 255, 0.1);
+  --mc-specular-secondary: rgba(255, 255, 255, 0.6);
+  --mc-specular-secondary-low: rgba(255, 255, 255, 0.4);
+  --mc-specular-hover: rgba(255, 255, 255, 0.8);
+  --mc-specular-hover-low: rgba(255, 255, 255, 0.6);
+  --mc-shadow-raised:
+    inset 0 -4px var(--mc-secondary-shadow, #58585a), inset 3px 3px var(--mc-specular-secondary),
+    inset -3px -7px var(--mc-specular-secondary-low);
+  --mc-shadow-raised-color:
+    inset 0 -4px var(--mc-primary-active), inset 3px 3px var(--mc-specular-neutral),
+    inset -3px -7px var(--mc-specular-neutral-low);
+  --mc-shadow-inset:
+    inset 0 4px var(--mc-surface-pressed), inset 2px 0 rgba(255, 255, 255, 0.08),
+    inset -2px -2px rgba(255, 255, 255, 0.05);
+  --mc-shadow-panel:
+    inset 2px 2px rgba(255, 255, 255, 0.12), inset -2px -2px rgba(255, 255, 255, 0.08), 4px 4px rgba(0, 0, 0, 0.25);
 
-  /* —— 禁用 —— */
-  --mc-disabled-bg: #D0D1D4;
-  --mc-disabled-border: #8C8D90;
-  --mc-disabled-text: #48494A;
+  /* Typography is named here but loaded only through styles/fonts.css. */
+  --mc-font-title: 'Minecraft Ten', 'Arial Black', sans-serif;
+  --mc-font-ui: 'Minecraft Seven', 'Trebuchet MS', sans-serif;
+  --mc-font-body: 'Noto Sans', Arial, sans-serif;
 
-  /* —— 描边 / 文字 —— */
-  --mc-border-dark: #1E1E1F;
-  --mc-text-light: #D0D1D4;
-  --mc-text-white: #FFFFFF;
-
-  /* —— 字体 —— */
-  --mc-font-title: 'Minecraft Ten', sans-serif;
-  --mc-font-ui: 'Minecraft Seven', sans-serif;
-  --mc-font-body: 'NotoSans Bold', sans-serif;
+  --mc-motion-fast: 100ms;
+  --mc-motion-normal: 160ms;
+  --mc-ease: steps(2, end);
 }

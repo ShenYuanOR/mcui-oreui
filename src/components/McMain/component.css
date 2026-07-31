@@ -1,0 +1,14 @@
+/* McMain component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-main {
+  box-sizing: border-box;
+  flex: 1;
+  min-height: 0;
+  padding-block-end: var(--mc-layout-bottom, 0);
+  padding-block-start: var(--mc-layout-top, 0);
+  padding-inline-end: var(--mc-layout-end, 0);
+  padding-inline-start: var(--mc-layout-start, 0);
+  width: 100%;
+}
+.mc-main__content {
+  min-height: 100%;
+}
