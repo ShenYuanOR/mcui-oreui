@@ -2,7 +2,7 @@ import { defineConfig, devices } from '@playwright/test'
 
 export default defineConfig({
   testDir: './tests/e2e',
-  snapshotPathTemplate: '{testDir}/{testFilePath}-snapshots/{arg}-{projectName}{ext}',
+  snapshotPathTemplate: '{testDir}/{testFilePath}-snapshots/{arg}-{platform}-{projectName}{ext}',
   use: { baseURL: 'http://127.0.0.1:4178', trace: 'retain-on-failure' },
   webServer: [
     { command: 'npm run e2e:serve', url: 'http://127.0.0.1:4178', reuseExistingServer: true },

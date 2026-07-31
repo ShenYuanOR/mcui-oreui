@@ -64,6 +64,16 @@ jobs:
       - name: Browser interaction tests
         run: npm run test:e2e
 
+      - name: Upload Playwright diagnostics on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-diagnostics-${{ runner.os }}
+          path: |
+            playwright-report
+            test-results
+          if-no-files-found: ignore
+
       - name: Pack and release metadata audit
         run: node scripts/check-release.mjs --skip-registry
 
