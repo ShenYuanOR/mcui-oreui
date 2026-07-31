@@ -1,0 +1,33 @@
+/* McFormField component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-form-field {
+  color: var(--mc-text, #fff);
+  display: flex;
+  flex-direction: column;
+  font-family: var(--mc-font-body, sans-serif);
+  gap: 6px;
+  width: 100%;
+}
+.mc-form-field__control {
+  min-width: 0;
+  width: 100%;
+}
+.mc-form-field__label {
+  font-weight: 700;
+}
+.mc-form-field__required,
+.mc-form-field--error .mc-form-field__message {
+  color: var(--mc-error, #c33636);
+}
+.mc-form-field__description,
+.mc-form-field__message {
+  color: var(--mc-text-dimmest, #b1b2b5);
+  font-size: 12px;
+}
+.mc-form-field--success .mc-form-field__message {
+  color: var(--mc-success, #3c8527);
+}
+.mc-form-field--disabled .mc-form-field__label,
+.mc-form-field--disabled .mc-form-field__description,
+.mc-form-field--disabled .mc-form-field__message {
+  color: var(--mc-disabled-text, #48494a);
+}

@@ -1,0 +1,76 @@
+/* McTabs component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-tabs {
+  color: var(--mc-text, #fff);
+  display: flex;
+  font-family: var(--mc-font-ui, sans-serif);
+  gap: 10px;
+  width: 100%;
+}
+.mc-tabs--horizontal {
+  flex-direction: column;
+}
+.mc-tabs--vertical {
+  flex-direction: row;
+}
+.mc-tabs__nav {
+  display: flex;
+  gap: 4px;
+}
+.mc-tabs--vertical .mc-tabs__nav {
+  flex-direction: column;
+}
+.mc-tabs__tab {
+  background: var(--mc-surface-light, #58585a);
+  border: 2px solid var(--mc-border, #1e1e1f);
+  color: #fff;
+  cursor: pointer;
+  min-height: 38px;
+  padding: 7px 14px;
+}
+.mc-tabs__tab--active {
+  background: var(--mc-primary, #3c8527);
+}
+.mc-tabs__tab:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+.mc-tabs__panel {
+  background: var(--mc-surface, #313233);
+  border: 2px solid var(--mc-border, #1e1e1f);
+  flex: 1;
+  min-height: 80px;
+  padding: 14px;
+}
+.mc-tabs__tab {
+  color: var(--mc-on-primary, #fff);
+}
+.mc-tabs__tab:focus-visible {
+  outline-color: var(--mc-focus, #fff);
+}
+.mc-tabs__tab {
+  box-shadow:
+    inset 0 -4px #313233,
+    inset 3px 3px rgba(255, 255, 255, 0.2),
+    inset -3px -7px rgba(255, 255, 255, 0.1);
+  font-family: var(--mc-font-ui, sans-serif);
+}
+.mc-tabs__tab:hover:not(:disabled) {
+  background: var(--mc-surface-hover, #8c8d90);
+}
+.mc-tabs__tab:active:not(:disabled) {
+  background: var(--mc-surface, #313233);
+  box-shadow:
+    inset 3px 3px rgba(0, 0, 0, 0.35),
+    inset -3px -3px rgba(255, 255, 255, 0.1);
+}
+.mc-tabs__tab--active {
+  background: var(--mc-primary, #3c8527);
+  box-shadow:
+    inset 0 -4px var(--mc-primary-active, #1d4d13),
+    inset 3px 3px rgba(255, 255, 255, 0.2),
+    inset -3px -7px rgba(255, 255, 255, 0.1);
+}
+.mc-tabs__tab:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}

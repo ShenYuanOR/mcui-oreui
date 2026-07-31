@@ -1,0 +1,89 @@
+name: Pull Request CI
+
+on:
+  pull_request:
+    branches: [main, dev]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pr-${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Format check
+        run: npm run format:check
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Generated-file drift
+        run: npm run check:generated
+
+      - name: Documentation examples
+        run: npm run check:docs-examples
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Unit, SSR, axe, and coverage thresholds
+        run: npm run test:coverage
+
+      - name: Build package
+        run: npm run build
+
+      - name: Consumer entry and editor types
+        run: npm run test:consumer
+
+      - name: Build documentation
+        run: npm run docs:build
+
+      - name: Bundle size budgets
+        run: npm run check:size
+
+      - name: Pack and release metadata audit
+        run: node scripts/check-release.mjs --skip-registry
+
+      - name: Runtime dependency audit
+        run: npm audit --omit=dev
+
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Chromium browser tests
+        run: npm run test:e2e:chromium
+
+      - name: Upload coverage on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage
+          path: coverage
+          if-no-files-found: ignore
+
+      - name: Upload Playwright diagnostics on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-diagnostics
+          path: |
+            playwright-report
+            test-results
+          if-no-files-found: ignore

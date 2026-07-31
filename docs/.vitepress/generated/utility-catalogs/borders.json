@@ -1,0 +1,652 @@
+{
+  "generatedBy": "scripts/generate-utilities.mjs",
+  "families": [
+    "Border / Radius",
+    "Border / Width",
+    "Border / Style",
+    "Border / Color",
+    "Border / Opacity"
+  ],
+  "classes": [
+    {
+      "name": "rounded-0",
+      "family": "Border / Radius",
+      "declaration": "border-radius: 0"
+    },
+    {
+      "name": "rounded",
+      "family": "Border / Radius",
+      "declaration": "border-radius: 4px"
+    },
+    {
+      "name": "rounded-sm",
+      "family": "Border / Radius",
+      "declaration": "border-radius: 2px"
+    },
+    {
+      "name": "rounded-md",
+      "family": "Border / Radius",
+      "declaration": "border-radius: 4px"
+    },
+    {
+      "name": "rounded-lg",
+      "family": "Border / Radius",
+      "declaration": "border-radius: 8px"
+    },
+    {
+      "name": "rounded-xl",
+      "family": "Border / Radius",
+      "declaration": "border-radius: 24px"
+    },
+    {
+      "name": "rounded-pill",
+      "family": "Border / Radius",
+      "declaration": "border-radius: 9999px"
+    },
+    {
+      "name": "rounded-circle",
+      "family": "Border / Radius",
+      "declaration": "border-radius: 50%"
+    },
+    {
+      "name": "rounded-shaped",
+      "family": "Border / Radius",
+      "declaration": "border-radius: 24px 0"
+    },
+    {
+      "name": "rounded-t-0",
+      "family": "Border / Radius",
+      "declaration": "border-start-start-radius: 0; border-start-end-radius: 0"
+    },
+    {
+      "name": "rounded-t",
+      "family": "Border / Radius",
+      "declaration": "border-start-start-radius: 4px; border-start-end-radius: 4px"
+    },
+    {
+      "name": "rounded-t-sm",
+      "family": "Border / Radius",
+      "declaration": "border-start-start-radius: 2px; border-start-end-radius: 2px"
+    },
+    {
+      "name": "rounded-t-md",
+      "family": "Border / Radius",
+      "declaration": "border-start-start-radius: 4px; border-start-end-radius: 4px"
+    },
+    {
+      "name": "rounded-t-lg",
+      "family": "Border / Radius",
+      "declaration": "border-start-start-radius: 8px; border-start-end-radius: 8px"
+    },
+    {
+      "name": "rounded-t-xl",
+      "family": "Border / Radius",
+      "declaration": "border-start-start-radius: 24px; border-start-end-radius: 24px"
+    },
+    {
+      "name": "rounded-t-pill",
+      "family": "Border / Radius",
+      "declaration": "border-start-start-radius: 9999px; border-start-end-radius: 9999px"
+    },
+    {
+      "name": "rounded-t-circle",
+      "family": "Border / Radius",
+      "declaration": "border-start-start-radius: 50%; border-start-end-radius: 50%"
+    },
+    {
+      "name": "rounded-t-shaped",
+      "family": "Border / Radius",
+      "declaration": "border-start-start-radius: 24px 0; border-start-end-radius: 24px 0"
+    },
+    {
+      "name": "rounded-e-0",
+      "family": "Border / Radius",
+      "declaration": "border-start-end-radius: 0; border-end-end-radius: 0"
+    },
+    {
+      "name": "rounded-e",
+      "family": "Border / Radius",
+      "declaration": "border-start-end-radius: 4px; border-end-end-radius: 4px"
+    },
+    {
+      "name": "rounded-e-sm",
+      "family": "Border / Radius",
+      "declaration": "border-start-end-radius: 2px; border-end-end-radius: 2px"
+    },
+    {
+      "name": "rounded-e-md",
+      "family": "Border / Radius",
+      "declaration": "border-start-end-radius: 4px; border-end-end-radius: 4px"
+    },
+    {
+      "name": "rounded-e-lg",
+      "family": "Border / Radius",
+      "declaration": "border-start-end-radius: 8px; border-end-end-radius: 8px"
+    },
+    {
+      "name": "rounded-e-xl",
+      "family": "Border / Radius",
+      "declaration": "border-start-end-radius: 24px; border-end-end-radius: 24px"
+    },
+    {
+      "name": "rounded-e-pill",
+      "family": "Border / Radius",
+      "declaration": "border-start-end-radius: 9999px; border-end-end-radius: 9999px"
+    },
+    {
+      "name": "rounded-e-circle",
+      "family": "Border / Radius",
+      "declaration": "border-start-end-radius: 50%; border-end-end-radius: 50%"
+    },
+    {
+      "name": "rounded-e-shaped",
+      "family": "Border / Radius",
+      "declaration": "border-start-end-radius: 24px 0; border-end-end-radius: 24px 0"
+    },
+    {
+      "name": "rounded-b-0",
+      "family": "Border / Radius",
+      "declaration": "border-end-start-radius: 0; border-end-end-radius: 0"
+    },
+    {
+      "name": "rounded-b",
+      "family": "Border / Radius",
+      "declaration": "border-end-start-radius: 4px; border-end-end-radius: 4px"
+    },
+    {
+      "name": "rounded-b-sm",
+      "family": "Border / Radius",
+      "declaration": "border-end-start-radius: 2px; border-end-end-radius: 2px"
+    },
+    {
+      "name": "rounded-b-md",
+      "family": "Border / Radius",
+      "declaration": "border-end-start-radius: 4px; border-end-end-radius: 4px"
+    },
+    {
+      "name": "rounded-b-lg",
+      "family": "Border / Radius",
+      "declaration": "border-end-start-radius: 8px; border-end-end-radius: 8px"
+    },
+    {
+      "name": "rounded-b-xl",
+      "family": "Border / Radius",
+      "declaration": "border-end-start-radius: 24px; border-end-end-radius: 24px"
+    },
+    {
+      "name": "rounded-b-pill",
+      "family": "Border / Radius",
+      "declaration": "border-end-start-radius: 9999px; border-end-end-radius: 9999px"
+    },
+    {
+      "name": "rounded-b-circle",
+      "family": "Border / Radius",
+      "declaration": "border-end-start-radius: 50%; border-end-end-radius: 50%"
+    },
+    {
+      "name": "rounded-b-shaped",
+      "family": "Border / Radius",
+      "declaration": "border-end-start-radius: 24px 0; border-end-end-radius: 24px 0"
+    },
+    {
+      "name": "rounded-s-0",
+      "family": "Border / Radius",
+      "declaration": "border-start-start-radius: 0; border-end-start-radius: 0"
+    },
+    {
+      "name": "rounded-s",
+      "family": "Border / Radius",
+      "declaration": "border-start-start-radius: 4px; border-end-start-radius: 4px"
+    },
+    {
+      "name": "rounded-s-sm",
+      "family": "Border / Radius",
+      "declaration": "border-start-start-radius: 2px; border-end-start-radius: 2px"
+    },
+    {
+      "name": "rounded-s-md",
+      "family": "Border / Radius",
+      "declaration": "border-start-start-radius: 4px; border-end-start-radius: 4px"
+    },
+    {
+      "name": "rounded-s-lg",
+      "family": "Border / Radius",
+      "declaration": "border-start-start-radius: 8px; border-end-start-radius: 8px"
+    },
+    {
+      "name": "rounded-s-xl",
+      "family": "Border / Radius",
+      "declaration": "border-start-start-radius: 24px; border-end-start-radius: 24px"
+    },
+    {
+      "name": "rounded-s-pill",
+      "family": "Border / Radius",
+      "declaration": "border-start-start-radius: 9999px; border-end-start-radius: 9999px"
+    },
+    {
+      "name": "rounded-s-circle",
+      "family": "Border / Radius",
+      "declaration": "border-start-start-radius: 50%; border-end-start-radius: 50%"
+    },
+    {
+      "name": "rounded-s-shaped",
+      "family": "Border / Radius",
+      "declaration": "border-start-start-radius: 24px 0; border-end-start-radius: 24px 0"
+    },
+    {
+      "name": "rounded-ts-0",
+      "family": "Border / Radius",
+      "declaration": "border-start-start-radius: 0"
+    },
+    {
+      "name": "rounded-ts",
+      "family": "Border / Radius",
+      "declaration": "border-start-start-radius: 4px"
+    },
+    {
+      "name": "rounded-ts-sm",
+      "family": "Border / Radius",
+      "declaration": "border-start-start-radius: 2px"
+    },
+    {
+      "name": "rounded-ts-md",
+      "family": "Border / Radius",
+      "declaration": "border-start-start-radius: 4px"
+    },
+    {
+      "name": "rounded-ts-lg",
+      "family": "Border / Radius",
+      "declaration": "border-start-start-radius: 8px"
+    },
+    {
+      "name": "rounded-ts-xl",
+      "family": "Border / Radius",
+      "declaration": "border-start-start-radius: 24px"
+    },
+    {
+      "name": "rounded-ts-pill",
+      "family": "Border / Radius",
+      "declaration": "border-start-start-radius: 9999px"
+    },
+    {
+      "name": "rounded-ts-circle",
+      "family": "Border / Radius",
+      "declaration": "border-start-start-radius: 50%"
+    },
+    {
+      "name": "rounded-ts-shaped",
+      "family": "Border / Radius",
+      "declaration": "border-start-start-radius: 24px 0"
+    },
+    {
+      "name": "rounded-te-0",
+      "family": "Border / Radius",
+      "declaration": "border-start-end-radius: 0"
+    },
+    {
+      "name": "rounded-te",
+      "family": "Border / Radius",
+      "declaration": "border-start-end-radius: 4px"
+    },
+    {
+      "name": "rounded-te-sm",
+      "family": "Border / Radius",
+      "declaration": "border-start-end-radius: 2px"
+    },
+    {
+      "name": "rounded-te-md",
+      "family": "Border / Radius",
+      "declaration": "border-start-end-radius: 4px"
+    },
+    {
+      "name": "rounded-te-lg",
+      "family": "Border / Radius",
+      "declaration": "border-start-end-radius: 8px"
+    },
+    {
+      "name": "rounded-te-xl",
+      "family": "Border / Radius",
+      "declaration": "border-start-end-radius: 24px"
+    },
+    {
+      "name": "rounded-te-pill",
+      "family": "Border / Radius",
+      "declaration": "border-start-end-radius: 9999px"
+    },
+    {
+      "name": "rounded-te-circle",
+      "family": "Border / Radius",
+      "declaration": "border-start-end-radius: 50%"
+    },
+    {
+      "name": "rounded-te-shaped",
+      "family": "Border / Radius",
+      "declaration": "border-start-end-radius: 24px 0"
+    },
+    {
+      "name": "rounded-be-0",
+      "family": "Border / Radius",
+      "declaration": "border-end-end-radius: 0"
+    },
+    {
+      "name": "rounded-be",
+      "family": "Border / Radius",
+      "declaration": "border-end-end-radius: 4px"
+    },
+    {
+      "name": "rounded-be-sm",
+      "family": "Border / Radius",
+      "declaration": "border-end-end-radius: 2px"
+    },
+    {
+      "name": "rounded-be-md",
+      "family": "Border / Radius",
+      "declaration": "border-end-end-radius: 4px"
+    },
+    {
+      "name": "rounded-be-lg",
+      "family": "Border / Radius",
+      "declaration": "border-end-end-radius: 8px"
+    },
+    {
+      "name": "rounded-be-xl",
+      "family": "Border / Radius",
+      "declaration": "border-end-end-radius: 24px"
+    },
+    {
+      "name": "rounded-be-pill",
+      "family": "Border / Radius",
+      "declaration": "border-end-end-radius: 9999px"
+    },
+    {
+      "name": "rounded-be-circle",
+      "family": "Border / Radius",
+      "declaration": "border-end-end-radius: 50%"
+    },
+    {
+      "name": "rounded-be-shaped",
+      "family": "Border / Radius",
+      "declaration": "border-end-end-radius: 24px 0"
+    },
+    {
+      "name": "rounded-bs-0",
+      "family": "Border / Radius",
+      "declaration": "border-end-start-radius: 0"
+    },
+    {
+      "name": "rounded-bs",
+      "family": "Border / Radius",
+      "declaration": "border-end-start-radius: 4px"
+    },
+    {
+      "name": "rounded-bs-sm",
+      "family": "Border / Radius",
+      "declaration": "border-end-start-radius: 2px"
+    },
+    {
+      "name": "rounded-bs-md",
+      "family": "Border / Radius",
+      "declaration": "border-end-start-radius: 4px"
+    },
+    {
+      "name": "rounded-bs-lg",
+      "family": "Border / Radius",
+      "declaration": "border-end-start-radius: 8px"
+    },
+    {
+      "name": "rounded-bs-xl",
+      "family": "Border / Radius",
+      "declaration": "border-end-start-radius: 24px"
+    },
+    {
+      "name": "rounded-bs-pill",
+      "family": "Border / Radius",
+      "declaration": "border-end-start-radius: 9999px"
+    },
+    {
+      "name": "rounded-bs-circle",
+      "family": "Border / Radius",
+      "declaration": "border-end-start-radius: 50%"
+    },
+    {
+      "name": "rounded-bs-shaped",
+      "family": "Border / Radius",
+      "declaration": "border-end-start-radius: 24px 0"
+    },
+    {
+      "name": "border-0",
+      "family": "Border / Width",
+      "declaration": "border-width: 0; border-style: solid; border-color: color-mix(in srgb, var(--mc-border, #1e1e1f) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "border",
+      "family": "Border / Width",
+      "declaration": "border-width: var(--mc-border-width, 2px); border-style: solid; border-color: color-mix(in srgb, var(--mc-border, #1e1e1f) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "border-thin",
+      "family": "Border / Width",
+      "declaration": "border-width: 1px; border-style: solid; border-color: color-mix(in srgb, var(--mc-border, #1e1e1f) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "border-sm",
+      "family": "Border / Width",
+      "declaration": "border-width: 1px; border-style: solid; border-color: color-mix(in srgb, var(--mc-border, #1e1e1f) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "border-md",
+      "family": "Border / Width",
+      "declaration": "border-width: 2px; border-style: solid; border-color: color-mix(in srgb, var(--mc-border, #1e1e1f) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "border-lg",
+      "family": "Border / Width",
+      "declaration": "border-width: 4px; border-style: solid; border-color: color-mix(in srgb, var(--mc-border, #1e1e1f) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "border-xl",
+      "family": "Border / Width",
+      "declaration": "border-width: 8px; border-style: solid; border-color: color-mix(in srgb, var(--mc-border, #1e1e1f) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "border-t-0",
+      "family": "Border / Width",
+      "declaration": "border-block-start-width: 0; border-block-start-style: solid; border-block-start-color: color-mix(in srgb, var(--mc-border, #1e1e1f) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "border-t",
+      "family": "Border / Width",
+      "declaration": "border-block-start-width: var(--mc-border-width, 2px); border-block-start-style: solid; border-block-start-color: color-mix(in srgb, var(--mc-border, #1e1e1f) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "border-t-thin",
+      "family": "Border / Width",
+      "declaration": "border-block-start-width: 1px; border-block-start-style: solid; border-block-start-color: color-mix(in srgb, var(--mc-border, #1e1e1f) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "border-t-sm",
+      "family": "Border / Width",
+      "declaration": "border-block-start-width: 1px; border-block-start-style: solid; border-block-start-color: color-mix(in srgb, var(--mc-border, #1e1e1f) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "border-t-md",
+      "family": "Border / Width",
+      "declaration": "border-block-start-width: 2px; border-block-start-style: solid; border-block-start-color: color-mix(in srgb, var(--mc-border, #1e1e1f) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "border-t-lg",
+      "family": "Border / Width",
+      "declaration": "border-block-start-width: 4px; border-block-start-style: solid; border-block-start-color: color-mix(in srgb, var(--mc-border, #1e1e1f) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "border-t-xl",
+      "family": "Border / Width",
+      "declaration": "border-block-start-width: 8px; border-block-start-style: solid; border-block-start-color: color-mix(in srgb, var(--mc-border, #1e1e1f) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "border-e-0",
+      "family": "Border / Width",
+      "declaration": "border-inline-end-width: 0; border-inline-end-style: solid; border-inline-end-color: color-mix(in srgb, var(--mc-border, #1e1e1f) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "border-e",
+      "family": "Border / Width",
+      "declaration": "border-inline-end-width: var(--mc-border-width, 2px); border-inline-end-style: solid; border-inline-end-color: color-mix(in srgb, var(--mc-border, #1e1e1f) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "border-e-thin",
+      "family": "Border / Width",
+      "declaration": "border-inline-end-width: 1px; border-inline-end-style: solid; border-inline-end-color: color-mix(in srgb, var(--mc-border, #1e1e1f) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "border-e-sm",
+      "family": "Border / Width",
+      "declaration": "border-inline-end-width: 1px; border-inline-end-style: solid; border-inline-end-color: color-mix(in srgb, var(--mc-border, #1e1e1f) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "border-e-md",
+      "family": "Border / Width",
+      "declaration": "border-inline-end-width: 2px; border-inline-end-style: solid; border-inline-end-color: color-mix(in srgb, var(--mc-border, #1e1e1f) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "border-e-lg",
+      "family": "Border / Width",
+      "declaration": "border-inline-end-width: 4px; border-inline-end-style: solid; border-inline-end-color: color-mix(in srgb, var(--mc-border, #1e1e1f) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "border-e-xl",
+      "family": "Border / Width",
+      "declaration": "border-inline-end-width: 8px; border-inline-end-style: solid; border-inline-end-color: color-mix(in srgb, var(--mc-border, #1e1e1f) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "border-b-0",
+      "family": "Border / Width",
+      "declaration": "border-block-end-width: 0; border-block-end-style: solid; border-block-end-color: color-mix(in srgb, var(--mc-border, #1e1e1f) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "border-b",
+      "family": "Border / Width",
+      "declaration": "border-block-end-width: var(--mc-border-width, 2px); border-block-end-style: solid; border-block-end-color: color-mix(in srgb, var(--mc-border, #1e1e1f) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "border-b-thin",
+      "family": "Border / Width",
+      "declaration": "border-block-end-width: 1px; border-block-end-style: solid; border-block-end-color: color-mix(in srgb, var(--mc-border, #1e1e1f) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "border-b-sm",
+      "family": "Border / Width",
+      "declaration": "border-block-end-width: 1px; border-block-end-style: solid; border-block-end-color: color-mix(in srgb, var(--mc-border, #1e1e1f) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "border-b-md",
+      "family": "Border / Width",
+      "declaration": "border-block-end-width: 2px; border-block-end-style: solid; border-block-end-color: color-mix(in srgb, var(--mc-border, #1e1e1f) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "border-b-lg",
+      "family": "Border / Width",
+      "declaration": "border-block-end-width: 4px; border-block-end-style: solid; border-block-end-color: color-mix(in srgb, var(--mc-border, #1e1e1f) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "border-b-xl",
+      "family": "Border / Width",
+      "declaration": "border-block-end-width: 8px; border-block-end-style: solid; border-block-end-color: color-mix(in srgb, var(--mc-border, #1e1e1f) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "border-s-0",
+      "family": "Border / Width",
+      "declaration": "border-inline-start-width: 0; border-inline-start-style: solid; border-inline-start-color: color-mix(in srgb, var(--mc-border, #1e1e1f) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "border-s",
+      "family": "Border / Width",
+      "declaration": "border-inline-start-width: var(--mc-border-width, 2px); border-inline-start-style: solid; border-inline-start-color: color-mix(in srgb, var(--mc-border, #1e1e1f) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "border-s-thin",
+      "family": "Border / Width",
+      "declaration": "border-inline-start-width: 1px; border-inline-start-style: solid; border-inline-start-color: color-mix(in srgb, var(--mc-border, #1e1e1f) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "border-s-sm",
+      "family": "Border / Width",
+      "declaration": "border-inline-start-width: 1px; border-inline-start-style: solid; border-inline-start-color: color-mix(in srgb, var(--mc-border, #1e1e1f) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "border-s-md",
+      "family": "Border / Width",
+      "declaration": "border-inline-start-width: 2px; border-inline-start-style: solid; border-inline-start-color: color-mix(in srgb, var(--mc-border, #1e1e1f) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "border-s-lg",
+      "family": "Border / Width",
+      "declaration": "border-inline-start-width: 4px; border-inline-start-style: solid; border-inline-start-color: color-mix(in srgb, var(--mc-border, #1e1e1f) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "border-s-xl",
+      "family": "Border / Width",
+      "declaration": "border-inline-start-width: 8px; border-inline-start-style: solid; border-inline-start-color: color-mix(in srgb, var(--mc-border, #1e1e1f) calc(var(--mc-border-opacity, 1) * 100%), transparent)"
+    },
+    {
+      "name": "border-solid",
+      "family": "Border / Style",
+      "declaration": "border-style: solid"
+    },
+    {
+      "name": "border-dashed",
+      "family": "Border / Style",
+      "declaration": "border-style: dashed"
+    },
+    {
+      "name": "border-dotted",
+      "family": "Border / Style",
+      "declaration": "border-style: dotted"
+    },
+    {
+      "name": "border-double",
+      "family": "Border / Style",
+      "declaration": "border-style: double"
+    },
+    {
+      "name": "border-none",
+      "family": "Border / Style",
+      "declaration": "border-style: none"
+    },
+    {
+      "name": "border-current",
+      "family": "Border / Color",
+      "declaration": "border-color: currentColor"
+    },
+    {
+      "name": "border-opacity-0",
+      "family": "Border / Opacity",
+      "declaration": "--mc-border-opacity: 0"
+    },
+    {
+      "name": "border-opacity-25",
+      "family": "Border / Opacity",
+      "declaration": "--mc-border-opacity: .25"
+    },
+    {
+      "name": "border-opacity-50",
+      "family": "Border / Opacity",
+      "declaration": "--mc-border-opacity: .5"
+    },
+    {
+      "name": "border-opacity-75",
+      "family": "Border / Opacity",
+      "declaration": "--mc-border-opacity: .75"
+    },
+    {
+      "name": "border-opacity-100",
+      "family": "Border / Opacity",
+      "declaration": "--mc-border-opacity: 1"
+    },
+    {
+      "name": "border-opacity",
+      "family": "Border / Opacity",
+      "declaration": "--mc-border-opacity: .12"
+    }
+  ]
+}

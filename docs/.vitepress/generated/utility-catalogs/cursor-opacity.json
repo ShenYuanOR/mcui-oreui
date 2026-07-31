@@ -1,0 +1,124 @@
+{
+  "generatedBy": "scripts/generate-utilities.mjs",
+  "families": [
+    "Cursor",
+    "Opacity"
+  ],
+  "classes": [
+    {
+      "name": "cursor-auto",
+      "family": "Cursor",
+      "declaration": "cursor: auto"
+    },
+    {
+      "name": "cursor-default",
+      "family": "Cursor",
+      "declaration": "cursor: default"
+    },
+    {
+      "name": "cursor-pointer",
+      "family": "Cursor",
+      "declaration": "cursor: pointer"
+    },
+    {
+      "name": "cursor-wait",
+      "family": "Cursor",
+      "declaration": "cursor: wait"
+    },
+    {
+      "name": "cursor-text",
+      "family": "Cursor",
+      "declaration": "cursor: text"
+    },
+    {
+      "name": "cursor-move",
+      "family": "Cursor",
+      "declaration": "cursor: move"
+    },
+    {
+      "name": "cursor-help",
+      "family": "Cursor",
+      "declaration": "cursor: help"
+    },
+    {
+      "name": "cursor-not-allowed",
+      "family": "Cursor",
+      "declaration": "cursor: not-allowed"
+    },
+    {
+      "name": "cursor-progress",
+      "family": "Cursor",
+      "declaration": "cursor: progress"
+    },
+    {
+      "name": "cursor-grab",
+      "family": "Cursor",
+      "declaration": "cursor: grab"
+    },
+    {
+      "name": "cursor-grabbing",
+      "family": "Cursor",
+      "declaration": "cursor: grabbing"
+    },
+    {
+      "name": "cursor-none",
+      "family": "Cursor",
+      "declaration": "cursor: none"
+    },
+    {
+      "name": "opacity-0",
+      "family": "Opacity",
+      "declaration": "opacity: 0"
+    },
+    {
+      "name": "opacity-10",
+      "family": "Opacity",
+      "declaration": "opacity: 0.1"
+    },
+    {
+      "name": "opacity-20",
+      "family": "Opacity",
+      "declaration": "opacity: 0.2"
+    },
+    {
+      "name": "opacity-30",
+      "family": "Opacity",
+      "declaration": "opacity: 0.3"
+    },
+    {
+      "name": "opacity-40",
+      "family": "Opacity",
+      "declaration": "opacity: 0.4"
+    },
+    {
+      "name": "opacity-50",
+      "family": "Opacity",
+      "declaration": "opacity: 0.5"
+    },
+    {
+      "name": "opacity-60",
+      "family": "Opacity",
+      "declaration": "opacity: 0.6"
+    },
+    {
+      "name": "opacity-70",
+      "family": "Opacity",
+      "declaration": "opacity: 0.7"
+    },
+    {
+      "name": "opacity-80",
+      "family": "Opacity",
+      "declaration": "opacity: 0.8"
+    },
+    {
+      "name": "opacity-90",
+      "family": "Opacity",
+      "declaration": "opacity: 0.9"
+    },
+    {
+      "name": "opacity-100",
+      "family": "Opacity",
+      "declaration": "opacity: 1"
+    }
+  ]
+}

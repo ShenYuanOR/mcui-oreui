@@ -1,0 +1,10 @@
+/* McForm component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-form {
+  display: block;
+}
+.mc-form__fieldset {
+  border: 0;
+  margin: 0;
+  min-width: 0;
+  padding: 0;
+}

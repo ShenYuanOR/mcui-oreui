@@ -1,0 +1,6 @@
+/* McExpansionPanels component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-expansion-panels {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}

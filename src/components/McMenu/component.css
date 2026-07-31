@@ -1,0 +1,37 @@
+/* McMenu component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-menu {
+  background: var(--mc-surface, #313233);
+  border: 2px solid var(--mc-border, #1e1e1f);
+  box-shadow: 5px 5px #000;
+  color: var(--mc-text, #fff);
+  min-width: 180px;
+  padding: 5px;
+}
+.mc-menu-transition-enter-active,
+.mc-menu-transition-leave-active {
+  transition:
+    opacity 0.12s ease,
+    transform 0.12s ease;
+}
+.mc-menu-transition-enter-from,
+.mc-menu-transition-leave-to {
+  opacity: 0;
+  transform: translateY(-4px);
+}
+.mc-menu {
+  box-shadow: 4px 4px var(--mc-shadow, #000);
+}
+.mc-menu {
+  box-shadow:
+    inset 2px 2px var(--mc-surface-hover, #8c8d90),
+    inset -2px -2px var(--mc-surface-hover, #8c8d90),
+    4px 4px var(--mc-shadow, #000);
+  padding: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .mc-menu-transition-enter-active,
+  .mc-menu-transition-leave-active {
+    animation: none !important;
+    transition: none !important;
+  }
+}

@@ -1,0 +1,85 @@
+/* McSnackbar component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-snackbar {
+  align-items: center;
+  background: var(--mc-surface, #313233);
+  border: 2px solid var(--mc-border, #1e1e1f);
+  box-shadow: 4px 4px #000;
+  color: #fff;
+  display: flex;
+  gap: 16px;
+  left: 50%;
+  max-width: min(560px, calc(100vw - 32px));
+  padding: 12px 16px;
+  position: fixed;
+  transform: translateX(-50%);
+  z-index: 4000;
+}
+.mc-snackbar--top {
+  top: 24px;
+}
+.mc-snackbar--bottom {
+  bottom: 24px;
+}
+.mc-snackbar--success {
+  background: var(--mc-success, #3c8527);
+}
+.mc-snackbar--error {
+  background: var(--mc-error, #c33636);
+}
+.mc-snackbar--warning {
+  background: var(--mc-warning, #f5a623);
+  color: #1e1e1f;
+}
+.mc-snackbar--info {
+  background: var(--mc-info, #3d75a5);
+}
+.mc-snackbar__action {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font-weight: 700;
+}
+.mc-snackbar {
+  color: var(--mc-on-primary, #fff);
+}
+.mc-snackbar--warning {
+  color: var(--mc-on-warning, #1e1e1f);
+}
+.mc-snackbar {
+  box-shadow: 4px 4px var(--mc-shadow, #000);
+}
+.mc-snackbar__action {
+  min-height: 28px;
+  min-width: 28px;
+}
+.mc-snackbar__action:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+.mc-snackbar {
+  box-shadow:
+    inset 2px 2px rgba(255, 255, 255, 0.2),
+    inset -2px -2px rgba(255, 255, 255, 0.12),
+    3px 3px rgba(0, 0, 0, 0.3);
+}
+.mc-snackbar__message {
+  overflow-wrap: anywhere;
+}
+.mc-snackbar-transition-enter-active,
+.mc-snackbar-transition-leave-active {
+  transition:
+    opacity var(--mc-motion-normal, 160ms) linear,
+    transform var(--mc-motion-normal, 160ms) steps(4, end);
+}
+.mc-snackbar-transition-enter-from,
+.mc-snackbar-transition-leave-to {
+  opacity: 0;
+  transform: translate(-50%, 8px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .mc-snackbar-transition-enter-active,
+  .mc-snackbar-transition-leave-active {
+    animation: none !important;
+    transition: none !important;
+  }
+}

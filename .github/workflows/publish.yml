@@ -4,11 +4,16 @@ on:
   push:
     branches: [main, dev]
 
+concurrency:
+  group: publish-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   publish:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      id-token: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -17,13 +22,53 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: npm
           registry-url: 'https://registry.npmjs.org'
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Build
+      - name: Format check
+        run: npm run format:check
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Generated-file drift
+        run: npm run check:generated
+
+      - name: Documentation examples
+        run: npm run check:docs-examples
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Unit, SSR, axe, and coverage thresholds
+        run: npm run test:coverage
+
+      - name: Build package
         run: npm run build
+
+      - name: Bundle size budgets
+        run: npm run check:size
+
+      - name: Consumer entry and editor types
+        run: npm run test:consumer
+
+      - name: Build documentation
+        run: npm run docs:build
+
+      - name: Install Playwright browser matrix
+        run: npx playwright install --with-deps chromium firefox webkit
+
+      - name: Browser interaction tests
+        run: npm run test:e2e
+
+      - name: Pack and release metadata audit
+        run: node scripts/check-release.mjs --skip-registry
+
+      - name: Runtime dependency audit
+        run: npm audit --omit=dev
 
       # main：发布正式版（dist-tag = latest）。
       # 当前 package.json 版本若已存在于 npm 则跳过，避免重复发布报错。
@@ -34,7 +79,7 @@ jobs:
           if npm view "mcui-oreui@$VERSION" version > /dev/null 2>&1; then
             echo "mcui-oreui@$VERSION 已存在于 npm，跳过发布。请先 bump 版本号。"
           else
-            npm publish --access public
+            npm publish --access public --provenance
           fi
         env:
           NODE_AUTH_TOKEN: ${{ secrets.MCUIACTION }}
@@ -48,6 +93,6 @@ jobs:
           PRE="${BASE%%-*}-dev.${{ github.run_number }}"
           echo "发布测试版 mcui-oreui@$PRE (tag: next)"
           npm version "$PRE" --no-git-tag-version
-          npm publish --tag next --access public
+          npm publish --tag next --access public --provenance
         env:
           NODE_AUTH_TOKEN: ${{ secrets.MCUIACTION }}

@@ -1,0 +1,40 @@
+/* Neutral input primitive shared by FormField-based text controls. */
+.mc-input {
+  appearance: none;
+  border: 2px solid var(--mc-border, #1e1e1f);
+  border-radius: 0;
+  box-sizing: border-box;
+  font: 700 15px/1.35 var(--mc-font-body, sans-serif);
+  height: var(--mc-control-height, 40px);
+  min-height: var(--mc-control-height, 40px);
+  width: 100%;
+}
+.mc-input {
+  background: var(--mc-surface, #313233);
+  box-shadow: var(--mc-shadow-inset);
+  color: var(--mc-text, #fff);
+  padding: 8px 10px 4px;
+}
+.mc-input:not(textarea) {
+  line-height: 20px;
+  padding-block: 8px;
+}
+.mc-input::placeholder {
+  color: var(--mc-text-dimmest, #b1b2b5);
+  opacity: 1;
+}
+.mc-input:focus {
+  border-color: var(--mc-focus, #fff);
+  outline: 2px solid var(--mc-primary-tint, #6cc349);
+  outline-offset: 1px;
+}
+.mc-input:disabled {
+  background: var(--mc-disabled, #d0d1d4);
+  border-color: var(--mc-disabled-border, #8c8d90);
+  box-shadow: inset 0 4px var(--mc-disabled-shadow, #b1b2b5);
+  color: var(--mc-disabled-text, #48494a);
+  cursor: not-allowed;
+}
+.mc-input[readonly] {
+  cursor: default;
+}

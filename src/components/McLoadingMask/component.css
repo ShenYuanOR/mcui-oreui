@@ -1,0 +1,21 @@
+/* McLoadingMask component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-loading-mask {
+  align-items: center;
+  background: var(--mc-background, #48494a);
+  color: var(--mc-text, #fff);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  inset: 0;
+  justify-content: center;
+  position: fixed;
+  z-index: 5000;
+}
+.mc-loading-mask__spinner {
+  height: 60px;
+  image-rendering: pixelated;
+  width: 60px;
+}
+.mc-loading-mask__text {
+  font: 20px/1.2 var(--mc-font-ui, sans-serif);
+}

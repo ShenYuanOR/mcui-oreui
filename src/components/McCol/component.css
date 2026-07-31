@@ -1,0 +1,128 @@
+/* McCol component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-col {
+  align-self: var(--mc-col-align, auto);
+  box-sizing: border-box;
+  flex-basis: var(--mc-col-basis, 0);
+  flex-grow: var(--mc-col-grow, 1);
+  max-width: var(--mc-col-max, 100%);
+  min-width: 0;
+  margin-inline-start: var(--mc-col-offset, 0);
+  order: var(--mc-col-order, 0);
+  padding: calc(var(--mc-grid-gutter, 24px) / 2);
+  width: var(--mc-col-width, 100%);
+}
+@media (min-width: 600px) {
+  .mc-col {
+    align-self: var(--mc-col-sm-align, var(--mc-col-align, auto));
+    flex-basis: var(--mc-col-sm-basis, var(--mc-col-basis, 0));
+    flex-grow: var(--mc-col-sm-grow, var(--mc-col-grow, 1));
+    max-width: var(--mc-col-sm-max, var(--mc-col-max, 100%));
+    margin-inline-start: var(--mc-col-sm-offset, var(--mc-col-offset, 0));
+    order: var(--mc-col-sm-order, var(--mc-col-order, 0));
+    width: var(--mc-col-sm-width, var(--mc-col-width, 100%));
+  }
+}
+@media (min-width: 960px) {
+  .mc-col {
+    align-self: var(--mc-col-md-align, var(--mc-col-sm-align, var(--mc-col-align, auto)));
+    flex-basis: var(--mc-col-md-basis, var(--mc-col-sm-basis, var(--mc-col-basis, 0)));
+    flex-grow: var(--mc-col-md-grow, var(--mc-col-sm-grow, var(--mc-col-grow, 1)));
+    max-width: var(--mc-col-md-max, var(--mc-col-sm-max, var(--mc-col-max, 100%)));
+    margin-inline-start: var(--mc-col-md-offset, var(--mc-col-sm-offset, var(--mc-col-offset, 0)));
+    order: var(--mc-col-md-order, var(--mc-col-sm-order, var(--mc-col-order, 0)));
+    width: var(--mc-col-md-width, var(--mc-col-sm-width, var(--mc-col-width, 100%)));
+  }
+}
+@media (min-width: 1280px) {
+  .mc-col {
+    align-self: var(--mc-col-lg-align, var(--mc-col-md-align, var(--mc-col-sm-align, var(--mc-col-align, auto))));
+    flex-basis: var(--mc-col-lg-basis, var(--mc-col-md-basis, var(--mc-col-sm-basis, var(--mc-col-basis, 0))));
+    flex-grow: var(--mc-col-lg-grow, var(--mc-col-md-grow, var(--mc-col-sm-grow, var(--mc-col-grow, 1))));
+    max-width: var(--mc-col-lg-max, var(--mc-col-md-max, var(--mc-col-sm-max, var(--mc-col-max, 100%))));
+    margin-inline-start: var(
+      --mc-col-lg-offset,
+      var(--mc-col-md-offset, var(--mc-col-sm-offset, var(--mc-col-offset, 0)))
+    );
+    order: var(--mc-col-lg-order, var(--mc-col-md-order, var(--mc-col-sm-order, var(--mc-col-order, 0))));
+    width: var(--mc-col-lg-width, var(--mc-col-md-width, var(--mc-col-sm-width, var(--mc-col-width, 100%))));
+  }
+}
+@media (min-width: 1920px) {
+  .mc-col {
+    align-self: var(
+      --mc-col-xl-align,
+      var(--mc-col-lg-align, var(--mc-col-md-align, var(--mc-col-sm-align, var(--mc-col-align, auto))))
+    );
+    flex-basis: var(
+      --mc-col-xl-basis,
+      var(--mc-col-lg-basis, var(--mc-col-md-basis, var(--mc-col-sm-basis, var(--mc-col-basis, 0))))
+    );
+    flex-grow: var(
+      --mc-col-xl-grow,
+      var(--mc-col-lg-grow, var(--mc-col-md-grow, var(--mc-col-sm-grow, var(--mc-col-grow, 1))))
+    );
+    max-width: var(
+      --mc-col-xl-max,
+      var(--mc-col-lg-max, var(--mc-col-md-max, var(--mc-col-sm-max, var(--mc-col-max, 100%))))
+    );
+    margin-inline-start: var(
+      --mc-col-xl-offset,
+      var(--mc-col-lg-offset, var(--mc-col-md-offset, var(--mc-col-sm-offset, var(--mc-col-offset, 0))))
+    );
+    order: var(
+      --mc-col-xl-order,
+      var(--mc-col-lg-order, var(--mc-col-md-order, var(--mc-col-sm-order, var(--mc-col-order, 0))))
+    );
+    width: var(
+      --mc-col-xl-width,
+      var(--mc-col-lg-width, var(--mc-col-md-width, var(--mc-col-sm-width, var(--mc-col-width, 100%))))
+    );
+  }
+}
+@media (min-width: 2560px) {
+  .mc-col {
+    align-self: var(
+      --mc-col-xxl-align,
+      var(
+        --mc-col-xl-align,
+        var(--mc-col-lg-align, var(--mc-col-md-align, var(--mc-col-sm-align, var(--mc-col-align, auto))))
+      )
+    );
+    flex-basis: var(
+      --mc-col-xxl-basis,
+      var(
+        --mc-col-xl-basis,
+        var(--mc-col-lg-basis, var(--mc-col-md-basis, var(--mc-col-sm-basis, var(--mc-col-basis, 0))))
+      )
+    );
+    flex-grow: var(
+      --mc-col-xxl-grow,
+      var(--mc-col-xl-grow, var(--mc-col-lg-grow, var(--mc-col-md-grow, var(--mc-col-sm-grow, var(--mc-col-grow, 1)))))
+    );
+    max-width: var(
+      --mc-col-xxl-max,
+      var(--mc-col-xl-max, var(--mc-col-lg-max, var(--mc-col-md-max, var(--mc-col-sm-max, var(--mc-col-max, 100%)))))
+    );
+    margin-inline-start: var(
+      --mc-col-xxl-offset,
+      var(
+        --mc-col-xl-offset,
+        var(--mc-col-lg-offset, var(--mc-col-md-offset, var(--mc-col-sm-offset, var(--mc-col-offset, 0))))
+      )
+    );
+    order: var(
+      --mc-col-xxl-order,
+      var(
+        --mc-col-xl-order,
+        var(--mc-col-lg-order, var(--mc-col-md-order, var(--mc-col-sm-order, var(--mc-col-order, 0))))
+      )
+    );
+    width: var(
+      --mc-col-xxl-width,
+      var(
+        --mc-col-xl-width,
+        var(--mc-col-lg-width, var(--mc-col-md-width, var(--mc-col-sm-width, var(--mc-col-width, 100%))))
+      )
+    );
+  }
+}

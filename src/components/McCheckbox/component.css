@@ -1,0 +1,99 @@
+/* McCheckbox component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-checkbox {
+  align-items: center;
+  color: var(--mc-text, #fff);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--mc-font-body, sans-serif);
+  gap: 8px;
+  min-height: 28px;
+}
+.mc-checkbox__input {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  position: absolute;
+  width: 1px;
+}
+.mc-checkbox__control {
+  align-items: center;
+  background: var(--mc-control-inactive, #8c8d90);
+  border: 2px solid var(--mc-border, #1e1e1f);
+  box-shadow:
+    inset 2px 2px var(--mc-specular-neutral, rgba(255, 255, 255, 0.2)),
+    inset -2px -2px var(--mc-specular-neutral-low, rgba(255, 255, 255, 0.1));
+  box-sizing: border-box;
+  display: inline-flex;
+  flex: none;
+  height: 24px;
+  justify-content: center;
+  width: 24px;
+}
+.mc-checkbox__mark {
+  align-items: center;
+  display: inline-flex;
+  height: 16px;
+  justify-content: center;
+  opacity: 0;
+  width: 16px;
+}
+.mc-checkbox__mark img {
+  display: block;
+  height: 16px;
+  image-rendering: pixelated;
+  width: 16px;
+}
+.mc-checkbox__mark--mixed::before {
+  background: var(--mc-on-primary, #fff);
+  content: '';
+  display: block;
+  height: 3px;
+  width: 12px;
+}
+.mc-checkbox:hover:not(.mc-checkbox--disabled) .mc-checkbox__control {
+  background: var(--mc-secondary-hover, #b1b2b5);
+}
+.mc-checkbox:active:not(.mc-checkbox--disabled) .mc-checkbox__control {
+  background: var(--mc-surface-light, #58585a);
+}
+.mc-checkbox__input:checked + .mc-checkbox__control,
+.mc-checkbox__input[aria-checked='mixed'] + .mc-checkbox__control {
+  background: var(--mc-control-color, var(--mc-primary, #3c8527));
+}
+.mc-checkbox:hover:not(.mc-checkbox--disabled) .mc-checkbox__input:checked + .mc-checkbox__control,
+.mc-checkbox:hover:not(.mc-checkbox--disabled) .mc-checkbox__input[aria-checked='mixed'] + .mc-checkbox__control {
+  background: color-mix(in srgb, var(--mc-control-color, var(--mc-primary, #3c8527)) 82%, #000);
+}
+.mc-checkbox:active:not(.mc-checkbox--disabled) .mc-checkbox__input:checked + .mc-checkbox__control,
+.mc-checkbox:active:not(.mc-checkbox--disabled) .mc-checkbox__input[aria-checked='mixed'] + .mc-checkbox__control {
+  background: color-mix(in srgb, var(--mc-control-color, var(--mc-primary, #3c8527)) 68%, #000);
+}
+.mc-checkbox__input:checked + .mc-checkbox__control .mc-checkbox__mark,
+.mc-checkbox__input[aria-checked='mixed'] + .mc-checkbox__control .mc-checkbox__mark {
+  opacity: 1;
+}
+.mc-checkbox__input:focus-visible + .mc-checkbox__control {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+.mc-checkbox--disabled {
+  color: var(--mc-disabled-text, #48494a);
+  cursor: not-allowed;
+}
+.mc-checkbox--disabled .mc-checkbox__control {
+  background: var(--mc-disabled, #d0d1d4);
+  border-color: var(--mc-disabled-border, #8c8d90);
+  box-shadow: none;
+}
+.mc-checkbox--readonly {
+  cursor: default;
+}
+.mc-checkbox__control {
+  background: var(--mc-control-inactive, #8c8d90);
+}
+.mc-checkbox__mark {
+  color: var(--mc-on-primary, #fff);
+}
+.mc-checkbox__input:focus-visible + .mc-checkbox__control {
+  outline-color: var(--mc-focus, #fff);
+}

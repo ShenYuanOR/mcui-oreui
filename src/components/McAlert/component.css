@@ -1,0 +1,69 @@
+/* McAlert component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-alert__close {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.mc-alert {
+  align-items: flex-start;
+  background: var(--mc-info, #3d75a5);
+  border: 2px solid var(--mc-border, #1e1e1f);
+  color: #fff;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  padding: 12px 14px;
+}
+
+.mc-alert--success {
+  background: var(--mc-success, #3c8527);
+}
+
+.mc-alert--warning {
+  background: var(--mc-warning, #f5a623);
+  color: #1e1e1f;
+}
+
+.mc-alert--error {
+  background: var(--mc-error, #c33636);
+}
+
+.mc-alert__title {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.mc-alert {
+  color: var(--mc-on-primary, #fff);
+}
+
+.mc-alert--warning {
+  color: var(--mc-on-warning, #1e1e1f);
+}
+
+.mc-alert__close {
+  min-height: 28px;
+  min-width: 28px;
+}
+
+.mc-alert__close:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.mc-alert {
+  box-shadow:
+    inset 2px 2px rgba(255, 255, 255, 0.2),
+    inset -2px -2px rgba(255, 255, 255, 0.12),
+    3px 3px rgba(0, 0, 0, 0.3);
+}
+
+.mc-alert__content {
+  min-width: 0;
+}
+
+.mc-alert__text {
+  overflow-wrap: anywhere;
+}

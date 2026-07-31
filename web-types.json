@@ -1,0 +1,2444 @@
+{
+  "$schema": "https://json.schemastore.org/web-types",
+  "name": "mcui-oreui",
+  "version": "2.0.0",
+  "framework": "vue",
+  "description-markup": "markdown",
+  "js-types-syntax": "typescript",
+  "contributions": {
+    "html": {
+      "tags": [
+        {
+          "name": "mc-alert",
+          "description": "状态提示；标题与正文使用插槽。",
+          "attributes": [
+            {
+              "name": "variant",
+              "value": {
+                "kind": "expression",
+                "type": "'info' | 'success' | 'warning' | 'error'"
+              }
+            },
+            {
+              "name": "closable",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            }
+          ],
+          "events": [
+            {
+              "name": "close",
+              "description": "关闭按钮点击。"
+            }
+          ],
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McAlert"
+          }
+        },
+        {
+          "name": "mc-app",
+          "description": "应用主题与 RTL 方向的根容器。",
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McApp"
+          }
+        },
+        {
+          "name": "mc-appbar",
+          "description": "应用栏。",
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McAppbar"
+          }
+        },
+        {
+          "name": "mc-appbar-button",
+          "description": "应用栏文字按钮。",
+          "attributes": [
+            {
+              "name": "icon",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "tip",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "disabled",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "color",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "aria-label",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            }
+          ],
+          "events": [
+            {
+              "name": "click",
+              "description": "原生点击事件。"
+            }
+          ],
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McAppbarButton"
+          }
+        },
+        {
+          "name": "mc-appbar-icon",
+          "description": "应用栏图标按钮。",
+          "attributes": [
+            {
+              "name": "icon",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "tip",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "disabled",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "aria-label",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            }
+          ],
+          "events": [
+            {
+              "name": "click",
+              "description": "原生点击事件。"
+            }
+          ],
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McAppbarIcon"
+          }
+        },
+        {
+          "name": "mc-autocomplete",
+          "description": "可筛选选择器。",
+          "attributes": [
+            {
+              "name": "model-value",
+              "value": {
+                "kind": "expression",
+                "type": "McSelectValue"
+              }
+            },
+            {
+              "name": "options",
+              "value": {
+                "kind": "expression",
+                "type": "McSelectOptionInput[]"
+              }
+            },
+            {
+              "name": "label",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "description",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "hint",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "placeholder",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "disabled",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "readonly",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "required",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "rules",
+              "value": {
+                "kind": "expression",
+                "type": "McRule<McSelectValue>[]"
+              }
+            },
+            {
+              "name": "error-messages",
+              "value": {
+                "kind": "expression",
+                "type": "string | string[]"
+              }
+            },
+            {
+              "name": "validate-on",
+              "value": {
+                "kind": "expression",
+                "type": "McValidateOn"
+              }
+            },
+            {
+              "name": "id",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "no-filter",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            }
+          ],
+          "events": [
+            {
+              "name": "update:model-value"
+            },
+            {
+              "name": "change"
+            },
+            {
+              "name": "update:search"
+            }
+          ],
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McAutocomplete"
+          }
+        },
+        {
+          "name": "mc-badge",
+          "description": "徽标。",
+          "attributes": [
+            {
+              "name": "content",
+              "value": {
+                "kind": "expression",
+                "type": "string | number"
+              }
+            },
+            {
+              "name": "color",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "dot",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "inline",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "aria-label",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            }
+          ],
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McBadge"
+          }
+        },
+        {
+          "name": "mc-breadcrumbs",
+          "description": "不绑定路由器的面包屑。",
+          "attributes": [
+            {
+              "name": "items",
+              "value": {
+                "kind": "expression",
+                "type": "McBreadcrumbItem[]"
+              }
+            },
+            {
+              "name": "divider",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "aria-label",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            }
+          ],
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McBreadcrumbs"
+          }
+        },
+        {
+          "name": "mc-button",
+          "description": "Ore UI 原生按钮。",
+          "attributes": [
+            {
+              "name": "variant",
+              "value": {
+                "kind": "expression",
+                "type": "'normal' | 'primary' | 'error' | 'plain'"
+              }
+            },
+            {
+              "name": "size",
+              "value": {
+                "kind": "expression",
+                "type": "'extra_small' | 'small' | 'middle' | 'large'"
+              }
+            },
+            {
+              "name": "disabled",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "loading",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "icon",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "tip",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "color",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "type",
+              "value": {
+                "kind": "expression",
+                "type": "'button' | 'submit' | 'reset'"
+              }
+            },
+            {
+              "name": "aria-label",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            }
+          ],
+          "events": [
+            {
+              "name": "click",
+              "description": "原生按钮点击事件。"
+            }
+          ],
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McButton"
+          }
+        },
+        {
+          "name": "mc-button-tabs",
+          "description": "按钮式标签页。",
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McButtonTabs"
+          }
+        },
+        {
+          "name": "mc-card",
+          "description": "静态、按钮或链接卡片；内容使用插槽。",
+          "attributes": [
+            {
+              "name": "href",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "to",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "disabled",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "clickable",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            }
+          ],
+          "events": [
+            {
+              "name": "click",
+              "description": "交互卡片点击事件。"
+            }
+          ],
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McCard"
+          }
+        },
+        {
+          "name": "mc-checkbox",
+          "description": "原生语义复选框。",
+          "attributes": [
+            {
+              "name": "model-value",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "indeterminate",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "label",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "description",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "hint",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "disabled",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "readonly",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "required",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "color",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "rules",
+              "value": {
+                "kind": "expression",
+                "type": "McRule<boolean>[]"
+              }
+            },
+            {
+              "name": "error-messages",
+              "value": {
+                "kind": "expression",
+                "type": "string | string[]"
+              }
+            },
+            {
+              "name": "validate-on",
+              "value": {
+                "kind": "expression",
+                "type": "McValidateOn"
+              }
+            },
+            {
+              "name": "id",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "name",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            }
+          ],
+          "events": [
+            {
+              "name": "update:model-value"
+            },
+            {
+              "name": "change"
+            }
+          ],
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McCheckbox"
+          }
+        },
+        {
+          "name": "mc-chip",
+          "description": "内容使用默认插槽的标签块。",
+          "attributes": [
+            {
+              "name": "closable",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "disabled",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "selected",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "color",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            }
+          ],
+          "events": [
+            {
+              "name": "click"
+            },
+            {
+              "name": "close"
+            }
+          ],
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McChip"
+          }
+        },
+        {
+          "name": "mc-col",
+          "description": "响应式栅格列。",
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McCol"
+          }
+        },
+        {
+          "name": "mc-confirm",
+          "description": "确认弹窗。",
+          "attributes": [
+            {
+              "name": "model-value",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "title",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "confirm-text",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "cancel-text",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "danger",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "show-close",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "stack-actions",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "teleport",
+              "value": {
+                "kind": "expression",
+                "type": "string | HTMLElement | false"
+              }
+            }
+          ],
+          "events": [
+            {
+              "name": "update:model-value"
+            },
+            {
+              "name": "confirm"
+            },
+            {
+              "name": "cancel"
+            },
+            {
+              "name": "close"
+            }
+          ],
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McConfirm"
+          }
+        },
+        {
+          "name": "mc-container",
+          "description": "响应式容器。",
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McContainer"
+          }
+        },
+        {
+          "name": "mc-data-table",
+          "description": "用单一 options 管理客户端或服务端状态的数据表格。",
+          "attributes": [
+            {
+              "name": "headers",
+              "value": {
+                "kind": "expression",
+                "type": "McDataTableHeader[]"
+              }
+            },
+            {
+              "name": "items",
+              "value": {
+                "kind": "expression",
+                "type": "McDataTableItem[]"
+              }
+            },
+            {
+              "name": "options",
+              "value": {
+                "kind": "expression",
+                "type": "McDataTableOptions"
+              }
+            },
+            {
+              "name": "item-key",
+              "value": {
+                "kind": "expression",
+                "type": "string | ((item: McDataTableItem) => unknown)"
+              }
+            },
+            {
+              "name": "items-per-page-options",
+              "value": {
+                "kind": "expression",
+                "type": "number[]"
+              }
+            },
+            {
+              "name": "mode",
+              "value": {
+                "kind": "expression",
+                "type": "'client' | 'server'"
+              }
+            },
+            {
+              "name": "items-length",
+              "value": {
+                "kind": "expression",
+                "type": "number"
+              }
+            },
+            {
+              "name": "loading",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "no-data-text",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "show-select",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "model-value",
+              "value": {
+                "kind": "expression",
+                "type": "unknown[]"
+              }
+            },
+            {
+              "name": "multi-sort",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            }
+          ],
+          "events": [
+            {
+              "name": "update:options"
+            },
+            {
+              "name": "update:model-value"
+            },
+            {
+              "name": "change"
+            }
+          ],
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McDataTable"
+          }
+        },
+        {
+          "name": "mc-defaults-provider",
+          "description": "嵌套组件默认值作用域。",
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McDefaultsProvider"
+          }
+        },
+        {
+          "name": "mc-dialog",
+          "description": "可访问对话框。",
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McDialog"
+          }
+        },
+        {
+          "name": "mc-divider",
+          "description": "分隔线。",
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McDivider"
+          }
+        },
+        {
+          "name": "mc-drawer",
+          "description": "抽屉 Overlay。",
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McDrawer"
+          }
+        },
+        {
+          "name": "mc-expansion-panel",
+          "description": "带 accordion 键盘模型的折叠面板。",
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McExpansionPanel"
+          }
+        },
+        {
+          "name": "mc-expansion-panels",
+          "description": "单选或多选折叠面板组。",
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McExpansionPanels"
+          }
+        },
+        {
+          "name": "mc-file-input",
+          "description": "支持拖放、多选和统一校验的文件输入。",
+          "attributes": [
+            {
+              "name": "model-value",
+              "value": {
+                "kind": "expression",
+                "type": "File | File[] | null"
+              }
+            },
+            {
+              "name": "multiple",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "accept",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "capture",
+              "value": {
+                "kind": "expression",
+                "type": "boolean | 'user' | 'environment'"
+              }
+            },
+            {
+              "name": "label",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "description",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "hint",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "disabled",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "readonly",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "required",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "rules",
+              "value": {
+                "kind": "expression",
+                "type": "McRule<McFileInputValue>[]"
+              }
+            },
+            {
+              "name": "error-messages",
+              "value": {
+                "kind": "expression",
+                "type": "string | string[]"
+              }
+            },
+            {
+              "name": "validate-on",
+              "value": {
+                "kind": "expression",
+                "type": "McValidateOn"
+              }
+            },
+            {
+              "name": "id",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            }
+          ],
+          "events": [
+            {
+              "name": "update:model-value"
+            },
+            {
+              "name": "change"
+            }
+          ],
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McFileInput"
+          }
+        },
+        {
+          "name": "mc-form",
+          "description": "统一表单与校验。",
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McForm"
+          }
+        },
+        {
+          "name": "mc-form-field",
+          "description": "表单标签、描述和消息关联。",
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McFormField"
+          }
+        },
+        {
+          "name": "mc-formatted-text",
+          "description": "Minecraft 格式化文本。",
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McFormattedText"
+          }
+        },
+        {
+          "name": "mc-header",
+          "description": "标题栏。",
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McHeader"
+          }
+        },
+        {
+          "name": "mc-icon",
+          "description": "按需 icon-set 图标。",
+          "attributes": [
+            {
+              "name": "name",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "path",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "view-box",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "size",
+              "value": {
+                "kind": "expression",
+                "type": "string | number"
+              }
+            },
+            {
+              "name": "color",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "pixel-size",
+              "value": {
+                "kind": "expression",
+                "type": "number"
+              }
+            },
+            {
+              "name": "aria-label",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            }
+          ],
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McIcon"
+          }
+        },
+        {
+          "name": "mc-layout",
+          "description": "Ore UI 页面布局。",
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McLayout"
+          }
+        },
+        {
+          "name": "mc-list",
+          "description": "list/listbox 语义列表。",
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McList"
+          }
+        },
+        {
+          "name": "mc-list-item",
+          "description": "声明式列表项。",
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McListItem"
+          }
+        },
+        {
+          "name": "mc-loading-mask",
+          "description": "加载遮罩。",
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McLoadingMask"
+          }
+        },
+        {
+          "name": "mc-locale-provider",
+          "description": "嵌套语言与 RTL 作用域。",
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McLocaleProvider"
+          }
+        },
+        {
+          "name": "mc-main",
+          "description": "消费 Appbar 与 Drawer 布局占位的主内容。",
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McMain"
+          }
+        },
+        {
+          "name": "mc-menu",
+          "description": "菜单 Overlay。",
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McMenu"
+          }
+        },
+        {
+          "name": "mc-number-input",
+          "description": "带步进按钮和临时编辑值的数字输入。",
+          "attributes": [
+            {
+              "name": "model-value",
+              "value": {
+                "kind": "expression",
+                "type": "number | null"
+              }
+            },
+            {
+              "name": "min",
+              "value": {
+                "kind": "expression",
+                "type": "number"
+              }
+            },
+            {
+              "name": "max",
+              "value": {
+                "kind": "expression",
+                "type": "number"
+              }
+            },
+            {
+              "name": "step",
+              "value": {
+                "kind": "expression",
+                "type": "number"
+              }
+            },
+            {
+              "name": "label",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "description",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "hint",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "placeholder",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "disabled",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "readonly",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "required",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "rules",
+              "value": {
+                "kind": "expression",
+                "type": "McRule<number | null>[]"
+              }
+            },
+            {
+              "name": "error-messages",
+              "value": {
+                "kind": "expression",
+                "type": "string | string[]"
+              }
+            },
+            {
+              "name": "validate-on",
+              "value": {
+                "kind": "expression",
+                "type": "McValidateOn"
+              }
+            },
+            {
+              "name": "id",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            }
+          ],
+          "events": [
+            {
+              "name": "update:model-value"
+            },
+            {
+              "name": "change"
+            }
+          ],
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McNumberInput"
+          }
+        },
+        {
+          "name": "mc-overlay",
+          "description": "统一 Overlay 基础。",
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McOverlay"
+          }
+        },
+        {
+          "name": "mc-pagination",
+          "description": "可访问分页导航。",
+          "attributes": [
+            {
+              "name": "model-value",
+              "value": {
+                "kind": "expression",
+                "type": "number"
+              }
+            },
+            {
+              "name": "length",
+              "value": {
+                "kind": "expression",
+                "type": "number"
+              }
+            },
+            {
+              "name": "total-visible",
+              "value": {
+                "kind": "expression",
+                "type": "number"
+              }
+            },
+            {
+              "name": "show-first-last",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "disabled",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "aria-label",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            }
+          ],
+          "events": [
+            {
+              "name": "update:model-value"
+            },
+            {
+              "name": "change"
+            }
+          ],
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McPagination"
+          }
+        },
+        {
+          "name": "mc-panel",
+          "description": "Ore UI 面板。",
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McPanel"
+          }
+        },
+        {
+          "name": "mc-pop-host",
+          "description": "Pop 消息宿主。",
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McPopHost"
+          }
+        },
+        {
+          "name": "mc-progress",
+          "description": "进度条。",
+          "attributes": [
+            {
+              "name": "value",
+              "value": {
+                "kind": "expression",
+                "type": "number"
+              }
+            },
+            {
+              "name": "max",
+              "value": {
+                "kind": "expression",
+                "type": "number"
+              }
+            },
+            {
+              "name": "label",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "show-value",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "indeterminate",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "variant",
+              "value": {
+                "kind": "expression",
+                "type": "'normal' | 'success' | 'error'"
+              }
+            },
+            {
+              "name": "color",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "aria-label",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            }
+          ],
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McProgress"
+          }
+        },
+        {
+          "name": "mc-radio",
+          "description": "原生语义单选框。",
+          "attributes": [
+            {
+              "name": "model-value",
+              "value": {
+                "kind": "expression",
+                "type": "string | number | boolean"
+              }
+            },
+            {
+              "name": "value",
+              "value": {
+                "kind": "expression",
+                "type": "string | number | boolean"
+              }
+            },
+            {
+              "name": "label",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "description",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "hint",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "disabled",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "readonly",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "required",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "color",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "rules",
+              "value": {
+                "kind": "expression",
+                "type": "McRule<McRadioValue>[]"
+              }
+            },
+            {
+              "name": "error-messages",
+              "value": {
+                "kind": "expression",
+                "type": "string | string[]"
+              }
+            },
+            {
+              "name": "validate-on",
+              "value": {
+                "kind": "expression",
+                "type": "McValidateOn"
+              }
+            },
+            {
+              "name": "id",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "name",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            }
+          ],
+          "events": [
+            {
+              "name": "update:model-value"
+            },
+            {
+              "name": "change"
+            }
+          ],
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McRadio"
+          }
+        },
+        {
+          "name": "mc-radio-group",
+          "description": "带统一校验的单选框组。",
+          "attributes": [
+            {
+              "name": "model-value",
+              "value": {
+                "kind": "expression",
+                "type": "McRadioValue"
+              }
+            },
+            {
+              "name": "options",
+              "value": {
+                "kind": "expression",
+                "type": "McRadioOption[]"
+              }
+            },
+            {
+              "name": "direction",
+              "value": {
+                "kind": "expression",
+                "type": "'horizontal' | 'vertical'"
+              }
+            },
+            {
+              "name": "label",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "description",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "hint",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "disabled",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "readonly",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "required",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "rules",
+              "value": {
+                "kind": "expression",
+                "type": "McRule<McRadioValue>[]"
+              }
+            },
+            {
+              "name": "error-messages",
+              "value": {
+                "kind": "expression",
+                "type": "string | string[]"
+              }
+            },
+            {
+              "name": "validate-on",
+              "value": {
+                "kind": "expression",
+                "type": "McValidateOn"
+              }
+            },
+            {
+              "name": "id",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "name",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            }
+          ],
+          "events": [
+            {
+              "name": "update:model-value"
+            },
+            {
+              "name": "change"
+            }
+          ],
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McRadioGroup"
+          }
+        },
+        {
+          "name": "mc-row",
+          "description": "响应式栅格行。",
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McRow"
+          }
+        },
+        {
+          "name": "mc-scroll-view",
+          "description": "滚动区域。",
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McScrollView"
+          }
+        },
+        {
+          "name": "mc-select",
+          "description": "可访问 Select/Combobox。",
+          "attributes": [
+            {
+              "name": "model-value",
+              "value": {
+                "kind": "expression",
+                "type": "McSelectValue"
+              }
+            },
+            {
+              "name": "options",
+              "value": {
+                "kind": "expression",
+                "type": "McSelectOptionInput[]"
+              }
+            },
+            {
+              "name": "label",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "description",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "hint",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "placeholder",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "disabled",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "readonly",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "required",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "rules",
+              "value": {
+                "kind": "expression",
+                "type": "McRule<McSelectValue>[]"
+              }
+            },
+            {
+              "name": "error-messages",
+              "value": {
+                "kind": "expression",
+                "type": "string | string[]"
+              }
+            },
+            {
+              "name": "validate-on",
+              "value": {
+                "kind": "expression",
+                "type": "McValidateOn"
+              }
+            },
+            {
+              "name": "id",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            }
+          ],
+          "events": [
+            {
+              "name": "update:model-value"
+            },
+            {
+              "name": "change"
+            }
+          ],
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McSelect"
+          }
+        },
+        {
+          "name": "mc-skeleton",
+          "description": "骨架屏。",
+          "attributes": [
+            {
+              "name": "width",
+              "value": {
+                "kind": "expression",
+                "type": "string | number"
+              }
+            },
+            {
+              "name": "height",
+              "value": {
+                "kind": "expression",
+                "type": "string | number"
+              }
+            },
+            {
+              "name": "aria-label",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            }
+          ],
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McSkeleton"
+          }
+        },
+        {
+          "name": "mc-skin-viewer",
+          "description": "Minecraft 皮肤查看器。",
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McSkinViewer"
+          }
+        },
+        {
+          "name": "mc-slider",
+          "description": "键盘与 ARIA 完整的 Ore UI 滑块。",
+          "attributes": [
+            {
+              "name": "model-value",
+              "value": {
+                "kind": "expression",
+                "type": "number"
+              }
+            },
+            {
+              "name": "min",
+              "value": {
+                "kind": "expression",
+                "type": "number"
+              }
+            },
+            {
+              "name": "max",
+              "value": {
+                "kind": "expression",
+                "type": "number"
+              }
+            },
+            {
+              "name": "step",
+              "value": {
+                "kind": "expression",
+                "type": "number"
+              }
+            },
+            {
+              "name": "label",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "description",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "hint",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "disabled",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "readonly",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "required",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "vertical",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "show-value",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "color",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "rules",
+              "value": {
+                "kind": "expression",
+                "type": "McRule<number>[]"
+              }
+            },
+            {
+              "name": "error-messages",
+              "value": {
+                "kind": "expression",
+                "type": "string | string[]"
+              }
+            },
+            {
+              "name": "validate-on",
+              "value": {
+                "kind": "expression",
+                "type": "McValidateOn"
+              }
+            },
+            {
+              "name": "id",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "aria-label",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "aria-valuetext",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            }
+          ],
+          "events": [
+            {
+              "name": "update:model-value"
+            },
+            {
+              "name": "change"
+            }
+          ],
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McSlider"
+          }
+        },
+        {
+          "name": "mc-snackbar",
+          "description": "默认插槽承载消息的非模态消息条。",
+          "attributes": [
+            {
+              "name": "model-value",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "timeout",
+              "value": {
+                "kind": "expression",
+                "type": "number"
+              }
+            },
+            {
+              "name": "location",
+              "value": {
+                "kind": "expression",
+                "type": "'top' | 'bottom'"
+              }
+            },
+            {
+              "name": "variant",
+              "value": {
+                "kind": "expression",
+                "type": "'default' | 'success' | 'error' | 'warning' | 'info'"
+              }
+            },
+            {
+              "name": "teleport",
+              "value": {
+                "kind": "expression",
+                "type": "string | false"
+              }
+            }
+          ],
+          "events": [
+            {
+              "name": "update:model-value"
+            },
+            {
+              "name": "close"
+            }
+          ],
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McSnackbar"
+          }
+        },
+        {
+          "name": "mc-spacer",
+          "description": "弹性占位。",
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McSpacer"
+          }
+        },
+        {
+          "name": "mc-spinner",
+          "description": "加载指示器。",
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McSpinner"
+          }
+        },
+        {
+          "name": "mc-stepper",
+          "description": "线性或可编辑步骤条。",
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McStepper"
+          }
+        },
+        {
+          "name": "mc-switch",
+          "description": "原生语义开关。",
+          "attributes": [
+            {
+              "name": "model-value",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "label",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "description",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "hint",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "disabled",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "readonly",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "required",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "color",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "rules",
+              "value": {
+                "kind": "expression",
+                "type": "McRule<boolean>[]"
+              }
+            },
+            {
+              "name": "error-messages",
+              "value": {
+                "kind": "expression",
+                "type": "string | string[]"
+              }
+            },
+            {
+              "name": "validate-on",
+              "value": {
+                "kind": "expression",
+                "type": "McValidateOn"
+              }
+            },
+            {
+              "name": "id",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "name",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            }
+          ],
+          "events": [
+            {
+              "name": "update:model-value"
+            },
+            {
+              "name": "change"
+            }
+          ],
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McSwitch"
+          }
+        },
+        {
+          "name": "mc-table",
+          "description": "语义化展示表格。",
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McTable"
+          }
+        },
+        {
+          "name": "mc-tabs",
+          "description": "Roving tabindex 标签页。",
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McTabs"
+          }
+        },
+        {
+          "name": "mc-tcode",
+          "description": "Minecraft § 代码文本。",
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McTcode"
+          }
+        },
+        {
+          "name": "mc-text-field",
+          "description": "单行文本输入。",
+          "attributes": [
+            {
+              "name": "model-value",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "filter",
+              "value": {
+                "kind": "expression",
+                "type": "'text' | 'all' | 'number' | 'letter' | 'operator' | 'base' | 'none'"
+              }
+            },
+            {
+              "name": "type",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "label",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "description",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "hint",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "disabled",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "readonly",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "required",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "rules",
+              "value": {
+                "kind": "expression",
+                "type": "McRule<string>[]"
+              }
+            },
+            {
+              "name": "error-messages",
+              "value": {
+                "kind": "expression",
+                "type": "string | string[]"
+              }
+            },
+            {
+              "name": "validate-on",
+              "value": {
+                "kind": "expression",
+                "type": "McValidateOn"
+              }
+            },
+            {
+              "name": "id",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            }
+          ],
+          "events": [
+            {
+              "name": "update:model-value"
+            },
+            {
+              "name": "change"
+            },
+            {
+              "name": "invalid-input"
+            }
+          ],
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McTextField"
+          }
+        },
+        {
+          "name": "mc-textarea",
+          "description": "多行文本输入。",
+          "attributes": [
+            {
+              "name": "model-value",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "label",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "description",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "hint",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "disabled",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "readonly",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "required",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "auto-grow",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "rows",
+              "value": {
+                "kind": "expression",
+                "type": "number"
+              }
+            },
+            {
+              "name": "max-length",
+              "value": {
+                "kind": "expression",
+                "type": "number"
+              }
+            },
+            {
+              "name": "rules",
+              "value": {
+                "kind": "expression",
+                "type": "McRule<string>[]"
+              }
+            },
+            {
+              "name": "error-messages",
+              "value": {
+                "kind": "expression",
+                "type": "string | string[]"
+              }
+            },
+            {
+              "name": "validate-on",
+              "value": {
+                "kind": "expression",
+                "type": "McValidateOn"
+              }
+            },
+            {
+              "name": "id",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            }
+          ],
+          "events": [
+            {
+              "name": "update:model-value"
+            },
+            {
+              "name": "change"
+            }
+          ],
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McTextarea"
+          }
+        },
+        {
+          "name": "mc-theme-provider",
+          "description": "嵌套主题作用域。",
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McThemeProvider"
+          }
+        },
+        {
+          "name": "mc-tooltip",
+          "description": "Tooltip 提示。",
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McTooltip"
+          }
+        },
+        {
+          "name": "mc-virtual-scroll",
+          "description": "固定行高虚拟滚动。",
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McVirtualScroll"
+          }
+        }
+      ]
+    }
+  }
+}

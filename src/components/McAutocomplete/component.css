@@ -1,0 +1,75 @@
+/* McAutocomplete component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-autocomplete {
+  position: relative;
+  width: 100%;
+}
+.mc-autocomplete--disabled {
+  opacity: 0.55;
+}
+.mc-autocomplete__list {
+  background: var(--mc-surface-light, #58585a);
+  border: 2px solid var(--mc-border, #1e1e1f);
+  box-shadow:
+    inset 2px 2px var(--mc-surface-hover, #8c8d90),
+    inset -2px -2px var(--mc-surface-hover, #8c8d90),
+    4px 4px var(--mc-shadow, #000);
+  box-sizing: border-box;
+  left: 0;
+  list-style: none;
+  margin: 4px 0 0;
+  max-height: 260px;
+  overflow: auto;
+  padding: 2px;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  z-index: 60;
+}
+.mc-autocomplete__option {
+  box-shadow:
+    inset 0 1px var(--mc-surface-hover, #8c8d90),
+    inset 0 -1px var(--mc-surface-hover, #8c8d90);
+  color: var(--mc-text, #fff);
+  cursor: pointer;
+  min-height: 40px;
+  padding: 10px;
+}
+.mc-autocomplete__option--active {
+  background: var(--mc-surface-hover, #8c8d90);
+  outline: 2px solid var(--mc-focus, #fff);
+  outline-offset: -2px;
+}
+.mc-autocomplete__option--selected {
+  background: var(--mc-primary, #3c8527);
+}
+.mc-autocomplete__option[aria-disabled='true'] {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+.mc-autocomplete__empty {
+  background: var(--mc-surface, #313233);
+  border: 2px solid var(--mc-border, #1e1e1f);
+  color: var(--mc-text-muted, #b1b2b5);
+  left: 0;
+  margin-top: 4px;
+  padding: 9px 10px;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  z-index: 60;
+}
+.mc-autocomplete__list {
+  left: auto;
+  margin: 0;
+  min-width: 100%;
+  position: static;
+  top: auto;
+  width: 100%;
+}
+.mc-autocomplete__empty {
+  left: auto;
+  margin: 0;
+  position: static;
+  right: auto;
+  top: auto;
+}

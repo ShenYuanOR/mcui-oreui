@@ -1,65 +1,57 @@
-import type { App, Plugin } from 'vue';
-import './styles/index.css';
+export * from './generated/public-components'
 
-import McButton from './components/McButton.vue';
-import McCheckbox from './components/McCheckbox.vue';
-import McSwitch from './components/McSwitch.vue';
-import McDropdown from './components/McDropdown.vue';
-import McTextField from './components/McTextField.vue';
-import McSlider from './components/McSlider.vue';
-import McCard from './components/McCard.vue';
-import McLayout from './components/McLayout.vue';
-import McHeader from './components/McHeader.vue';
-import McScrollView from './components/McScrollView.vue';
-import McModal from './components/McModal.vue';
-import McLoadingMask from './components/McLoadingMask.vue';
-import McPopHost from './components/McPopHost.vue';
-import McTooltip from './components/McTooltip.vue';
-import McProgress from './components/McProgress.vue';
-import McRadio from './components/McRadio.vue';
-import McRadioGroup from './components/McRadioGroup.vue';
-import McTabs from './components/McTabs.vue';
-import McPanel from './components/McPanel.vue';
-import McFormField from './components/McFormField.vue';
-import McConfirm from './components/McConfirm.vue';
-import McDrawer from './components/McDrawer.vue';
-import McFormattedText from './components/McFormattedText.vue';
-import McTcode from './components/McTcode.vue';
-import McIcon from './components/McIcon.vue';
-import McSkinViewer from './components/McSkinViewer.vue';
+export { createMcUI } from './createMcUI'
+export type { McUIPlugin, McUIServices } from './framework/createMcUI'
 
-export {
-  McButton as McButton,
-  McCheckbox as McCheckbox,
-  McSwitch as McSwitch,
-  McDropdown as McDropdown,
-  McTextField as McTextField,
-  McSlider as McSlider,
-  McCard as McCard,
-  McLayout as McLayout,
-  McHeader as McHeader,
-  McScrollView as McScrollView,
-  McModal as McModal,
-  McLoadingMask as McLoadingMask,
-  McPopHost as McPopHost,
-  McTooltip as McTooltip,
-  McProgress as McProgress,
-  McRadio as McRadio,
-  McRadioGroup as McRadioGroup,
-  McTabs as McTabs,
-  McPanel as McPanel,
-  McFormField as McFormField,
-  McConfirm as McConfirm,
-  McDrawer as McDrawer,
-  McFormattedText as McFormattedText,
-  McTcode,
-  McIcon,
-  McSkinViewer,
-};
+export type { McButtonSize, McButtonVariant } from './components/McButton'
+export type { McProgressVariant } from './components/McProgress'
+export type { McRadioValue } from './components/McRadio'
+export type { McRadioOption } from './components/McRadioGroup'
+export type { McTabItem, McTabValue } from './components/McTabs'
+export type { McButtonTabItem } from './components/McButtonTabs'
+export type { McListItemProps, McListValue } from './components/_shared/listTypes'
+export type { McSelectOption, McSelectOptionInput, McSelectValue } from './components/_shared/selectTypes'
+export type { McGridAlign, McGridJustify } from './components/McRow'
+export type { McGridAlignSelf, McGridColumnValue, McGridOrderValue } from './components/McCol'
+export type { McBreadcrumbItem } from './components/McBreadcrumbs'
+export type { McDataTableHeader, McDataTableItem, McDataTableOptions, McDataTableSort } from './components/McDataTable'
+export type { McFileInputValue } from './components/McFileInput'
+export type { McStepperItem, McStepperValue } from './components/McStepper'
+export type { McExpansionValue } from './components/_shared/expansionContext'
 
-export type { McRadioValue } from './components/McRadio.vue';
-export type { McRadioOption } from './components/McRadioGroup.vue';
-export type { McTabItem, McTabValue } from './components/McTabs.vue';
+export { useMcTheme } from './framework/theme'
+export { useMcDefaults } from './framework/defaults'
+export { useMcLocale } from './framework/locale'
+export { useMcDisplay } from './framework/display'
+export { useMcOverlay } from './framework/overlay'
+export { calculateConnectedPosition } from './framework/overlay'
+export { useMcForm } from './framework/form'
+export type { McFormInstance, McFormFieldInstance, McRule, McValidationResult } from './framework/form'
+export type {
+  McBreakpointName,
+  McDefaultsOptions,
+  McDisplayOptions,
+  McIconDefinition,
+  McIconNode,
+  McIconNodeName,
+  McIconOptions,
+  McIconSet,
+  McIconType,
+  McIconValue,
+  McLocaleMessages,
+  McLocaleOptions,
+  McSoundAdapter,
+  McSoundOptions,
+  McSoundType,
+  McThemeDefinition,
+  McThemeInstance,
+  McThemeOptions,
+  McUIOptions,
+  McValidateOn,
+} from './framework/types'
+export type { McConnectedPosition, McConnectedPositionOptions, McOverlayLocation } from './framework/overlay'
+export type { McLayoutOffsets, McLayoutPosition } from './framework/layout'
+
 export {
   MC_FORMAT_CODE_COLORS,
   MC_FORMAT_CODE_STYLES,
@@ -67,7 +59,7 @@ export {
   parseMcFormatCodes,
   renderMcFormatCodes,
   stripMcFormatCodes,
-} from './utils/formatCodes';
+} from './utils/formatCodes'
 export type {
   McFormatCodeColor,
   McFormatCodeStyle,
@@ -75,58 +67,8 @@ export type {
   McFormattingState,
   McFormatCodeToken,
   McFormatCodeTokenType,
-} from './utils/formatCodes';
-
-export {
-  getMcIcon,
-  hasMcIcon,
-  mcIconNames,
-  mcNormalIconNames,
-  mcKeyIconNames,
-  mcXIconNames,
-} from './utils/iconRegistry';
-export type { McIconDefinition, McIconName, McIconType } from './utils/iconRegistry';
-
-export { useSound, playSound, playSoundType, setSoundEnabled } from './composables/useSound';
-export type { McSoundType } from './composables/useSound';
-export { usePop, showPop, popState } from './composables/usePop';
-export type { PopItem } from './composables/usePop';
-
-const components = {
-  'mc-button': McButton,
-  'mc-checkbox': McCheckbox,
-  'mc-switch': McSwitch,
-  'mc-dropdown': McDropdown,
-  'mc-text-field': McTextField,
-  'mc-slider': McSlider,
-  'mc-card': McCard,
-  'mc-layout': McLayout,
-  'mc-header': McHeader,
-  'mc-scroll-view': McScrollView,
-  'mc-modal': McModal,
-  'mc-loading-mask': McLoadingMask,
-  'mc-pop-host': McPopHost,
-  'mc-tooltip': McTooltip,
-  'mc-progress': McProgress,
-  'mc-radio': McRadio,
-  'mc-radio-group': McRadioGroup,
-  'mc-tabs': McTabs,
-  'mc-panel': McPanel,
-  'mc-form-field': McFormField,
-  'mc-confirm': McConfirm,
-  'mc-drawer': McDrawer,
-  'mc-formatted-text': McFormattedText,
-  'mc-tcode': McTcode,
-  'mc-icon': McIcon,
-  'mc-skin-viewer': McSkinViewer,
-};
-
-const McUIVue: Plugin = {
-  install(app: App) {
-    for (const [name, comp] of Object.entries(components)) {
-      app.component(name, comp);
-    }
-  },
-};
-
-export default McUIVue;
+} from './utils/formatCodes'
+export { getMcIcon, hasMcIcon, registerMcIcons } from './utils/iconRegistry'
+export { useSound } from './composables/useSound'
+export { usePop } from './composables/usePop'
+export type { McPopInstance, PopItem } from './composables/usePop'

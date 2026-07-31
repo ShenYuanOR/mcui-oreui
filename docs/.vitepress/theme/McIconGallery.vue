@@ -1,17 +1,22 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
-import McIcon from '../../../src/components/McIcon.vue';
-import { mcKeyIconNames, mcNormalIconNames, mcXIconNames } from '../../../src/utils/iconRegistry';
+import { computed, ref } from 'vue'
+import McIcon from '../../../src/components/McIcon'
+import { mcKeyIconSet } from '../../../src/icons/key'
+import { mcNormalIconSet } from '../../../src/icons/normal'
+import { mcXIconSet } from '../../../src/icons/x'
 
 interface IconGroup {
-  title: string;
-  description: string;
-  names: string[];
+  title: string
+  description: string
+  names: string[]
 }
 
-const copiedName = ref('');
-const keyword = ref('');
-const iconSize = 24;
+const copiedName = ref('')
+const keyword = ref('')
+const iconSize = 24
+const mcNormalIconNames = Object.keys(mcNormalIconSet.icons ?? {}).sort()
+const mcKeyIconNames = Object.keys(mcKeyIconSet.icons ?? {}).sort()
+const mcXIconNames = Object.keys(mcXIconSet.icons ?? {}).sort()
 
 const allGroups: IconGroup[] = [
   {
@@ -29,42 +34,45 @@ const allGroups: IconGroup[] = [
     description: '命名格式：mc-x-xxx，保持原色，不支持改色。',
     names: mcXIconNames,
   },
-];
+]
 
 const groups = computed<IconGroup[]>(() => {
-  const kw = keyword.value.trim().toLowerCase();
-  if (!kw) return allGroups;
+  const kw = keyword.value.trim().toLowerCase()
   return allGroups
-    .map((g) => ({
-      ...g,
-      names: g.names.filter((n) => n.toLowerCase().includes(kw)),
-    }))
-    .filter((g) => g.names.length > 0);
-});
+    .map((g) => {
+      const filtered = kw ? g.names.filter((n) => n.toLowerCase().includes(kw)) : g.names
+      return { ...g, names: filtered }
+    })
+    .filter((g) => g.names.length > 0)
+})
 
-const totalCount = computed(() =>
-  groups.value.reduce((sum, g) => sum + g.names.length, 0),
-);
+const totalCount = computed(() => {
+  let count = 0
+  for (const g of groups.value) {
+    count += g.names.length
+  }
+  return count
+})
 
 async function copyIconName(name: string): Promise<void> {
   try {
-    await navigator.clipboard.writeText(name);
+    await navigator.clipboard.writeText(name)
   } catch {
-    const textarea = document.createElement('textarea');
-    textarea.value = name;
-    textarea.setAttribute('readonly', '');
-    textarea.style.position = 'fixed';
-    textarea.style.opacity = '0';
-    document.body.appendChild(textarea);
-    textarea.select();
-    document.execCommand('copy');
-    document.body.removeChild(textarea);
+    const textarea = document.createElement('textarea')
+    textarea.value = name
+    textarea.setAttribute('readonly', '')
+    textarea.style.position = 'fixed'
+    textarea.style.opacity = '0'
+    document.body.appendChild(textarea)
+    textarea.select()
+    document.execCommand('copy')
+    document.body.removeChild(textarea)
   }
 
-  copiedName.value = name;
+  copiedName.value = name
   window.setTimeout(() => {
-    if (copiedName.value === name) copiedName.value = '';
-  }, 1400);
+    if (copiedName.value === name) copiedName.value = ''
+  }, 1400)
 }
 </script>
 

@@ -1,0 +1,76 @@
+import { expect, test } from '@playwright/test'
+
+test.beforeEach(async ({ page, browserName }) => {
+  test.skip(browserName !== 'chromium', 'Utility computed-style coverage runs in Chromium')
+  await page.setViewportSize({ width: 800, height: 800 })
+  await page.goto('/utilities')
+})
+
+test('applies base, responsive, flex, spacing, typography, theme, and helper utilities', async ({ page }) => {
+  await expect(page.getByTestId('display-override')).toHaveCSS('display', 'none')
+  const spacing = page.getByTestId('spacing')
+  await expect(spacing).toHaveCSS('margin-top', '-8px')
+  await expect(spacing).toHaveCSS('margin-right', '16px')
+  await expect(spacing).toHaveCSS('padding-top', '3px')
+
+  const flex = page.getByTestId('flex')
+  await expect(flex).toHaveCSS('display', 'flex')
+  await expect(flex).toHaveCSS('flex-direction', 'column')
+  await expect(flex).toHaveCSS('flex-wrap', 'wrap')
+  await expect(flex).toHaveCSS('justify-content', 'center')
+  await expect(flex).toHaveCSS('align-items', 'center')
+  await expect(flex).toHaveCSS('gap', '16px')
+  await expect(page.getByTestId('flex-child')).toHaveCSS('order', '-1')
+  await expect(page.getByTestId('flex-child')).toHaveCSS('flex-grow', '1')
+  await expect(page.getByTestId('auto-margin')).toHaveCSS('margin-left', '180px')
+
+  await page.setViewportSize({ width: 1000, height: 800 })
+  await expect(spacing).toHaveCSS('padding-top', '24px')
+  await expect(flex).toHaveCSS('flex-direction', 'row')
+  await expect(page.getByTestId('flex-child')).toHaveCSS('order', '13')
+  await expect(page.getByTestId('hidden')).toHaveCSS('display', 'none')
+  await expect(page.getByTestId('typography')).toHaveCSS('font-size', '24px')
+  await expect(page.getByTestId('typography')).toHaveCSS('text-transform', 'uppercase')
+
+  const theme = page.getByTestId('theme')
+  await expect(theme).toHaveCSS('color', 'rgb(60, 133, 39)')
+  await expect(theme).toHaveCSS('background-color', 'rgb(49, 50, 51)')
+  await expect(theme).toHaveCSS('border-top-width', '2px')
+  await expect(page.getByTestId('custom-theme')).toHaveCSS('color', 'rgb(18, 52, 86)')
+
+  const position = page.getByTestId('position')
+  await expect(position).toHaveCSS('position', 'relative')
+  await expect(position).toHaveCSS('width', '200px')
+  await expect(position).toHaveCSS('height', '100px')
+  await expect(position).toHaveCSS('opacity', '0.5')
+  await expect(position).toHaveCSS('cursor', 'pointer')
+  await expect(position).toHaveCSS('overflow', 'clip')
+  expect(await position.evaluate((element) => getComputedStyle(element).boxShadow)).toContain('6px 6px 0px')
+
+  const srOnly = page.getByTestId('sr-only')
+  await expect(srOnly).toHaveCSS('position', 'absolute')
+  await expect(srOnly).toHaveCSS('width', '1px')
+  await expect(page.getByTestId('pointer')).toHaveCSS('pointer-events', 'none')
+  await expect(page.getByTestId('pointer').getByRole('button')).toHaveCSS('pointer-events', 'auto')
+  await expect(page.getByTestId('plain')).toHaveCSS('display', 'inline-block')
+  await expect(page.getByTestId('plain')).toHaveCSS('margin-top', '7px')
+})
+
+test('maps logical spacing, borders, radius, and float in RTL', async ({ page }) => {
+  const rtl = page.getByTestId('rtl')
+  await expect(rtl).toHaveCSS('float', 'right')
+  await expect(rtl).toHaveCSS('margin-right', '16px')
+  await expect(rtl).toHaveCSS('padding-right', '12px')
+  await expect(rtl).toHaveCSS('border-right-width', '2px')
+  await expect(rtl).toHaveCSS('border-left-width', '0px')
+  await expect(rtl).toHaveCSS('border-top-right-radius', '8px')
+  await expect(rtl).toHaveCSS('border-bottom-right-radius', '8px')
+})
+
+test('applies display and float print variants', async ({ page }) => {
+  await expect(page.getByTestId('print-display')).toHaveCSS('display', 'block')
+  await expect(page.getByTestId('print-float')).toHaveCSS('float', 'left')
+  await page.emulateMedia({ media: 'print' })
+  await expect(page.getByTestId('print-display')).toHaveCSS('display', 'none')
+  await expect(page.getByTestId('print-float')).toHaveCSS('float', 'right')
+})

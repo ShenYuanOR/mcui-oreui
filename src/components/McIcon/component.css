@@ -1,0 +1,42 @@
+/* McIcon component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-icon {
+  --mc-icon-size: 24px;
+  align-items: center;
+  color: var(--mc-icon-color, currentColor);
+  display: inline-flex;
+  flex: none;
+  height: var(--mc-icon-size);
+  justify-content: center;
+  line-height: 0;
+  overflow: hidden;
+  vertical-align: middle;
+  width: var(--mc-icon-size);
+}
+.mc-icon svg {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+.mc-icon--missing {
+  outline: 1px dashed currentColor;
+  opacity: 0.45;
+}
+.mc-icon--pixel {
+  display: inline-block;
+  flex: none;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+.mc-icon--pixel-mask {
+  display: inline-block;
+  flex: none;
+  background-color: currentColor;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}

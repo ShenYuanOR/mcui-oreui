@@ -1,18 +1,14 @@
+<script setup>import { ref } from 'vue'; const enabled = ref(true)</script>
+
 # Switch 开关
 
-支持点击与拖动切换，带 Minecraft 弹跳动画。
-
-<script setup>
-import { ref } from 'vue'
-const on = ref(true)
-const off = ref(false)
-</script>
+## 开关与字段状态
 
 <div class="mc-demo">
-  <mc-switch v-model="on" />
-  <mc-switch v-model="off" />
-  <mc-switch :model-value="true" disabled />
-  <span style="color:#fff">on = {{ on }}</span>
+  <mc-switch v-model="enabled" label="启用音效" />
+  <mc-switch :model-value="true" label="只读开启" readonly />
+  <mc-switch label="校验错误" error-messages="必须开启" />
+  <mc-switch label="禁用状态" disabled />
 </div>
 
 ```vue
@@ -22,22 +18,15 @@ const enabled = ref(true)
 </script>
 
 <template>
-  <mc-switch v-model="enabled" @change="v => console.log(v)" />
+  <div class="mc-demo">
+    <mc-switch v-model="enabled" label="启用音效" />
+    <mc-switch :model-value="true" label="只读开启" readonly />
+    <mc-switch label="校验错误" error-messages="必须开启" />
+    <mc-switch label="禁用状态" disabled />
+  </div>
 </template>
 ```
 
-## Props
+Switch 基于原生 checkbox 并声明 `role="switch"`，支持键盘和表单语义。可见层恢复 Spectrollay Ore UI 的双色像素轨道、开/关图标、32px 凸起手柄，以及 hover、active、focus-visible、disabled、readonly 和 error 状态；不依赖浏览器默认 checkbox 外观。
 
-| 名称 | 类型 | 默认 | 说明 |
-|---|---|---|---|
-| `modelValue` | `boolean` | `false` | 开关状态（v-model） |
-| `disabled` | `boolean` | `false` | 是否禁用 |
-
-## Events
-
-| 事件 | 参数 | 说明 |
-|---|---|---|
-| `update:modelValue` | `boolean` | v-model 更新 |
-| `change` | `boolean` | 状态变化（含 `click` 音效与弹跳动画） |
-
-支持鼠标/触摸拖动：水平拖动超过 10px 即按方向切换。
+Props：`modelValue`、`label`、`description`、`hint`、`disabled`、`readonly`、`required`、`rules`、`errorMessages`、`validateOn`、`id`、`name`、`color`。标准原生与 `aria-*` Attr 会到达内部 checkbox。

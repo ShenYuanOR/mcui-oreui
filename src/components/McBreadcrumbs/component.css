@@ -1,0 +1,29 @@
+/* McBreadcrumbs component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-breadcrumbs__list {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.mc-breadcrumbs__list.mc-breadcrumbs__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.mc-breadcrumbs__item {
+  align-items: center;
+  display: inline-flex;
+  gap: 8px;
+}
+.mc-breadcrumbs__item.mc-breadcrumbs__item {
+  margin: 0;
+}
+.mc-breadcrumbs a {
+  color: var(--mc-text, #fff);
+}
+.mc-breadcrumbs [aria-current='page'] {
+  font-weight: 700;
+}
+.mc-breadcrumbs [aria-disabled='true'] {
+  opacity: 0.5;
+}

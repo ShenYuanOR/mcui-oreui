@@ -1,0 +1,72 @@
+/* McScrollView component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-scroll-view {
+  display: flex;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.mc-scroll-view > .mc-scroll-view__container {
+  box-sizing: border-box;
+  display: block;
+  flex: 1 1 auto;
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding-inline: 22px;
+  scrollbar-width: none;
+  width: 100%;
+}
+.mc-scroll-view > .mc-scroll-view__container::-webkit-scrollbar {
+  display: none;
+  height: 0;
+  width: 0;
+}
+.mc-scroll-view__content {
+  box-sizing: border-box;
+  min-width: 0;
+  width: 100%;
+}
+.mc-scroll-view__scrollbar {
+  bottom: 0;
+  display: block;
+  inset-inline-end: 0;
+  overflow: visible;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  width: 22px;
+}
+.mc-scroll-view__track {
+  background: var(--mc-surface-light, #58585a);
+  bottom: 8px;
+  inset-inline-end: 8px;
+  overflow: visible;
+  position: absolute;
+  top: 8px;
+  width: 6px;
+}
+.mc-scroll-view__thumb {
+  background: var(--mc-surface-bright, #e6e8eb);
+  border: 2px solid var(--mc-shadow, #000);
+  box-shadow:
+    inset 0 -4px var(--mc-surface-light, #58585a),
+    inset 0 -7px #f9fafa,
+    inset 3px 3px #f9fafa,
+    inset -3px 0 #f9fafa;
+  box-sizing: border-box;
+  cursor: grab;
+  display: block;
+  inset-inline-end: -3px;
+  min-height: 24px;
+  pointer-events: auto;
+  position: absolute;
+  touch-action: none;
+  width: 12px;
+}
+.mc-scroll-view__thumb:active {
+  cursor: grabbing;
+}

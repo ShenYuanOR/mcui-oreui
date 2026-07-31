@@ -1,0 +1,116 @@
+/* McSelect component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-select__trigger {
+  appearance: none;
+  border: 2px solid var(--mc-border, #1e1e1f);
+  border-radius: 0;
+  box-sizing: border-box;
+  font: 700 15px/1.35 var(--mc-font-body, sans-serif);
+  height: var(--mc-control-height, 40px);
+  min-height: var(--mc-control-height, 40px);
+  width: 100%;
+}
+.mc-select__trigger:focus-visible {
+  border-color: var(--mc-focus, #fff);
+  outline: 2px solid var(--mc-primary-tint, #6cc349);
+  outline-offset: 1px;
+}
+.mc-select {
+  position: relative;
+  width: 100%;
+}
+.mc-select__trigger {
+  align-items: center;
+  background: var(--mc-secondary, #d0d1d4);
+  box-shadow: var(--mc-shadow-raised);
+  color: var(--mc-on-secondary, #1e1e1f);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 10px 14px;
+  text-align: left;
+}
+.mc-select__trigger:hover:not(:disabled) {
+  background: var(--mc-secondary-hover, #b1b2b5);
+  box-shadow:
+    inset 0 -4px #58585a,
+    inset 3px 3px var(--mc-specular-hover),
+    inset -3px -7px var(--mc-specular-hover-low);
+}
+.mc-select__trigger:active:not(:disabled),
+.mc-select__trigger[aria-expanded='true'] {
+  background: var(--mc-secondary-active, #b1b2b5);
+  box-shadow:
+    inset 3px 3px var(--mc-specular-hover),
+    inset -3px -3px var(--mc-specular-hover-low);
+  padding-bottom: 10px;
+  padding-top: 12px;
+}
+.mc-select__trigger:disabled {
+  background: var(--mc-disabled, #d0d1d4);
+  border-color: var(--mc-disabled-border, #8c8d90);
+  box-shadow: inset 0 -4px var(--mc-disabled-shadow, #b1b2b5);
+  color: var(--mc-disabled-text, #48494a);
+  cursor: not-allowed;
+}
+.mc-select__chevron {
+  font-size: 20px;
+  line-height: 1;
+}
+.mc-select__placeholder {
+  color: var(--mc-text-muted, #b1b2b5);
+}
+.mc-select__list {
+  background: var(--mc-surface-light, #58585a);
+  border: 2px solid var(--mc-border, #1e1e1f);
+  box-shadow:
+    inset 2px 2px var(--mc-surface-hover, #8c8d90),
+    inset -2px -2px var(--mc-surface-hover, #8c8d90),
+    4px 4px var(--mc-shadow, #000);
+  box-sizing: border-box;
+  left: 0;
+  list-style: none;
+  margin: 4px 0 0;
+  max-height: 260px;
+  overflow: auto;
+  padding: 2px;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  z-index: 60;
+}
+.mc-select__option {
+  box-shadow:
+    inset 0 1px var(--mc-surface-hover, #8c8d90),
+    inset 0 -1px var(--mc-surface-hover, #8c8d90);
+  color: var(--mc-text, #fff);
+  cursor: pointer;
+  min-height: 40px;
+  padding: 10px;
+}
+.mc-select__option--active {
+  background: var(--mc-surface-hover, #8c8d90);
+  outline: 2px solid var(--mc-focus, #fff);
+  outline-offset: -2px;
+}
+.mc-select__option--selected {
+  background: var(--mc-primary, #3c8527);
+}
+.mc-select__option[aria-disabled='true'] {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+.mc-select--disabled {
+  opacity: 0.55;
+}
+.mc-select__list {
+  left: auto;
+  margin: 0;
+  min-width: 100%;
+  position: static;
+  top: auto;
+  width: 100%;
+}
+.mc-select__empty {
+  color: var(--mc-text-muted, #b1b2b5);
+  padding: 9px 10px;
+}

@@ -1,36 +1,50 @@
-import { resolve } from 'node:path';
-import { defineConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
-import dts from 'vite-plugin-dts';
+import { existsSync, readdirSync } from 'node:fs'
+import { resolve } from 'node:path'
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import dts from 'vite-plugin-dts'
+import { libInjectCss } from 'vite-plugin-lib-inject-css'
+import publicEntries from './scripts/public-entries.json'
+
+const componentEntries = Object.fromEntries(
+  readdirSync(resolve(__dirname, 'src/components'), { withFileTypes: true })
+    .filter((entry) => entry.isDirectory() && /^Mc[A-Z]/.test(entry.name))
+    .filter((entry) => existsSync(resolve(__dirname, 'src/components', entry.name, 'index.ts')))
+    .map((entry) => [`components/${entry.name}`, resolve(__dirname, 'src/components', entry.name, 'index.ts')]),
+)
+
+const composableEntries = Object.fromEntries(
+  publicEntries.composables.map((name) => [`composables/${name}`, resolve(__dirname, 'src/composables', `${name}.ts`)]),
+)
 
 export default defineConfig({
-  plugins: [
-    vue({
-      template: {
-        compilerOptions: {
-          // McUI 原 CSS 大量使用自定义元素选择器，这些标签按原生元素处理以零偏差复用样式
-          isCustomElement: (tag: string) =>
-            tag.startsWith('custom-') ||
-            ['text-field', 'link-block', 'scroll-view', 'scroll-container',
-              'display-body', 'dispaly-area'].includes(tag),
-        },
-      },
-    }),
-    dts({ include: ['src'], rollupTypes: true }),
-  ],
+  plugins: [vue(), libInjectCss(), dts({ include: ['src'], rollupTypes: false })],
   build: {
     lib: {
-      entry: resolve(__dirname, 'src/index.ts'),
-      name: 'McUIVue',
-      fileName: 'mcui-oreui',
+      entry: {
+        index: resolve(__dirname, 'src/index.ts'),
+        ...componentEntries,
+        ...composableEntries,
+        ...Object.fromEntries(
+          publicEntries.icons.map((name) => [`icons/${name}`, resolve(__dirname, 'src/icons', `${name}.ts`)]),
+        ),
+        ...Object.fromEntries(
+          publicEntries.sounds.map((name) => [`sounds/${name}`, resolve(__dirname, 'src/sounds', `${name}.ts`)]),
+        ),
+      },
+      formats: ['es'],
     },
+    cssCodeSplit: true,
+    sourcemap: true,
     rollupOptions: {
       external: ['vue'],
       output: {
-        globals: { vue: 'Vue' },
-        assetFileNames: (info: { name?: string; }) =>
-          info.name === 'style.css' ? 'mcui-oreui.css' : 'assets/[name][extname]',
+        entryFileNames: '[name].js',
+        chunkFileNames: 'chunks/[name]-[hash].js',
+        hoistTransitiveImports: false,
+        assetFileNames: (info: { name?: string }) =>
+          info.name === 'style.css' ? 'styles/components.bundle.css' : 'assets/[name]-[hash][extname]',
       },
     },
   },
-});
+})

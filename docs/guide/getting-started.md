@@ -1,132 +1,55 @@
 # 快速开始
 
+本页只介绍 mcui-oreui 的安装、注册和基础使用。主题、默认值、语言、断点、图标、音效及可选样式请统一查看[配置选项](./configuration)。
+
 ## 安装
+
+mcui-oreui 2.0 需要 Vue `^3.5.0`：
 
 ```bash
 npm install mcui-oreui
 ```
 
-需要 Vue `^3.3`（peerDependency）。
+## 注册组件库
 
-## 全量注册（插件方式）
+在消费应用的客户端入口（通常是 `src/main.ts`）创建并安装一次插件：
 
 ```ts
+// src/main.ts
 import { createApp } from 'vue'
+import { createMcUI } from 'mcui-oreui'
 import App from './App.vue'
-import McUIVue from 'mcui-oreui'
-import 'mcui-oreui/style.css'
 
-createApp(App).use(McUIVue).mount('#app')
+createApp(App).use(createMcUI()).mount('#app')
 ```
 
-**导入一次，全局可用** —— `.use(McUIVue)` 后全部组件已按 `mc-` 标签全局注册，
-此后任意组件（组合式或选项式）的 `<template>` 里直接写 `<mc-button>`、`<mc-switch v-model>` 等，
-**无需再单独 import**。
+`createMcUI()` 会注册全部公共组件，并自动加载组件必要样式；基础使用不需要额外导入 `components.css`。插件只在传给 `app.use()` 后生效，不会自动读取项目中的配置文件。
 
-> **ESM（Vite / 现代构建，绝大多数场景）**：`import McUIVue from 'mcui-oreui'` 直接拿到插件，默认导出即插件对象。
-> **CommonJS（`require`）**：因库同时提供具名与默认导出，需写 `const McUIVue = require('mcui-oreui').default`。现代 Vue 项目走 ESM 一般无需关心此点。
+## 使用第一个组件
 
-## 按需引入
+在根组件中使用 `<mc-app>` 包裹内容，让主题变量与页面方向应用到组件树：
 
 ```vue
 <script setup lang="ts">
-import { McButton, McCheckbox } from 'mcui-oreui'
-import 'mcui-oreui/style.css'
+import { ref } from 'vue'
+
+const worldName = ref('新的世界')
 </script>
 
 <template>
-  <mc-button icon="mc-enter" variant="primary" @click="onStart">开始游戏</mc-button>
+  <mc-app>
+    <mc-panel title="创建世界">
+      <mc-text-field v-model="worldName" label="世界名称" />
+      <mc-button variant="primary">开始游戏</mc-button>
+    </mc-panel>
+  </mc-app>
 </template>
 ```
 
-> 样式文件 `mcui-oreui/style.css` 必须引入一次（含 Minecraft 字体、配色与全部组件样式）。
+组件使用 Vue 常规的 Props、插槽、事件与 `v-model`。每个组件的完整状态和 API 示例可在[组件总览](../components/overview)中查找。
 
-## 组合式 / 选项式 API 都支持
+## 下一步
 
-组件库导出的是标准 Vue 组件，`props` / 事件 / `v-model` / 插槽均为标准接口，
-**与你使用的 API 风格无关**（组件内部用 `<script setup>` 实现，对使用者透明，两种写法均可）。
-
-**组合式 API（`<script setup>`）：**
-
-```vue
-<script setup lang="ts">
-import { McButton, showPop } from 'mcui-oreui'
-</script>
-
-<template>
-  <mc-button icon="mc-save" variant="primary" @click="showPop('已保存', 2000, 'success')">保存</mc-button>
-</template>
-```
-
-**选项式 API（Options API）：**
-
-```vue
-<script lang="ts">
-import { McSwitch, showPop } from 'mcui-oreui'
-
-export default {
-  components: { McSwitch },
-  data: () => ({ enabled: false }),
-  methods: {
-    save() {
-      showPop('已保存', 2000, 'success')
-    },
-  },
-}
-</script>
-
-<template>
-  <mc-switch v-model="enabled" />
-  <mc-button icon="mc-save" variant="primary" @click="save">保存</mc-button>
-</template>
-```
-
-## 图标
-
-内置图标统一通过 `<mc-icon>` 或组件 `icon` 属性使用：
-
-```vue
-<template>
-  <mc-icon>mc-add</mc-icon>
-  <mc-icon name="mc-key-enter" />
-  <mc-icon name="mc-x-creative" />
-  <mc-button icon="mc-save" variant="primary">保存</mc-button>
-</template>
-```
-
-普通图标命名为 `mc-xxx` 且支持改色；按键映射图标命名为 `mc-key-xxx`，彩色图标命名为 `mc-x-xxx`，两者保持原色。
-
-> `showPop` / `playSound` / `playSoundType` / `setSoundEnabled` / `usePop` / `useSound`
-> 都是**纯函数**，不依赖 `setup` 上下文（无 `onMounted` / `inject` 等），
-> 因此在选项式的 `methods`、乃至普通 `.ts` / `.js` 文件中都能直接调用。
-> 若已全量注册插件，则两种风格的 `<template>` 中都可直接使用组件而无需 import。
-
-## 提示与遮罩
-
-`Pop` 提示与全局 `LoadingMask` 通过组合式函数驱动，需在应用根部放置宿主组件：
-
-```vue
-<script setup lang="ts">
-import { McPopHost, showPop } from 'mcui-oreui'
-</script>
-
-<template>
-  <mc-pop-host />
-  <mc-button @click="showPop('已保存', 2000, 'success')">保存</mc-button>
-</template>
-```
-
-## 关于自定义元素
-
-组件库在 **构建时** 已用正确的编译选项处理了原始样式中的自定义元素标签
-（如 `<custom-dropdown>`、`<link-block>`）。你在自己的项目里**无需任何额外配置**，
-直接使用编译产物即可。
-
-## 音效
-
-按键音效随组件自动播放（移植自原项目 7 个 ogg）。可全局开关：
-
-```ts
-import { setSoundEnabled } from 'mcui-oreui'
-setSoundEnabled(false) // 静音
-```
+- [配置选项](./configuration)：Theme、Defaults、Locale、Display、Icons、Sounds、按需入口和可选样式。
+- [组件总览](../components/overview)：浏览全部组件与可复制示例。
+- [2.0 迁移指南](./migration-2)：从 1.x 升级时需要处理的 API 变化。

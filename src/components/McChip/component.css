@@ -1,0 +1,34 @@
+/* McChip component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-chip {
+  align-items: center;
+  background: var(--mc-chip-color, var(--mc-surface-light, #58585a));
+  border: 2px solid var(--mc-border, #1e1e1f);
+  color: var(--mc-text, #fff);
+  display: inline-flex;
+  min-height: 30px;
+  padding: 0 8px;
+}
+.mc-chip--selected {
+  --mc-chip-color: var(--mc-primary, #3c8527);
+}
+.mc-chip--disabled {
+  opacity: 0.5;
+}
+.mc-chip__button,
+.mc-chip__close {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  padding: 4px;
+}
+.mc-chip {
+  box-shadow:
+    inset 2px 2px rgba(255, 255, 255, 0.15),
+    inset -2px -2px rgba(255, 255, 255, 0.1);
+}
+.mc-chip--selected {
+  box-shadow:
+    inset 0 -3px var(--mc-primary-active, #1d4d13),
+    inset 2px 2px rgba(255, 255, 255, 0.2);
+}

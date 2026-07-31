@@ -1,0 +1,765 @@
+{
+  "generatedBy": "scripts/generate-utilities.mjs",
+  "families": [
+    "Text / Alignment",
+    "Text / Decoration",
+    "Text / Wrapping",
+    "Text / Truncation",
+    "Text / Transform",
+    "Typography / Weight",
+    "Typography",
+    "Typography / Scale"
+  ],
+  "classes": [
+    {
+      "name": "text-left",
+      "family": "Text / Alignment",
+      "declaration": "text-align: left"
+    },
+    {
+      "name": "text-sm-left",
+      "family": "Text / Alignment",
+      "declaration": "text-align: left"
+    },
+    {
+      "name": "text-md-left",
+      "family": "Text / Alignment",
+      "declaration": "text-align: left"
+    },
+    {
+      "name": "text-lg-left",
+      "family": "Text / Alignment",
+      "declaration": "text-align: left"
+    },
+    {
+      "name": "text-xl-left",
+      "family": "Text / Alignment",
+      "declaration": "text-align: left"
+    },
+    {
+      "name": "text-xxl-left",
+      "family": "Text / Alignment",
+      "declaration": "text-align: left"
+    },
+    {
+      "name": "text-right",
+      "family": "Text / Alignment",
+      "declaration": "text-align: right"
+    },
+    {
+      "name": "text-sm-right",
+      "family": "Text / Alignment",
+      "declaration": "text-align: right"
+    },
+    {
+      "name": "text-md-right",
+      "family": "Text / Alignment",
+      "declaration": "text-align: right"
+    },
+    {
+      "name": "text-lg-right",
+      "family": "Text / Alignment",
+      "declaration": "text-align: right"
+    },
+    {
+      "name": "text-xl-right",
+      "family": "Text / Alignment",
+      "declaration": "text-align: right"
+    },
+    {
+      "name": "text-xxl-right",
+      "family": "Text / Alignment",
+      "declaration": "text-align: right"
+    },
+    {
+      "name": "text-center",
+      "family": "Text / Alignment",
+      "declaration": "text-align: center"
+    },
+    {
+      "name": "text-sm-center",
+      "family": "Text / Alignment",
+      "declaration": "text-align: center"
+    },
+    {
+      "name": "text-md-center",
+      "family": "Text / Alignment",
+      "declaration": "text-align: center"
+    },
+    {
+      "name": "text-lg-center",
+      "family": "Text / Alignment",
+      "declaration": "text-align: center"
+    },
+    {
+      "name": "text-xl-center",
+      "family": "Text / Alignment",
+      "declaration": "text-align: center"
+    },
+    {
+      "name": "text-xxl-center",
+      "family": "Text / Alignment",
+      "declaration": "text-align: center"
+    },
+    {
+      "name": "text-justify",
+      "family": "Text / Alignment",
+      "declaration": "text-align: justify"
+    },
+    {
+      "name": "text-sm-justify",
+      "family": "Text / Alignment",
+      "declaration": "text-align: justify"
+    },
+    {
+      "name": "text-md-justify",
+      "family": "Text / Alignment",
+      "declaration": "text-align: justify"
+    },
+    {
+      "name": "text-lg-justify",
+      "family": "Text / Alignment",
+      "declaration": "text-align: justify"
+    },
+    {
+      "name": "text-xl-justify",
+      "family": "Text / Alignment",
+      "declaration": "text-align: justify"
+    },
+    {
+      "name": "text-xxl-justify",
+      "family": "Text / Alignment",
+      "declaration": "text-align: justify"
+    },
+    {
+      "name": "text-start",
+      "family": "Text / Alignment",
+      "declaration": "text-align: start"
+    },
+    {
+      "name": "text-sm-start",
+      "family": "Text / Alignment",
+      "declaration": "text-align: start"
+    },
+    {
+      "name": "text-md-start",
+      "family": "Text / Alignment",
+      "declaration": "text-align: start"
+    },
+    {
+      "name": "text-lg-start",
+      "family": "Text / Alignment",
+      "declaration": "text-align: start"
+    },
+    {
+      "name": "text-xl-start",
+      "family": "Text / Alignment",
+      "declaration": "text-align: start"
+    },
+    {
+      "name": "text-xxl-start",
+      "family": "Text / Alignment",
+      "declaration": "text-align: start"
+    },
+    {
+      "name": "text-end",
+      "family": "Text / Alignment",
+      "declaration": "text-align: end"
+    },
+    {
+      "name": "text-sm-end",
+      "family": "Text / Alignment",
+      "declaration": "text-align: end"
+    },
+    {
+      "name": "text-md-end",
+      "family": "Text / Alignment",
+      "declaration": "text-align: end"
+    },
+    {
+      "name": "text-lg-end",
+      "family": "Text / Alignment",
+      "declaration": "text-align: end"
+    },
+    {
+      "name": "text-xl-end",
+      "family": "Text / Alignment",
+      "declaration": "text-align: end"
+    },
+    {
+      "name": "text-xxl-end",
+      "family": "Text / Alignment",
+      "declaration": "text-align: end"
+    },
+    {
+      "name": "text-decoration-line-through",
+      "family": "Text / Decoration",
+      "declaration": "text-decoration: line-through"
+    },
+    {
+      "name": "text-decoration-none",
+      "family": "Text / Decoration",
+      "declaration": "text-decoration: none"
+    },
+    {
+      "name": "text-decoration-overline",
+      "family": "Text / Decoration",
+      "declaration": "text-decoration: overline"
+    },
+    {
+      "name": "text-decoration-underline",
+      "family": "Text / Decoration",
+      "declaration": "text-decoration: underline"
+    },
+    {
+      "name": "text-wrap",
+      "family": "Text / Wrapping",
+      "declaration": "white-space: normal"
+    },
+    {
+      "name": "text-no-wrap",
+      "family": "Text / Wrapping",
+      "declaration": "white-space: nowrap"
+    },
+    {
+      "name": "text-pre",
+      "family": "Text / Wrapping",
+      "declaration": "white-space: pre"
+    },
+    {
+      "name": "text-pre-line",
+      "family": "Text / Wrapping",
+      "declaration": "white-space: pre-line"
+    },
+    {
+      "name": "text-pre-wrap",
+      "family": "Text / Wrapping",
+      "declaration": "white-space: pre-wrap"
+    },
+    {
+      "name": "text-break",
+      "family": "Text / Wrapping",
+      "declaration": "overflow-wrap: break-word; word-break: break-word"
+    },
+    {
+      "name": "text-truncate",
+      "family": "Text / Truncation",
+      "declaration": "white-space: nowrap; overflow: hidden; text-overflow: ellipsis"
+    },
+    {
+      "name": "text-none",
+      "family": "Text / Transform",
+      "declaration": "text-transform: none"
+    },
+    {
+      "name": "text-capitalize",
+      "family": "Text / Transform",
+      "declaration": "text-transform: capitalize"
+    },
+    {
+      "name": "text-lowercase",
+      "family": "Text / Transform",
+      "declaration": "text-transform: lowercase"
+    },
+    {
+      "name": "text-uppercase",
+      "family": "Text / Transform",
+      "declaration": "text-transform: uppercase"
+    },
+    {
+      "name": "font-weight-thin",
+      "family": "Typography / Weight",
+      "declaration": "font-weight: 100"
+    },
+    {
+      "name": "font-weight-light",
+      "family": "Typography / Weight",
+      "declaration": "font-weight: 300"
+    },
+    {
+      "name": "font-weight-regular",
+      "family": "Typography / Weight",
+      "declaration": "font-weight: 400"
+    },
+    {
+      "name": "font-weight-medium",
+      "family": "Typography / Weight",
+      "declaration": "font-weight: 500"
+    },
+    {
+      "name": "font-weight-semibold",
+      "family": "Typography / Weight",
+      "declaration": "font-weight: 600"
+    },
+    {
+      "name": "font-weight-bold",
+      "family": "Typography / Weight",
+      "declaration": "font-weight: 700"
+    },
+    {
+      "name": "font-weight-black",
+      "family": "Typography / Weight",
+      "declaration": "font-weight: 900"
+    },
+    {
+      "name": "font-italic",
+      "family": "Typography",
+      "declaration": "font-style: italic"
+    },
+    {
+      "name": "text-mono",
+      "family": "Typography",
+      "declaration": "font-family: monospace"
+    },
+    {
+      "name": "text-display-large",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 3.5625rem; font-weight: 400; line-height: 1.1228070175; letter-spacing: -.0043859649em; font-family: var(--mc-font-title, sans-serif)"
+    },
+    {
+      "name": "text-sm-display-large",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 3.5625rem; font-weight: 400; line-height: 1.1228070175; letter-spacing: -.0043859649em; font-family: var(--mc-font-title, sans-serif)"
+    },
+    {
+      "name": "text-md-display-large",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 3.5625rem; font-weight: 400; line-height: 1.1228070175; letter-spacing: -.0043859649em; font-family: var(--mc-font-title, sans-serif)"
+    },
+    {
+      "name": "text-lg-display-large",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 3.5625rem; font-weight: 400; line-height: 1.1228070175; letter-spacing: -.0043859649em; font-family: var(--mc-font-title, sans-serif)"
+    },
+    {
+      "name": "text-xl-display-large",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 3.5625rem; font-weight: 400; line-height: 1.1228070175; letter-spacing: -.0043859649em; font-family: var(--mc-font-title, sans-serif)"
+    },
+    {
+      "name": "text-xxl-display-large",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 3.5625rem; font-weight: 400; line-height: 1.1228070175; letter-spacing: -.0043859649em; font-family: var(--mc-font-title, sans-serif)"
+    },
+    {
+      "name": "text-display-medium",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 2.8125rem; font-weight: 400; line-height: 1.1555555556; letter-spacing: normal; font-family: var(--mc-font-title, sans-serif)"
+    },
+    {
+      "name": "text-sm-display-medium",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 2.8125rem; font-weight: 400; line-height: 1.1555555556; letter-spacing: normal; font-family: var(--mc-font-title, sans-serif)"
+    },
+    {
+      "name": "text-md-display-medium",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 2.8125rem; font-weight: 400; line-height: 1.1555555556; letter-spacing: normal; font-family: var(--mc-font-title, sans-serif)"
+    },
+    {
+      "name": "text-lg-display-medium",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 2.8125rem; font-weight: 400; line-height: 1.1555555556; letter-spacing: normal; font-family: var(--mc-font-title, sans-serif)"
+    },
+    {
+      "name": "text-xl-display-medium",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 2.8125rem; font-weight: 400; line-height: 1.1555555556; letter-spacing: normal; font-family: var(--mc-font-title, sans-serif)"
+    },
+    {
+      "name": "text-xxl-display-medium",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 2.8125rem; font-weight: 400; line-height: 1.1555555556; letter-spacing: normal; font-family: var(--mc-font-title, sans-serif)"
+    },
+    {
+      "name": "text-display-small",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 2.25rem; font-weight: 400; line-height: 1.2222222222; letter-spacing: normal; font-family: var(--mc-font-title, sans-serif)"
+    },
+    {
+      "name": "text-sm-display-small",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 2.25rem; font-weight: 400; line-height: 1.2222222222; letter-spacing: normal; font-family: var(--mc-font-title, sans-serif)"
+    },
+    {
+      "name": "text-md-display-small",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 2.25rem; font-weight: 400; line-height: 1.2222222222; letter-spacing: normal; font-family: var(--mc-font-title, sans-serif)"
+    },
+    {
+      "name": "text-lg-display-small",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 2.25rem; font-weight: 400; line-height: 1.2222222222; letter-spacing: normal; font-family: var(--mc-font-title, sans-serif)"
+    },
+    {
+      "name": "text-xl-display-small",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 2.25rem; font-weight: 400; line-height: 1.2222222222; letter-spacing: normal; font-family: var(--mc-font-title, sans-serif)"
+    },
+    {
+      "name": "text-xxl-display-small",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 2.25rem; font-weight: 400; line-height: 1.2222222222; letter-spacing: normal; font-family: var(--mc-font-title, sans-serif)"
+    },
+    {
+      "name": "text-headline-large",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 2rem; font-weight: 400; line-height: 1.25; letter-spacing: normal; font-family: var(--mc-font-title, sans-serif)"
+    },
+    {
+      "name": "text-sm-headline-large",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 2rem; font-weight: 400; line-height: 1.25; letter-spacing: normal; font-family: var(--mc-font-title, sans-serif)"
+    },
+    {
+      "name": "text-md-headline-large",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 2rem; font-weight: 400; line-height: 1.25; letter-spacing: normal; font-family: var(--mc-font-title, sans-serif)"
+    },
+    {
+      "name": "text-lg-headline-large",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 2rem; font-weight: 400; line-height: 1.25; letter-spacing: normal; font-family: var(--mc-font-title, sans-serif)"
+    },
+    {
+      "name": "text-xl-headline-large",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 2rem; font-weight: 400; line-height: 1.25; letter-spacing: normal; font-family: var(--mc-font-title, sans-serif)"
+    },
+    {
+      "name": "text-xxl-headline-large",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 2rem; font-weight: 400; line-height: 1.25; letter-spacing: normal; font-family: var(--mc-font-title, sans-serif)"
+    },
+    {
+      "name": "text-headline-medium",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 1.75rem; font-weight: 400; line-height: 1.2857142857; letter-spacing: normal; font-family: var(--mc-font-title, sans-serif)"
+    },
+    {
+      "name": "text-sm-headline-medium",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 1.75rem; font-weight: 400; line-height: 1.2857142857; letter-spacing: normal; font-family: var(--mc-font-title, sans-serif)"
+    },
+    {
+      "name": "text-md-headline-medium",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 1.75rem; font-weight: 400; line-height: 1.2857142857; letter-spacing: normal; font-family: var(--mc-font-title, sans-serif)"
+    },
+    {
+      "name": "text-lg-headline-medium",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 1.75rem; font-weight: 400; line-height: 1.2857142857; letter-spacing: normal; font-family: var(--mc-font-title, sans-serif)"
+    },
+    {
+      "name": "text-xl-headline-medium",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 1.75rem; font-weight: 400; line-height: 1.2857142857; letter-spacing: normal; font-family: var(--mc-font-title, sans-serif)"
+    },
+    {
+      "name": "text-xxl-headline-medium",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 1.75rem; font-weight: 400; line-height: 1.2857142857; letter-spacing: normal; font-family: var(--mc-font-title, sans-serif)"
+    },
+    {
+      "name": "text-headline-small",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 1.5rem; font-weight: 400; line-height: 1.3333333333; letter-spacing: normal; font-family: var(--mc-font-title, sans-serif)"
+    },
+    {
+      "name": "text-sm-headline-small",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 1.5rem; font-weight: 400; line-height: 1.3333333333; letter-spacing: normal; font-family: var(--mc-font-title, sans-serif)"
+    },
+    {
+      "name": "text-md-headline-small",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 1.5rem; font-weight: 400; line-height: 1.3333333333; letter-spacing: normal; font-family: var(--mc-font-title, sans-serif)"
+    },
+    {
+      "name": "text-lg-headline-small",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 1.5rem; font-weight: 400; line-height: 1.3333333333; letter-spacing: normal; font-family: var(--mc-font-title, sans-serif)"
+    },
+    {
+      "name": "text-xl-headline-small",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 1.5rem; font-weight: 400; line-height: 1.3333333333; letter-spacing: normal; font-family: var(--mc-font-title, sans-serif)"
+    },
+    {
+      "name": "text-xxl-headline-small",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 1.5rem; font-weight: 400; line-height: 1.3333333333; letter-spacing: normal; font-family: var(--mc-font-title, sans-serif)"
+    },
+    {
+      "name": "text-title-large",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 1.375rem; font-weight: 400; line-height: 1.2727272727; letter-spacing: normal; font-family: var(--mc-font-ui, sans-serif)"
+    },
+    {
+      "name": "text-sm-title-large",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 1.375rem; font-weight: 400; line-height: 1.2727272727; letter-spacing: normal; font-family: var(--mc-font-ui, sans-serif)"
+    },
+    {
+      "name": "text-md-title-large",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 1.375rem; font-weight: 400; line-height: 1.2727272727; letter-spacing: normal; font-family: var(--mc-font-ui, sans-serif)"
+    },
+    {
+      "name": "text-lg-title-large",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 1.375rem; font-weight: 400; line-height: 1.2727272727; letter-spacing: normal; font-family: var(--mc-font-ui, sans-serif)"
+    },
+    {
+      "name": "text-xl-title-large",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 1.375rem; font-weight: 400; line-height: 1.2727272727; letter-spacing: normal; font-family: var(--mc-font-ui, sans-serif)"
+    },
+    {
+      "name": "text-xxl-title-large",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 1.375rem; font-weight: 400; line-height: 1.2727272727; letter-spacing: normal; font-family: var(--mc-font-ui, sans-serif)"
+    },
+    {
+      "name": "text-title-medium",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 1rem; font-weight: 500; line-height: 1.5; letter-spacing: .009375em; font-family: var(--mc-font-ui, sans-serif)"
+    },
+    {
+      "name": "text-sm-title-medium",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 1rem; font-weight: 500; line-height: 1.5; letter-spacing: .009375em; font-family: var(--mc-font-ui, sans-serif)"
+    },
+    {
+      "name": "text-md-title-medium",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 1rem; font-weight: 500; line-height: 1.5; letter-spacing: .009375em; font-family: var(--mc-font-ui, sans-serif)"
+    },
+    {
+      "name": "text-lg-title-medium",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 1rem; font-weight: 500; line-height: 1.5; letter-spacing: .009375em; font-family: var(--mc-font-ui, sans-serif)"
+    },
+    {
+      "name": "text-xl-title-medium",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 1rem; font-weight: 500; line-height: 1.5; letter-spacing: .009375em; font-family: var(--mc-font-ui, sans-serif)"
+    },
+    {
+      "name": "text-xxl-title-medium",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 1rem; font-weight: 500; line-height: 1.5; letter-spacing: .009375em; font-family: var(--mc-font-ui, sans-serif)"
+    },
+    {
+      "name": "text-title-small",
+      "family": "Typography / Scale",
+      "declaration": "font-size: .875rem; font-weight: 500; line-height: 1.4285714286; letter-spacing: .0071428571em; font-family: var(--mc-font-ui, sans-serif)"
+    },
+    {
+      "name": "text-sm-title-small",
+      "family": "Typography / Scale",
+      "declaration": "font-size: .875rem; font-weight: 500; line-height: 1.4285714286; letter-spacing: .0071428571em; font-family: var(--mc-font-ui, sans-serif)"
+    },
+    {
+      "name": "text-md-title-small",
+      "family": "Typography / Scale",
+      "declaration": "font-size: .875rem; font-weight: 500; line-height: 1.4285714286; letter-spacing: .0071428571em; font-family: var(--mc-font-ui, sans-serif)"
+    },
+    {
+      "name": "text-lg-title-small",
+      "family": "Typography / Scale",
+      "declaration": "font-size: .875rem; font-weight: 500; line-height: 1.4285714286; letter-spacing: .0071428571em; font-family: var(--mc-font-ui, sans-serif)"
+    },
+    {
+      "name": "text-xl-title-small",
+      "family": "Typography / Scale",
+      "declaration": "font-size: .875rem; font-weight: 500; line-height: 1.4285714286; letter-spacing: .0071428571em; font-family: var(--mc-font-ui, sans-serif)"
+    },
+    {
+      "name": "text-xxl-title-small",
+      "family": "Typography / Scale",
+      "declaration": "font-size: .875rem; font-weight: 500; line-height: 1.4285714286; letter-spacing: .0071428571em; font-family: var(--mc-font-ui, sans-serif)"
+    },
+    {
+      "name": "text-body-large",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 1rem; font-weight: 400; line-height: 1.5; letter-spacing: .03125em; font-family: var(--mc-font-body, sans-serif)"
+    },
+    {
+      "name": "text-sm-body-large",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 1rem; font-weight: 400; line-height: 1.5; letter-spacing: .03125em; font-family: var(--mc-font-body, sans-serif)"
+    },
+    {
+      "name": "text-md-body-large",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 1rem; font-weight: 400; line-height: 1.5; letter-spacing: .03125em; font-family: var(--mc-font-body, sans-serif)"
+    },
+    {
+      "name": "text-lg-body-large",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 1rem; font-weight: 400; line-height: 1.5; letter-spacing: .03125em; font-family: var(--mc-font-body, sans-serif)"
+    },
+    {
+      "name": "text-xl-body-large",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 1rem; font-weight: 400; line-height: 1.5; letter-spacing: .03125em; font-family: var(--mc-font-body, sans-serif)"
+    },
+    {
+      "name": "text-xxl-body-large",
+      "family": "Typography / Scale",
+      "declaration": "font-size: 1rem; font-weight: 400; line-height: 1.5; letter-spacing: .03125em; font-family: var(--mc-font-body, sans-serif)"
+    },
+    {
+      "name": "text-body-medium",
+      "family": "Typography / Scale",
+      "declaration": "font-size: .875rem; font-weight: 400; line-height: 1.4285714286; letter-spacing: .0178571429em; font-family: var(--mc-font-body, sans-serif)"
+    },
+    {
+      "name": "text-sm-body-medium",
+      "family": "Typography / Scale",
+      "declaration": "font-size: .875rem; font-weight: 400; line-height: 1.4285714286; letter-spacing: .0178571429em; font-family: var(--mc-font-body, sans-serif)"
+    },
+    {
+      "name": "text-md-body-medium",
+      "family": "Typography / Scale",
+      "declaration": "font-size: .875rem; font-weight: 400; line-height: 1.4285714286; letter-spacing: .0178571429em; font-family: var(--mc-font-body, sans-serif)"
+    },
+    {
+      "name": "text-lg-body-medium",
+      "family": "Typography / Scale",
+      "declaration": "font-size: .875rem; font-weight: 400; line-height: 1.4285714286; letter-spacing: .0178571429em; font-family: var(--mc-font-body, sans-serif)"
+    },
+    {
+      "name": "text-xl-body-medium",
+      "family": "Typography / Scale",
+      "declaration": "font-size: .875rem; font-weight: 400; line-height: 1.4285714286; letter-spacing: .0178571429em; font-family: var(--mc-font-body, sans-serif)"
+    },
+    {
+      "name": "text-xxl-body-medium",
+      "family": "Typography / Scale",
+      "declaration": "font-size: .875rem; font-weight: 400; line-height: 1.4285714286; letter-spacing: .0178571429em; font-family: var(--mc-font-body, sans-serif)"
+    },
+    {
+      "name": "text-body-small",
+      "family": "Typography / Scale",
+      "declaration": "font-size: .75rem; font-weight: 400; line-height: 1.3333333333; letter-spacing: .0333333333em; font-family: var(--mc-font-body, sans-serif)"
+    },
+    {
+      "name": "text-sm-body-small",
+      "family": "Typography / Scale",
+      "declaration": "font-size: .75rem; font-weight: 400; line-height: 1.3333333333; letter-spacing: .0333333333em; font-family: var(--mc-font-body, sans-serif)"
+    },
+    {
+      "name": "text-md-body-small",
+      "family": "Typography / Scale",
+      "declaration": "font-size: .75rem; font-weight: 400; line-height: 1.3333333333; letter-spacing: .0333333333em; font-family: var(--mc-font-body, sans-serif)"
+    },
+    {
+      "name": "text-lg-body-small",
+      "family": "Typography / Scale",
+      "declaration": "font-size: .75rem; font-weight: 400; line-height: 1.3333333333; letter-spacing: .0333333333em; font-family: var(--mc-font-body, sans-serif)"
+    },
+    {
+      "name": "text-xl-body-small",
+      "family": "Typography / Scale",
+      "declaration": "font-size: .75rem; font-weight: 400; line-height: 1.3333333333; letter-spacing: .0333333333em; font-family: var(--mc-font-body, sans-serif)"
+    },
+    {
+      "name": "text-xxl-body-small",
+      "family": "Typography / Scale",
+      "declaration": "font-size: .75rem; font-weight: 400; line-height: 1.3333333333; letter-spacing: .0333333333em; font-family: var(--mc-font-body, sans-serif)"
+    },
+    {
+      "name": "text-label-large",
+      "family": "Typography / Scale",
+      "declaration": "font-size: .875rem; font-weight: 500; line-height: 1.4285714286; letter-spacing: .0071428571em; font-family: var(--mc-font-ui, sans-serif)"
+    },
+    {
+      "name": "text-sm-label-large",
+      "family": "Typography / Scale",
+      "declaration": "font-size: .875rem; font-weight: 500; line-height: 1.4285714286; letter-spacing: .0071428571em; font-family: var(--mc-font-ui, sans-serif)"
+    },
+    {
+      "name": "text-md-label-large",
+      "family": "Typography / Scale",
+      "declaration": "font-size: .875rem; font-weight: 500; line-height: 1.4285714286; letter-spacing: .0071428571em; font-family: var(--mc-font-ui, sans-serif)"
+    },
+    {
+      "name": "text-lg-label-large",
+      "family": "Typography / Scale",
+      "declaration": "font-size: .875rem; font-weight: 500; line-height: 1.4285714286; letter-spacing: .0071428571em; font-family: var(--mc-font-ui, sans-serif)"
+    },
+    {
+      "name": "text-xl-label-large",
+      "family": "Typography / Scale",
+      "declaration": "font-size: .875rem; font-weight: 500; line-height: 1.4285714286; letter-spacing: .0071428571em; font-family: var(--mc-font-ui, sans-serif)"
+    },
+    {
+      "name": "text-xxl-label-large",
+      "family": "Typography / Scale",
+      "declaration": "font-size: .875rem; font-weight: 500; line-height: 1.4285714286; letter-spacing: .0071428571em; font-family: var(--mc-font-ui, sans-serif)"
+    },
+    {
+      "name": "text-label-medium",
+      "family": "Typography / Scale",
+      "declaration": "font-size: .75rem; font-weight: 500; line-height: 1.3333333333; letter-spacing: .0416666667em; font-family: var(--mc-font-ui, sans-serif)"
+    },
+    {
+      "name": "text-sm-label-medium",
+      "family": "Typography / Scale",
+      "declaration": "font-size: .75rem; font-weight: 500; line-height: 1.3333333333; letter-spacing: .0416666667em; font-family: var(--mc-font-ui, sans-serif)"
+    },
+    {
+      "name": "text-md-label-medium",
+      "family": "Typography / Scale",
+      "declaration": "font-size: .75rem; font-weight: 500; line-height: 1.3333333333; letter-spacing: .0416666667em; font-family: var(--mc-font-ui, sans-serif)"
+    },
+    {
+      "name": "text-lg-label-medium",
+      "family": "Typography / Scale",
+      "declaration": "font-size: .75rem; font-weight: 500; line-height: 1.3333333333; letter-spacing: .0416666667em; font-family: var(--mc-font-ui, sans-serif)"
+    },
+    {
+      "name": "text-xl-label-medium",
+      "family": "Typography / Scale",
+      "declaration": "font-size: .75rem; font-weight: 500; line-height: 1.3333333333; letter-spacing: .0416666667em; font-family: var(--mc-font-ui, sans-serif)"
+    },
+    {
+      "name": "text-xxl-label-medium",
+      "family": "Typography / Scale",
+      "declaration": "font-size: .75rem; font-weight: 500; line-height: 1.3333333333; letter-spacing: .0416666667em; font-family: var(--mc-font-ui, sans-serif)"
+    },
+    {
+      "name": "text-label-small",
+      "family": "Typography / Scale",
+      "declaration": "font-size: .6875rem; font-weight: 500; line-height: 1.4545454545; letter-spacing: .0454545455em; font-family: var(--mc-font-ui, sans-serif)"
+    },
+    {
+      "name": "text-sm-label-small",
+      "family": "Typography / Scale",
+      "declaration": "font-size: .6875rem; font-weight: 500; line-height: 1.4545454545; letter-spacing: .0454545455em; font-family: var(--mc-font-ui, sans-serif)"
+    },
+    {
+      "name": "text-md-label-small",
+      "family": "Typography / Scale",
+      "declaration": "font-size: .6875rem; font-weight: 500; line-height: 1.4545454545; letter-spacing: .0454545455em; font-family: var(--mc-font-ui, sans-serif)"
+    },
+    {
+      "name": "text-lg-label-small",
+      "family": "Typography / Scale",
+      "declaration": "font-size: .6875rem; font-weight: 500; line-height: 1.4545454545; letter-spacing: .0454545455em; font-family: var(--mc-font-ui, sans-serif)"
+    },
+    {
+      "name": "text-xl-label-small",
+      "family": "Typography / Scale",
+      "declaration": "font-size: .6875rem; font-weight: 500; line-height: 1.4545454545; letter-spacing: .0454545455em; font-family: var(--mc-font-ui, sans-serif)"
+    },
+    {
+      "name": "text-xxl-label-small",
+      "family": "Typography / Scale",
+      "declaration": "font-size: .6875rem; font-weight: 500; line-height: 1.4545454545; letter-spacing: .0454545455em; font-family: var(--mc-font-ui, sans-serif)"
+    }
+  ]
+}

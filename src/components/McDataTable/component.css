@@ -1,0 +1,43 @@
+/* McDataTable component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-data-table__cell--center {
+  text-align: center !important;
+}
+.mc-data-table__cell--end {
+  text-align: end !important;
+}
+.mc-data-table__select {
+  text-align: center !important;
+  width: 42px;
+}
+.mc-data-table__sort {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  gap: 6px;
+  padding: 0;
+}
+.mc-data-table__sort:focus-visible {
+  outline: 2px solid var(--mc-focus, #fff);
+}
+.mc-data-table__state {
+  color: var(--mc-text-muted, #b1b2b5);
+  text-align: center !important;
+}
+.mc-data-table__footer {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: space-between;
+  padding-block: 12px;
+}
+.mc-data-table__footer select {
+  background: var(--mc-surface, #313233);
+  border: 2px solid var(--mc-border, #1e1e1f);
+  color: var(--mc-text, #fff);
+  padding: 6px;
+}

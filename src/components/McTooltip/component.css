@@ -1,0 +1,74 @@
+/* McTooltip component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-tooltip {
+  display: inline-flex;
+  position: relative;
+  vertical-align: middle;
+}
+.mc-tooltip__trigger {
+  display: inline-flex;
+}
+.mc-tooltip__content {
+  background: #1f1f1f;
+  border: 2px solid #fff;
+  box-shadow: 3px 3px #000;
+  color: #fff;
+  font: 14px/1.25 var(--mc-font-ui, sans-serif);
+  max-width: 240px;
+  opacity: 0;
+  padding: 6px 8px;
+  pointer-events: none;
+  position: absolute;
+  transition: opacity 0.16s;
+  visibility: hidden;
+  width: max-content;
+  z-index: 30;
+}
+.mc-tooltip:hover .mc-tooltip__content,
+.mc-tooltip:focus-within .mc-tooltip__content {
+  opacity: 1;
+  visibility: visible;
+}
+.mc-tooltip--top .mc-tooltip__content {
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+.mc-tooltip--bottom .mc-tooltip__content {
+  left: 50%;
+  top: calc(100% + 8px);
+  transform: translateX(-50%);
+}
+.mc-tooltip--left .mc-tooltip__content {
+  right: calc(100% + 8px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+.mc-tooltip--right .mc-tooltip__content {
+  left: calc(100% + 8px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+.mc-tooltip--disabled .mc-tooltip__content {
+  display: none;
+}
+.mc-tooltip__content {
+  opacity: 1;
+  position: static;
+  transform: none;
+  visibility: visible;
+}
+.mc-tooltip-transition-enter-active,
+.mc-tooltip-transition-leave-active {
+  transition: opacity 0.12s ease;
+}
+.mc-tooltip-transition-enter-from,
+.mc-tooltip-transition-leave-to {
+  opacity: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .mc-tooltip-transition-enter-active,
+  .mc-tooltip-transition-leave-active {
+    animation: none !important;
+    transition: none !important;
+  }
+}

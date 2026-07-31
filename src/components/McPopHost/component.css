@@ -1,0 +1,40 @@
+/* McPopHost component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-pop-host {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  left: 50%;
+  pointer-events: none;
+  position: fixed;
+  top: 24px;
+  transform: translateX(-50%);
+  z-index: 5000;
+}
+.mc-pop-host__item {
+  background: var(--mc-surface, #313233);
+  border: 2px solid var(--mc-border, #1e1e1f);
+  box-shadow: 4px 4px #000;
+  color: #fff;
+  opacity: 0;
+  padding: 10px 14px;
+  transform: translateY(-8px);
+  transition:
+    opacity 0.15s,
+    transform 0.15s;
+}
+.mc-pop-host__item--show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.mc-pop-host__item--success {
+  background: var(--mc-success, #3c8527);
+}
+.mc-pop-host__item--error {
+  background: var(--mc-error, #c33636);
+}
+.mc-pop-host__item {
+  color: var(--mc-on-primary, #fff);
+}
+.mc-pop-host__item {
+  box-shadow: 4px 4px var(--mc-shadow, #000);
+}

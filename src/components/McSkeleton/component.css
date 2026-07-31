@@ -1,0 +1,21 @@
+/* McSkeleton component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-skeleton {
+  animation: mc-skeleton-pulse 1.25s ease-in-out infinite alternate;
+  background: var(--mc-surface-light, #58585a);
+}
+@keyframes mc-skeleton-pulse {
+  to {
+    opacity: 0.45;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mc-skeleton {
+    animation: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mc-skeleton {
+    animation: none !important;
+    transition: none !important;
+  }
+}
