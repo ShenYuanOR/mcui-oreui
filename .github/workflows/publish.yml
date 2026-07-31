@@ -103,6 +103,7 @@ jobs:
           PRE="${BASE%%-*}-dev.${{ github.run_number }}"
           echo "发布测试版 mcui-oreui@$PRE (tag: next)"
           npm version "$PRE" --no-git-tag-version
+          npm run generate
           npm publish --tag next --access public --provenance
         env:
           NODE_AUTH_TOKEN: ${{ secrets.MCUIACTION }}
