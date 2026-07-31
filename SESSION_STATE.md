@@ -14,6 +14,7 @@
 - 已移除针对 `.VPNavScreen`、`.VPSidebar`、`.VPDocAside`、`.VPNavBarMenuLink` 等不再存在的默认外壳覆盖，只保留真实复用的 VitePress 正文与搜索选择器；`.mc-demo/.ore-demo` 作用域契约不变，未全局引入 `src/styles/index.css` 或 `styles/base.css`。
 - 已新增导航标准化 Vitest（4 tests）及文档 Playwright（每浏览器 6 tests）；Chromium、Firefox、WebKit 均通过 Drawer 持久化/移动焦点、搜索、目录、首页、普通页、404、横向溢出、锚点 offset 与 axe，文档相关矩阵为 21 passed / 6 个既有 Chromium-only Utilities 用例按设计 skipped。
 - 最终验证通过：`format:check`、`lint`、`check:docs-examples`（51 pages）、`typecheck`、导航 Vitest、三浏览器文档 Playwright、`docs:build`（VitePress 客户端 + SSR）与 `git diff --check`；构建仅保留既有大 chunk 提示，无 SSR、链接、无障碍或水平溢出错误。
+- 私有 Gitea 备份已同步：文档主题改造提交 `c5d6dc9` 已推送到 `origin/gitea-backup`，并核验本地与远端完整 SHA 均为 `c5d6dc9fad42ffcdbfe70f3b6a05924c552dca97`；未触碰 GitHub、`main` 或 npm 发布。
 
 ## [已定义的 API/表结构]（文档主题架构权威快照）
 
@@ -25,7 +26,7 @@
 ## [未完成的任务列表]（文档主题架构权威快照）
 
 - 本轮实现与自动化验收无阻塞项；后续调整文档主题需保持三段响应式契约，并同步运行导航单测、`docs:build` 和 `docs-layout.spec.ts`。
-- 已获得仅提交并推送当前 `gitea-backup` 到私有 Gitea `origin/gitea-backup` 的明确授权；GitHub、`main` 与 npm publish 仍未获授权，不得操作。
+- 私有 Gitea `origin/gitea-backup` 已完成同步；GitHub、`main` 与 npm publish 仍未获授权，不得操作。
 
 ---
 
