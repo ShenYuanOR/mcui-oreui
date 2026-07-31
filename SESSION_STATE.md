@@ -9,7 +9,7 @@
 - 原 `docs/guide/infrastructure.md` 与 `docs/guide/useSound.md` 已删除，音效的内置资源、自定义 URL/adapter、`useSound()` 和 `mcui.services.sounds` 内容完整迁入配置页；侧边栏只保留“快速开始”和“配置选项”两个对应入口。
 - `design-tokens.md`、`development.md` 与 README 的相关链接和章节名称已同步，不再存在指向旧基础设施或独立音效页面的引用。
 - 本轮指南整理未修改组件实现、公共 API、类型、样式或打包行为；当前完整 2.0 工作区已按用户授权纳入私有 `gitea-backup` 备份提交，不涉及 npm publish。
-- 私有 Gitea 推送已尝试但被认证阻塞：HTTP/Git Credential Manager 中的现有凭据和同服务器旧 OAuth 条目均被拒绝，SSH 主机可达但当前机器未配置可用公钥；本地提交与工作区内容完整保留。
+- 私有 Gitea 备份已同步：完整 2.0 工作区提交 `09cbf04` 已推送到 `origin/gitea-backup`，并核验本地与远端 SHA 一致、领先/落后均为 0；未触碰 GitHub、`main` 或 npm 发布。
 - 最终验证通过：`npm run format:check`、`npm run lint`、`npm run check:docs-examples`（51 pages）、`npm run docs:build` 与相关 `git diff --check`；构建产物包含 `guide/getting-started.html` 和 `guide/configuration.html`，不再生成旧 `infrastructure.html` / `useSound.html`。
 
 ## [已定义的 API/表结构]（使用指南信息架构权威快照）
@@ -24,7 +24,7 @@
 - 本轮指南拆分和本地验收无阻塞项；后续新增插件配置必须写入“配置选项”，快速开始继续保持只含安装与基础使用。
 - 此前未提交的 2.0 重构、组件文档整改及本轮指南改动已合并为一次 `gitea-backup` 完整状态提交。
 - 已获得仅推送当前 `gitea-backup` 到私有 Gitea 的明确授权；远端名 `origin` 当前指向 Gitea。仍未获得 npm publish 或任何公开 GitHub 推送授权，不得推送会触发正式发布的 `main`。
-- 维护者需先在本机更新 `192.168.1.170:3000` 的 Gitea HTTP 凭据（建议使用 PAT）或向 Gitea 添加本机 SSH 公钥，然后重新执行 `git push origin gitea-backup`。
+- 私有 Gitea 的 `gitea-backup` 已完成同步；后续工作只需继续保持该备份分支按需更新。GitHub、`main` 与 npm publish 仍未获授权，不得操作。
 
 ---
 
