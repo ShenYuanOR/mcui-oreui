@@ -185,7 +185,7 @@ import { mcDefaultSounds } from 'mcui-oreui/sounds/default'
 | `npm run check:size`          | 消费端 tree-shaking、可选资产扫描、gzip 预算                     |
 | `npm run test:consumer`       | 包子路径、GlobalComponents、web-types 相关声明                   |
 | `npm run docs:build`          | VitePress 客户端和 SSR 文档构建                                  |
-| `npm run test:e2e`            | Dialog、Select、Tabs 等真实浏览器键盘行为                        |
+| `npm run test:e2e`            | 组件交互及文档 Drawer、搜索、目录、首页、404 和 axe 浏览器回归   |
 | `npm audit --omit=dev`        | 运行时依赖漏洞                                                   |
 | `npm run check:release`       | 全部检查、三浏览器 E2E、版本/CHANGELOG/pack 与运行时 audit       |
 
@@ -201,6 +201,19 @@ npm run docs:build
 ```
 
 修改组件目录、公共元数据或共置样式后运行 `npm run generate:components`；修改内置 SVG 后运行 `npm run generate:icons`；修改工具类配置后运行 `npm run generate:utilities`。提交所有生成产物；`npm run build` 会先执行 `check:generated`。
+
+### 文档主题架构
+
+主题入口继续扩展 VitePress 默认主题以保留 Markdown、代码块与本地搜索能力，但 `docs/.vitepress/theme/DocsLayout.vue` 覆盖默认 `Layout`，用 `McApp → McLayout → McAppbar / McDrawer / McMain` 构建页面外壳。相关职责如下：
+
+- `docs-navigation.ts` 是纯数据层，统一标准化 `themeConfig.sidebar`，并推导活动分组、面包屑与前后页；站内链接必须通过 `withBase()`，非 clean URL 构建还要保留 `.html` 后缀，确保 GitHub Project Pages 可直接打开。Appbar 中部不放重复的文档入口，右侧固定按“搜索、贡献者、GitHub”排列。
+- `DocsSidebarTree.vue` 只渲染标准化后的分组和链接。桌面 Drawer 的展开状态保存在 `localStorage`；移动端使用 MCUI temporary Drawer 自带的遮罩、滚动锁、焦点陷阱和 Esc 行为，路由变化后关闭。
+- `DocsOutline.vue` 消费 `page.headers` 的 H2/H3 数据，并用 `IntersectionObserver` 标记当前位置。`markdown.headers` 不得关闭，否则 SSR 页面数据不会包含目录；无 Observer 时链接仍必须可用。
+- `docs-theme.css` 负责文档外壳、正文、表格、代码块、搜索弹窗和响应式视觉。断点固定为 `<960px` 临时 Drawer、`960–1279px` 常驻左栏加正文顶部目录、`>=1280px` 左栏加右侧 sticky 目录。
+
+首页通过 `sidebar: false` 隐藏两侧栏；`layout: false` 页面只渲染 VitePress `Content`；404 由同一 Layout 根据 `page.isNotFound` 渲染。不要重新引入 `.VPNav*`、`.VPSidebar` 等默认外壳选择器，只有仍实际复用的 `VPNavBarSearch` / `VPLocalSearchBox` 可以保留针对性样式。
+
+文档站不得全局导入 `src/styles/index.css` 或 `styles/base.css`。组件 Demo 继续限制在 `.mc-demo` / `.ore-demo`，`oreui-base.scoped.css` 的隔离契约不变；修改主题后至少运行 `npm run docs:build` 和 `npx playwright test tests/e2e/docs-layout.spec.ts`。
 
 组件页采用“效果优先、源码紧随”的示例规范：
 

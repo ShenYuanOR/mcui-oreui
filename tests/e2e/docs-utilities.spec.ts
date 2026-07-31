@@ -83,10 +83,12 @@ test('loads a family-specific searchable class table instead of the full overvie
 test('documents breakpoints once and demonstrates their real viewport effect', async ({ page }) => {
   await page.setViewportSize({ width: 800, height: 720 })
   await page.goto(`${stylesBase}/breakpoints.html`)
+  await page.getByTestId('docs-menu-button').click()
   await expect(page.getByRole('link', { name: '分辨率 / Breakpoints', exact: true })).toHaveAttribute(
     'href',
     '/mcui-oreui/styles/breakpoints.html',
   )
+  await page.keyboard.press('Escape')
   await expect(page.locator('[data-breakpoint="sm"]')).toBeVisible()
   await expect(page.locator('[data-breakpoint="md"]')).toBeHidden()
 

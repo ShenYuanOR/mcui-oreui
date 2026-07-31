@@ -1,5 +1,34 @@
 # SESSION_STATE
 
+> 当前权威快照：2026-07-31（VitePress 文档站 MCUI 全沉浸重构完成且全矩阵通过）。本区块优先于后面的历史归档。
+
+## [当前进度]（文档主题架构权威快照）
+
+- 已使用自定义 `DocsLayout` 覆盖 VitePress 默认外壳，同时保留 Markdown、路由、本地搜索、Shiki、SSR 和静态构建；页面结构由 `McApp → McLayout → McAppbar / McDrawer / McMain` 构成。
+- 顶部 56px Appbar 已接入站点标题、2.0.0 版本、VitePress 本地搜索、贡献者和 GitHub 入口；搜索按钮、Ctrl/Cmd+K 与 `/` 快捷键均通过浏览器回归。
+- 顶部 Appbar 已按最新界面约定移除重复的“文档”和“设计 Token”入口；“贡献者”移到右侧 GitHub 之前，当前顺序为“搜索 → 贡献者 → GitHub”。
+- 左侧 300px Drawer 在桌面为可收起 persistent 模式并通过 SSR 安全的 `localStorage` 记忆状态；`<960px` 自动使用带遮罩、滚动锁、焦点陷阱与 Esc 的 temporary 模式，路由变化后关闭。侧栏直接标准化现有 `themeConfig.sidebar`，支持折叠分组、活动项和活动分组展开。
+- 新增纯数据导航层 `docs-navigation.ts`，统一推导顶部导航、侧栏、面包屑与前后页；站内链接经 `withBase()` 并在非 clean URL 模式补 `.html`，保留静态托管直达能力。
+- 普通页面使用原生窗口滚动，正文顶部渲染面包屑与窄屏折叠目录，底部渲染最后更新时间和前后页；`>=1280px` 显示右侧 sticky H2/H3 目录，`960–1279px` 和移动端使用正文顶部目录。目录来自 `page.headers`，活动标题由 `IntersectionObserver` 标记。
+- 首页已改为独立 OreUI 落地页并隐藏两侧栏；404 使用 McCard、McButton 与 McIcon；正文标题、链接、表格、代码块、提示块、搜索弹窗和滚动条已统一深色像素视觉，Shiki 改用 `github-dark-high-contrast`，axe 严重/致命违规为 0。
+- 已移除针对 `.VPNavScreen`、`.VPSidebar`、`.VPDocAside`、`.VPNavBarMenuLink` 等不再存在的默认外壳覆盖，只保留真实复用的 VitePress 正文与搜索选择器；`.mc-demo/.ore-demo` 作用域契约不变，未全局引入 `src/styles/index.css` 或 `styles/base.css`。
+- 已新增导航标准化 Vitest（4 tests）及文档 Playwright（每浏览器 6 tests）；Chromium、Firefox、WebKit 均通过 Drawer 持久化/移动焦点、搜索、目录、首页、普通页、404、横向溢出、锚点 offset 与 axe，文档相关矩阵为 21 passed / 6 个既有 Chromium-only Utilities 用例按设计 skipped。
+- 最终验证通过：`format:check`、`lint`、`check:docs-examples`（51 pages）、`typecheck`、导航 Vitest、三浏览器文档 Playwright、`docs:build`（VitePress 客户端 + SSR）与 `git diff --check`；构建仅保留既有大 chunk 提示，无 SSR、链接、无障碍或水平溢出错误。
+
+## [已定义的 API/表结构]（文档主题架构权威快照）
+
+- 文档内部接口：`normalizeSidebar()`、`normalizeNav()`、`createDocsNavigation()`、`normalizeDocsPath()`、`stripDocsBase()`；只供 `docs/.vitepress/theme` 和测试使用，不进入 npm 导出。
+- 响应式契约：`<960px` temporary Drawer；`960–1279px` persistent Drawer + 正文顶部目录；`>=1280px` persistent Drawer + 右侧 sticky 目录。桌面 Drawer 存储键为 `mcui-docs-drawer-open`。
+- 文档数据源仍为 `themeConfig.nav/sidebar/footer/lastUpdated/search` 与 `page.headers/frontmatter/isNotFound`；公共组件 API 和 npm exports 无变化。
+- 数据库表结构：无；项目是纯前端 Vue 组件库。
+
+## [未完成的任务列表]（文档主题架构权威快照）
+
+- 本轮实现与自动化验收无阻塞项；后续调整文档主题需保持三段响应式契约，并同步运行导航单测、`docs:build` 和 `docs-layout.spec.ts`。
+- 已获得仅提交并推送当前 `gitea-backup` 到私有 Gitea `origin/gitea-backup` 的明确授权；GitHub、`main` 与 npm publish 仍未获授权，不得操作。
+
+---
+
 > 当前权威快照：2026-07-31（使用指南收敛为“快速开始 / 配置选项”两页）。本区块优先于后面的历史归档。
 
 ## [当前进度]（使用指南信息架构权威快照）

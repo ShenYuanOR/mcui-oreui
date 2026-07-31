@@ -5,9 +5,15 @@ export default defineConfig({
   description: 'Minecraft 基岩版风格的 Vue 3 组件库（第三方复刻）',
   lang: 'zh-CN',
   head: [['meta', { name: 'color-scheme', content: 'only light' }]],
+  appearance: false,
+  scrollOffset: 76,
   // GitHub Pages（project pages）部署在 https://shenyuanol.github.io/mcui-oreui/
   base: '/mcui-oreui/',
   lastUpdated: true,
+  markdown: {
+    headers: { level: [2, 3] },
+    theme: 'github-dark-high-contrast',
+  },
   vite: {
     server: { port: 5175, strictPort: true },
   },
@@ -36,6 +42,7 @@ export default defineConfig({
     },
   },
   themeConfig: {
+    outline: { level: [2, 3], label: '本页目录' },
     search: {
       provider: 'local',
     },
@@ -46,11 +53,6 @@ export default defineConfig({
         timeStyle: 'short',
       },
     },
-    nav: [
-      { text: '文档', link: '/guide/getting-started' },
-      { text: '设计 Token', link: '/guide/design-tokens' },
-      { text: '贡献者', link: '/contributors' },
-    ],
     // 全站统一侧边栏（数组形式）：指南与组件同处一个导航空间，任意页面均完整可见
     sidebar: [
       {

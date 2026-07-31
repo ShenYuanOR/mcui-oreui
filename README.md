@@ -187,6 +187,8 @@ export const mcui = createMcUI({
 
 VitePress 文档按上述职责分组，侧边栏统一使用“中文 / English”组件名称；每个独立功能组件均有自己的页面与实时 Demo，只有 Grid、ExpansionPanels 等紧密协作的组件族保留在同一页面。
 
+文档站保留 VitePress 的 Markdown、SSR、静态构建、本地搜索和代码高亮内核，并用 MCUI 组件覆盖默认外壳：固定 Appbar、可持久化 Drawer、面包屑、响应式 H2/H3 目录、前后页、首页、404 与页脚都使用统一 OreUI 视觉。Appbar 不重复放置“文档 / 设计 Token”入口，右侧固定按“搜索、贡献者、GitHub”排列。`<960px` 使用临时抽屉，`960–1279px` 使用常驻侧栏和正文顶部目录，`>=1280px` 同时显示左侧栏与右侧 sticky 目录；组件 Demo 仍限制在 `.mc-demo` / `.ore-demo` 内，不会把库的页面级基础样式注入 VitePress。
+
 2.0 已删除 `McDropdown` 与 `McModal`：分别迁移到 `McSelect` 和 `McDialog`。所有受控显隐组件统一使用 `v-model`，不再提供 `open` / `update:open`。
 
 ## 表单与浮层
@@ -211,7 +213,7 @@ npm run test:e2e
 npm run check:release
 ```
 
-`npm run check` 包含格式、ESLint/Stylelint、生成文件漂移、组件文档 Demo/SFC 对应关系、类型、90/85 覆盖率、构建、消费端、文档和体积检查；`check:release` 还执行三浏览器 E2E、版本/CHANGELOG/npm pack 审计和运行时依赖审计。
+`npm run check` 包含格式、ESLint/Stylelint、生成文件漂移、组件文档 Demo/SFC 对应关系、类型、90/85 覆盖率、构建、消费端、文档和体积检查；`check:release` 还执行三浏览器 E2E（包括文档 Drawer、搜索、目录、首页、404、溢出与 axe 回归）、版本/CHANGELOG/npm pack 审计和运行时依赖审计。
 
 构建产物提供 `components/*`、`composables/*`、`icons/*`、`sounds/*` 与 `styles/*` 子路径。每个组件 JS 入口包含构建期生成的静态 CSS import；单组件入口只携带自身、真实 JS 依赖、Core 与确实使用的中性共享样式，不会包含无关兄弟组件 CSS、全量 SVG、音频、字体 data URI 或 Utilities。
 

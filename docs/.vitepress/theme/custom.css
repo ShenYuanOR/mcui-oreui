@@ -12,10 +12,7 @@
 
 html::-webkit-scrollbar,
 body::-webkit-scrollbar,
-.VPNavScreen::-webkit-scrollbar,
-.VPSidebar::-webkit-scrollbar,
-.VPDocAside::-webkit-scrollbar,
-.content-container::-webkit-scrollbar,
+.mc-docs-outline-aside::-webkit-scrollbar,
 .vp-doc div[class*='language-'] pre::-webkit-scrollbar {
   width: 12px;
   height: 12px;
@@ -23,10 +20,7 @@ body::-webkit-scrollbar,
 
 html::-webkit-scrollbar-track,
 body::-webkit-scrollbar-track,
-.VPNavScreen::-webkit-scrollbar-track,
-.VPSidebar::-webkit-scrollbar-track,
-.VPDocAside::-webkit-scrollbar-track,
-.content-container::-webkit-scrollbar-track,
+.mc-docs-outline-aside::-webkit-scrollbar-track,
 .vp-doc div[class*='language-'] pre::-webkit-scrollbar-track {
   background: #151617;
   border-left: 2px solid #2b2c2e;
@@ -34,10 +28,7 @@ body::-webkit-scrollbar-track,
 
 html::-webkit-scrollbar-thumb,
 body::-webkit-scrollbar-thumb,
-.VPNavScreen::-webkit-scrollbar-thumb,
-.VPSidebar::-webkit-scrollbar-thumb,
-.VPDocAside::-webkit-scrollbar-thumb,
-.content-container::-webkit-scrollbar-thumb,
+.mc-docs-outline-aside::-webkit-scrollbar-thumb,
 .vp-doc div[class*='language-'] pre::-webkit-scrollbar-thumb {
   background: #747577;
   border: 2px solid #151617;
@@ -49,20 +40,14 @@ body::-webkit-scrollbar-thumb,
 
 html::-webkit-scrollbar-thumb:hover,
 body::-webkit-scrollbar-thumb:hover,
-.VPNavScreen::-webkit-scrollbar-thumb:hover,
-.VPSidebar::-webkit-scrollbar-thumb:hover,
-.VPDocAside::-webkit-scrollbar-thumb:hover,
-.content-container::-webkit-scrollbar-thumb:hover,
+.mc-docs-outline-aside::-webkit-scrollbar-thumb:hover,
 .vp-doc div[class*='language-'] pre::-webkit-scrollbar-thumb:hover {
   background: #8b8c8e;
 }
 
 html::-webkit-scrollbar-corner,
 body::-webkit-scrollbar-corner,
-.VPNavScreen::-webkit-scrollbar-corner,
-.VPSidebar::-webkit-scrollbar-corner,
-.VPDocAside::-webkit-scrollbar-corner,
-.content-container::-webkit-scrollbar-corner,
+.mc-docs-outline-aside::-webkit-scrollbar-corner,
 .vp-doc div[class*='language-'] pre::-webkit-scrollbar-corner {
   background: #151617;
 }
@@ -387,13 +372,4 @@ body::-webkit-scrollbar-corner,
   font-size: 13px;
   min-width: 100px;
   text-align: center;
-}
-
-/* ===== 导航栏特定项颜色 ===== */
-.VPNavBarMenuLink[href*='/guide/design-tokens'] {
-  color: #6fb23f !important;
-}
-
-.VPNavBarMenuLink[href*='/contributors'] {
-  color: #f5a623 !important;
 }
