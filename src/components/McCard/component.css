@@ -6,7 +6,7 @@
   color: var(--mc-text, #fff);
   display: block;
   font: inherit;
-  padding: 16px;
+  padding: 0;
   text-align: left;
   text-decoration: none;
 }
@@ -25,16 +25,6 @@
 .mc-card--disabled {
   cursor: not-allowed;
   opacity: 0.5;
-}
-.mc-card__title {
-  font: 700 18px/1.2 var(--mc-font-title, sans-serif);
-  margin-bottom: 8px;
-}
-.mc-card__actions {
-  align-items: center;
-  display: flex;
-  gap: 8px;
-  margin-top: 14px;
 }
 .mc-card--interactive:focus-visible {
   outline-color: var(--mc-focus, #fff);

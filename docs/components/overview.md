@@ -80,13 +80,18 @@ const modes = [
 
 <template>
   <div class="mc-demo mc-demo--column" style="width:100%">
-    <mc-alert variant="success"><template #title>保存完成</template>世界数据已写入</mc-alert>
+    <mc-alert variant="success">
+      <template #title>保存完成</template>
+      世界数据已写入
+    </mc-alert>
     <mc-skeleton height="34" />
   </div>
 </template>
 ```
 
 ## 表单
+
+`Form` 与 `FormField` 属于同一表单组件族：`Form` 负责组合、提交和验证，`FormField` 负责字段标签、描述与消息展示；标准输入组件已内置 `FormField`。
 
 <div class="mc-demo mc-demo--column" style="width:360px">
   <mc-checkbox v-model="checked" label="允许作弊" />
@@ -159,9 +164,9 @@ const modes = [
 
 <template>
   <div class="mc-demo mc-demo--column" style="width:100%">
-    <mc-tabs v-model="tab" :items="tabs"
-      ><div>当前：{{ tab }}</div></mc-tabs
-    >
+    <mc-tabs v-model="tab" :items="tabs">
+      <div>当前：{{ tab }}</div>
+    </mc-tabs>
     <mc-list mode="single" v-model="mode">
       <mc-list-item label="生存模式" value="survival" />
       <mc-list-item label="创造模式" value="creative" />
@@ -210,12 +215,12 @@ const modes = [
 
 ## 按职责浏览
 
-侧边栏统一使用“中文 / English”格式，中文说明用途，英文对应公开组件名。每个独立功能组件均使用单独页面和实时 Demo；Grid、ExpansionPanels 等紧密协作的组件族保留在同页。
+侧边栏统一使用“中文 / English”格式，中文说明用途，英文对应公开组件名。独立功能组件使用单独页面和实时 Demo；Grid、ExpansionPanels、Appbar 等紧密协作的组件族保留在同页。
 
-- 基础：[Button](./button)、[Icon](./icon)、[Card](./card)、[Panel](./panel)、[Divider](./divider)
-- 表单：[Form](./form)、[FormField](./formfield)、[TextField](./textfield)、[Textarea](./textarea)、[Select](./select)、[Autocomplete](./autocomplete)、[Checkbox](./checkbox)、[Radio](./radio)、[RadioGroup](./radio-group)、[Switch](./switch)、[Slider](./slider)、[FileInput](./file-input)、[NumberInput](./number-input)
+- 基础：[Button](./button)、[Icon](./icon)、[Card](./card)、[Divider](./divider)
+- 表单：[Form](./form)、[FormField](./formfield)、[单行文本输入框 / TextField](./textfield)、[多行文本输入框 / Textarea](./textarea)、[Select](./select)、[Autocomplete](./autocomplete)、[Checkbox](./checkbox)、[Radio](./radio)、[RadioGroup](./radio-group)、[Switch](./switch)、[Slider](./slider)、[FileInput](./file-input)、[NumberInput](./number-input)
 - 导航：[Tabs](./tabs)、[ButtonTabs](./button-tabs)、[List](./list)、[Breadcrumbs](./breadcrumbs)、[Pagination](./pagination)、[ExpansionPanels](./expansion-panels)、[Stepper](./stepper)
-- 布局：[Layout](./layout)、[Grid](./grid)、[Appbar](./appbar)、[AppbarButton](./appbar-button)、[AppbarIcon](./appbar-icon)、[Drawer](./drawer)、[ScrollView](./scrollview)、[VirtualScroll](./virtual-scroll)
+- 布局：[Layout](./layout)、[Grid](./grid)、[Panel](./panel)、[Appbar 组件族](./appbar)、[Drawer](./drawer)、[ScrollView](./scrollview)、[VirtualScroll](./virtual-scroll)
 - 数据展示：[Table](./table)、[DataTable](./data-table)、[Badge](./badge)、[Chip](./chip)、[SkinViewer](./skinviewer)
-- 浮层：[Overlay](./overlay)、[Dialog](./dialog)、[Menu](./menu)、[Tooltip](./tooltip)、[Confirm](./confirm)
+- 浮层：[Overlay](./overlay)、[Dialog（含 Confirm）](./dialog)、[Menu](./menu)、[Tooltip](./tooltip)
 - 反馈：[Alert](./alert)、[Snackbar](./snackbar)、[Progress](./progress)、[Spinner](./spinner)、[Skeleton](./skeleton)、[LoadingMask](./loadingmask)、[Pop](./pop)

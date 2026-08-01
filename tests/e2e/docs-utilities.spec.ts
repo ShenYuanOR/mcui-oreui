@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test'
 
-const stylesBase = 'http://127.0.0.1:4179/mcui-oreui/styles'
+const docsUrl = process.env.DOCS_E2E_URL ?? 'http://127.0.0.1:4179'
+const stylesBase = `${docsUrl}/mcui-oreui/styles`
 
 test.beforeEach(({ browserName }) => {
   test.skip(browserName !== 'chromium', 'Documentation utility effects are verified in Chromium')

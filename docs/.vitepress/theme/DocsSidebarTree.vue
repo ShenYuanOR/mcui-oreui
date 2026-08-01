@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive, watch } from 'vue'
+import { nextTick, onMounted, reactive, watch } from 'vue'
 import type { DocsSidebarNode } from './docs-navigation'
 
 const props = defineProps<{
@@ -21,6 +21,31 @@ function syncGroups(nodes: DocsSidebarNode[]): void {
 }
 
 watch(() => props.nodes, syncGroups, { deep: true, immediate: true })
+
+function revealActiveLink(): void {
+  if (!props.root || typeof document === 'undefined') return
+  const active = document.querySelector<HTMLElement>('.mc-docs-sidebar-link.is-active')
+  const container = active?.closest<HTMLElement>('.mc-scroll-view__container')
+  if (!active || !container) return
+  const activeRect = active.getBoundingClientRect()
+  const containerRect = container.getBoundingClientRect()
+  const activeCenter = activeRect.top + activeRect.height / 2
+  const containerCenter = containerRect.top + containerRect.height / 2
+  const maxScrollTop = Math.max(container.scrollHeight - container.clientHeight, 0)
+  container.scrollTop = Math.min(Math.max(container.scrollTop + activeCenter - containerCenter, 0), maxScrollTop)
+}
+
+onMounted(() => {
+  void nextTick(() => requestAnimationFrame(revealActiveLink))
+})
+
+watch(
+  () => props.nodes,
+  () => {
+    if (props.root) void nextTick(() => requestAnimationFrame(revealActiveLink))
+  },
+  { deep: true },
+)
 
 function isOpen(node: DocsSidebarNode): boolean {
   return !node.collapsible || openGroups[node.id]

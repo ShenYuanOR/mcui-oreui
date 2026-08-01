@@ -1,0 +1,9 @@
+.mc-card-subtitle {
+  color: var(--mc-text-muted, #d0d1d4);
+  display: block;
+  font: 13px/1.35 var(--mc-font-body, sans-serif);
+  margin-top: 4px;
+  min-width: 0;
+  opacity: 0.86;
+  overflow-wrap: anywhere;
+}

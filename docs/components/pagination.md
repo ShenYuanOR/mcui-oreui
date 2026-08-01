@@ -28,12 +28,14 @@ const page = ref(1)
 </template>
 ```
 
-| Prop            | 类型      | 默认    |
-| --------------- | --------- | ------- |
-| `modelValue`    | `number`  | `1`     |
-| `length`        | `number`  | `1`     |
-| `totalVisible`  | `number`  | `7`     |
-| `showFirstLast` | `boolean` | `false` |
-| `disabled`      | `boolean` | `false` |
+## Props
+
+| 名称            | 类型      | 默认    | 说明                                         |
+| --------------- | --------- | ------- | -------------------------------------------- |
+| `modelValue`    | `number`  | `1`     | 当前页码，支持通过 `v-model` 双向绑定。      |
+| `length`        | `number`  | 必填    | 总页数；小于 1 时不会生成可选页码。          |
+| `totalVisible`  | `number`  | `7`     | 最多显示的页码项数量，超出部分用省略号折叠。 |
+| `showFirstLast` | `boolean` | `false` | 是否显示跳转到首页和末页的按钮。             |
+| `disabled`      | `boolean` | `false` | 是否禁用全部分页操作。                       |
 
 事件：`update:modelValue`、`change`。支持左右方向键、Home、End 与 RTL；导航名称直接使用标准 `aria-label`。

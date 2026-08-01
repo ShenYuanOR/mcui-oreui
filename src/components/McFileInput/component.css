@@ -12,13 +12,39 @@
   background: var(--mc-surface-light, #58585a);
   border-color: var(--mc-focus, #fff);
 }
-.mc-file-input:focus-visible {
+.mc-file-input__surface {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  inset: 0;
+  padding: 0;
+  position: absolute;
+  z-index: 1;
+}
+.mc-file-input__surface:focus-visible {
   outline: 3px solid var(--mc-focus, #fff);
   outline-offset: 2px;
+}
+.mc-file-input__surface:disabled {
+  cursor: not-allowed;
 }
 .mc-file-input--disabled {
   cursor: not-allowed;
   opacity: 0.55;
+}
+.mc-file-input--compact {
+  border-style: solid;
+  min-height: 56px;
+  padding: 10px 12px;
+}
+.mc-file-input--button {
+  align-items: center;
+  border-style: solid;
+  display: flex;
+  justify-content: center;
+  min-height: 44px;
+  padding: 8px 14px;
 }
 .mc-file-input__prompt {
   color: var(--mc-text-muted, #b1b2b5);
@@ -40,6 +66,7 @@
   inset-inline-end: 6px;
   position: absolute;
   top: 4px;
+  z-index: 2;
 }
 .mc-file-input {
   box-shadow:

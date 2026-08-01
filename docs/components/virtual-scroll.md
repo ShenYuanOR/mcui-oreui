@@ -17,21 +17,23 @@ const items = Array.from({ length: 1000 }, (_, index) => `区块 ${index + 1}`)
 
 <template>
   <div class="mc-demo" style="width:100%">
-    <mc-virtual-scroll :items="items" :item-height="36" :height="220" :overscan="3"
-      ><template #default="{ item, index }"
-        ><div style="padding:8px">{{ index }} · {{ item }}</div></template
-      ></mc-virtual-scroll
-    >
+    <mc-virtual-scroll :items="items" :item-height="36" :height="220" :overscan="3">
+      <template #default="{ item, index }">
+        <div style="padding:8px">{{ index }} · {{ item }}</div>
+      </template>
+    </mc-virtual-scroll>
   </div>
 </template>
 ```
 
-| Prop         | 类型                 | 默认 |
-| ------------ | -------------------- | ---- |
-| `items`      | `unknown[]`          | 必填 |
-| `itemHeight` | `number`             | 必填 |
-| `height`     | `string \| number`   | 必填 |
-| `overscan`   | `number`             | `4`  |
-| `itemKey`    | `string \| function` | 索引 |
+## Props
+
+| 名称         | 类型                                   | 默认 | 说明                                                           |
+| ------------ | -------------------------------------- | ---- | -------------------------------------------------------------- |
+| `items`      | `unknown[]`                            | 必填 | 需要虚拟化渲染的完整数据列表。                                 |
+| `itemHeight` | `number`                               | 必填 | 每个项目的固定高度，单位为 px；必须与实际项目高度一致。        |
+| `height`     | `string \| number`                     | 必填 | 可视窗口高度；数字按 px 处理，字符串作为 CSS 高度使用。        |
+| `overscan`   | `number`                               | `4`  | 在可视窗口上方和下方额外渲染的项目数量，用于减少快速滚动白屏。 |
+| `itemKey`    | `string \| ((item, index) => unknown)` | 索引 | 项目对象中的唯一键名或返回唯一键的函数；未提供时使用数组索引。 |
 
 默认插槽获得 `{ item, index }`。组件默认占满父容器可用宽度，在 flex / Grid 中可安全收缩。2.0 仅支持固定行高，不包含动态高度、固定列、列拖拽或树表。

@@ -45,6 +45,8 @@ app.mount('#app')
 </template>
 ```
 
+`McButton` 按住时会像 Ore UI 原生按钮一样向下压入 4px并收起底部厚度，松开后立即恢复；交互期间外层占位不变，不会带动相邻布局跳动。传入 `loading` 时会显示圆形旋转加载图标并禁用按钮。
+
 `createMcUI()` 会引用全部公共组件，因此安装全量插件时会自动携带完整组件 CSS。2.0 不再提供旧 `McUIVue` 默认导出，也不再默认加载全局 reset、Utilities、字体、图标或声音。
 
 ## 按需使用
@@ -176,18 +178,22 @@ export const mcui = createMcUI({
 
 ## 组件
 
-- 基础：App、Button、Icon、Card、Panel、Divider。
-- 表单：Form、FormField、TextField、Textarea、Select、Autocomplete、Checkbox、Radio、RadioGroup、Switch、Slider、FileInput、NumberInput。
+- 基础：App、Button、Icon、Card（CardItem、CardTitle、CardSubtitle、CardText、CardActions）、Divider。
+- 表单：Form（组合与验证）、FormField（字段展示）、单行文本输入框（TextField）、多行文本输入框（Textarea）、Select、Autocomplete、Checkbox、Radio、RadioGroup、Switch、Slider、FileInput、NumberInput。Form 与字段输入组件属于同一组件族；标准输入组件已内置字段展示层，展示与验证在文档中分开说明。
 - 导航：Tabs、ButtonTabs、List、Breadcrumbs、Pagination、ExpansionPanels / ExpansionPanel、Stepper。
-- 布局：Container、Row、Col、Spacer、Layout、Appbar、AppbarButton、AppbarIcon、Main、Drawer、ScrollView、VirtualScroll。
+- 布局：Container、Row、Col、Spacer、Layout、Panel、Appbar、AppbarButton、AppbarIcon、Main、Drawer、ScrollView、VirtualScroll。
 - 数据展示：Table、DataTable、Badge、Chip、SkinViewer。
-- 浮层：Overlay、Dialog、Menu、Tooltip、Confirm。
+- 浮层：Overlay、Dialog（含 Confirm）、Menu、Tooltip。
 - 反馈：Alert、Snackbar、Progress、Spinner、Skeleton、LoadingMask、PopHost。
 - Minecraft：FormattedText、Tcode。
 
-VitePress 文档按上述职责分组，侧边栏统一使用“中文 / English”组件名称；每个独立功能组件均有自己的页面与实时 Demo，只有 Grid、ExpansionPanels 等紧密协作的组件族保留在同一页面。
+`McSkeleton` 的数字与纯数字字符串尺寸按 px 解释，带单位的 CSS 长度保持原样，因此直接书写 `height="34"` 也不会塌陷。
 
-文档站保留 VitePress 的 Markdown、SSR、静态构建、本地搜索和代码高亮内核，并用 MCUI 组件覆盖默认外壳：固定 Appbar、可持久化 Drawer、面包屑、响应式 H2/H3 目录、前后页、首页、404 与页脚都使用统一 OreUI 视觉。Appbar 不重复放置“文档 / 设计 Token”入口，右侧固定按“搜索、贡献者、GitHub”排列。`<960px` 使用临时抽屉，`960–1279px` 使用常驻侧栏和正文顶部目录，`>=1280px` 同时显示左侧栏与右侧 sticky 目录；组件 Demo 仍限制在 `.mc-demo` / `.ore-demo` 内，不会把库的页面级基础样式注入 VitePress。
+VitePress 文档按上述职责分组，侧边栏统一使用“中文 / English”组件名称；每个独立功能组件均有自己的页面与实时 Demo，Grid、ExpansionPanels、Dialog / Confirm 等紧密协作的组件族保留在同一页面。
+
+Card 表示可重复排列、可点击或跳转的独立信息对象；Panel 表示承载复杂内容的页面区域，使用固定 header/footer 与可伸展滚动 body。简单判断：一条内容用 Card，内容放置位置用 Panel。
+
+文档站保留 VitePress 的 Markdown、SSR、静态构建、本地搜索和代码高亮内核，并用 MCUI 组件覆盖默认外壳：固定 Appbar、可持久化 Drawer、面包屑、响应式 H2/H3 目录、前后页、首页、404 与页脚都使用统一 OreUI 视觉。Vue 示例源码默认收起，并自动拆分为 JS、HTML、CSS 标签，使用 2 空格缩进且保留高亮与复制功能。Appbar 不重复放置“文档 / 设计 Token”入口，右侧固定按“搜索、贡献者、GitHub”排列。`<960px` 使用临时抽屉，`960–1279px` 使用常驻侧栏和正文顶部目录，`>=1280px` 同时显示左侧栏与右侧 sticky 目录；组件 Demo 仍限制在 `.mc-demo` / `.ore-demo` 内，不会把库的页面级基础样式注入 VitePress。
 
 2.0 已删除 `McDropdown` 与 `McModal`：分别迁移到 `McSelect` 和 `McDialog`。所有受控显隐组件统一使用 `v-model`，不再提供 `open` / `update:open`。
 
@@ -201,7 +207,7 @@ VitePress 文档按上述职责分组，侧边栏统一使用“中文 / English
 
 `McLayout` 内的 Appbar 与 Drawer 会注册占位，`McMain` 通过逻辑方向 CSS 变量避开四向栏位。Drawer 提供 `temporary | persistent | permanent`，persistent 在移动断点自动转为 temporary。
 
-`McDataTable` 用单一 `options` / `update:options` 管理 `page`、`itemsPerPage`、`sortBy` 与 `search`，主 `v-model` 只管理行选择；server 模式同样只输出 `update:options`，不会内置网络请求。`McVirtualScroll` 默认填满父容器宽度、兼容 flex / Grid 宿主，2.0 仅支持固定 `itemHeight`。不包含固定列、列拖拽、树表或动态高度虚拟化。
+`McDataTable` 用单一 `options` / `update:options` 管理 `page`、`itemsPerPage`、`sortBy` 与 `search`，主 `v-model` 只管理行选择；server 模式同样只输出 `update:options`，不会内置网络请求。加载态默认自动保留刷新前的真实表体高度，也可用 `loadingHeight="320px"` 或 `loadingHeight="6L"` 固定为像素/行数高度；每页条数使用紧凑下拉选择，空数据时显示内置空状态并允许用 `no-data` 插槽替换。`McVirtualScroll` 默认填满父容器宽度、兼容 flex / Grid 宿主，2.0 仅支持固定 `itemHeight`。不包含固定列、列拖拽、树表或动态高度虚拟化。
 
 ## 开发与验证
 

@@ -1,0 +1,7 @@
+.mc-card-title {
+  color: var(--mc-text, #fff);
+  display: block;
+  font: 700 18px/1.2 var(--mc-font-title, sans-serif);
+  min-width: 0;
+  overflow-wrap: anywhere;
+}

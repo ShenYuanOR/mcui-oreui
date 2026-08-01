@@ -1,6 +1,8 @@
 # Button 按钮
 
-Minecraft 风格立体按钮：深色描边 + inset 高光厚度，按下时固定外框与内部层高度，仅让文字/图标位置和压感阴影变化，避免相邻组件随点击抖动。
+Minecraft 风格立体按钮：深色描边 + inset 高光厚度。按住时按钮面向下压入 4px、高度同步收缩 4px并移除底部厚度阴影，文字与图标随按钮面一起下沉；外层占位高度保持不变，因此相邻组件不会随点击抖动。
+
+`loading` 状态会在按钮文字前显示圆形旋转加载图标，并同步禁用按钮交互。
 
 ## 三种语义
 
@@ -121,7 +123,7 @@ Minecraft 风格立体按钮：深色描边 + inset 高光厚度，按下时固�
 | `variant`    | `'normal' \| 'primary' \| 'error' \| 'plain'`     | `normal` | 颜色/语义                                                   |
 | `size`       | `'extra_small' \| 'small' \| 'middle' \| 'large'` | `middle` | 尺寸                                                        |
 | `disabled`   | `boolean`                                         | `false`  | 是否禁用（禁用时不触发 click、不播音效）                    |
-| `loading`    | `boolean`                                         | `false`  | 加载态，同时禁用按钮                                        |
+| `loading`    | `boolean`                                         | `false`  | 加载态，显示圆形旋转图标并同步禁用按钮                      |
 | `icon`       | `string`                                          | `''`     | 左侧图标名称，如 `mc-save`、`mc-key-enter`、`mc-x-creative` |
 | `tip`        | `string`                                          | `''`     | 非空则显示 Tooltip，样式与 McTooltip 一致                   |
 | `color`      | `string`                                          | -        | 自定义背景色（如 `#ff6b35`），覆盖 `variant` 预设           |

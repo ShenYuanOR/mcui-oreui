@@ -1,5 +1,5 @@
 import type { McComponentRegistry } from '../framework/createMcUI'
-import { McAlert, McApp, McAppbar, McAppbarButton, McAppbarIcon, McAutocomplete, McBadge, McBreadcrumbs, McButton, McButtonTabs, McCard, McCheckbox, McChip, McCol, McConfirm, McContainer, McDataTable, McDefaultsProvider, McDialog, McDivider, McDrawer, McExpansionPanel, McExpansionPanels, McFileInput, McForm, McFormField, McFormattedText, McHeader, McIcon, McLayout, McList, McListItem, McLoadingMask, McLocaleProvider, McMain, McMenu, McNumberInput, McOverlay, McPagination, McPanel, McPopHost, McProgress, McRadio, McRadioGroup, McRow, McScrollView, McSelect, McSkeleton, McSkinViewer, McSlider, McSnackbar, McSpacer, McSpinner, McStepper, McSwitch, McTable, McTabs, McTcode, McTextField, McTextarea, McThemeProvider, McTooltip, McVirtualScroll } from './public-components'
+import { McAlert, McApp, McAppbar, McAppbarButton, McAppbarIcon, McAutocomplete, McBadge, McBreadcrumbs, McButton, McButtonTabs, McCard, McCardActions, McCardItem, McCardSubtitle, McCardText, McCardTitle, McCheckbox, McChip, McCol, McConfirm, McContainer, McDataTable, McDefaultsProvider, McDialog, McDivider, McDrawer, McExpansionPanel, McExpansionPanels, McFileInput, McForm, McFormField, McFormattedText, McHeader, McIcon, McLayout, McList, McListItem, McLoadingMask, McLocaleProvider, McMain, McMenu, McNumberInput, McOverlay, McPagination, McPanel, McPopHost, McProgress, McRadio, McRadioGroup, McRow, McScrollView, McSelect, McSkeleton, McSkinViewer, McSlider, McSnackbar, McSpacer, McSpinner, McStepper, McSwitch, McTable, McTabs, McTcode, McTextField, McTextarea, McThemeProvider, McTooltip, McVirtualScroll } from './public-components'
 
 const mcComponents: McComponentRegistry = {
   McAlert,
@@ -13,6 +13,11 @@ const mcComponents: McComponentRegistry = {
   McButton,
   McButtonTabs,
   McCard,
+  McCardActions,
+  McCardItem,
+  McCardSubtitle,
+  McCardText,
+  McCardTitle,
   McCheckbox,
   McChip,
   McCol,

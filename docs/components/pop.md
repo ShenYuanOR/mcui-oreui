@@ -63,11 +63,11 @@ const pop = usePop()
 
 ### `show(message, duration?, styleClass?)`
 
-| 参数         | 类型     | 默认   | 说明                                                   |
-| ------------ | -------- | ------ | ------------------------------------------------------ |
-| `message`    | `string` | —      | 文本                                                   |
-| `duration`   | `number` | `3000` | 显示毫秒数                                             |
-| `styleClass` | `string` | —      | `success` / `process` / `error` / `vip` / `debug_text` |
+| 参数         | 类型     | 默认   | 说明                                                               |
+| ------------ | -------- | ------ | ------------------------------------------------------------------ |
+| `message`    | `string` | —      | 需要显示的消息正文。                                               |
+| `duration`   | `number` | `3000` | 消息自动关闭前保留的毫秒数。                                       |
+| `styleClass` | `string` | —      | 消息主题类：`success`、`process`、`error`、`vip` 或 `debug_text`。 |
 
 最多同时显示 5 条，自动播放 `toast` 音效。`<mc-pop-host />` 全局放置一次即可。
 

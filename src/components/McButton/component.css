@@ -97,9 +97,11 @@
   box-shadow:
     inset 3px 3px rgba(255, 255, 255, 0.4),
     inset -3px -3px rgba(255, 255, 255, 0.3);
-}
-.mc-button:active:not(:disabled) .mc-button__content {
-  transform: translateY(2px);
+  height: calc(var(--mc-control-height, 40px) - 4px);
+  margin-top: 4px;
+  max-height: calc(var(--mc-control-height, 40px) - 4px);
+  min-height: calc(var(--mc-control-height, 40px) - 4px);
+  padding-bottom: 2px;
 }
 .mc-button:disabled {
   background: var(--mc-disabled, #d0d1d4);
@@ -111,6 +113,7 @@
 .mc-button__spinner {
   animation: mc-spin 0.8s steps(8) infinite;
   border: 2px solid currentColor;
+  border-radius: 50%;
   border-right-color: transparent;
   height: 14px;
   width: 14px;

@@ -64,8 +64,8 @@ onBeforeUnmount(() => window.clearTimeout(timer))
         ><slot
       /></span>
     </template>
-    <span :id="id" class="mc-tooltip__content" role="tooltip"
-      ><slot name="content">{{ content }}</slot></span
-    >
+    <div :id="id" class="mc-tooltip__content" role="tooltip">
+      <slot name="content">{{ content }}</slot>
+    </div>
   </mc-overlay>
 </template>

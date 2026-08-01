@@ -32,9 +32,11 @@
 </template>
 ```
 
-| Prop         | 类型      | 默认    |
-| ------------ | --------- | ------- |
-| `vertical`   | `boolean` | `false` |
-| `decorative` | `boolean` | `true`  |
+## Props
+
+| 名称         | 类型      | 默认    | 说明                                                           |
+| ------------ | --------- | ------- | -------------------------------------------------------------- |
+| `vertical`   | `boolean` | `false` | 是否使用纵向分隔线；默认显示横向分隔线。                       |
+| `decorative` | `boolean` | `true`  | 是否仅作视觉装饰；设为 `false` 时暴露 `separator` 语义和方向。 |
 
 `decorative=false` 时组件使用 `role="separator"`，并按方向设置 `aria-orientation`。

@@ -174,7 +174,7 @@ function handleItemKeydown(event: KeyboardEvent, item: McListRenderedItem) {
 </script>
 
 <template>
-  <ul class="mc-list" :role="mode ? 'listbox' : 'list'" :aria-multiselectable="mode === 'multiple' || undefined">
+  <ul class="mc-list pa-1" :role="mode ? 'listbox' : 'list'" :aria-multiselectable="mode === 'multiple' || undefined">
     <li
       v-for="(listItem, itemIndex) in listItems"
       :key="String(listItem.value)"

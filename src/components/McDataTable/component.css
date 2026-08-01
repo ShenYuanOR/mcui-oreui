@@ -23,9 +23,58 @@
 .mc-data-table__sort:focus-visible {
   outline: 2px solid var(--mc-focus, #fff);
 }
+.mc-data-table__row > td {
+  height: 46px;
+}
+.mc-data-table__state-row > td {
+  border-inline-end: 0;
+}
 .mc-data-table__state {
   color: var(--mc-text-muted, #b1b2b5);
   text-align: center !important;
+}
+.mc-data-table__state--loading {
+  height: var(--mc-data-table-loading-height, 460px);
+}
+.mc-data-table__state--empty {
+  height: 168px;
+}
+.mc-data-table__state-content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  min-height: 100%;
+}
+.mc-data-table__state-content strong {
+  color: var(--mc-text, #fff);
+  font: 700 14px/1.25 var(--mc-font-ui, sans-serif);
+}
+.mc-data-table__empty-icon {
+  background: var(--mc-surface-pressed, #242425);
+  border: 2px solid var(--mc-text-muted, #b1b2b5);
+  box-shadow:
+    inset 2px 2px rgba(255, 255, 255, 0.08),
+    2px 2px 0 rgba(0, 0, 0, 0.28);
+  display: block;
+  height: 32px;
+  position: relative;
+  width: 42px;
+}
+.mc-data-table__empty-icon::before,
+.mc-data-table__empty-icon::after {
+  background: var(--mc-text-muted, #b1b2b5);
+  content: '';
+  height: 2px;
+  inset-inline: 8px;
+  position: absolute;
+}
+.mc-data-table__empty-icon::before {
+  top: 9px;
+}
+.mc-data-table__empty-icon::after {
+  top: 17px;
 }
 .mc-data-table__footer {
   align-items: center;
@@ -35,9 +84,42 @@
   justify-content: space-between;
   padding-block: 12px;
 }
-.mc-data-table__footer select {
-  background: var(--mc-surface, #313233);
+.mc-data-table__page-size {
+  align-items: center;
+  display: inline-flex;
+  gap: 8px;
+}
+.mc-data-table__page-size-control {
+  display: inline-flex;
+  position: relative;
+}
+.mc-data-table__page-size-control::after {
+  border-inline: 5px solid transparent;
+  border-top: 6px solid var(--mc-text, #fff);
+  content: '';
+  inset-inline-end: 10px;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-25%);
+}
+.mc-data-table__page-size select {
+  appearance: none;
+  background: var(--mc-surface-light, #58585a);
   border: 2px solid var(--mc-border, #1e1e1f);
+  box-shadow:
+    inset 1px 1px rgba(255, 255, 255, 0.12),
+    inset -2px -2px rgba(0, 0, 0, 0.2);
   color: var(--mc-text, #fff);
-  padding: 6px;
+  cursor: pointer;
+  font: inherit;
+  min-width: 68px;
+  padding: 6px 30px 6px 10px;
+}
+.mc-data-table__page-size select:hover {
+  background: var(--mc-surface-hover, #626365);
+}
+.mc-data-table__page-size select:focus-visible {
+  outline: 2px solid var(--mc-focus, #fff);
+  outline-offset: 2px;
 }

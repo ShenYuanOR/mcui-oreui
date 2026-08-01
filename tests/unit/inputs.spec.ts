@@ -39,6 +39,14 @@ describe('accessible input controls', () => {
     expect(list.find('.mc-list__checkbox').text()).toBe('')
   })
 
+  it('renders the single-selection indicator as a square radio control', () => {
+    const list = mount(McList, {
+      props: { modelValue: 'selected', mode: 'single' },
+      slots: { default: () => h(McListItem, { label: 'Selected', value: 'selected' }) },
+    })
+    expect(list.find('.mc-list__radio').classes()).toContain('mc-list__radio--checked')
+  })
+
   it('exposes slider values and supports Home/End/Page keys', async () => {
     const wrapper = mount(McSlider, {
       props: { modelValue: 50, min: 0, max: 100, step: 5 },

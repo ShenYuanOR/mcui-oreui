@@ -3,7 +3,7 @@ import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useData, useRoute, useRouter, withBase } from 'vitepress'
 import type { DefaultTheme } from 'vitepress'
 import { Content } from 'vitepress/dist/client/app/components/Content.js'
-import { VPNavBarSearch } from 'vitepress/theme'
+import { VPNavBarSearch, VPSocialLink } from 'vitepress/theme'
 import packageJson from '../../../package.json'
 import DocsOutline from './DocsOutline.vue'
 import DocsSidebarTree from './DocsSidebarTree.vue'
@@ -108,12 +108,20 @@ onMounted(() => {
   mobileQuery.addEventListener('change', updateMobile)
 
   const storedDrawerState = window.localStorage.getItem('mcui-docs-drawer-open')
-  if (storedDrawerState !== null) desktopDrawerOpen.value = storedDrawerState === 'true'
+  if (storedDrawerState !== null) {
+    const persistedOpen = storedDrawerState === 'true'
+    desktopDrawerOpen.value = persistedOpen
+    mobileDrawerOpen.value = persistedOpen
+  }
   drawerPreferenceReady = true
   window.addEventListener('keydown', openSearchFromShortcut)
 })
 
 watch(desktopDrawerOpen, (open) => {
+  if (drawerPreferenceReady) window.localStorage.setItem('mcui-docs-drawer-open', String(open))
+})
+
+watch(mobileDrawerOpen, (open) => {
   if (drawerPreferenceReady) window.localStorage.setItem('mcui-docs-drawer-open', String(open))
 })
 
@@ -154,6 +162,15 @@ onBeforeUnmount(() => {
             @click="toggleDrawer"
           />
           <a class="mc-docs-brand" :href="withBase('/')" aria-label="返回文档首页">
+            <img
+              class="mc-docs-brand__logo"
+              :src="withBase('/logo.svg')"
+              width="32"
+              height="32"
+              alt=""
+              aria-hidden="true"
+              data-testid="docs-brand-logo"
+            />
             <span class="mc-docs-brand__title">{{ siteTitle }}</span>
             <span class="mc-docs-brand__version">v{{ packageJson.version }}</span>
           </a>
@@ -162,16 +179,13 @@ onBeforeUnmount(() => {
         <template #right>
           <div class="mc-docs-search"><VPNavBarSearch /></div>
           <a class="mc-docs-header-link" :href="docsHref('/contributors')">贡献者</a>
-          <a
+          <VPSocialLink
             v-if="githubLink"
-            class="mc-docs-header-link"
-            :href="githubLink.link"
-            target="_blank"
-            rel="noreferrer"
+            class="mc-docs-header-link mc-docs-github-link"
+            :icon="githubLink.icon"
+            :link="githubLink.link"
             aria-label="在 GitHub 查看源码"
-          >
-            GitHub
-          </a>
+          />
         </template>
       </mc-appbar>
 

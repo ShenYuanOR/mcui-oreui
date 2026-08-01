@@ -11,12 +11,16 @@ test.describe('Ore UI visual regression gallery', () => {
     await page.evaluate(() => document.fonts.ready)
   })
 
-  test('renders all 63 public components in the stable gallery', async ({ page }) => {
+  test('renders all 68 public components in the stable gallery', async ({ page }) => {
     const components = await page
       .locator('[data-gallery-component]')
       .evaluateAll((elements) => elements.map((element) => element.getAttribute('data-gallery-component')))
-    expect(new Set(components).size).toBe(63)
-    expect(components).toHaveLength(63)
+    expect(new Set(components).size).toBe(68)
+    expect(components).toHaveLength(68)
+
+    const skeleton = page.locator('[data-gallery-component="McSkeleton"]')
+    await expect(skeleton).toHaveCSS('height', '38px')
+    expect((await skeleton.boundingBox())?.height).toBe(38)
 
     await expect(page).toHaveScreenshot('ore-gallery.png', {
       fullPage: true,
@@ -38,9 +42,25 @@ test.describe('Ore UI visual regression gallery', () => {
       maskColor: '#8b8c8f',
       maxDiffPixelRatio: 0.01,
     })
+    await expect(page.locator('.gallery-states .mc-button__spinner')).toHaveCSS('border-radius', '50%')
 
-    await page.locator('[data-state="active-button"]').hover()
+    const activeTarget = page.locator('[data-state="active-button"]')
+    const activeButton = activeTarget.locator('.mc-button')
+    await activeTarget.hover()
+    const restingFrame = await activeTarget.boundingBox()
+    const restingButton = await activeButton.boundingBox()
     await page.mouse.down()
+    const pressedFrame = await activeTarget.boundingBox()
+    const pressedButton = await activeButton.boundingBox()
+    expect(restingFrame).not.toBeNull()
+    expect(restingButton).not.toBeNull()
+    expect(pressedFrame).not.toBeNull()
+    expect(pressedButton).not.toBeNull()
+    expect(pressedFrame!.y).toBe(restingFrame!.y)
+    expect(pressedFrame!.height).toBe(restingFrame!.height)
+    expect(pressedButton!.y).toBe(restingButton!.y + 4)
+    expect(pressedButton!.height).toBe(restingButton!.height - 4)
+    expect(pressedButton!.y + pressedButton!.height).toBe(restingButton!.y + restingButton!.height)
     await expect(page.locator('.gallery-states')).toHaveScreenshot('ore-button-active.png', {
       animations: 'disabled',
       caret: 'hide',
@@ -161,7 +181,7 @@ test.describe('Ore UI visual regression gallery', () => {
     const firstItem = list.locator('.mc-list__item').first()
     const check = firstItem.locator('.mc-list__checkbox img')
 
-    await expect(list).toHaveCSS('padding-left', '0px')
+    await expect(list).toHaveCSS('padding-left', '4px')
     await expect(list).toHaveCSS('margin-top', '0px')
     await expect(list).toHaveCSS('list-style-type', 'none')
     await expect(check).toHaveCount(1)
@@ -171,7 +191,7 @@ test.describe('Ore UI visual regression gallery', () => {
     const [listBox, itemBox] = await Promise.all([list.boundingBox(), firstItem.boundingBox()])
     expect(listBox).not.toBeNull()
     expect(itemBox).not.toBeNull()
-    expect(Math.abs(itemBox!.x - listBox!.x - 2)).toBeLessThanOrEqual(0.5)
+    expect(Math.abs(itemBox!.x - listBox!.x - 6)).toBeLessThanOrEqual(0.5)
   })
 
   test('clips and scrolls ScrollView inside its fixed-height viewport', async ({ page }) => {
@@ -193,6 +213,125 @@ test.describe('Ore UI visual regression gallery', () => {
     await page.mouse.wheel(0, 100)
     await expect.poll(() => viewport.evaluate((element) => element.scrollTop)).toBeGreaterThan(0)
     expect(await thumb.evaluate((element) => getComputedStyle(element).transform)).not.toBe('matrix(1, 0, 0, 1, 0, 0)')
+  })
+
+  test('renders Table as a full-width continuous surface with row hover feedback', async ({ page }) => {
+    const wrapper = page.locator('[data-gallery-component="McTable"]')
+    const table = wrapper.locator('.mc-table')
+    const rows = table.locator('tbody tr')
+    const rowCount = await rows.count()
+    expect(rowCount).toBe(2)
+    const hoveredRow = rows.nth(1)
+
+    await expect(table).toHaveCSS('display', 'table')
+    const [wrapperBox, tableBox] = await Promise.all([wrapper.boundingBox(), table.boundingBox()])
+    expect(wrapperBox).not.toBeNull()
+    expect(tableBox).not.toBeNull()
+    expect(Math.abs(wrapperBox!.width - tableBox!.width - 4)).toBeLessThanOrEqual(0.5)
+
+    await hoveredRow.hover()
+    const hoveredCells = hoveredRow.locator('td')
+    const hoveredCellCount = await hoveredCells.count()
+    expect(hoveredCellCount).toBe(2)
+    await expect(hoveredCells.nth(0)).toHaveCSS('background-color', 'rgb(88, 88, 90)')
+    await expect(hoveredCells.nth(1)).toHaveCSS('background-color', 'rgb(88, 88, 90)')
+    await expect(hoveredCells.nth(0)).toHaveCSS('box-shadow', /rgb\(60, 133, 39\).*inset/)
+  })
+
+  test('keeps DataTable height stable while loading and renders its dropdown and empty state', async ({ page }) => {
+    const table = page.locator('[data-gallery-component="McDataTable"]')
+    const normalBody = await table.locator('tbody').boundingBox()
+    expect(normalBody).not.toBeNull()
+    await expect(table.locator('.mc-data-table__page-size select')).toHaveValue('2')
+    await expect(table.locator('.mc-data-table__page-size-control')).toHaveCount(1)
+
+    await page.goto('/visual?data-table-state=loading')
+    await page.locator('.visual-gallery').waitFor()
+    const loadingTable = page.locator('[data-gallery-component="McDataTable"]')
+    const loadingBody = await loadingTable.locator('tbody').boundingBox()
+    expect(loadingBody).not.toBeNull()
+    expect(Math.abs(loadingBody!.height - normalBody!.height)).toBeLessThanOrEqual(1)
+    await expect(loadingTable.locator('.mc-data-table__state--loading')).toBeVisible()
+    await expect(loadingTable.locator('.mc-spinner')).toBeVisible()
+
+    await page.goto('/visual?data-table-state=loading&data-table-loading-height=px')
+    await page.locator('.visual-gallery').waitFor()
+    const pixelLoadingBody = await page.locator('[data-gallery-component="McDataTable"] tbody').boundingBox()
+    expect(pixelLoadingBody).not.toBeNull()
+    expect(pixelLoadingBody!.height).toBe(320)
+
+    await page.goto('/visual?data-table-state=loading&data-table-loading-height=rows')
+    await page.locator('.visual-gallery').waitFor()
+    const rowLoadingBody = await page.locator('[data-gallery-component="McDataTable"] tbody').boundingBox()
+    expect(rowLoadingBody).not.toBeNull()
+    expect(rowLoadingBody!.height).toBe(138)
+
+    await page.goto('/visual?data-table-state=empty')
+    await page.locator('.visual-gallery').waitFor()
+    const emptyTable = page.locator('[data-gallery-component="McDataTable"]')
+    await expect(emptyTable.locator('.mc-data-table__state--empty')).toContainText('No players found')
+    await expect(emptyTable.locator('.mc-data-table__empty-icon')).toBeVisible()
+  })
+
+  test('keeps Panel header and footer fixed around a stretchable scrolling body', async ({ page }) => {
+    const host = page.locator('.gallery-panel-host')
+    const panel = page.locator('[data-gallery-component="McPanel"]')
+    const header = panel.locator('.mc-panel__header')
+    const body = panel.locator('.mc-panel__body')
+    const footer = panel.locator('.mc-panel__footer')
+
+    await expect(panel).toHaveCSS('display', 'grid')
+    await expect(panel).toHaveCSS('overflow', 'hidden')
+    await expect(body).toHaveCSS('min-height', '0px')
+    await expect(body).toHaveCSS('overflow-y', 'auto')
+    await expect(header).toHaveCount(1)
+    await expect(footer).toHaveCount(1)
+
+    const [hostBox, panelBox, headerBox, bodyBox, footerBox, dimensions] = await Promise.all([
+      host.boundingBox(),
+      panel.boundingBox(),
+      header.boundingBox(),
+      body.boundingBox(),
+      footer.boundingBox(),
+      body.evaluate((element) => ({ clientHeight: element.clientHeight, scrollHeight: element.scrollHeight })),
+    ])
+    expect(hostBox).not.toBeNull()
+    expect(panelBox).not.toBeNull()
+    expect(headerBox).not.toBeNull()
+    expect(bodyBox).not.toBeNull()
+    expect(footerBox).not.toBeNull()
+    expect(Math.abs(panelBox!.width - hostBox!.width)).toBeLessThan(1)
+    expect(bodyBox!.y).toBeGreaterThanOrEqual(headerBox!.y + headerBox!.height - 0.5)
+    expect(footerBox!.y).toBeGreaterThanOrEqual(bodyBox!.y + bodyBox!.height - 0.5)
+    expect(dimensions.scrollHeight).toBeGreaterThan(dimensions.clientHeight)
+
+    await body.hover()
+    const footerY = (await footer.boundingBox())!.y
+    await page.mouse.wheel(0, 120)
+    await expect.poll(() => body.evaluate((element) => element.scrollTop)).toBeGreaterThan(0)
+    expect(Math.abs((await footer.boundingBox())!.y - footerY)).toBeLessThanOrEqual(0.5)
+  })
+
+  test('keeps Dialog and Confirm section layouts isolated from host heading styles', async ({ page }) => {
+    const dialog = page.locator('[data-gallery-component="McDialog"]')
+    const confirm = page.locator('[data-gallery-component="McConfirm"]')
+    const dialogTitle = dialog.locator('.mc-dialog__title')
+    const confirmActions = confirm.locator(':scope > .mc-dialog__actions .mc-confirm__action')
+
+    await expect(dialogTitle).toHaveCSS('margin', '0px')
+    await expect(dialogTitle).toHaveCSS('padding', '0px')
+    await expect(dialogTitle).toHaveCSS('border-top-width', '0px')
+    await expect(confirmActions).toHaveCount(2)
+    const structure = await confirm.evaluate((element) => ({
+      children: Array.from(element.children).map((child) => child.className),
+      titleHeight: element.querySelector('.mc-dialog__title')?.getBoundingClientRect().height,
+    }))
+    expect(structure.children).toEqual(['mc-dialog__header', 'mc-dialog__body', 'mc-dialog__actions'])
+    expect(structure.titleHeight).toBeLessThanOrEqual(24)
+    await expect(confirm).toHaveScreenshot('ore-confirm.png', {
+      animations: 'disabled',
+      maxDiffPixelRatio: 0.01,
+    })
   })
 
   test('resists host list and heading offsets in navigation flow components', async ({ page }) => {
@@ -244,16 +383,31 @@ test.describe('Ore UI visual regression gallery', () => {
 
   test('captures connected menu and tooltip surfaces', async ({ page }) => {
     await page.locator('[data-state="menu-target"]').click()
-    await expect(page.getByRole('menu')).toBeVisible()
-    await expect(page.getByRole('menu')).toHaveScreenshot('ore-menu-open.png', {
+    const menu = page.getByRole('menu')
+    const menuItems = menu.getByRole('menuitem')
+    await expect(menu).toBeVisible()
+    await expect(menuItems).toHaveCount(2)
+    const itemBoxes = await menuItems.evaluateAll((elements) =>
+      elements.map((element) => element.getBoundingClientRect().toJSON()),
+    )
+    expect(itemBoxes[1].top).toBeGreaterThanOrEqual(itemBoxes[0].bottom)
+    expect(Math.abs(itemBoxes[0].width - itemBoxes[1].width)).toBeLessThan(1)
+    await expect(menu).toHaveScreenshot('ore-menu-open.png', {
       animations: 'disabled',
       maxDiffPixelRatio: 0.01,
     })
     await page.keyboard.press('Escape')
 
     await page.locator('[data-state="tooltip-target"]').hover()
-    await expect(page.getByRole('tooltip')).toBeVisible()
-    await expect(page.getByRole('tooltip')).toHaveScreenshot('ore-tooltip-open.png', {
+    const tooltip = page.getByRole('tooltip')
+    await expect(tooltip).toBeVisible()
+    const tooltipSurface = await tooltip.evaluate((element) => ({
+      display: getComputedStyle(element).display,
+      fragments: element.getClientRects().length,
+      tag: element.tagName,
+    }))
+    expect(tooltipSurface).toEqual({ display: 'block', fragments: 1, tag: 'DIV' })
+    await expect(tooltip).toHaveScreenshot('ore-tooltip-open.png', {
       animations: 'disabled',
       maxDiffPixelRatio: 0.01,
     })

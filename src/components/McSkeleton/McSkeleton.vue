@@ -13,7 +13,13 @@ const locale = useMcLocale()
 const accessibleLabel = computed(() =>
   typeof attrs['aria-label'] === 'string' ? attrs['aria-label'] : locale.t('loading'),
 )
-const cssSize = (value: string | number) => (typeof value === 'number' ? `${value}px` : value)
+const unitlessSizePattern = /^(?:\d+\.?\d*|\.\d+)$/
+const cssSize = (value: string | number) => {
+  if (typeof value === 'number') return Number.isFinite(value) && value >= 0 ? `${value}px` : '0px'
+
+  const normalized = value.trim()
+  return unitlessSizePattern.test(normalized) ? `${normalized}px` : normalized
+}
 </script>
 
 <template>

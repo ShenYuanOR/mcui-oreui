@@ -22,11 +22,13 @@
 </template>
 ```
 
-| Prop      | 类型               | 默认    |
-| --------- | ------------------ | ------- |
-| `content` | `string \| number` | -       |
-| `color`   | `string`           | -       |
-| `dot`     | `boolean`          | `false` |
-| `inline`  | `boolean`          | `false` |
+## Props
+
+| 名称      | 类型               | 默认    | 说明                                            |
+| --------- | ------------------ | ------- | ----------------------------------------------- |
+| `content` | `string \| number` | -       | 徽标中显示的文字或数字，可由 `badge` 插槽覆盖。 |
+| `color`   | `string`           | -       | 自定义徽标背景色，接受合法 CSS 颜色值。         |
+| `dot`     | `boolean`          | `false` | 是否隐藏内容并显示为纯状态点。                  |
+| `inline`  | `boolean`          | `false` | 是否取消角标定位，让徽标作为普通行内内容排列。  |
 
 默认插槽是被标记内容，`badge` 插槽可完全替换标记内容。状态点应直接提供标准 `aria-label`。

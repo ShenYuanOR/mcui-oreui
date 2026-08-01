@@ -1,7 +1,7 @@
 import axe from 'axe-core'
 import { expect, test } from '@playwright/test'
 
-const docsBase = 'http://127.0.0.1:4179/mcui-oreui'
+const docsBase = `${process.env.DOCS_E2E_URL ?? 'http://127.0.0.1:4179'}/mcui-oreui`
 
 test('desktop drawer persists its state and marks the current page', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 })
@@ -10,7 +10,13 @@ test('desktop drawer persists its state and marks the current page', async ({ pa
   const appbar = page.getByTestId('docs-appbar')
   await expect(appbar.getByRole('link', { name: '文档', exact: true })).toHaveCount(0)
   await expect(appbar.getByRole('link', { name: '设计 Token', exact: true })).toHaveCount(0)
-  await expect(appbar.locator('.mc-docs-header-link')).toHaveText(['贡献者', 'GitHub'])
+  await expect(appbar.locator('.mc-docs-header-link')).toHaveCount(2)
+  await expect(appbar.locator('.mc-docs-header-link')).toHaveText(['贡献者', ''])
+  const githubLink = appbar.getByRole('link', { name: '在 GitHub 查看源码', exact: true })
+  await expect(githubLink).toHaveAttribute('href', 'https://github.com/ShenYuanOR/mcui-oreui')
+  await expect(githubLink.locator('.vpi-social-github')).toBeVisible()
+  await expect(page.locator('link[rel="icon"]')).toHaveAttribute('href', '/mcui-oreui/logo.svg')
+  await expect(page.getByTestId('docs-brand-logo')).toHaveAttribute('src', '/mcui-oreui/logo.svg')
   await expect(appbar.getByRole('link', { name: '贡献者', exact: true })).toHaveAttribute(
     'href',
     '/mcui-oreui/contributors.html',
@@ -87,6 +93,87 @@ test('wide and compact outlines navigate to headings and expose the active locat
   await expect(compactOutline).toBeVisible()
   await compactOutline.getByRole('button', { name: '本页目录' }).click()
   await expect(compactOutline.getByRole('link', { name: 'Sounds 音效', exact: true })).toBeVisible()
+})
+
+test('Vue examples use collapsible language tabs with normalized code formatting', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 })
+  await page.goto(`${docsBase}/components/drawer.html`)
+
+  const examples = page.locator('.mc-docs-code-example')
+  await expect(examples).not.toHaveCount(0)
+  const example = examples.first()
+  const toggle = example.getByRole('button', { name: /示例代码/ })
+  await expect(toggle).toHaveAttribute('aria-expanded', 'false')
+  await toggle.click()
+  await expect(toggle).toHaveAttribute('aria-expanded', 'true')
+
+  const tabs = example.getByRole('tab')
+  await expect(tabs).toHaveText(['JS', 'HTML', 'CSS'])
+  await expect(example.getByRole('tab', { name: 'JS', exact: true })).toHaveAttribute('aria-selected', 'true')
+
+  await example.getByRole('tab', { name: 'HTML', exact: true }).click()
+  await expect(example.getByRole('tab', { name: 'HTML', exact: true })).toHaveAttribute('aria-selected', 'true')
+  await expect(example.locator('.language-html')).toBeVisible()
+  await expect(example.locator('.language-js, .language-ts')).toHaveCount(0)
+  await expect(example.locator('code')).toHaveCSS('tab-size', '2')
+
+  await page.setViewportSize({ width: 390, height: 844 })
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true)
+})
+
+test('component API tables fill the article and scroll inside their own mobile container', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 })
+  await page.goto(`${docsBase}/components/alert.html`)
+
+  const wrapper = page.locator('.mc-docs-table-scroll')
+  const table = wrapper.locator('table')
+  await expect(table.locator('th')).toHaveText(['名称', '类型', '默认', '说明'])
+  await expect(table).toHaveCSS('display', 'table')
+
+  const desktop = await wrapper.evaluate((element) => {
+    const tableElement = element.querySelector('table')
+    return {
+      wrapperWidth: element.getBoundingClientRect().width,
+      tableWidth: tableElement?.getBoundingClientRect().width ?? 0,
+    }
+  })
+  expect(desktop.tableWidth).toBeGreaterThanOrEqual(desktop.wrapperWidth - 4)
+
+  await page.setViewportSize({ width: 390, height: 844 })
+  const mobile = await wrapper.evaluate((element) => ({
+    clientWidth: element.clientWidth,
+    scrollWidth: element.scrollWidth,
+  }))
+  expect(mobile.scrollWidth).toBeGreaterThan(mobile.clientWidth)
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true)
+})
+
+test('Form demos constrain fixed-width controls without clipping their action rows', async ({ page }) => {
+  await page.setViewportSize({ width: 1100, height: 800 })
+  await page.goto(`${docsBase}/components/form.html`)
+
+  const demos = page.locator('.mc-form-demo')
+  const actions = page.locator('.mc-form-demo-actions')
+  await expect(demos).toHaveCount(2)
+  await expect(actions).toHaveCount(2)
+
+  const desktop = await actions.evaluateAll((elements) =>
+    elements.map((element) => ({ clientWidth: element.clientWidth, scrollWidth: element.scrollWidth })),
+  )
+  expect(desktop.every(({ clientWidth, scrollWidth }) => scrollWidth <= clientWidth)).toBe(true)
+
+  const validationDemo = demos.nth(1)
+  const status = validationDemo.locator('.mc-form-demo-status')
+  await expect(status).toContainText('尚未校验')
+  await validationDemo.getByRole('button', { name: '校验', exact: true }).click()
+  await expect(status).not.toContainText('尚未校验')
+
+  await page.setViewportSize({ width: 390, height: 844 })
+  const mobile = await demos.evaluateAll((elements) =>
+    elements.map((element) => ({ clientWidth: element.clientWidth, scrollWidth: element.scrollWidth })),
+  )
+  expect(mobile.every(({ clientWidth, scrollWidth }) => scrollWidth <= clientWidth)).toBe(true)
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true)
 })
 
 test('home, ordinary content and not-found views use the custom shell without horizontal overflow', async ({

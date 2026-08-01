@@ -2,17 +2,16 @@
 .mc-skeleton {
   animation: mc-skeleton-pulse 1.25s ease-in-out infinite alternate;
   background: var(--mc-surface-light, #58585a);
+  display: block;
+  overflow: hidden;
 }
+
 @keyframes mc-skeleton-pulse {
   to {
     opacity: 0.45;
   }
 }
-@media (prefers-reduced-motion: reduce) {
-  .mc-skeleton {
-    animation: none;
-  }
-}
+
 @media (prefers-reduced-motion: reduce) {
   .mc-skeleton {
     animation: none !important;

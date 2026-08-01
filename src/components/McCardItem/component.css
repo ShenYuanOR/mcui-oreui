@@ -1,0 +1,26 @@
+.mc-card-item {
+  align-items: center;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-areas: 'prepend content append';
+  grid-template-columns: max-content minmax(0, 1fr) max-content;
+  padding: 16px;
+}
+.mc-card-item__prepend,
+.mc-card-item__append {
+  align-items: center;
+  display: flex;
+}
+.mc-card-item__prepend {
+  grid-area: prepend;
+  padding-inline-end: 12px;
+}
+.mc-card-item__content {
+  grid-area: content;
+  min-width: 0;
+  overflow: hidden;
+}
+.mc-card-item__append {
+  grid-area: append;
+  padding-inline-start: 12px;
+}

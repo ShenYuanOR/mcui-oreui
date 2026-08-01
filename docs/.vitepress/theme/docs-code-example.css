@@ -1,0 +1,125 @@
+.mc-docs-code-example {
+  margin: -4px 0 28px;
+  max-width: 100%;
+  min-width: 0;
+  width: 100%;
+}
+
+.mc-docs-code-example > .mc-expansion-panel {
+  background: #171818;
+  border-color: #0d0d0e;
+  min-width: 0;
+}
+
+.mc-docs-code-example .mc-expansion-panel__header {
+  background: #2b2c2d;
+  min-height: 44px;
+  padding: 9px 14px;
+}
+
+.mc-docs-code-example .mc-expansion-panel__header:hover {
+  background: #3b3c3d;
+}
+
+.mc-docs-code-example .mc-expansion-panel__content {
+  min-width: 0;
+  padding: 0;
+}
+
+.mc-docs-code-example__summary {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  min-width: 0;
+}
+
+.mc-docs-code-example__languages {
+  background: #171818;
+  border: 1px solid #555658;
+  color: #bfc0c3;
+  font: 700 11px/1.2 var(--mc-font-body, sans-serif);
+  padding: 3px 7px;
+}
+
+.mc-docs-code-example__tabs.mc-tabs {
+  gap: 0;
+  min-width: 0;
+}
+
+.mc-docs-code-example__tabs .mc-tabs__nav {
+  background: #1b1c1d;
+  border-bottom: 2px solid #0d0d0e;
+  gap: 4px;
+  overflow-x: auto;
+  padding: 8px 10px 0;
+}
+
+.mc-docs-code-example__tabs .mc-tabs__tab {
+  flex: 0 0 auto;
+  font: 800 12px/1 var(--mc-font-body, sans-serif);
+  letter-spacing: 0.04em;
+  min-height: 34px;
+  padding: 7px 16px;
+}
+
+.mc-docs-code-example__tabs .mc-tabs__panel {
+  background: #171818;
+  border: 0;
+  min-height: 0;
+  min-width: 0;
+  padding: 0;
+}
+
+.mc-docs-code-example__pane {
+  min-width: 0;
+}
+
+.vp-doc .mc-docs-code-example div[class*='language-'] {
+  border: 0;
+  box-shadow: none;
+  margin: 0 !important;
+  min-width: 0;
+}
+
+.mc-docs-code-example div[class*='language-'] > .lang {
+  display: none;
+}
+
+.mc-docs-code-example div[class*='language-'] pre {
+  margin: 0;
+  max-height: min(560px, 72vh);
+  overflow: auto;
+  padding: 18px 0 !important;
+}
+
+.mc-docs-code-example div[class*='language-'] pre code {
+  display: block;
+  font-variant-ligatures: none;
+  line-height: 1.65;
+  min-width: max-content;
+  padding: 0 22px;
+  tab-size: 2;
+}
+
+.mc-docs-code-example .copy {
+  right: 12px;
+  top: 12px;
+}
+
+@media (max-width: 959px) {
+  .mc-docs-code-example {
+    margin: -4px 0 24px;
+  }
+
+  .mc-docs-code-example .mc-expansion-panel__header {
+    padding-inline: 12px;
+  }
+
+  .mc-docs-code-example__tabs .mc-tabs__nav {
+    padding-inline: 8px;
+  }
+
+  .mc-docs-code-example div[class*='language-'] pre code {
+    padding-inline: 16px;
+  }
+}

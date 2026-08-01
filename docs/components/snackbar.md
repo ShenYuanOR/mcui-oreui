@@ -58,12 +58,14 @@ function show(nextVariant: SnackbarVariant, nextMessage: string) {
 </template>
 ```
 
-| Prop         | 类型                                             | 默认      |
-| ------------ | ------------------------------------------------ | --------- |
-| `modelValue` | `boolean`                                        | `false`   |
-| `timeout`    | `number`                                         | `4000`    |
-| `location`   | `top \| bottom`                                  | `bottom`  |
-| `variant`    | `default \| success \| error \| warning \| info` | `default` |
-| `teleport`   | `string \| false`                                | `body`    |
+## Props
+
+| 名称         | 类型                                             | 默认      | 说明                                                      |
+| ------------ | ------------------------------------------------ | --------- | --------------------------------------------------------- |
+| `modelValue` | `boolean`                                        | `false`   | 控制消息条是否显示，支持通过 `v-model` 双向绑定。         |
+| `timeout`    | `number`                                         | `4000`    | 自动关闭前等待的毫秒数；设为 `0` 或负数时不会自动关闭。   |
+| `location`   | `top \| bottom`                                  | `bottom`  | 消息条在视口顶部或底部的停靠位置。                        |
+| `variant`    | `default \| success \| error \| warning \| info` | `default` | 设置消息语义和对应视觉状态。                              |
+| `teleport`   | `string \| false`                                | `body`    | Teleport 目标选择器；设为 `false` 时保留在当前 DOM 层级。 |
 
 消息使用默认插槽，操作使用 `action` 插槽。事件：`update:modelValue`、`close`。2.0 已删除 `message` Prop，语义状态统一使用 `variant`。

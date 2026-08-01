@@ -19,7 +19,7 @@ describe('generated public contract', () => {
       .map((key) => key.slice('./components/'.length))
       .sort()
 
-    expect(names).toHaveLength(63)
+    expect(names).toHaveLength(68)
     expect(symbols).toEqual(names)
     expect(componentExports).toEqual(names)
     expect(names.every((name) => name in publicApi)).toBe(true)

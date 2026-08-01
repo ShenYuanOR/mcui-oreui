@@ -4,28 +4,38 @@
   border: 2px solid var(--mc-border, #1e1e1f);
   box-sizing: border-box;
   color: var(--mc-text, #fff);
+  list-style: none;
+  margin: 0;
+  padding: calc(var(--mc-spacer, 4px) * 1);
   width: 100%;
 }
 .mc-list.mc-list {
   list-style: none;
   margin: 0;
-  padding: 0;
 }
 .mc-list__item {
   align-items: center;
   display: flex;
-  gap: 9px;
-  padding: 10px 12px;
+  background: var(--mc-surface, #313233);
+  border: 2px solid transparent;
+  gap: 10px;
+  min-height: 44px;
+  padding: 8px 10px;
+  position: relative;
+}
+.mc-list__item + .mc-list__item {
+  margin-top: 4px;
 }
 .mc-list__item--interactive {
   cursor: pointer;
 }
 .mc-list__item--active {
   background: var(--mc-surface-light, #58585a);
+  border-color: var(--mc-focus, #fff);
 }
 .mc-list__item:focus-visible {
-  outline: 2px solid #fff;
-  outline-offset: -2px;
+  outline: 3px solid var(--mc-focus, #fff);
+  outline-offset: 1px;
 }
 .mc-list__item--disabled {
   cursor: not-allowed;
@@ -44,12 +54,12 @@
   border: 2px solid var(--mc-border, #1e1e1f);
   box-sizing: border-box;
   display: inline-flex;
-  height: 20px;
+  height: 24px;
   justify-content: center;
-  width: 20px;
+  width: 24px;
 }
 .mc-list__radio {
-  border-radius: 50%;
+  border-radius: 0;
 }
 .mc-list__radio--checked,
 .mc-list__checkbox--checked {
@@ -63,10 +73,9 @@
 }
 .mc-list__radio--checked::after {
   background: #fff;
-  border-radius: 50%;
   content: '';
-  height: 8px;
-  width: 8px;
+  height: 10px;
+  width: 10px;
 }
 .mc-list__item-content {
   display: flex;
@@ -80,14 +89,12 @@
 }
 .mc-list__item {
   box-shadow:
-    inset 0 1px var(--mc-surface-light, #58585a),
-    inset 0 -1px var(--mc-surface-light, #58585a);
-  min-height: 40px;
+    inset 2px 2px rgba(255, 255, 255, 0.12),
+    inset -2px -2px rgba(0, 0, 0, 0.28);
 }
 .mc-list__item--interactive:hover:not(.mc-list__item--disabled) {
-  background: var(--mc-surface-light, #58585a);
-  outline: 2px solid var(--mc-focus, #fff);
-  outline-offset: -2px;
+  background: var(--mc-surface-hover, #58585a);
+  border-color: var(--mc-focus, #fff);
 }
 .mc-list__item--interactive:active:not(.mc-list__item--disabled),
 .mc-list__item--active {

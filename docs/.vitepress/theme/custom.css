@@ -54,6 +54,7 @@ body::-webkit-scrollbar-corner,
 
 .mc-demo {
   height: auto !important;
+  max-width: 100%;
   min-height: 96px !important;
   min-width: 0 !important;
   overflow: visible !important;

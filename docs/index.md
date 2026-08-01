@@ -26,21 +26,21 @@ import { withBase } from 'vitepress'
 
   <section class="mc-home-features" aria-label="项目特性">
     <mc-card :href="withBase('/guide/design-tokens.html')">
-      <template #title>全沉浸 OreUI</template>
-      文档外壳、正文、代码块与 API 表格共享像素边框、分层阴影和 MCUI Token。
+      <mc-card-item><mc-card-title>全沉浸 OreUI</mc-card-title></mc-card-item>
+      <mc-card-text>文档外壳、正文、代码块与 API 表格共享像素边框、分层阴影和 MCUI Token。</mc-card-text>
     </mc-card>
     <mc-card :href="withBase('/guide/configuration.html')">
-      <template #title>Vue 3 + TypeScript</template>
-      插件、服务与组件均提供完整类型，支持 SSR、多 App 隔离和局部 Provider。
+      <mc-card-item><mc-card-title>Vue 3 + TypeScript</mc-card-title></mc-card-item>
+      <mc-card-text>插件、服务与组件均提供完整类型，支持 SSR、多 App 隔离和局部 Provider。</mc-card-text>
     </mc-card>
     <mc-card :href="withBase('/components/overview.html')">
-      <template #title>63 个公共组件</template>
-      从表单、导航和数据展示到 Overlay、布局与反馈组件，支持全量注册和按需入口。
+      <mc-card-item><mc-card-title>68 个公共组件</mc-card-title></mc-card-item>
+      <mc-card-text>从表单、导航和数据展示到 Overlay、布局与反馈组件，支持全量注册和按需入口。</mc-card-text>
     </mc-card>
   </section>
 
   <p class="mc-home-note">
-    非 Minecraft 官方产品。设计语言移植自第三方项目 Spectrollay-OreUI，与 Mojang 无从属关系；详见
+    非 Minecraft 官方产品，与 Mojang Studios 无从属关系。关于设计来源与实现差异，请参阅
     <a :href="withBase('/guide/about.html')">与 OreUI 的区别</a>。
   </p>
 </main>

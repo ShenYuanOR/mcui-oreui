@@ -9,6 +9,11 @@ import type McBreadcrumbs from '../components/McBreadcrumbs'
 import type McButton from '../components/McButton'
 import type McButtonTabs from '../components/McButtonTabs'
 import type McCard from '../components/McCard'
+import type McCardActions from '../components/McCardActions'
+import type McCardItem from '../components/McCardItem'
+import type McCardSubtitle from '../components/McCardSubtitle'
+import type McCardText from '../components/McCardText'
+import type McCardTitle from '../components/McCardTitle'
 import type McCheckbox from '../components/McCheckbox'
 import type McChip from '../components/McChip'
 import type McCol from '../components/McCol'
@@ -73,6 +78,11 @@ export { default as McBreadcrumbs } from '../components/McBreadcrumbs'
 export { default as McButton } from '../components/McButton'
 export { default as McButtonTabs } from '../components/McButtonTabs'
 export { default as McCard } from '../components/McCard'
+export { default as McCardActions } from '../components/McCardActions'
+export { default as McCardItem } from '../components/McCardItem'
+export { default as McCardSubtitle } from '../components/McCardSubtitle'
+export { default as McCardText } from '../components/McCardText'
+export { default as McCardTitle } from '../components/McCardTitle'
 export { default as McCheckbox } from '../components/McCheckbox'
 export { default as McChip } from '../components/McChip'
 export { default as McCol } from '../components/McCol'
@@ -138,6 +148,11 @@ export interface McUIGlobalComponents {
   McButton: typeof McButton
   McButtonTabs: typeof McButtonTabs
   McCard: typeof McCard
+  McCardActions: typeof McCardActions
+  McCardItem: typeof McCardItem
+  McCardSubtitle: typeof McCardSubtitle
+  McCardText: typeof McCardText
+  McCardTitle: typeof McCardTitle
   McCheckbox: typeof McCheckbox
   McChip: typeof McChip
   McCol: typeof McCol
@@ -201,6 +216,11 @@ export interface McUIGlobalComponents {
   'mc-button': typeof McButton
   'mc-button-tabs': typeof McButtonTabs
   'mc-card': typeof McCard
+  'mc-card-actions': typeof McCardActions
+  'mc-card-item': typeof McCardItem
+  'mc-card-subtitle': typeof McCardSubtitle
+  'mc-card-text': typeof McCardText
+  'mc-card-title': typeof McCardTitle
   'mc-checkbox': typeof McCheckbox
   'mc-chip': typeof McChip
   'mc-col': typeof McCol
