@@ -169,6 +169,7 @@ test('Form demos constrain fixed-width controls without clipping their action ro
   await expect(status).not.toContainText('尚未校验')
 
   await page.setViewportSize({ width: 390, height: 844 })
+  await expect(page.getByRole('button', { name: '展开文档导航', exact: true })).toBeVisible()
   const mobile = await demos.evaluateAll((elements) =>
     elements.map((element) => ({ clientWidth: element.clientWidth, scrollWidth: element.scrollWidth })),
   )
