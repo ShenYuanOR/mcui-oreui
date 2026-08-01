@@ -49,26 +49,27 @@ mcui.services.sounds.play('click')
 
 ## 组件与 Props 迁移
 
-| 组件                                               | 已删除或重命名           | 替代写法                                                                  |
-| -------------------------------------------------- | ------------------------ | ------------------------------------------------------------------------- |
-| `McDropdown`                                       | 组件删除                 | 使用 `McSelect`；`v-model` 直接绑定 option value，不再绑定从 1 开始的下标 |
-| `McModal`                                          | 组件删除                 | 使用 `McDialog`                                                           |
-| Drawer / Confirm / Dialog                          | `open`、`update:open`    | 主 `v-model`                                                              |
-| `McDrawer`                                         | `placement`              | `position="start                                                          | end | top | bottom"`；模式使用 `mode="temporary | persistent | permanent"` |
-| `McButton`                                         | `bgcolor`、`ariaLabel`   | `color`、标准 `aria-label`                                                |
-| `McButtonTabs` item                                | `bgcolor`                | item 的 `color`                                                           |
-| `McAppbarButton`                                   | `bgColor`、`ariaLabel`   | `color`、标准 `aria-label`                                                |
-| `McAppbarIcon`                                     | 可访问性 `label`         | 标准 `aria-label`；可见提示仍使用 `tip`                                   |
-| `McCheckbox` / `McRadio` / `McSwitch` / `McSlider` | `bgcolor`                | `color`                                                                   |
-| `McSlider`                                         | `ariaLabel`、`valueText` | 标准 `aria-label`、`aria-valuetext`                                       |
-| `McProgress`                                       | `status`、`bgcolor`      | `variant`、`color`                                                        |
-| `McAlert`                                          | `type`、`title`、`text`  | `variant`；标题用 `title` 插槽，正文用默认插槽                            |
-| `McCard`                                           | `title`、`description`   | `title` 插槽与默认插槽                                                    |
-| `McChip`                                           | `text`                   | 默认插槽                                                                  |
-| `McSnackbar`                                       | `message`、语义 `color`  | 默认插槽、`variant`                                                       |
-| `McIcon`                                           | 可访问性 `label`         | 标准 `aria-label`                                                         |
-| `McBadge` / `McSkeleton`                           | 可访问性 `label`         | 标准 `aria-label`                                                         |
-| `McBreadcrumbs` / `McPagination`                   | `ariaLabel`              | 标准 `aria-label`，转发到 `nav`                                           |
+| 组件                                               | 已删除或重命名           | 替代写法                                                                                  |
+| -------------------------------------------------- | ------------------------ | ----------------------------------------------------------------------------------------- |
+| `McDropdown`                                       | 组件删除                 | 使用 `McSelect`；`v-model` 直接绑定 option value，不再绑定从 1 开始的下标                 |
+| `McModal`                                          | 组件删除                 | 使用 `McDialog`                                                                           |
+| Drawer / Confirm / Dialog                          | `open`、`update:open`    | 主 `v-model`                                                                              |
+| `McDrawer`                                         | `placement`              | `position="start                                                                          | end | top | bottom"`；模式使用 `mode="temporary | persistent | permanent"` |
+| `McButton`                                         | `bgcolor`、`ariaLabel`   | `color`、标准 `aria-label`                                                                |
+| `McButtonTabs` item                                | `bgcolor`                | item 的 `color`                                                                           |
+| `McAppbarButton`                                   | `bgColor`、`ariaLabel`   | `color`、标准 `aria-label`                                                                |
+| `McAppbarIcon`                                     | 可访问性 `label`         | 标准 `aria-label`；可见提示仍使用 `tip`                                                   |
+| `McCheckbox` / `McRadio` / `McSwitch` / `McSlider` | `bgcolor`                | `color`                                                                                   |
+| `McSlider`                                         | `ariaLabel`、`valueText` | 标准 `aria-label`、`aria-valuetext`                                                       |
+| `McProgress`                                       | `status`、`bgcolor`      | `variant`、`color`                                                                        |
+| `McAlert`                                          | `type`、`title`、`text`  | `variant`；标题用 `title` 插槽，正文用默认插槽                                            |
+| `McCard`                                           | `title`、`description`   | `McCardItem` / `McCardTitle` / `McCardSubtitle` / `McCardText` / `McCardActions` 组合结构 |
+| `McPanel`                                          | `bordered`、`elevated`   | 删除视觉变体；Panel 默认使用区域外框、固定头尾和可滚动正文                                |
+| `McChip`                                           | `text`                   | 默认插槽                                                                                  |
+| `McSnackbar`                                       | `message`、语义 `color`  | 默认插槽、`variant`                                                                       |
+| `McIcon`                                           | 可访问性 `label`         | 标准 `aria-label`                                                                         |
+| `McBadge` / `McSkeleton`                           | 可访问性 `label`         | 标准 `aria-label`                                                                         |
+| `McBreadcrumbs` / `McPagination`                   | `ariaLabel`              | 标准 `aria-label`，转发到 `nav`                                                           |
 
 ## TextField 与表单
 

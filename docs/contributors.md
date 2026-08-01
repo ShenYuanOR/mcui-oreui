@@ -23,6 +23,12 @@ const manual = [
     contributions: 'anthropics',
   },
   {
+    login: 'Codex',
+    html_url: 'https://github.com/openai/codex',
+    avatar_url: 'https://github.com/openai.png',
+    contributions: '协作开发、审查与文档维护',
+  },
+  {
     login: 'HaiGeMaster',
     html_url: 'https://github.com/HaiGeMaster',
     avatar_url: 'https://github.com/HaiGeMaster.png',

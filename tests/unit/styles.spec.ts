@@ -34,7 +34,7 @@ function ownerOfClass(className: string) {
 
 describe('component style ownership', () => {
   it('co-locates a public entry and styles with every component', () => {
-    expect(componentNames).toHaveLength(63)
+    expect(componentNames).toHaveLength(68)
     for (const name of componentNames) {
       const componentDir = resolve(componentsDir, name)
       const vue = readFileSync(resolve(componentDir, `${name}.vue`), 'utf8')

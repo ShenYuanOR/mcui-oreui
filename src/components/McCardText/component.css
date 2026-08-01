@@ -1,0 +1,11 @@
+.mc-card-text {
+  box-sizing: border-box;
+  color: var(--mc-text, #fff);
+  font: 15px/1.45 var(--mc-font-body, sans-serif);
+  min-width: 0;
+  padding: 0 16px 16px;
+  overflow-wrap: anywhere;
+}
+.mc-card-text:first-child {
+  padding-top: 16px;
+}

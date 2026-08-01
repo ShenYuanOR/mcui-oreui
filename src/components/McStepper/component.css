@@ -1,6 +1,8 @@
 /* McStepper component styles. Generated once from the 2.0 visual baseline; maintain here. */
 .mc-stepper__header {
+  align-items: stretch;
   display: flex;
+  gap: 4px;
   overflow: auto;
 }
 .mc-stepper__header.mc-stepper__header {
@@ -10,10 +12,21 @@
 }
 .mc-stepper__step {
   flex: 1;
-  min-width: 140px;
+  min-width: 112px;
+  position: relative;
 }
 .mc-stepper__step.mc-stepper__step {
   margin: 0;
+}
+.mc-stepper__step:not(:last-child)::after {
+  background: var(--mc-border, #1e1e1f);
+  content: '';
+  height: 4px;
+  position: absolute;
+  right: -4px;
+  top: 22px;
+  width: 4px;
+  z-index: 2;
 }
 .mc-stepper__step button {
   align-items: center;
@@ -22,8 +35,9 @@
   color: var(--mc-text, #fff);
   display: flex;
   gap: 8px;
-  min-height: 56px;
-  padding: 8px 12px;
+  height: 48px;
+  min-height: 48px;
+  padding: 4px 8px;
   text-align: start;
   width: 100%;
 }
@@ -36,13 +50,23 @@
   align-items: center;
   border: 2px solid currentColor;
   display: inline-flex;
-  height: 26px;
+  height: 22px;
   justify-content: center;
-  width: 26px;
+  width: 22px;
 }
 .mc-stepper small {
   display: block;
+  font-size: 12px;
+  line-height: 13px;
   opacity: 0.7;
+}
+.mc-stepper__label {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 16px;
+  min-height: 32px;
 }
 .mc-stepper__content {
   background: var(--mc-surface, #313233);

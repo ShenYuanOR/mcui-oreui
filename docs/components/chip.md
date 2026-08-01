@@ -22,11 +22,13 @@
 </template>
 ```
 
-| Prop       | 类型      | 默认    |
-| ---------- | --------- | ------- |
-| `selected` | `boolean` | `false` |
-| `closable` | `boolean` | `false` |
-| `disabled` | `boolean` | `false` |
-| `color`    | `string`  | -       |
+## Props
+
+| 名称       | 类型      | 默认    | 说明                                         |
+| ---------- | --------- | ------- | -------------------------------------------- |
+| `selected` | `boolean` | `false` | 是否使用选中态样式。                         |
+| `closable` | `boolean` | `false` | 是否显示独立的移除按钮，点击后触发 `close`。 |
+| `disabled` | `boolean` | `false` | 是否禁用主体与移除按钮的交互。               |
+| `color`    | `string`  | -       | 自定义标签的强调色，接受合法 CSS 颜色值。    |
 
 传入 `@click` 时主体使用真实按钮并触发 `click`；关闭按钮触发 `close`。2.0 已删除与默认插槽重复的 `text` Prop。

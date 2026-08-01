@@ -12,6 +12,11 @@
 @import '../components/McButton/component.css';
 @import '../components/McButtonTabs/component.css';
 @import '../components/McCard/component.css';
+@import '../components/McCardActions/component.css';
+@import '../components/McCardItem/component.css';
+@import '../components/McCardSubtitle/component.css';
+@import '../components/McCardText/component.css';
+@import '../components/McCardTitle/component.css';
 @import '../components/McCheckbox/component.css';
 @import '../components/McChip/component.css';
 @import '../components/McCol/component.css';

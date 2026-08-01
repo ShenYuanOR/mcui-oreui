@@ -1,44 +1,91 @@
 /* McTable component styles. Generated once from the 2.0 visual baseline; maintain here. */
 .mc-table-wrapper {
+  background: var(--mc-surface, #313233);
+  border: 2px solid var(--mc-border, #1e1e1f);
+  box-shadow:
+    inset 1px 1px rgba(255, 255, 255, 0.08),
+    3px 3px 0 rgba(0, 0, 0, 0.22);
+  box-sizing: border-box;
   max-width: 100%;
   overflow: auto;
-}
-.mc-table {
-  border-collapse: collapse;
-  color: var(--mc-text, #fff);
   width: 100%;
 }
-.mc-table caption {
-  padding: 8px;
-  text-align: start;
-}
-.mc-table th,
-.mc-table td {
-  border: 2px solid var(--mc-border, #1e1e1f);
-  padding: 10px 12px;
-  text-align: start;
-}
-.mc-table th {
-  background: var(--mc-surface-light, #58585a);
-}
-.mc-table td {
-  background: var(--mc-surface, #313233);
-}
-.mc-table--striped tbody tr:nth-child(even) td,
-.mc-table--hover tbody tr:hover td {
-  background: var(--mc-surface-light, #58585a);
-}
-.mc-table {
+
+.mc-table-wrapper > .mc-table {
+  border: 0;
   border-collapse: separate;
   border-spacing: 0;
+  box-shadow: none;
+  color: var(--mc-text, #fff);
+  display: table;
+  margin: 0;
+  min-width: 100%;
+  overflow: visible;
+  width: 100%;
 }
-.mc-table th {
-  box-shadow:
-    inset 0 -3px var(--mc-surface, #313233),
-    inset 2px 2px rgba(255, 255, 255, 0.15);
+
+.mc-table-wrapper > .mc-table caption {
+  background: var(--mc-surface-pressed, #242425);
+  border-bottom: 2px solid var(--mc-border, #1e1e1f);
+  caption-side: top;
+  color: var(--mc-text, #fff);
+  font: 700 14px/1.25 var(--mc-font-ui, sans-serif);
+  padding: 11px 14px;
+  text-align: start;
 }
-.mc-table td {
+
+.mc-table-wrapper > .mc-table th,
+.mc-table-wrapper > .mc-table td {
+  border: 0;
+  border-inline-end: 1px solid var(--mc-surface-light, #58585a);
+  box-sizing: border-box;
+  padding: 10px 14px;
+  text-align: start;
+  vertical-align: middle;
+}
+
+.mc-table-wrapper > .mc-table th:last-child,
+.mc-table-wrapper > .mc-table td:last-child {
+  border-inline-end: 0;
+}
+
+.mc-table-wrapper > .mc-table th {
+  background: var(--mc-surface-light, #58585a);
+  border-bottom: 2px solid var(--mc-border, #1e1e1f);
   box-shadow:
-    inset 0 1px var(--mc-surface-light, #58585a),
-    inset 0 -1px var(--mc-border, #1e1e1f);
+    inset 0 2px rgba(255, 255, 255, 0.12),
+    inset 0 -2px rgba(0, 0, 0, 0.18);
+  color: var(--mc-text, #fff);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.mc-table-wrapper > .mc-table td {
+  background: var(--mc-surface, #313233);
+  border-bottom: 1px solid var(--mc-surface-light, #58585a);
+  color: var(--mc-text, #fff);
+  transition: background var(--mc-motion-fast, 100ms) steps(2, end);
+}
+
+.mc-table-wrapper > .mc-table tbody tr:last-child td,
+.mc-table-wrapper > .mc-table tfoot tr:last-child td {
+  border-bottom: 0;
+}
+
+.mc-table-wrapper > .mc-table--striped tbody tr:nth-child(even) td {
+  background: var(--mc-background, #48494a);
+}
+
+.mc-table-wrapper > .mc-table--hover tbody tr:hover td {
+  background: var(--mc-surface-light, #58585a);
+}
+
+.mc-table-wrapper > .mc-table--hover tbody tr:hover td:first-child {
+  box-shadow: inset 4px 0 var(--mc-primary, #3c8527);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mc-table-wrapper > .mc-table td {
+    transition: none;
+  }
 }

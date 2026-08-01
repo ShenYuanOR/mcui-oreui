@@ -65,7 +65,7 @@ function previous() {
           @click="select(item, index)"
         >
           <span class="mc-stepper__number">{{ index + 1 }}</span
-          ><span
+          ><span class="mc-stepper__label"
             >{{ item.title }}<small v-if="item.optional">{{ locale.t('optional') }}</small></span
           >
         </button>

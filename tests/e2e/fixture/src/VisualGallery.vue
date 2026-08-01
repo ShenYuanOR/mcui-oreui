@@ -21,6 +21,10 @@ const listValue = ref<Array<string | number>>(['survival'])
 const page = ref(2)
 const tableSelection = ref<unknown[]>([1])
 const tableOptions = ref({ page: 1, itemsPerPage: 2, sortBy: [], search: '' })
+const dataTableState = new URLSearchParams(window.location.search).get('data-table-state')
+const dataTableLoadingHeightMode = new URLSearchParams(window.location.search).get('data-table-loading-height')
+const dataTableLoadingHeight =
+  dataTableLoadingHeightMode === 'px' ? '320px' : dataTableLoadingHeightMode === 'rows' ? '3L' : undefined
 const expansion = ref<string | number | null>('graphics')
 const step = ref<string | number>('world')
 const menu = ref(false)
@@ -72,7 +76,7 @@ onBeforeUnmount(pop.clear)
     <header class="gallery-hero">
       <p>mcui-oreui · Spectrollay reference 0bf8f466</p>
       <h1>Ore UI visual regression gallery</h1>
-      <p>63 public components · optional Minecraft fonts loaded explicitly</p>
+      <p>68 public components · optional Minecraft fonts loaded explicitly</p>
     </header>
 
     <section class="gallery-section">
@@ -110,18 +114,24 @@ onBeforeUnmount(pop.clear)
         <mc-alert data-gallery-component="McAlert" variant="success" closable
           ><template #title>Saved</template>The world is ready.</mc-alert
         >
-        <mc-card data-gallery-component="McCard" clickable
-          ><template #title>Playable card</template>Layered Ore UI panel.<template #actions
-            ><mc-button size="small">Open</mc-button></template
-          ></mc-card
-        >
+        <mc-card data-gallery-component="McCard">
+          <mc-card-item data-gallery-component="McCardItem">
+            <mc-card-title data-gallery-component="McCardTitle">Playable card</mc-card-title>
+            <mc-card-subtitle data-gallery-component="McCardSubtitle">Compound structure</mc-card-subtitle>
+          </mc-card-item>
+          <mc-card-text data-gallery-component="McCardText">Layered Ore UI panel.</mc-card-text>
+          <mc-card-actions data-gallery-component="McCardActions">
+            <mc-button size="small">Open</mc-button>
+          </mc-card-actions>
+        </mc-card>
         <div class="gallery-row">
           <mc-badge data-gallery-component="McBadge" content="3"><mc-button size="small">Inbox</mc-button></mc-badge>
           <mc-chip data-gallery-component="McChip" selected closable>Survival</mc-chip>
           <mc-divider data-gallery-component="McDivider" vertical />
-          <mc-tooltip data-gallery-component="McTooltip" content="Tooltip text"
-            ><mc-button size="small" data-state="tooltip-target">Hover hint</mc-button></mc-tooltip
-          >
+          <mc-tooltip data-gallery-component="McTooltip">
+            <mc-button size="small" data-state="tooltip-target">Hover hint</mc-button>
+            <template #content><strong>Tooltip title</strong><br />Tooltip text</template>
+          </mc-tooltip>
         </div>
         <mc-skeleton data-gallery-component="McSkeleton" height="38" aria-label="Loading preview" />
         <mc-progress data-gallery-component="McProgress" :value="68" label="Generating terrain" variant="success" />
@@ -270,7 +280,7 @@ onBeforeUnmount(pop.clear)
           show-first-last
           aria-label="Gallery pages"
         />
-        <mc-table data-gallery-component="McTable" caption="Players" striped hover>
+        <mc-table data-gallery-component="McTable" striped hover>
           <template #header
             ><tr>
               <th>Name</th>
@@ -293,7 +303,11 @@ onBeforeUnmount(pop.clear)
           v-model="tableSelection"
           v-model:options="tableOptions"
           :headers="headers"
-          :items="rows"
+          :items="dataTableState === 'empty' ? [] : rows"
+          :loading="dataTableState === 'loading'"
+          :loading-height="dataTableLoadingHeight"
+          :items-per-page-options="[2, 3]"
+          no-data-text="No players found"
           show-select
         />
         <mc-virtual-scroll
@@ -360,6 +374,8 @@ onBeforeUnmount(pop.clear)
           :model-value="true"
           :teleport="false"
           title="Delete world?"
+          confirm-text="Delete"
+          danger
           class="gallery-confirm"
           >This action cannot be undone.</mc-confirm
         >
@@ -371,10 +387,24 @@ onBeforeUnmount(pop.clear)
           class="gallery-loading-mask"
         />
         <mc-pop-host data-gallery-component="McPopHost" class="gallery-pop-host" />
-        <mc-panel data-gallery-component="McPanel" title="Panel" subtitle="Layered content surface"
-          ><p>Reusable Ore UI panel body.</p>
-          <template #footer>Footer slot</template></mc-panel
-        >
+        <div class="gallery-panel-host">
+          <mc-panel
+            data-gallery-component="McPanel"
+            class="gallery-panel"
+            title="Workspace panel"
+            subtitle="Fixed regions with a scrolling body"
+          >
+            <template #actions><mc-button size="small">Refresh</mc-button></template>
+            <div class="gallery-panel__content">
+              <div>World settings</div>
+              <div>Resource packs</div>
+              <div>Behavior packs</div>
+              <div>Experiments</div>
+              <div>Multiplayer</div>
+            </div>
+            <template #footer><mc-button size="small" variant="primary">Save</mc-button></template>
+          </mc-panel>
+        </div>
       </div>
     </section>
 
@@ -503,6 +533,22 @@ body {
   margin: 0;
   padding: 8px;
 }
+.gallery-panel-host {
+  height: 230px;
+  min-width: 0;
+  width: 100%;
+}
+.gallery-panel {
+  height: 100%;
+}
+.gallery-panel__content {
+  display: grid;
+  gap: 8px;
+}
+.gallery-panel__content > div {
+  background: #58585a;
+  padding: 12px;
+}
 .gallery-flow-host ol {
   list-style: decimal;
   margin: 16px 0;
@@ -563,15 +609,6 @@ body {
 .gallery-pop-host .mc-pop-host__item {
   opacity: 1;
   transform: none;
-}
-.gallery-overlays .mc-menu button {
-  background: transparent;
-  border: 0;
-  color: inherit;
-  display: block;
-  padding: 9px 12px;
-  text-align: left;
-  width: 100%;
 }
 .visual-gallery .mc-skin-viewer {
   margin: 0 auto;

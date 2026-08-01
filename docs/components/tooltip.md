@@ -46,6 +46,8 @@
 
 ## 自定义内容
 
+`content` 插槽可以组合标题、说明等多行内容；整个插槽始终位于同一个提示面中，不会按行拆分边框。
+
 <div class="mc-demo">
   <mc-tooltip>
     <mc-button variant="normal">复杂提示</mc-button>
@@ -62,7 +64,11 @@
   <div class="mc-demo">
     <mc-tooltip>
       <mc-button variant="normal">复杂提示</mc-button>
-      <template #content> <strong>McUI</strong><br />支持插槽内容 </template>
+      <template #content>
+        <strong>McUI</strong>
+        <br />
+        支持插槽内容
+      </template>
     </mc-tooltip>
   </div>
 </template>

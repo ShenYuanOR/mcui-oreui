@@ -2,10 +2,43 @@
 .mc-menu {
   background: var(--mc-surface, #313233);
   border: 2px solid var(--mc-border, #1e1e1f);
+  box-sizing: border-box;
   box-shadow: 5px 5px #000;
   color: var(--mc-text, #fff);
+  display: flex;
+  flex-direction: column;
   min-width: 180px;
   padding: 5px;
+}
+.mc-menu > :where([role='menuitem'], :is(button), :is(a[href])) {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-sizing: border-box;
+  color: inherit;
+  cursor: pointer;
+  display: block;
+  font: inherit;
+  min-height: 36px;
+  padding: 9px 12px;
+  text-align: start;
+  text-decoration: none;
+  width: 100%;
+}
+.mc-menu > :where([role='menuitem'], :is(button), :is(a[href])):hover:not(:disabled):not([aria-disabled='true']),
+.mc-menu > :where([role='menuitem'], :is(button), :is(a[href])):focus-visible {
+  background: var(--mc-surface-hover, #58585a);
+  outline: 2px solid var(--mc-focus, #fff);
+  outline-offset: -2px;
+}
+.mc-menu > :where([role='menuitem'], :is(button), :is(a[href])):active:not(:disabled):not([aria-disabled='true']) {
+  background: var(--mc-surface-pressed, #242425);
+}
+.mc-menu > :where([role='menuitem'], :is(button), :is(a[href])):disabled,
+.mc-menu > :where([role='menuitem'], :is(button), :is(a[href]))[aria-disabled='true'] {
+  cursor: not-allowed;
+  opacity: 0.45;
 }
 .mc-menu-transition-enter-active,
 .mc-menu-transition-leave-active {

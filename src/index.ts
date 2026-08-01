@@ -14,7 +14,13 @@ export type { McSelectOption, McSelectOptionInput, McSelectValue } from './compo
 export type { McGridAlign, McGridJustify } from './components/McRow'
 export type { McGridAlignSelf, McGridColumnValue, McGridOrderValue } from './components/McCol'
 export type { McBreadcrumbItem } from './components/McBreadcrumbs'
-export type { McDataTableHeader, McDataTableItem, McDataTableOptions, McDataTableSort } from './components/McDataTable'
+export type {
+  McDataTableHeader,
+  McDataTableItem,
+  McDataTableLoadingHeight,
+  McDataTableOptions,
+  McDataTableSort,
+} from './components/McDataTable'
 export type { McFileInputValue } from './components/McFileInput'
 export type { McStepperItem, McStepperValue } from './components/McStepper'
 export type { McExpansionValue } from './components/_shared/expansionContext'

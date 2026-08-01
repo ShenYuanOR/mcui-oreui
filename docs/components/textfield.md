@@ -1,62 +1,65 @@
-<script setup>import { ref } from 'vue'; const name = ref('')</script>
+# TextField 单行文本输入框
 
-# TextField
+`McTextField` 用于单行文本输入，内部已包含字段展示层，可直接作为 `McForm` 的子组件使用。
 
-## 输入与校验状态
+## 基础展示
 
 <div class="mc-demo mc-demo--column" style="width:340px">
-  <mc-text-field v-model="name" label="世界名称" required hint="至少 3 个字符" :rules="[v => v.length >= 3 || '名称太短']" />
-  <mc-text-field model-value="Steve" label="只读名称" readonly />
-  <mc-text-field label="服务端错误" error-messages="名称已被占用" />
+  <mc-text-field model-value="Steve" label="玩家名称" />
+  <mc-text-field model-value="只读名称" label="只读名称" readonly />
   <mc-text-field label="禁用输入" disabled />
 </div>
 
 ```vue
-<script setup lang="ts">
-import { ref } from 'vue'
-const name = ref('')
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="mc-demo mc-demo--column" style="width:340px">
-    <mc-text-field
-      v-model="name"
-      label="世界名称"
-      required
-      hint="至少 3 个字符"
-      :rules="[(v) => v.length >= 3 || '名称太短']"
-    />
-    <mc-text-field model-value="Steve" label="只读名称" readonly />
-    <mc-text-field label="服务端错误" error-messages="名称已被占用" />
+    <mc-text-field model-value="Steve" label="玩家名称" />
+    <mc-text-field model-value="只读名称" label="只读名称" readonly />
     <mc-text-field label="禁用输入" disabled />
   </div>
 </template>
 ```
 
-TextField 使用原生 input，并共享 `label`、`description`、`hint`、`disabled`、`readonly`、`required`、`rules`、`errorMessages`、`validateOn` 与 `id` 表单契约。多行内容请使用独立的 [Textarea](./textarea) 页面。
+使用原生 `type`、`autocomplete`、`maxlength`、`inputmode`、`placeholder` 和 `aria-*` 属性；`filter` 支持 `text | all | number | letter | operator | base | none`。输入框保持 40px 高度和 20px 行高。
 
-输入框使用 40px 固定高度、20px 整数行高与对称的 8px 上下内边距，文字和 placeholder 会在边框内垂直居中。
+## 验证机制
 
-`McTextField` 的 `filter` 控制字符过滤（`text | all | number | letter | operator | base | none`），标准 `type` 控制原生 input 类型。`autocomplete`、`maxlength`、`inputmode`、`placeholder`、`aria-*` 等原生属性直接写在组件上并转发到 input；不再提供 `password`、`inputType`、`maxLength`、`error` 或 `success` 包装 Props。外部错误统一通过 `errorMessages` 传入。多行内容请使用 `McTextarea`。
+单行输入框共享统一表单契约：`required`、`rules`、`errorMessages`、`validateOn`、`disabled`、`readonly`、`id`。错误和规则只在需要校验时配置。
+
+<div class="mc-demo mc-demo--column" style="width:340px">
+  <mc-text-field label="世界名称" required hint="至少 3 个字符" :rules="[v => v.length >= 3 || '名称太短']" />
+  <mc-text-field label="服务端错误" error-messages="名称已被占用" />
+</div>
 
 ```vue
-<script setup lang="ts">
-import { ref } from 'vue'
-
-const password = ref('')
-const serverErrors = ref<string[]>([])
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <mc-text-field
-    v-model="password"
-    type="password"
-    filter="all"
-    maxlength="64"
-    autocomplete="current-password"
-    :error-messages="serverErrors"
-  />
+  <div class="mc-demo mc-demo--column" style="width:340px">
+    <mc-text-field label="世界名称" required hint="至少 3 个字符" :rules="[(v) => v.length >= 3 || '名称太短']" />
+    <mc-text-field label="服务端错误" error-messages="名称已被占用" />
+  </div>
 </template>
 ```
 
-事件：`update:modelValue`、`change`。标准原生 input 属性、`aria-*` 和监听器会路由到真实输入框。
+## Props
+
+| 名称            | 类型                                                          | 默认           | 说明                                             |
+| --------------- | ------------------------------------------------------------- | -------------- | ------------------------------------------------ |
+| `modelValue`    | `string`                                                      | `''`           | 当前文本，支持通过 `v-model` 双向绑定。          |
+| `filter`        | `text \| all \| number \| letter \| operator \| base \| none` | `text`         | 输入字符过滤模式；被过滤时触发 `invalid-input`。 |
+| `type`          | `string`                                                      | `text`         | 传递给原生 input 的 type。                       |
+| `label`         | `string`                                                      | -              | 字段标签。                                       |
+| `description`   | `string`                                                      | -              | 显示在输入框前的补充说明。                       |
+| `hint`          | `string`                                                      | -              | 无错误时显示的辅助提示。                         |
+| `disabled`      | `boolean`                                                     | `false`        | 是否禁用输入框。                                 |
+| `readonly`      | `boolean`                                                     | `false`        | 是否只读展示并阻止文本编辑。                     |
+| `required`      | `boolean`                                                     | `false`        | 是否要求输入内容，并接入 `McForm` 验证。         |
+| `rules`         | `McRule<string>[]`                                            | `[]`           | 字段验证规则列表，规则可同步或异步返回结果。     |
+| `errorMessages` | `string \| string[]`                                          | -              | 外部错误消息；提供后直接显示为错误状态。         |
+| `validateOn`    | `input \| blur \| submit \| lazy`                             | 继承 / `input` | 覆盖字段的验证触发时机；未提供时继承 `McForm`。  |
+| `id`            | `string`                                                      | 自动生成       | 原生 input 与字段辅助文本关联所用的 id。         |
+
+事件：`update:modelValue`、`change`、`invalid-input`。多行内容请使用 [Textarea 多行文本输入框](./textarea)。

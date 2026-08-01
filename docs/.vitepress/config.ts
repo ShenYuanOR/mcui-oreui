@@ -1,21 +1,38 @@
 import { defineConfig } from 'vitepress'
+import { installDocsCodeExamples } from './markdown/code-examples'
+import { installDocsTables } from './markdown/tables'
+
+const managedDevPort = Number.parseInt(process.env.DEV_PORT ?? '', 10)
+const managedDevHost = process.env.DEV_HOST
+const docsBase = '/mcui-oreui/'
 
 export default defineConfig({
   title: 'McUI Vue',
   description: 'Minecraft 基岩版风格的 Vue 3 组件库（第三方复刻）',
   lang: 'zh-CN',
-  head: [['meta', { name: 'color-scheme', content: 'only light' }]],
+  head: [
+    ['meta', { name: 'color-scheme', content: 'only light' }],
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: `${docsBase}logo.svg` }],
+  ],
   appearance: false,
   scrollOffset: 76,
   // GitHub Pages（project pages）部署在 https://shenyuanol.github.io/mcui-oreui/
-  base: '/mcui-oreui/',
+  base: docsBase,
   lastUpdated: true,
   markdown: {
     headers: { level: [2, 3] },
     theme: 'github-dark-high-contrast',
+    config(md) {
+      installDocsCodeExamples(md)
+      installDocsTables(md)
+    },
   },
   vite: {
-    server: { port: 5175, strictPort: true },
+    server: {
+      ...(managedDevHost ? { host: managedDevHost } : {}),
+      port: Number.isInteger(managedDevPort) && managedDevPort > 0 ? managedDevPort : 5175,
+      strictPort: true,
+    },
   },
   vue: {
     template: {
@@ -99,7 +116,6 @@ export default defineConfig({
           { text: '按钮 / Button', link: '/components/button' },
           { text: '图标 / Icon', link: '/components/icon' },
           { text: '卡片 / Card', link: '/components/card' },
-          { text: '面板 / Panel', link: '/components/panel' },
           { text: '分隔线 / Divider', link: '/components/divider' },
         ],
       },
@@ -109,8 +125,8 @@ export default defineConfig({
         items: [
           { text: '表单 / Form', link: '/components/form' },
           { text: '表单字段 / FormField', link: '/components/formfield' },
-          { text: '文本框 / TextField', link: '/components/textfield' },
-          { text: '多行文本 / Textarea', link: '/components/textarea' },
+          { text: '单行文本输入框 / TextField', link: '/components/textfield' },
+          { text: '多行文本输入框 / Textarea', link: '/components/textarea' },
           { text: '选择器 / Select', link: '/components/select' },
           { text: '自动补全 / Autocomplete', link: '/components/autocomplete' },
           { text: '复选框 / Checkbox', link: '/components/checkbox' },
@@ -141,9 +157,8 @@ export default defineConfig({
         items: [
           { text: '布局 / Layout', link: '/components/layout' },
           { text: '栅格 / Grid', link: '/components/grid' },
+          { text: '区域面板 / Panel', link: '/components/panel' },
           { text: '应用栏 / Appbar', link: '/components/appbar' },
-          { text: '应用栏按钮 / AppbarButton', link: '/components/appbar-button' },
-          { text: '应用栏图标 / AppbarIcon', link: '/components/appbar-icon' },
           { text: '抽屉 / Drawer', link: '/components/drawer' },
           { text: '滚动区 / ScrollView', link: '/components/scrollview' },
           { text: '虚拟滚动 / VirtualScroll', link: '/components/virtual-scroll' },
@@ -168,7 +183,6 @@ export default defineConfig({
           { text: '对话框 / Dialog', link: '/components/dialog' },
           { text: '菜单 / Menu', link: '/components/menu' },
           { text: '工具提示 / Tooltip', link: '/components/tooltip' },
-          { text: '确认框 / Confirm', link: '/components/confirm' },
         ],
       },
       {
@@ -187,8 +201,7 @@ export default defineConfig({
     ],
     socialLinks: [{ icon: 'github', link: 'https://github.com/ShenYuanOR/mcui-oreui' }],
     footer: {
-      message: 'MIT Licensed · 设计语言移植自 Spectrollay-McUI',
-      copyright: '© 2020 Spectrollay · Vue 移植版',
+      message: 'MIT Licensed · Ore UI 风格 Vue 3 组件库',
     },
   },
 })

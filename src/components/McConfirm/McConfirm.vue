@@ -15,7 +15,7 @@ withDefaults(
     stackActions?: boolean
     teleport?: string | HTMLElement | false
   }>(),
-  { modelValue: false, danger: false, showClose: false, stackActions: false },
+  { modelValue: false, danger: false, showClose: false, stackActions: false, teleport: 'body' },
 )
 const emit = defineEmits<{
   (event: 'update:modelValue', value: boolean): void
@@ -39,6 +39,8 @@ function confirm() {
 
 <template>
   <mc-dialog
+    class="mc-confirm"
+    :class="{ 'mc-confirm--stack-actions': stackActions }"
     :model-value="modelValue"
     :title="title || locale.t('confirm')"
     :teleport="teleport"
@@ -47,9 +49,9 @@ function confirm() {
     @update:model-value="update"
     @close="emit('close')"
   >
-    <div class="mc-confirm">
-      <div class="mc-confirm__content"><slot /></div>
-      <div class="mc-confirm__actions" :class="{ 'mc-confirm__actions--stack': stackActions }">
+    <slot />
+    <template #actions>
+      <div class="mc-confirm__actions">
         <mc-button class="mc-confirm__action" variant="normal" @click="cancel">{{
           cancelText || locale.t('cancel')
         }}</mc-button>
@@ -57,6 +59,6 @@ function confirm() {
           confirmText || locale.t('confirm')
         }}</mc-button>
       </div>
-    </div>
+    </template>
   </mc-dialog>
 </template>

@@ -1,42 +1,22 @@
-/* McPanel component styles. Generated once from the 2.0 visual baseline; maintain here. */
-.mc-panel,
-.mc-panel__title {
-  color: var(--mc-text, #fff);
-}
-.mc-panel__subtitle {
-  color: var(--mc-text-muted, #b1b2b5);
-}
 .mc-panel {
   background: var(--mc-surface, #313233);
-}
-.mc-panel--bordered {
-  border-color: var(--mc-border, #1e1e1f);
-}
-.mc-panel--elevated {
-  box-shadow: 4px 4px var(--mc-shadow, #000);
-}
-.mc-panel__header,
-.mc-panel__footer {
-  background: var(--mc-background, #48494a);
-  border-color: var(--mc-border, #1e1e1f);
-}
-.mc-panel {
-  background: var(--mc-surface, #313233);
+  border: 2px solid var(--mc-border, #1e1e1f);
   box-sizing: border-box;
   color: var(--mc-text, #fff);
-  display: inline-flex;
-  flex-direction: column;
+  display: grid;
+  flex: 1 1 auto;
   font-family: var(--mc-font-ui, sans-serif);
+  grid-template-areas:
+    'header'
+    'body'
+    'footer';
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  height: 100%;
   max-width: 100%;
+  min-height: 0;
   min-width: 0;
-  vertical-align: top;
-  width: fit-content;
-}
-.mc-panel--bordered {
-  border: 2px solid var(--mc-border, #1e1e1f);
-}
-.mc-panel--elevated {
-  box-shadow: var(--mc-shadow-panel);
+  overflow: hidden;
+  width: 100%;
 }
 .mc-panel__header {
   align-items: flex-start;
@@ -44,7 +24,9 @@
   border-bottom: 2px solid var(--mc-border, #1e1e1f);
   display: flex;
   gap: 12px;
+  grid-area: header;
   justify-content: space-between;
+  min-width: 0;
   padding: 12px 12px 10px;
 }
 .mc-panel__title-area {
@@ -54,6 +36,7 @@
   min-width: 0;
 }
 .mc-panel__title {
+  color: var(--mc-text, #fff);
   font: 24px/1.2 var(--mc-font-title, sans-serif);
   overflow-wrap: anywhere;
 }
@@ -69,11 +52,18 @@
 }
 .mc-panel__body {
   box-sizing: border-box;
+  grid-area: body;
+  min-height: 0;
+  min-width: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
   padding: 14px;
   width: 100%;
 }
 .mc-panel__footer {
   background: var(--mc-background, #48494a);
   border-top: 2px solid var(--mc-border, #1e1e1f);
+  grid-area: footer;
+  min-width: 0;
   padding: 10px 12px;
 }

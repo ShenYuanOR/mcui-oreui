@@ -1,0 +1,11 @@
+.mc-card-actions {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  gap: 8px;
+  min-height: 50px;
+  padding: 0 16px 16px;
+}
+.mc-card-actions:first-child {
+  padding-top: 16px;
+}

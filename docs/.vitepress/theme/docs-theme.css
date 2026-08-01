@@ -141,6 +141,14 @@ body {
   outline-offset: -4px;
 }
 
+.mc-docs-brand__logo {
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
 .mc-docs-brand__title {
   overflow: hidden;
   font-family: var(--mc-font-title, sans-serif);
@@ -222,6 +230,13 @@ body {
 .mc-docs-header-link:focus-visible {
   outline: 3px solid #ffffff;
   outline-offset: -4px;
+}
+
+.mc-docs-header-link.mc-docs-github-link {
+  justify-content: center;
+  width: 44px;
+  height: auto;
+  padding: 0;
 }
 
 .mc-docs-drawer.mc-drawer {
@@ -594,11 +609,33 @@ body {
   color: #d0d1d4;
 }
 
-.vp-doc table {
+.vp-doc .mc-docs-table-scroll {
+  box-sizing: border-box;
   width: 100%;
+  margin: 20px 0;
+  padding: 0 4px 4px 0;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+}
+
+.vp-doc .mc-docs-table-scroll table {
+  display: table;
+  width: max-content;
+  min-width: 100%;
+  margin: 0;
   border: 2px solid #151617;
   background: #242526;
   box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.vp-doc .mc-docs-table-scroll th:first-child,
+.vp-doc .mc-docs-table-scroll td:first-child {
+  white-space: nowrap;
+}
+
+.vp-doc .mc-docs-table-scroll th:last-child,
+.vp-doc .mc-docs-table-scroll td:last-child {
+  min-width: 14rem;
 }
 
 .vp-doc tr,
@@ -1139,6 +1176,16 @@ body {
     width: 100%;
     margin: 0;
     border: 0;
+  }
+}
+
+@media (max-width: 479px) {
+  .mc-docs-brand {
+    gap: 0;
+  }
+
+  .mc-docs-brand__title {
+    display: none;
   }
 }
 

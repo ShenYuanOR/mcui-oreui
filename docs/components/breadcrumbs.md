@@ -20,10 +20,12 @@ const items = [{ title: '首页', href: '/' }, { title: '世界', href: '/worlds
 </template>
 ```
 
-| Prop      | 类型                            | 说明     |
-| --------- | ------------------------------- | -------- |
-| `items`   | `{ title, href?, disabled? }[]` | 路径项目 |
-| `divider` | `string`                        | 分隔内容 |
+## Props
+
+| 名称      | 类型                            | 默认 | 说明                                                    |
+| --------- | ------------------------------- | ---- | ------------------------------------------------------- |
+| `items`   | `{ title, href?, disabled? }[]` | 必填 | 路径项目；最后一项会自动标记为当前页面。                |
+| `divider` | `string`                        | `/`  | 相邻路径项目之间的分隔内容，也可由 `divider` 插槽替换。 |
 
 `item` 插槽获得 `{ item, index, props }`，路由项目可把 props 交给 RouterLink；`divider` 也可用同名插槽。可访问名称直接使用标准 `aria-label`。
 

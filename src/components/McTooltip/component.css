@@ -11,10 +11,13 @@
   background: #1f1f1f;
   border: 2px solid #fff;
   box-shadow: 3px 3px #000;
+  box-sizing: border-box;
   color: #fff;
+  display: block;
   font: 14px/1.25 var(--mc-font-ui, sans-serif);
   max-width: 240px;
   opacity: 0;
+  overflow-wrap: anywhere;
   padding: 6px 8px;
   pointer-events: none;
   position: absolute;

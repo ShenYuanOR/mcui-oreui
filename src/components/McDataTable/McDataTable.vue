@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import '../../styles/component-core.css'
 import './style.css'
-import { computed, ref, useSlots, watch } from 'vue'
+import { computed, onMounted, onUpdated, ref, useSlots, watch } from 'vue'
 import { useMcLocale } from '../../framework/locale'
 import McPagination from '../McPagination'
+import McSpinner from '../McSpinner'
 import McTable from '../McTable'
 
 export interface McDataTableHeader {
@@ -24,6 +25,7 @@ export interface McDataTableOptions {
   search: string
 }
 export type McDataTableItem = Record<string, unknown>
+export type McDataTableLoadingHeight = number | `${number}px` | `${number}l` | `${number}L`
 
 const defaultOptions = (): McDataTableOptions => ({ page: 1, itemsPerPage: 10, sortBy: [], search: '' })
 const props = withDefaults(
@@ -36,6 +38,8 @@ const props = withDefaults(
     mode?: 'client' | 'server'
     itemsLength?: number
     loading?: boolean
+    loadingHeight?: McDataTableLoadingHeight
+    loadingAutoHeight?: boolean
     noDataText?: string
     showSelect?: boolean
     modelValue?: unknown[]
@@ -48,6 +52,7 @@ const props = withDefaults(
     mode: 'client',
     itemsLength: 0,
     loading: false,
+    loadingAutoHeight: true,
     showSelect: false,
     modelValue: () => [],
     multiSort: false,
@@ -61,6 +66,7 @@ const emit = defineEmits<{
 
 const locale = useMcLocale()
 const slots = useSlots()
+const root = ref<HTMLElement | null>(null)
 const normalizeOptions = (value?: McDataTableOptions): McDataTableOptions => ({
   ...defaultOptions(),
   ...value,
@@ -121,6 +127,43 @@ const displayed = computed(() =>
         localOptions.value.page * localOptions.value.itemsPerPage,
       ),
 )
+const dataRowHeight = 46
+const measuredBodyHeight = ref<number | null>(null)
+function measureResolvedBodyHeight() {
+  if (props.loading) return
+  const height = root.value?.querySelector('tbody')?.getBoundingClientRect().height
+  if (height && Math.abs(height - (measuredBodyHeight.value ?? 0)) > 0.5) measuredBodyHeight.value = height
+}
+onMounted(measureResolvedBodyHeight)
+onUpdated(measureResolvedBodyHeight)
+
+function parseLoadingHeight(value: McDataTableLoadingHeight | undefined): number | null {
+  if (typeof value === 'number') return Number.isFinite(value) ? Math.max(1, value) : null
+  if (!value) return null
+  const match = value.trim().match(/^(\d+(?:\.\d+)?)\s*(px|l)$/i)
+  if (!match) return null
+  const amount = Number(match[1])
+  return match[2].toLowerCase() === 'l' ? Math.max(1, Math.trunc(amount)) * dataRowHeight : Math.max(1, amount)
+}
+const explicitLoadingHeight = computed(() => parseLoadingHeight(props.loadingHeight))
+const resolvedLoadingHeight = computed(
+  () =>
+    explicitLoadingHeight.value ??
+    (props.loadingAutoHeight ? measuredBodyHeight.value : null) ??
+    localOptions.value.itemsPerPage * dataRowHeight,
+)
+const tableStyle = computed<Record<string, string>>(() => ({
+  '--mc-data-table-loading-height': `${resolvedLoadingHeight.value}px`,
+}))
+const pageSizeOptions = computed(() =>
+  [
+    ...new Set(
+      [localOptions.value.itemsPerPage, ...props.itemsPerPageOptions]
+        .filter((value) => Number.isFinite(value))
+        .map((value) => Math.max(1, Math.trunc(value))),
+    ),
+  ].sort((left, right) => left - right),
+)
 const allDisplayedSelected = computed(
   () =>
     displayed.value.length > 0 &&
@@ -169,7 +212,7 @@ watch(pageCount, (count) => {
 </script>
 
 <template>
-  <div class="mc-data-table" :aria-busy="loading || undefined">
+  <div ref="root" class="mc-data-table" :aria-busy="loading || undefined" :style="tableStyle">
     <mc-table hover>
       <template #header
         ><tr>
@@ -214,17 +257,27 @@ watch(pageCount, (count) => {
         </tr></template
       >
       <template #body>
-        <tr v-if="loading">
-          <td :colspan="headers.length + (showSelect ? 1 : 0)" class="mc-data-table__state">
-            <slot name="loading">{{ locale.t('loading') }}</slot>
+        <tr v-if="loading" class="mc-data-table__state-row">
+          <td
+            :colspan="headers.length + (showSelect ? 1 : 0)"
+            class="mc-data-table__state mc-data-table__state--loading"
+          >
+            <div class="mc-data-table__state-content" role="status">
+              <slot name="loading"><mc-spinner :size="28" />{{ locale.t('loading') }}</slot>
+            </div>
           </td>
         </tr>
-        <tr v-else-if="!displayed.length">
-          <td :colspan="headers.length + (showSelect ? 1 : 0)" class="mc-data-table__state">
-            <slot name="no-data">{{ noDataText || locale.t('noData') }}</slot>
+        <tr v-else-if="!displayed.length" class="mc-data-table__state-row">
+          <td :colspan="headers.length + (showSelect ? 1 : 0)" class="mc-data-table__state mc-data-table__state--empty">
+            <div class="mc-data-table__state-content" role="status">
+              <slot name="no-data">
+                <span class="mc-data-table__empty-icon" aria-hidden="true" />
+                <strong>{{ noDataText || locale.t('noData') }}</strong>
+              </slot>
+            </div>
           </td>
         </tr>
-        <tr v-for="(item, index) in displayed" v-else :key="String(keyOf(item))">
+        <tr v-for="(item, index) in displayed" v-else :key="String(keyOf(item))" class="mc-data-table__row">
           <td v-if="showSelect" class="mc-data-table__select">
             <input
               type="checkbox"
@@ -247,15 +300,18 @@ watch(pageCount, (count) => {
       </template>
     </mc-table>
     <div class="mc-data-table__footer">
-      <label
-        >{{ locale.t('itemsPerPage') }}
-        <select
-          :value="localOptions.itemsPerPage"
-          @change="updateItemsPerPage(Number(($event.target as HTMLSelectElement).value))"
-        >
-          <option v-for="value in itemsPerPageOptions" :key="value" :value="value">{{ value }}</option>
-        </select></label
-      >
+      <label class="mc-data-table__page-size">
+        <span>{{ locale.t('itemsPerPage') }}</span>
+        <span class="mc-data-table__page-size-control">
+          <select
+            :value="localOptions.itemsPerPage"
+            :aria-label="locale.t('itemsPerPage')"
+            @change="updateItemsPerPage(Number(($event.target as HTMLSelectElement).value))"
+          >
+            <option v-for="value in pageSizeOptions" :key="value" :value="value">{{ value }}</option>
+          </select>
+        </span>
+      </label>
       <mc-pagination :model-value="localOptions.page" :length="pageCount" @update:model-value="updatePage" />
     </div>
   </div>

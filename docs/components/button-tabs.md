@@ -8,7 +8,6 @@
 import { ref } from 'vue'
 const tab = ref('video')
 const titleTab = ref('profile')
-const side = ref('profile')
 const colorTab = ref('world')
 </script>
 
@@ -35,7 +34,6 @@ const colorTab = ref('world')
 import { ref } from 'vue'
 const tab = ref('video')
 const titleTab = ref('profile')
-const side = ref('profile')
 const colorTab = ref('world')
 </script>
 
@@ -50,7 +48,7 @@ const colorTab = ref('world')
         { label: '实验', value: 'exp', disabled: true },
       ]"
     >
-      <template #default="{ active }"> 当前标签：{{ active }} </template>
+      <template #default="{ active }">当前标签：{{ active }}</template>
     </mc-button-tabs>
   </div>
 </template>
@@ -78,7 +76,6 @@ const colorTab = ref('world')
 import { ref } from 'vue'
 const tab = ref('video')
 const titleTab = ref('profile')
-const side = ref('profile')
 const colorTab = ref('world')
 </script>
 
@@ -94,58 +91,14 @@ const colorTab = ref('world')
       ]"
     />
     <p style="color:#b1b2b5;font-size:12px;margin:8px 0 0;text-align:center">
-      当前选中：<strong style="color:#ffffff">{{ titleTab }}</strong>
+      当前选中：
+      <strong style="color:#ffffff">{{ titleTab }}</strong>
     </p>
   </div>
 </template>
 ```
 
 通过 `title` 属性在组件左上角放置标题文本，标题不占用按钮区域。
-
-## 外观说明
-
-<div class="mc-demo mc-demo--column">
-  <mc-button-tabs
-    v-model="side"
-    :items="[
-      { label: '资料', value: 'profile' },
-      { label: '皮肤', value: 'skin' },
-      { label: '好友', value: 'friends' }
-    ]"
-  />
-  <p style="color:#b1b2b5;font-size:12px;margin:8px 0 0;text-align:center">
-    当前选中：<strong style="color:#ffffff">{{ side }}</strong>
-  </p>
-</div>
-
-```vue
-<script setup lang="ts">
-import { ref } from 'vue'
-const tab = ref('video')
-const titleTab = ref('profile')
-const side = ref('profile')
-const colorTab = ref('world')
-</script>
-
-<template>
-  <div class="mc-demo mc-demo--column">
-    <mc-button-tabs
-      v-model="side"
-      :items="[
-        { label: '资料', value: 'profile' },
-        { label: '皮肤', value: 'skin' },
-        { label: '好友', value: 'friends' },
-      ]"
-    />
-    <p style="color:#b1b2b5;font-size:12px;margin:8px 0 0;text-align:center">
-      当前选中：<strong style="color:#ffffff">{{ side }}</strong>
-    </p>
-  </div>
-</template>
-```
-
-- **未选中** — `normal_btn` 灰色按钮，带 Minecraft 立体阴影
-- **选中** — `primary_btn` 绿色按钮，呈现**按下态**（整体下沉、阴影变平），底部居中白色横条
 
 ## 自定义颜色
 
@@ -171,7 +124,6 @@ const colorTab = ref('world')
 import { ref } from 'vue'
 const tab = ref('video')
 const titleTab = ref('profile')
-const side = ref('profile')
 const colorTab = ref('world')
 </script>
 
@@ -185,7 +137,7 @@ const colorTab = ref('world')
         { label: '末地', value: 'end', color: '#d4c43a', disabled: true },
       ]"
     >
-      <template #default="{ active }"> 当前维度：{{ active }} </template>
+      <template #default="{ active }">当前维度：{{ active }}</template>
     </mc-button-tabs>
   </div>
 </template>

@@ -42,8 +42,12 @@
   box-shadow:
     inset 3px 3px var(--mc-specular-hover),
     inset -3px -3px var(--mc-specular-hover-low);
+  height: calc(var(--mc-control-height, 40px) - 4px);
+  margin-top: 4px;
+  max-height: calc(var(--mc-control-height, 40px) - 4px);
+  min-height: calc(var(--mc-control-height, 40px) - 4px);
   padding-bottom: 10px;
-  padding-top: 12px;
+  padding-top: 8px;
 }
 .mc-select__trigger:disabled {
   background: var(--mc-disabled, #d0d1d4);
@@ -55,6 +59,10 @@
 .mc-select__chevron {
   font-size: 20px;
   line-height: 1;
+  transition: transform 120ms steps(2);
+}
+.mc-select__trigger[aria-expanded='true'] .mc-select__chevron {
+  transform: rotate(180deg);
 }
 .mc-select__placeholder {
   color: var(--mc-text-muted, #b1b2b5);

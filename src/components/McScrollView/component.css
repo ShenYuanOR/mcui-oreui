@@ -1,6 +1,7 @@
 /* McScrollView component styles. Generated once from the 2.0 visual baseline; maintain here. */
 .mc-scroll-view {
   display: flex;
+  flex: 1 1 0;
   height: 100%;
   min-height: 0;
   overflow: hidden;

@@ -3,6 +3,9 @@ import '../../styles/component-core.css'
 import './style.css'
 import { computed } from 'vue'
 import { useSound } from '../../composables/useSound'
+import McCardActions from '../McCardActions'
+import McCardItem from '../McCardItem'
+import McCardText from '../McCardText'
 
 const { playSound } = useSound()
 
@@ -39,8 +42,15 @@ function click(event: MouseEvent) {
     :aria-disabled="(!clickable && disabled) || undefined"
     @click="click"
   >
-    <div v-if="$slots.title" class="mc-card__title"><slot name="title" /></div>
-    <div v-if="$slots.default" class="mc-card__body"><slot /></div>
-    <div v-if="$slots.actions" class="mc-card__actions"><slot name="actions" /></div>
+    <mc-card-item v-if="$slots.item || $slots.prepend || $slots.title || $slots.subtitle || $slots.append">
+      <template v-if="$slots.prepend" #prepend><slot name="prepend" /></template>
+      <template v-if="$slots.title" #title><slot name="title" /></template>
+      <template v-if="$slots.subtitle" #subtitle><slot name="subtitle" /></template>
+      <template v-if="$slots.append" #append><slot name="append" /></template>
+      <slot name="item" />
+    </mc-card-item>
+    <mc-card-text v-if="$slots.text"><slot name="text" /></mc-card-text>
+    <slot />
+    <mc-card-actions v-if="$slots.actions"><slot name="actions" /></mc-card-actions>
   </component>
 </template>

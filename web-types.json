@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/web-types",
   "name": "mcui-oreui",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "framework": "vue",
   "description-markup": "markdown",
   "js-types-syntax": "typescript",
@@ -433,7 +433,7 @@
         },
         {
           "name": "mc-card",
-          "description": "静态、按钮或链接卡片；内容使用插槽。",
+          "description": "静态、按钮或链接卡片容器；与 Card 子组件组合内容结构。",
           "attributes": [
             {
               "name": "href",
@@ -480,6 +480,91 @@
           "source": {
             "module": "mcui-oreui",
             "symbol": "McCard"
+          }
+        },
+        {
+          "name": "mc-card-actions",
+          "description": "Card 操作区。",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            }
+          ],
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McCardActions"
+          }
+        },
+        {
+          "name": "mc-card-item",
+          "description": "Card 头部条目，编排 prepend、标题、副标题与 append。",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            }
+          ],
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McCardItem"
+          }
+        },
+        {
+          "name": "mc-card-subtitle",
+          "description": "Card 副标题。",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            }
+          ],
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McCardSubtitle"
+          }
+        },
+        {
+          "name": "mc-card-text",
+          "description": "Card 正文区。",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            }
+          ],
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McCardText"
+          }
+        },
+        {
+          "name": "mc-card-title",
+          "description": "Card 标题。",
+          "attributes": [
+            {
+              "name": "tag",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            }
+          ],
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McCardTitle"
           }
         },
         {
@@ -795,6 +880,20 @@
             },
             {
               "name": "loading",
+              "value": {
+                "kind": "expression",
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "loading-height",
+              "value": {
+                "kind": "expression",
+                "type": "McDataTableLoadingHeight"
+              }
+            },
+            {
+              "name": "loading-auto-height",
               "value": {
                 "kind": "expression",
                 "type": "boolean"
@@ -1349,7 +1448,23 @@
         },
         {
           "name": "mc-panel",
-          "description": "Ore UI 面板。",
+          "description": "带固定头尾和可滚动正文的 Ore UI 工作区布局。",
+          "attributes": [
+            {
+              "name": "title",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "subtitle",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            }
+          ],
           "source": {
             "module": "mcui-oreui",
             "symbol": "McPanel"

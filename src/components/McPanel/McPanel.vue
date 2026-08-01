@@ -1,24 +1,18 @@
 <script setup lang="ts">
 import '../../styles/component-core.css'
 import './style.css'
-withDefaults(
-  defineProps<{
-    /** 面板标题 */
-    title?: string
-    /** 副标题 */
-    subtitle?: string
-    /** 是否显示描边 */
-    bordered?: boolean
-    /** 是否显示立体阴影 */
-    elevated?: boolean
-  }>(),
-  { bordered: true, elevated: true },
-)
+
+defineProps<{
+  /** 面板标题，作为 header 插槽的简写 */
+  title?: string
+  /** 面板副标题，作为 header 插槽的简写 */
+  subtitle?: string
+}>()
 </script>
 
 <template>
-  <section class="mc-panel" :class="{ 'mc-panel--bordered': bordered, 'mc-panel--elevated': elevated }">
-    <div v-if="$slots.header || title || subtitle || $slots.actions" class="mc-panel__header">
+  <section class="mc-panel">
+    <header v-if="$slots.header || title || subtitle || $slots.actions" class="mc-panel__header">
       <slot name="header">
         <div class="mc-panel__title-area">
           <div v-if="title" class="mc-panel__title">{{ title }}</div>
@@ -28,7 +22,7 @@ withDefaults(
       <div v-if="$slots.actions" class="mc-panel__actions">
         <slot name="actions" />
       </div>
-    </div>
+    </header>
     <div class="mc-panel__body">
       <slot />
     </div>

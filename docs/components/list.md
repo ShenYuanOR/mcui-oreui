@@ -21,7 +21,7 @@ const dynamicItems = [
 
 列表项作为 `McList` 的子节点声明：在 `<mc-list>` 内使用 `<mc-list-item>`，让结构更接近组件本身的层级关系。
 
-`McList` 根节点会显式抵抗宿主页面对 `ul` 设置的 `margin`、`padding` 与 `list-style`，避免 VitePress、文章样式或 CSS reset 产生未知缩进；每行自身的内容留白仍由列表项统一控制。多选指示器与 Checkbox 共用 crispEdges 像素勾号，不依赖字体字符。
+`McList` 根节点负责整体 surface 与统一 4px（内置 `pa-1` spacing）内边距，隔开列表内容和外部页面；`McListItem` 负责统一行高、内边距、边框、悬浮/按下/选中状态，所有行保持同一组视觉节奏，不会像独立卡片一样割裂。多选指示器与 Checkbox 共用 crispEdges 像素勾号，不依赖字体字符。
 
 不设置 `mode` 时默认为无选中模式，列表项可正常点击触发事件，但不显示选中状态、无选中指示器。
 
@@ -113,7 +113,8 @@ const dynamicItems = [
       <mc-list-item label="世界三 · 服务器入口" value="world3" />
     </mc-list>
     <p style="color:#b1b2b5;font-size:12px;margin:8px 0 0;text-align:center">
-      当前选中：<strong style="color:#ffffff">{{ selected }}</strong>
+      当前选中：
+      <strong style="color:#ffffff">{{ selected }}</strong>
     </p>
   </div>
 </template>
@@ -160,7 +161,8 @@ const dynamicItems = [
       <mc-list-item label="自动保存" value="autosave" subtitle="每 5 分钟自动保存世界" />
     </mc-list>
     <p style="color:#b1b2b5;font-size:12px;margin:8px 0 0;text-align:center">
-      当前选中：<strong style="color:#ffffff">{{ multiSelected.join(', ') || '无' }}</strong>
+      当前选中：
+      <strong style="color:#ffffff">{{ multiSelected.join(', ') || '无' }}</strong>
     </p>
   </div>
 </template>

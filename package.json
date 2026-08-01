@@ -1,6 +1,6 @@
 {
   "name": "mcui-oreui",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Minecraft 基岩版 Ore UI 设计语言的 Vue 3 组件库（第三方复刻，移植自 Spectrollay-OreUI）",
   "keywords": [
     "minecraft",
@@ -96,6 +96,26 @@
     "./components/McCard": {
       "types": "./dist/components/McCard.d.ts",
       "import": "./dist/components/McCard.js"
+    },
+    "./components/McCardActions": {
+      "types": "./dist/components/McCardActions.d.ts",
+      "import": "./dist/components/McCardActions.js"
+    },
+    "./components/McCardItem": {
+      "types": "./dist/components/McCardItem.d.ts",
+      "import": "./dist/components/McCardItem.js"
+    },
+    "./components/McCardSubtitle": {
+      "types": "./dist/components/McCardSubtitle.d.ts",
+      "import": "./dist/components/McCardSubtitle.js"
+    },
+    "./components/McCardText": {
+      "types": "./dist/components/McCardText.d.ts",
+      "import": "./dist/components/McCardText.js"
+    },
+    "./components/McCardTitle": {
+      "types": "./dist/components/McCardTitle.d.ts",
+      "import": "./dist/components/McCardTitle.js"
     },
     "./components/McCheckbox": {
       "types": "./dist/components/McCheckbox.d.ts",

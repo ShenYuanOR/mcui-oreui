@@ -16,9 +16,14 @@
   justify-content: space-between;
   padding: 12px 16px;
 }
-.mc-dialog__title {
+.mc-dialog > .mc-dialog__header > .mc-dialog__title {
+  border: 0;
+  color: inherit;
   font: 700 20px/1.2 var(--mc-font-title, sans-serif);
+  letter-spacing: normal;
   margin: 0;
+  padding: 0;
+  position: static;
 }
 .mc-dialog__close {
   background: transparent;

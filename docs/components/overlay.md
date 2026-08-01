@@ -5,7 +5,7 @@ const open = ref(false)
 
 # Overlay
 
-所有浮层组件共享的底层定位、焦点、滚动、Teleport 与叠层服务。业务界面通常直接使用 [Dialog](./dialog)、[Menu](./menu)、[Tooltip](./tooltip) 或 [Confirm](./confirm)。
+所有浮层组件共享的底层定位、焦点、滚动、Teleport 与叠层服务。业务界面通常直接使用 [Dialog / Confirm](./dialog)、[Menu](./menu) 或 [Tooltip](./tooltip)。
 
 ## Connected 定位
 
@@ -36,16 +36,22 @@ Connected 模式相对 activator 定位，并在视口边缘自动 flip/shift；
 
 ## Props
 
-| 名称                                                     | 类型                                   | 默认           |
-| -------------------------------------------------------- | -------------------------------------- | -------------- |
-| `modelValue`                                             | `boolean`                              | `false`        |
-| `locationStrategy`                                       | `static \| connected`                  | `static`       |
-| `location`                                               | `top/bottom/start/end` 及对齐变体      | `bottom start` |
-| `offset`                                                 | `number \| [main, cross]`              | `0`            |
-| `scrollStrategy`                                         | `block \| close \| reposition \| none` | `block`        |
-| `focusStrategy`                                          | `trap \| restore \| none`              | `trap`         |
-| `teleport`                                               | `string \| HTMLElement \| false`       | `body`         |
-| `persistent`、`scrim`、`closeOnOverlay`、`closeOnEscape` | 对应布尔策略                           | -              |
+| 名称               | 类型                                   | 默认              | 说明                                                  |
+| ------------------ | -------------------------------------- | ----------------- | ----------------------------------------------------- |
+| `modelValue`       | `boolean`                              | `false`           | 控制浮层是否显示，支持通过 `v-model` 双向绑定。       |
+| `teleport`         | `string \| HTMLElement \| false`       | `body`            | Teleport 目标；设为 `false` 时保留在当前 DOM 层级。   |
+| `locationStrategy` | `static \| connected`                  | `static`          | 使用固定视口布局，或相对 activator 进行自动定位。     |
+| `location`         | `McOverlayLocation`                    | `bottom start`    | Connected 模式下相对 activator 的逻辑位置。           |
+| `offset`           | `number \| [number, number]`           | `0`               | 主轴偏移，或 `[主轴, 交叉轴]` 两个方向的偏移量。      |
+| `boundaryPadding`  | `number`                               | `8`               | 自动翻转和平移时与视口边缘保留的最小距离，单位为 px。 |
+| `matchWidth`       | `boolean`                              | `false`           | Connected 模式下是否让浮层至少与 activator 等宽。     |
+| `scrollStrategy`   | `block \| close \| reposition \| none` | `block`           | 浮层打开时如何处理页面或祖先滚动。                    |
+| `focusStrategy`    | `trap \| restore \| none`              | `trap`            | 浮层打开时如何限制焦点，以及关闭后是否恢复焦点。      |
+| `closeOnOverlay`   | `boolean`                              | `true`            | 点击遮罩时是否关闭当前浮层。                          |
+| `closeOnEscape`    | `boolean`                              | `true`            | 当前浮层位于栈顶时，按 Escape 是否关闭。              |
+| `persistent`       | `boolean`                              | `false`           | 是否阻止遮罩点击和 Escape 关闭。                      |
+| `scrim`            | `boolean \| string`                    | `true`            | 是否显示遮罩；传入字符串时该值作为遮罩颜色。          |
+| `transition`       | `string`                               | `mc-overlay-fade` | Vue Transition 名称。                                 |
 
 Activator 插槽提供 `{ props, isActive, toggle, open }`；默认插槽提供 `{ close, updateLocation }`。事件为 `update:modelValue`、`open`、`close`、`afterEnter`。
 
