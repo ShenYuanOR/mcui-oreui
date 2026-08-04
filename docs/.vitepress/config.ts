@@ -170,6 +170,7 @@ export default defineConfig({
         items: [
           { text: '表格 / Table', link: '/components/table' },
           { text: '数据表格 / DataTable', link: '/components/data-table' },
+          { text: '头像 / Avatar', link: '/components/avatar' },
           { text: '徽标 / Badge', link: '/components/badge' },
           { text: '标签 / Chip', link: '/components/chip' },
           { text: '皮肤预览 / SkinViewer', link: '/components/skinviewer' },

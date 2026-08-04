@@ -182,7 +182,7 @@ export const mcui = createMcUI({
 - 表单：Form（组合与验证）、FormField（字段展示）、单行文本输入框（TextField）、多行文本输入框（Textarea）、Select、Autocomplete、Checkbox、Radio、RadioGroup、Switch、Slider、FileInput、NumberInput。Form 与字段输入组件属于同一组件族；标准输入组件已内置字段展示层，展示与验证在文档中分开说明。
 - 导航：Tabs、ButtonTabs、List、Breadcrumbs、Pagination、ExpansionPanels / ExpansionPanel、Stepper。
 - 布局：Container、Row、Col、Spacer、Layout、Panel、Appbar、AppbarButton、AppbarIcon、Main、Drawer、ScrollView、VirtualScroll。
-- 数据展示：Table、DataTable、Badge、Chip、SkinViewer。
+- 数据展示：Table、DataTable、Badge、Avatar、Chip、SkinViewer。
 - 浮层：Overlay、Dialog（含 Confirm）、Menu、Tooltip。
 - 反馈：Alert、Snackbar、Progress、Spinner、Skeleton、LoadingMask、PopHost。
 - Minecraft：FormattedText、Tcode。

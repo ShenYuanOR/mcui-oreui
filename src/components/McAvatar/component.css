@@ -1,0 +1,111 @@
+/* McAvatar component styles. */
+/* ========== Avatar 头像 ========== */
+
+.mc-avatar {
+  --mc-avatar-size: 48px;
+  --mc-avatar-radius: 0;
+  --mc-avatar-bg: #3C3C3C;
+  --mc-avatar-color: #FFFFFF;
+  --mc-avatar-font-size: 14px;
+  --mc-avatar-shadow-color: #1A1A1A;
+
+  align-items: center;
+  background-color: var(--mc-avatar-bg);
+  border: 3px solid #1A1A1A;
+  border-radius: var(--mc-avatar-radius);
+  box-sizing: border-box;
+  color: var(--mc-avatar-color);
+  display: inline-flex;
+  flex: none;
+  font-family: 'Minecraft AE', 'Minecraft Ten', sans-serif;
+  font-size: var(--mc-avatar-font-size);
+  height: var(--mc-avatar-size);
+  justify-content: center;
+  line-height: 1;
+  overflow: hidden;
+  position: relative;
+  text-transform: uppercase;
+  user-select: none;
+  vertical-align: middle;
+  width: var(--mc-avatar-size);
+}
+
+/* ========== Variants ========== */
+
+/* elevated（默认）：立体阴影 */
+.mc-avatar--elevated {
+  box-shadow:
+    inset 3px 3px 0 rgba(255, 255, 255, 0.15),
+    inset -2px -2px 0 rgba(0, 0, 0, 0.25),
+    0 2px 0 var(--mc-avatar-shadow-color);
+}
+
+/* flat：纯色无阴影 */
+.mc-avatar--flat {
+  box-shadow: none;
+}
+
+/* tonal：浅色底 */
+.mc-avatar--tonal {
+  background-color: rgba(60, 60, 60, 0.12);
+  border-color: transparent;
+  box-shadow: none;
+}
+
+/* outlined：仅描边，透明底 */
+.mc-avatar--outlined {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+/* text：透明底，无边框 */
+.mc-avatar--text {
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+/* plain：极简 */
+.mc-avatar--plain {
+  box-shadow: none;
+  border-color: rgba(26, 26, 26, 0.5);
+  opacity: 0.75;
+}
+
+/* ========== 子元素 ========== */
+
+/* 图片 */
+.mc-avatar__img {
+  display: block;
+  height: 100%;
+  image-rendering: pixelated;
+  object-fit: cover;
+  width: 100%;
+}
+
+/* 图标 */
+.mc-avatar__icon {
+  flex: none;
+}
+
+/* 文字 */
+.mc-avatar__text {
+  display: block;
+  font-weight: bold;
+  line-height: 1;
+  overflow: hidden;
+  padding: 2px;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+/* ========== 可点击 ========== */
+.mc-avatar--clickable {
+  cursor: pointer;
+}
+
+.mc-avatar--clickable:active {
+  transform: scale(0.94);
+}

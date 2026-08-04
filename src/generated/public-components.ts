@@ -4,6 +4,7 @@ import type McAppbar from '../components/McAppbar'
 import type McAppbarButton from '../components/McAppbarButton'
 import type McAppbarIcon from '../components/McAppbarIcon'
 import type McAutocomplete from '../components/McAutocomplete'
+import type McAvatar from '../components/McAvatar'
 import type McBadge from '../components/McBadge'
 import type McBreadcrumbs from '../components/McBreadcrumbs'
 import type McButton from '../components/McButton'
@@ -73,6 +74,7 @@ export { default as McAppbar } from '../components/McAppbar'
 export { default as McAppbarButton } from '../components/McAppbarButton'
 export { default as McAppbarIcon } from '../components/McAppbarIcon'
 export { default as McAutocomplete } from '../components/McAutocomplete'
+export { default as McAvatar } from '../components/McAvatar'
 export { default as McBadge } from '../components/McBadge'
 export { default as McBreadcrumbs } from '../components/McBreadcrumbs'
 export { default as McButton } from '../components/McButton'
@@ -143,6 +145,7 @@ export interface McUIGlobalComponents {
   McAppbarButton: typeof McAppbarButton
   McAppbarIcon: typeof McAppbarIcon
   McAutocomplete: typeof McAutocomplete
+  McAvatar: typeof McAvatar
   McBadge: typeof McBadge
   McBreadcrumbs: typeof McBreadcrumbs
   McButton: typeof McButton
@@ -211,6 +214,7 @@ export interface McUIGlobalComponents {
   'mc-appbar-button': typeof McAppbarButton
   'mc-appbar-icon': typeof McAppbarIcon
   'mc-autocomplete': typeof McAutocomplete
+  'mc-avatar': typeof McAvatar
   'mc-badge': typeof McBadge
   'mc-breadcrumbs': typeof McBreadcrumbs
   'mc-button': typeof McButton
