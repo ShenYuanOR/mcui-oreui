@@ -76,7 +76,7 @@ onBeforeUnmount(pop.clear)
     <header class="gallery-hero">
       <p>mcui-oreui · Spectrollay reference 0bf8f466</p>
       <h1>Ore UI visual regression gallery</h1>
-      <p>68 public components · optional Minecraft fonts loaded explicitly</p>
+      <p>69 public components · optional Minecraft fonts loaded explicitly</p>
     </header>
 
     <section class="gallery-section">
@@ -98,6 +98,17 @@ onBeforeUnmount(pop.clear)
         <mc-locale-provider data-gallery-component="McLocaleProvider" locale="en" tag="div">
           <mc-panel title="LocaleProvider">English / LTR scope</mc-panel>
         </mc-locale-provider>
+      </div>
+      <div class="gallery-avatar-row" aria-label="Avatar preview samples">
+        <mc-avatar class="gallery-avatar-item" data-gallery-component="McAvatar" text="A" size="x-large" color="#3c8527" />
+        <mc-avatar class="gallery-avatar-item" data-gallery-component="McAvatar" text="S" size="large" color="#7a9ef5" />
+        <mc-avatar
+          class="gallery-avatar-item"
+          data-gallery-component="McAvatar"
+          src="https://placehold.co/128x128/3c8527/ffffff?text=A"
+          alt="A"
+          size="large"
+        />
       </div>
     </section>
 
@@ -493,6 +504,22 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+}
+.gallery-avatar-row {
+  align-items: center;
+  background: linear-gradient(135deg, rgba(60, 133, 39, 0.22), rgba(42, 68, 107, 0.14));
+  border: 2px solid rgba(60, 133, 39, 0.7);
+  border-radius: 18px;
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.08), 0 12px 24px rgba(15, 17, 20, 0.22);
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  margin-top: 18px;
+  padding: 20px 18px;
+}
+.gallery-avatar-item {
+  --mc-avatar-shadow: 0 0 0 3px rgba(255, 255, 255, 0.75), 0 12px 22px rgba(0, 0, 0, 0.28);
+  transform: scale(1.08);
 }
 .gallery-control-stack {
   display: flex;

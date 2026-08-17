@@ -3,7 +3,9 @@ import '../../styles/component-core.css'
 import './style.css'
 import { computed, onMounted, onUpdated, ref, useSlots, watch } from 'vue'
 import { useMcLocale } from '../../framework/locale'
+import McCheckbox from '../McCheckbox'
 import McPagination from '../McPagination'
+import McSelect from '../McSelect'
 import McSpinner from '../McSpinner'
 import McTable from '../McTable'
 
@@ -169,6 +171,11 @@ const allDisplayedSelected = computed(
     displayed.value.length > 0 &&
     displayed.value.every((item) => props.modelValue.some((value) => Object.is(value, keyOf(item)))),
 )
+const someDisplayedSelected = computed(
+  () =>
+    displayed.value.length > 0 &&
+    displayed.value.some((item) => props.modelValue.some((value) => Object.is(value, keyOf(item)))),
+)
 
 function updateOptions(patch: Partial<McDataTableOptions>) {
   const next = normalizeOptions({ ...localOptions.value, ...patch })
@@ -193,17 +200,25 @@ function updateSelection(value: unknown[]) {
   emit('update:modelValue', value)
   emit('change', value)
 }
-function toggle(item: McDataTableItem) {
+function toggle(item: McDataTableItem, value?: boolean) {
   const key = keyOf(item)
-  const selected = props.modelValue.some((value) => Object.is(value, key))
-  updateSelection(selected ? props.modelValue.filter((value) => !Object.is(value, key)) : [...props.modelValue, key])
+  const selected = props.modelValue.some((current) => Object.is(current, key))
+  const shouldSelect = typeof value === 'boolean' ? value : !selected
+
+  updateSelection(
+    shouldSelect
+      ? selected
+        ? props.modelValue
+        : [...props.modelValue, key]
+      : props.modelValue.filter((current) => !Object.is(current, key)),
+  )
 }
-function toggleAll() {
+function toggleAll(value: boolean) {
   const keys = displayed.value.map(keyOf)
   updateSelection(
-    allDisplayedSelected.value
-      ? props.modelValue.filter((value) => !keys.some((key) => Object.is(key, value)))
-      : [...new Set([...props.modelValue, ...keys])],
+    value
+      ? [...new Set([...props.modelValue, ...keys])]
+      : props.modelValue.filter((current) => !keys.some((key) => Object.is(key, current))),
   )
 }
 watch(pageCount, (count) => {
@@ -217,11 +232,11 @@ watch(pageCount, (count) => {
       <template #header
         ><tr>
           <th v-if="showSelect" class="mc-data-table__select">
-            <input
-              type="checkbox"
-              :checked="allDisplayedSelected"
+            <McCheckbox
+              :model-value="allDisplayedSelected"
+              :indeterminate="someDisplayedSelected && !allDisplayedSelected"
               :aria-label="locale.t('selectAll')"
-              @change="toggleAll"
+              @update:model-value="toggleAll"
             />
           </th>
           <th
@@ -279,11 +294,10 @@ watch(pageCount, (count) => {
         </tr>
         <tr v-for="(item, index) in displayed" v-else :key="String(keyOf(item))" class="mc-data-table__row">
           <td v-if="showSelect" class="mc-data-table__select">
-            <input
-              type="checkbox"
-              :checked="modelValue.some((value) => Object.is(value, keyOf(item)))"
+            <McCheckbox
+              :model-value="modelValue.some((value) => Object.is(value, keyOf(item)))"
               :aria-label="String(keyOf(item))"
-              @change="toggle(item)"
+              @update:model-value="(selected) => toggle(item, selected)"
             />
           </td>
           <td v-for="header in headers" :key="header.key" :class="`mc-data-table__cell--${header.align || 'start'}`">
@@ -303,13 +317,12 @@ watch(pageCount, (count) => {
       <label class="mc-data-table__page-size">
         <span>{{ locale.t('itemsPerPage') }}</span>
         <span class="mc-data-table__page-size-control">
-          <select
-            :value="localOptions.itemsPerPage"
+          <McSelect
+            :model-value="localOptions.itemsPerPage"
+            :options="pageSizeOptions.map((value) => ({ title: String(value), value }))"
             :aria-label="locale.t('itemsPerPage')"
-            @change="updateItemsPerPage(Number(($event.target as HTMLSelectElement).value))"
-          >
-            <option v-for="value in pageSizeOptions" :key="value" :value="value">{{ value }}</option>
-          </select>
+            @update:model-value="updateItemsPerPage(Number($event))"
+          />
         </span>
       </label>
       <mc-pagination :model-value="localOptions.page" :length="pageCount" @update:model-value="updatePage" />
