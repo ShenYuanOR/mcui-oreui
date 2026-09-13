@@ -269,6 +269,72 @@
           }
         },
         {
+          "name": "mc-avatar",
+          "description": "头像。",
+          "attributes": [
+            {
+              "name": "size",
+              "value": {
+                "kind": "expression",
+                "type": "number | 'small' | 'middle' | 'large' | 'x-large'"
+              }
+            },
+            {
+              "name": "color",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "variant",
+              "value": {
+                "kind": "expression",
+                "type": "'elevated' | 'flat' | 'tonal' | 'outlined' | 'text' | 'plain'"
+              }
+            },
+            {
+              "name": "rounded",
+              "value": {
+                "kind": "expression",
+                "type": "number | string"
+              }
+            },
+            {
+              "name": "src",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "icon",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "text",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            },
+            {
+              "name": "alt",
+              "value": {
+                "kind": "expression",
+                "type": "string"
+              }
+            }
+          ],
+          "source": {
+            "module": "mcui-oreui",
+            "symbol": "McAvatar"
+          }
+        },
+        {
           "name": "mc-badge",
           "description": "徽标。",
           "attributes": [

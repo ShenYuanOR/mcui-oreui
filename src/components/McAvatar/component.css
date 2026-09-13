@@ -1,0 +1,83 @@
+/* McAvatar component styles. Generated once from the 2.0 visual baseline; maintain here. */
+.mc-avatar {
+  --mc-avatar-size: 48px;
+  --mc-avatar-radius: 0;
+  --mc-avatar-bg: var(--mc-surface-pressed, #3c3c3c);
+  --mc-avatar-color: var(--mc-text, #fff);
+  --mc-avatar-font-size: 14px;
+  --mc-avatar-shadow-color: var(--mc-border, #1a1a1a);
+  align-items: center;
+  background-color: var(--mc-avatar-bg);
+  border: 3px solid var(--mc-border, #1a1a1a);
+  border-radius: var(--mc-avatar-radius);
+  box-sizing: border-box;
+  color: var(--mc-avatar-color);
+  display: inline-flex;
+  flex: none;
+  font-family: var(--mc-font-ui, sans-serif);
+  font-size: var(--mc-avatar-font-size);
+  height: var(--mc-avatar-size);
+  justify-content: center;
+  line-height: 1;
+  overflow: hidden;
+  position: relative;
+  text-transform: uppercase;
+  user-select: none;
+  vertical-align: middle;
+  width: var(--mc-avatar-size);
+}
+.mc-avatar--elevated {
+  box-shadow:
+    inset 3px 3px 0 rgba(255, 255, 255, 0.15),
+    inset -2px -2px 0 rgba(0, 0, 0, 0.25),
+    0 2px 0 var(--mc-avatar-shadow-color);
+}
+.mc-avatar--flat {
+  box-shadow: none;
+}
+.mc-avatar--tonal {
+  background-color: color-mix(in srgb, var(--mc-avatar-bg) 12%, transparent);
+  border-color: transparent;
+  box-shadow: none;
+}
+.mc-avatar--outlined {
+  background-color: transparent;
+  box-shadow: none;
+}
+.mc-avatar--text {
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+.mc-avatar--plain {
+  border-color: color-mix(in srgb, var(--mc-border, #1a1a1a) 50%, transparent);
+  box-shadow: none;
+  opacity: 0.75;
+}
+.mc-avatar__img {
+  display: block;
+  height: 100%;
+  image-rendering: pixelated;
+  object-fit: cover;
+  width: 100%;
+}
+.mc-avatar__icon {
+  flex: none;
+}
+.mc-avatar__text {
+  display: block;
+  font-weight: 700;
+  line-height: 1;
+  overflow: hidden;
+  padding: 2px;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+.mc-avatar--clickable {
+  cursor: pointer;
+}
+.mc-avatar--clickable:active {
+  transform: scale(0.94);
+}

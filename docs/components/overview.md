@@ -221,6 +221,6 @@ const modes = [
 - 表单：[Form](./form)、[FormField](./formfield)、[单行文本输入框 / TextField](./textfield)、[多行文本输入框 / Textarea](./textarea)、[Select](./select)、[Autocomplete](./autocomplete)、[Checkbox](./checkbox)、[Radio](./radio)、[RadioGroup](./radio-group)、[Switch](./switch)、[Slider](./slider)、[FileInput](./file-input)、[NumberInput](./number-input)
 - 导航：[Tabs](./tabs)、[ButtonTabs](./button-tabs)、[List](./list)、[Breadcrumbs](./breadcrumbs)、[Pagination](./pagination)、[ExpansionPanels](./expansion-panels)、[Stepper](./stepper)
 - 布局：[Layout](./layout)、[Grid](./grid)、[Panel](./panel)、[Appbar 组件族](./appbar)、[Drawer](./drawer)、[ScrollView](./scrollview)、[VirtualScroll](./virtual-scroll)
-- 数据展示：[Table](./table)、[DataTable](./data-table)、[Badge](./badge)、[Chip](./chip)、[SkinViewer](./skinviewer)
+- 数据展示：[Table](./table)、[DataTable](./data-table)、[Avatar](./avatar)、[Badge](./badge)、[Chip](./chip)、[SkinViewer](./skinviewer)
 - 浮层：[Overlay](./overlay)、[Dialog（含 Confirm）](./dialog)、[Menu](./menu)、[Tooltip](./tooltip)
 - 反馈：[Alert](./alert)、[Snackbar](./snackbar)、[Progress](./progress)、[Spinner](./spinner)、[Skeleton](./skeleton)、[LoadingMask](./loadingmask)、[Pop](./pop)

@@ -11,12 +11,12 @@ test.describe('Ore UI visual regression gallery', () => {
     await page.evaluate(() => document.fonts.ready)
   })
 
-  test('renders all 68 public components in the stable gallery', async ({ page }) => {
+  test('renders all 69 public components in the stable gallery', async ({ page }) => {
     const components = await page
       .locator('[data-gallery-component]')
       .evaluateAll((elements) => elements.map((element) => element.getAttribute('data-gallery-component')))
-    expect(new Set(components).size).toBe(68)
-    expect(components).toHaveLength(68)
+    expect(new Set(components).size).toBe(69)
+    expect(components).toHaveLength(69)
 
     const skeleton = page.locator('[data-gallery-component="McSkeleton"]')
     await expect(skeleton).toHaveCSS('height', '38px')

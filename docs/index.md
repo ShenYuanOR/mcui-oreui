@@ -34,7 +34,7 @@ import { withBase } from 'vitepress'
       <mc-card-text>插件、服务与组件均提供完整类型，支持 SSR、多 App 隔离和局部 Provider。</mc-card-text>
     </mc-card>
     <mc-card :href="withBase('/components/overview.html')">
-      <mc-card-item><mc-card-title>68 个公共组件</mc-card-title></mc-card-item>
+      <mc-card-item><mc-card-title>69 个公共组件</mc-card-title></mc-card-item>
       <mc-card-text>从表单、导航和数据展示到 Overlay、布局与反馈组件，支持全量注册和按需入口。</mc-card-text>
     </mc-card>
   </section>

@@ -4,6 +4,14 @@ All notable changes to this project are documented in this file. The format foll
 
 ## [Unreleased]
 
+### Added
+
+- `McAvatar` for image, icon, and text avatars, with size presets, variants, rounding, and image fallback.
+
+### Changed
+
+- `McDataTable` selection now uses `McCheckbox` (including indeterminate header state) and page size uses `McSelect`.
+
 ## [2.0.1] - 2026-08-01
 
 ### Added

@@ -76,7 +76,7 @@ onBeforeUnmount(pop.clear)
     <header class="gallery-hero">
       <p>mcui-oreui · Spectrollay reference 0bf8f466</p>
       <h1>Ore UI visual regression gallery</h1>
-      <p>68 public components · optional Minecraft fonts loaded explicitly</p>
+      <p>69 public components · optional Minecraft fonts loaded explicitly</p>
     </header>
 
     <section class="gallery-section">
@@ -126,6 +126,7 @@ onBeforeUnmount(pop.clear)
         </mc-card>
         <div class="gallery-row">
           <mc-badge data-gallery-component="McBadge" content="3"><mc-button size="small">Inbox</mc-button></mc-badge>
+          <mc-avatar data-gallery-component="McAvatar" text="MC" size="large" color="#3c8527" />
           <mc-chip data-gallery-component="McChip" selected closable>Survival</mc-chip>
           <mc-divider data-gallery-component="McDivider" vertical />
           <mc-tooltip data-gallery-component="McTooltip">

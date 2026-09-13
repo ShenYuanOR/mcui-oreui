@@ -77,6 +77,10 @@
       "types": "./dist/components/McAutocomplete.d.ts",
       "import": "./dist/components/McAutocomplete.js"
     },
+    "./components/McAvatar": {
+      "types": "./dist/components/McAvatar.d.ts",
+      "import": "./dist/components/McAvatar.js"
+    },
     "./components/McBadge": {
       "types": "./dist/components/McBadge.d.ts",
       "import": "./dist/components/McBadge.js"

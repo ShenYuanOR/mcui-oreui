@@ -1,4 +1,4 @@
-import { defineComponent, ref } from 'vue'
+import { defineComponent, nextTick, ref } from 'vue'
 import { mount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
 import { McDataTable, McPagination, McVirtualScroll } from '../../src'
@@ -105,11 +105,35 @@ describe('data components', () => {
         itemsPerPageOptions: [5, 10],
       },
     })
-    const select = wrapper.get('.mc-data-table__page-size select')
-    expect(select.findAll('option').map((option) => option.text())).toEqual(['2', '5', '10'])
-    expect(select.attributes('aria-label')).toBe('每页条数')
-    await select.setValue('5')
+    const select = wrapper.findComponent({ name: 'McSelect' })
+    const trigger = wrapper.get('.mc-data-table__page-size .mc-select__trigger')
+    expect(trigger.text()).toContain('2')
+    expect(select.props('options')).toEqual([
+      { title: '2', value: 2 },
+      { title: '5', value: 5 },
+      { title: '10', value: 10 },
+    ])
+    select.vm.$emit('update:modelValue', 5)
+    await nextTick()
     expect(wrapper.emitted('update:options')?.at(-1)?.[0]).toMatchObject({ page: 1, itemsPerPage: 5 })
+  })
+
+  it('uses McCheckbox in the selection column when showSelect is enabled', async () => {
+    const wrapper = mount(McDataTable, {
+      props: {
+        headers,
+        items,
+        options: { page: 1, itemsPerPage: 2, sortBy: [], search: '' },
+        showSelect: true,
+        modelValue: [1],
+      },
+    })
+
+    const checkboxes = wrapper.findAllComponents({ name: 'McCheckbox' })
+    expect(checkboxes).toHaveLength(3)
+    checkboxes[2].vm.$emit('update:modelValue', true)
+    await nextTick()
+    expect(wrapper.emitted('update:modelValue')?.at(-1)?.[0]).toEqual([1, 2])
   })
 
   it('calculates a fixed-height virtual window', async () => {

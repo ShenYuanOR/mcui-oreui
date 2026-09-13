@@ -91,35 +91,7 @@
 }
 .mc-data-table__page-size-control {
   display: inline-flex;
+  min-width: 88px;
   position: relative;
-}
-.mc-data-table__page-size-control::after {
-  border-inline: 5px solid transparent;
-  border-top: 6px solid var(--mc-text, #fff);
-  content: '';
-  inset-inline-end: 10px;
-  pointer-events: none;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-25%);
-}
-.mc-data-table__page-size select {
-  appearance: none;
-  background: var(--mc-surface-light, #58585a);
-  border: 2px solid var(--mc-border, #1e1e1f);
-  box-shadow:
-    inset 1px 1px rgba(255, 255, 255, 0.12),
-    inset -2px -2px rgba(0, 0, 0, 0.2);
-  color: var(--mc-text, #fff);
-  cursor: pointer;
-  font: inherit;
-  min-width: 68px;
-  padding: 6px 30px 6px 10px;
-}
-.mc-data-table__page-size select:hover {
-  background: var(--mc-surface-hover, #626365);
-}
-.mc-data-table__page-size select:focus-visible {
-  outline: 2px solid var(--mc-focus, #fff);
-  outline-offset: 2px;
+  width: 88px;
 }
