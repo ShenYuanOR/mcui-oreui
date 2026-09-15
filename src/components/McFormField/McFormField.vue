@@ -25,7 +25,7 @@ const controlId = props.id || `${generatedId}-control`
 const descriptionId = `${controlId}-description`
 const messageId = `${controlId}-message`
 const errorMessages = computed(() => {
-  if (props.error == null || props.error === false) return []
+  if (props.error == null) return []
   return Array.isArray(props.error) ? props.error.filter(Boolean) : props.error ? [props.error] : []
 })
 const hasError = computed(() => errorMessages.value.length > 0)
