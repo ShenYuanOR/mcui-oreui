@@ -2,7 +2,7 @@
 
 使用 `d-*` 控制元素的显示模式。响应式变体在值前加入断点，打印变体使用 `d-print-*`。
 
-## 实际效果
+## 基础用法
 
 <div class="mc-demo mc-demo--column">
   <div class="mc-utility-demo__stack">

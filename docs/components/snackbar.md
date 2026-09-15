@@ -16,7 +16,7 @@ function show(nextVariant: SnackbarVariant, nextMessage: string) {
 
 用于显示短暂的全局操作结果，并可附带一个操作按钮。
 
-## 操作结果
+## 基础用法
 
 <div class="mc-demo">
   <mc-button variant="primary" @click="show('success', '世界已保存')">成功</mc-button>
@@ -58,7 +58,9 @@ function show(nextVariant: SnackbarVariant, nextMessage: string) {
 </template>
 ```
 
-## Props
+## API
+
+### Props
 
 | 名称         | 类型                                             | 默认      | 说明                                                      |
 | ------------ | ------------------------------------------------ | --------- | --------------------------------------------------------- |

@@ -1,6 +1,6 @@
 # Pop 提示
 
-## 命令式消息
+## 基础用法
 
 底部冒出的短暂消息条。组件内通过当前 App 的 `usePop()` 实例触发，并在应用根部放置一个 `<mc-pop-host />`。
 
@@ -49,7 +49,9 @@ const pop = usePop()
 </template>
 ```
 
-## `McPopInstance`
+## API
+
+### McPopInstance
 
 `usePop()` 返回当前 App 的 `McPopInstance`：
 

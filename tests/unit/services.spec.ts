@@ -1,6 +1,8 @@
 import { createApp, defineComponent, h, nextTick } from 'vue'
+import { mount } from '@vue/test-utils'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { createMcUI, usePop, useSound, type McPopInstance } from '../../src'
+import McPopHost from '../../src/components/McPopHost'
 
 const mountedApps: ReturnType<typeof createApp>[] = []
 
@@ -71,6 +73,36 @@ describe('app-scoped services', () => {
     expect(pops[0].state.value).toHaveLength(1)
     expect(pops[1].state.value).toHaveLength(0)
     expect(enabled).toEqual([false, false])
+  })
+
+  it('keeps the pop host chrome-free so dismissed messages fade without a grey plate', async () => {
+    vi.useFakeTimers()
+    vi.stubGlobal('requestAnimationFrame', (callback: FrameRequestCallback) => {
+      callback(0)
+      return 1
+    })
+    const plugin = createMcUI()
+    const wrapper = mount(McPopHost, { attachTo: document.body, global: { plugins: [plugin] } })
+    const id = plugin.services.pop.show('saved', 1000)
+    await nextTick()
+
+    const host = document.querySelector('.mc-pop-host')
+    const item = document.querySelector('.mc-pop-host__item')
+    expect(host?.classList.contains('mc-theme')).toBe(false)
+    expect(item?.classList.contains('mc-theme')).toBe(true)
+    expect(item?.classList.contains('mc-pop-host__item--show')).toBe(true)
+
+    plugin.services.pop.dismiss(id)
+    await nextTick()
+    expect(document.querySelector('.mc-pop-host__item')?.classList.contains('mc-pop-host__item--show')).toBe(false)
+    vi.advanceTimersByTime(159)
+    expect(document.querySelector('.mc-pop-host__item')).not.toBeNull()
+    vi.advanceTimersByTime(1)
+    await nextTick()
+    expect(document.querySelector('.mc-pop-host__item')).toBeNull()
+
+    wrapper.unmount()
+    vi.useRealTimers()
   })
 
   it('coordinates scroll locks and z-index across multiple apps sharing a document', () => {

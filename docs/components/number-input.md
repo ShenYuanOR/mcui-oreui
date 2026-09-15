@@ -7,7 +7,7 @@ const players = ref(4)
 
 带步进按钮的数值输入，编辑期间保留临时文本，Enter 或失焦时解析并夹取范围。
 
-## 基础展示
+## 基础用法
 
 <div class="mc-demo mc-demo--column" style="width:340px">
   <mc-number-input v-model="players" label="最大玩家数" :min="1" :max="30" :step="1" />
@@ -45,7 +45,9 @@ const players = ref(4)
 </template>
 ```
 
-## Props
+## API
+
+### Props
 
 | 名称            | 类型                              | 默认        | 说明                                                       |
 | --------------- | --------------------------------- | ----------- | ---------------------------------------------------------- |

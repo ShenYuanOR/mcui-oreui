@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { h } from 'vue'
 import { describe, expect, it } from 'vitest'
-import { McCheckbox, McList, McListItem, McRadio, McSlider, McSwitch, McTabs } from '../../src'
+import { McCheckbox, McList, McListItem, McRadio, McSlider, McSwitch, McTabs, McTextarea } from '../../src'
 
 describe('accessible input controls', () => {
   it('uses native checkbox, switch, and radio controls', async () => {
@@ -95,5 +95,49 @@ describe('accessible input controls', () => {
     expect(document.activeElement).toBe(tabs[0].element)
     await tabs[0].trigger('keydown', { key: 'End' })
     expect(document.activeElement).toBe(tabs[2].element)
+  })
+
+  it('does not pretend an unmatched tab is selected', () => {
+    const wrapper = mount(McTabs, {
+      props: {
+        modelValue: 'missing',
+        items: [
+          { label: 'One', value: 'one' },
+          { label: 'Two', value: 'two' },
+        ],
+      },
+    })
+    expect(wrapper.find('.mc-tabs__tab--active').exists()).toBe(false)
+    expect(wrapper.find('[role="tabpanel"]:not([hidden])').exists()).toBe(false)
+  })
+
+  it('moves list keyboard focus from any item', async () => {
+    const list = mount(McList, {
+      props: { mode: 'single', modelValue: 'a' },
+      slots: {
+        default: () => [
+          h(McListItem, { label: 'A', value: 'a' }),
+          h(McListItem, { label: 'B', value: 'b' }),
+          h(McListItem, { label: 'C', value: 'c' }),
+        ],
+      },
+      attachTo: document.body,
+    })
+    const items = list.findAll('[role="option"]')
+    expect(items[0].attributes('tabindex')).toBe('0')
+    expect(items[1].attributes('tabindex')).toBe('-1')
+    await items[0].trigger('keydown', { key: 'ArrowDown' })
+    expect(document.activeElement).toBe(items[1].element)
+    await items[1].trigger('keydown', { key: 'Enter' })
+    expect(list.emitted('update:modelValue')?.at(-1)).toEqual(['b'])
+  })
+
+  it('syncs textarea autoGrow height when the external value changes', async () => {
+    const wrapper = mount(McTextarea, { props: { modelValue: 'a', autoGrow: true } })
+    const el = wrapper.get('textarea').element
+    Object.defineProperty(el, 'scrollHeight', { configurable: true, get: () => 80 })
+    await wrapper.setProps({ modelValue: 'a\nb\nc' })
+    await wrapper.vm.$nextTick()
+    expect(el.style.height).toBe('80px')
   })
 })

@@ -2,7 +2,7 @@
 
 `McTextarea` 用于多行文本输入，内部已包含字段展示层，可直接作为 `McForm` 的子组件使用。
 
-## 基础展示
+## 基础用法
 
 <div class="mc-demo mc-demo--column" style="width:360px">
   <mc-textarea model-value="世界描述" label="世界描述" description="显示在世界列表中" :rows="3" />
@@ -44,13 +44,15 @@
 </template>
 ```
 
-## Props
+## API
+
+### Props
 
 | 名称            | 类型                              | 默认           | 说明                                                      |
 | --------------- | --------------------------------- | -------------- | --------------------------------------------------------- |
 | `modelValue`    | `string`                          | `''`           | 当前文本，支持通过 `v-model` 双向绑定。                   |
 | `rows`          | `number`                          | `3`            | 未自动增长时显示的初始文本行数。                          |
-| `autoGrow`      | `boolean`                         | `false`        | 是否随内容增加自动扩展输入框高度。                        |
+| `autoGrow`      | `boolean`                         | `false`        | 是否随内容增加自动扩展输入框高度；外部 `v-model` 变化也会同步高度。 |
 | `maxLength`     | `number`                          | `0`            | 最大字符数；设为 `0` 时不向原生 textarea 添加 maxlength。 |
 | `label`         | `string`                          | -              | 字段标签。                                                |
 | `description`   | `string`                          | -              | 显示在输入框前的补充说明。                                |

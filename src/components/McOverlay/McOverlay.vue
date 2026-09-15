@@ -69,6 +69,8 @@ let resizeObserver: ResizeObserver | undefined
 let frame = 0
 let scrollTargets: EventTarget[] = []
 let mounted = false
+let openGeneration = 0
+let restoreFocus = true
 
 function getScrollParents(element: HTMLElement | null): EventTarget[] {
   if (typeof window === 'undefined') return []
@@ -142,10 +144,16 @@ function onKeydown(event: KeyboardEvent) {
   }
   const first = focusable[0]
   const last = focusable.at(-1)!
-  if (event.shiftKey && (document.activeElement === first || document.activeElement === content.value)) {
+  const active = document.activeElement
+  if (!content.value.contains(active)) {
+    event.preventDefault()
+    ;(event.shiftKey ? last : first).focus()
+    return
+  }
+  if (event.shiftKey && (active === first || active === content.value)) {
     event.preventDefault()
     last.focus()
-  } else if (!event.shiftKey && document.activeElement === last) {
+  } else if (!event.shiftKey && active === last) {
     event.preventDefault()
     first.focus()
   }
@@ -156,6 +164,7 @@ function onScroll() {
 }
 function addPositionListeners() {
   if (!connected.value || typeof document === 'undefined') return
+  removePositionListeners()
   scrollTargets = getScrollParents(activator.value)
   for (const target of scrollTargets) target.addEventListener('scroll', onScroll, { passive: true })
   window.addEventListener('resize', schedulePosition, { passive: true })
@@ -178,34 +187,50 @@ function removePositionListeners() {
   resizeObserver = undefined
 }
 
+async function activateOpen(generation: number) {
+  if (!mounted || generation !== openGeneration || !props.modelValue || !entryId.value) return
+  if (props.scrollStrategy === 'block') overlay.lockScroll()
+  if (typeof document !== 'undefined') document.addEventListener('keydown', onKeydown)
+  await nextTick()
+  await nextTick()
+  if (generation !== openGeneration || !mounted || !props.modelValue) return
+  updatePosition()
+  addPositionListeners()
+  focusInitial()
+  emit('afterEnter')
+}
+
+function deactivateOpen(options: { restore?: boolean } = {}) {
+  const shouldRestore = options.restore ?? restoreFocus
+  restoreFocus = true
+  if (entryId.value) overlay.unregister(entryId.value)
+  entryId.value = null
+  if (mounted) {
+    if (props.scrollStrategy === 'block') overlay.unlockScroll()
+    if (typeof document !== 'undefined') document.removeEventListener('keydown', onKeydown)
+    removePositionListeners()
+    if (shouldRestore && props.focusStrategy !== 'none') activator.value?.focus({ preventScroll: true })
+  } else if (typeof document !== 'undefined') {
+    document.removeEventListener('keydown', onKeydown)
+    removePositionListeners()
+  }
+}
+
 watch(
   () => props.modelValue,
   async (open) => {
     if (open) {
+      const generation = ++openGeneration
       const entry = overlay.register(close)
       entryId.value = entry.id
       zIndex.value = entry.zIndex
       positioned.value = !connected.value
       emit('open')
       if (!mounted) return
-      if (props.scrollStrategy === 'block') overlay.lockScroll()
-      document.addEventListener('keydown', onKeydown)
-      await nextTick()
-      await nextTick()
-      updatePosition()
-      addPositionListeners()
-      focusInitial()
-      emit('afterEnter')
+      await activateOpen(generation)
     } else if (entryId.value) {
-      const oldId = entryId.value
-      overlay.unregister(oldId)
-      entryId.value = null
-      if (mounted) {
-        if (props.scrollStrategy === 'block') overlay.unlockScroll()
-        document.removeEventListener('keydown', onKeydown)
-        removePositionListeners()
-        if (props.focusStrategy !== 'none') activator.value?.focus({ preventScroll: true })
-      }
+      openGeneration += 1
+      deactivateOpen()
       emit('close')
     }
   },
@@ -218,20 +243,16 @@ onMounted(async () => {
   overlay.mount()
   if (!entryId.value) return
   zIndex.value = overlay.stack.find((entry) => entry.id === entryId.value)?.zIndex ?? zIndex.value
-  if (props.scrollStrategy === 'block') overlay.lockScroll()
-  document.addEventListener('keydown', onKeydown)
-  await nextTick()
-  updatePosition()
-  addPositionListeners()
-  focusInitial()
-  emit('afterEnter')
+  await activateOpen(openGeneration)
 })
 onBeforeUnmount(() => {
+  openGeneration += 1
   const wasRegistered = Boolean(entryId.value)
-  if (entryId.value) overlay.unregister(entryId.value)
-  if (mounted && wasRegistered && props.scrollStrategy === 'block') overlay.unlockScroll()
-  if (typeof document !== 'undefined') document.removeEventListener('keydown', onKeydown)
-  removePositionListeners()
+  if (wasRegistered) deactivateOpen({ restore: false })
+  else {
+    if (typeof document !== 'undefined') document.removeEventListener('keydown', onKeydown)
+    removePositionListeners()
+  }
   overlay.unmount()
   mounted = false
 })
@@ -251,7 +272,11 @@ const contentStyle = computed(() =>
       }
     : undefined,
 )
-defineExpose({ content, activator, updatePosition, close, open: openFrom, toggle })
+function closeWithoutRestore() {
+  restoreFocus = false
+  close()
+}
+defineExpose({ content, activator, updatePosition, close, closeWithoutRestore, open: openFrom, toggle })
 </script>
 
 <template>

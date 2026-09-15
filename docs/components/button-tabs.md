@@ -143,7 +143,9 @@ const colorTab = ref('world')
 </template>
 ```
 
-## Props
+## API
+
+### Props
 
 | 名称         | 类型                | 默认 | 说明                                         |
 | ------------ | ------------------- | ---- | -------------------------------------------- |
@@ -151,14 +153,14 @@ const colorTab = ref('world')
 | `modelValue` | `string \| number`  | `''` | 当前选中值（v-model）                        |
 | `title`      | `string`            | `''` | 左上角标题                                   |
 
-## Events
+### Events
 
 | 事件                | 参数               | 说明         |
 | ------------------- | ------------------ | ------------ |
 | `update:modelValue` | `string \| number` | v-model 更新 |
 | `change`            | `string \| number` | 选中项变化   |
 
-## Slots
+### Slots
 
 | 名称      | 说明                            |
 | --------- | ------------------------------- |

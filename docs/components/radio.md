@@ -7,7 +7,7 @@ import { ref } from 'vue'
 const mode = ref('survival')
 </script>
 
-## 单个 Radio
+## 基础用法
 
 <div class="mc-demo">
   <mc-radio v-model="mode" value="survival">生存</mc-radio>
@@ -111,7 +111,9 @@ const mode = ref('survival')
 </template>
 ```
 
-## Props
+## API
+
+### Props
 
 | 名称            | 类型                              | 默认           | 说明                                               |
 | --------------- | --------------------------------- | -------------- | -------------------------------------------------- |
@@ -133,7 +135,7 @@ const mode = ref('survival')
 
 标准原生属性、`aria-*` 和交互监听器直接写在 `<mc-radio>` 上并转发到内部 radio input；`class`、`style`、`data-*` 保留在组件外层。
 
-## Events
+### Events
 
 | 事件                | 参数                          | 说明         |
 | ------------------- | ----------------------------- | ------------ |

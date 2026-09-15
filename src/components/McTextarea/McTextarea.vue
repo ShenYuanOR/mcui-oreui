@@ -2,7 +2,7 @@
 import '../../styles/component-core.css'
 import '../../styles/shared/input-control.css'
 import './style.css'
-import { computed } from 'vue'
+import { computed, nextTick, onMounted, ref, watch } from 'vue'
 import type { McRule } from '../../framework/form'
 import type { McValidateOn } from '../../framework/types'
 import { useMcValidation } from '../../composables/validation'
@@ -55,14 +55,25 @@ const validation = useMcValidation({
   validateOn: () => props.validateOn,
 })
 const fieldError = computed(() => validation.errorMessage.value)
+const field = ref<HTMLTextAreaElement | null>(null)
+function syncHeight() {
+  const target = field.value
+  if (!props.autoGrow || !target) return
+  target.style.height = 'auto'
+  target.style.height = `${target.scrollHeight}px`
+}
 function input(event: Event) {
   const target = event.target as HTMLTextAreaElement
   emit('update:modelValue', target.value)
-  if (props.autoGrow) {
-    target.style.height = 'auto'
-    target.style.height = `${target.scrollHeight}px`
-  }
+  syncHeight()
 }
+watch(
+  () => props.modelValue,
+  () => {
+    void nextTick(syncHeight)
+  },
+)
+onMounted(syncHeight)
 defineExpose(validation)
 </script>
 
@@ -81,6 +92,7 @@ defineExpose(validation)
       <textarea
         v-bind="controlAttrs"
         :id="field.id"
+        ref="field"
         class="mc-input mc-textarea"
         :value="modelValue"
         :rows="rows"

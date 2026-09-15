@@ -13,7 +13,7 @@ const options = [
 
 使用 fieldset/legend 语义管理一组选项，并统一处理标签、校验和禁用状态。
 
-## 方向与禁用项
+## 基础用法
 
 <div class="mc-demo mc-demo--column">
   <mc-radio-group v-model="mode" label="默认游戏模式" direction="vertical" :options="options" />
@@ -40,7 +40,9 @@ const options = [
 </template>
 ```
 
-## Props
+## API
+
+### Props
 
 | 名称            | 类型                              | 默认         | 说明                                                       |
 | --------------- | --------------------------------- | ------------ | ---------------------------------------------------------- |
@@ -59,4 +61,4 @@ const options = [
 | `id`            | `string`                          | 自动生成     | 单选组与辅助文本关联所用的 id。                            |
 | `name`          | `string`                          | 自动生成     | 传递给组内原生 radio 的 name，使其参与同一组选中行为。     |
 
-默认插槽可替换 options，手工声明 [Radio](./radio) 子项。事件：`update:modelValue`、`change`。
+默认插槽可替换 options，手工声明 [Radio](./radio) 子项。事件：`update:modelValue`、`change`。组本身作为单一 Form 字段注册，组内 Radio 不会再各自注册。

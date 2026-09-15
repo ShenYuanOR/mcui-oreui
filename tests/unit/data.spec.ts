@@ -148,6 +148,37 @@ describe('data components', () => {
     expect(wrapper.find('.mc-virtual-scroll__window').attributes('style')).toContain('380px')
   })
 
+  it('treats non-positive itemHeight as 1', () => {
+    const wrapper = mount(McVirtualScroll, {
+      props: { items: [1, 2, 3], itemHeight: 0, height: 10 },
+      slots: { default: ({ item }: { item: number }) => String(item) },
+    })
+    expect(wrapper.find('.mc-virtual-scroll').exists()).toBe(true)
+    expect(wrapper.find('.mc-virtual-scroll__spacer').attributes('style')).toContain('3px')
+  })
+
+  it('compares object selection keys with Object.is', async () => {
+    const keyA = { id: 1 }
+    const keyB = { id: 2 }
+    const objectItems = [
+      { id: keyA, name: 'Alex' },
+      { id: keyB, name: 'Steve' },
+    ]
+    const wrapper = mount(McDataTable, {
+      props: {
+        headers,
+        items: objectItems,
+        showSelect: true,
+        modelValue: [keyA],
+      },
+    })
+    const checkboxes = wrapper.findAllComponents({ name: 'McCheckbox' })
+    expect(checkboxes[1].props('modelValue')).toBe(true)
+    checkboxes[2].vm.$emit('update:modelValue', true)
+    await nextTick()
+    expect(wrapper.emitted('update:modelValue')?.at(-1)?.[0]).toEqual([keyA, keyB])
+  })
+
   it('supports pagination keyboard navigation', async () => {
     const Host = defineComponent({
       components: { McPagination },

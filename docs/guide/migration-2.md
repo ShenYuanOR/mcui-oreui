@@ -1,8 +1,8 @@
 # 从 1.x 迁移到 2.0
 
-2.0 尚未发布，因此这次收敛不提供旧 Props、事件或组件别名的运行时兼容层。Ore UI 视觉以 MIT 的 [Spectrollay-OreUI/OreUI](https://github.com/Spectrollay-OreUI/OreUI) revision [`0bf8f466`](https://github.com/Spectrollay-OreUI/OreUI/commit/0bf8f46655878da872e4ddfa03db9ac663212438) 为固定参考。
+2.0 是当前正式版（`2.0.0`）。测试线安装 `npm i mcui-oreui@next`（当前 `2.0.1-dev.23`）。这次收敛不提供旧 Props、事件或组件别名的运行时兼容层。Ore UI 视觉以 MIT 的 [Spectrollay-OreUI/OreUI](https://github.com/Spectrollay-OreUI/OreUI) revision [`0bf8f466`](https://github.com/Spectrollay-OreUI/OreUI/commit/0bf8f46655878da872e4ddfa03db9ac663212438) 为固定参考。
 
-## 安装与样式
+## 基础用法
 
 - 默认插件改为 `createMcUI(options)`，并在 `mount()` 前通过 `app.use()` 安装。
 - 根入口命名导入与 `components/*` 按需入口会通过静态 ESM import 自动携带实际组件 CSS；删除常规使用中的手动 `styles/components.css` 导入。安装全量 `createMcUI()` 时会加载全部组件样式。
@@ -32,7 +32,7 @@ mcui.services.sounds.play('click')
 | `playSoundType(...)` | `useSound().playVariant(...)`                                  |
 | `setSoundEnabled`    | `useSound().setEnabled(...)` 或 `mcui.services.sounds`         |
 
-这些旧导出属于尚未发布的 2.0 草案，本次直接删除。Pop、Sounds 及其他服务现在按 App/SSR 请求隔离，并随 App 卸载释放资源；同一插件实例不能安装到第二个 App。
+这些旧导出已从 2.0 删除。Pop、Sounds 及其他服务现在按 App/SSR 请求隔离，并随 App 卸载释放资源；同一插件实例不能安装到第二个 App。
 
 | 1.x / 旧 V2 写法                                      | 2.0 写法                                       | 说明                                                                                |
 | ----------------------------------------------------- | ---------------------------------------------- | ----------------------------------------------------------------------------------- |
@@ -121,3 +121,8 @@ Select、Autocomplete、Menu 与 Tooltip 使用 Connected Overlay；Dialog、临
 ## 图标定义
 
 `McIconDefinition` 不再接收原始 SVG 字符串，也不会通过 `v-html` 渲染。注册图标改用结构化的 `svg` / `path` / `image` 节点；事件属性、脚本节点、外部 URL 和 `javascript:` 会被拒绝。`McIcon` 的 `path` Prop 与 Vue Component 图标仍保持支持，详见 [Icon](/components/icon)。
+
+## 下一步
+
+- [快速开始](./getting-started)：2.0 的安装与注册方式。
+- [配置选项](./configuration)：插件选项与按需入口。

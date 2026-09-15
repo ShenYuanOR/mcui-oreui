@@ -126,6 +126,18 @@ function onKeydown(event: KeyboardEvent) {
     activeIndex.value = firstEnabled(filteredItems.value.length, -1)
   } else if (event.key === 'Tab') setOpen(false)
 }
+function onBlur(event: FocusEvent) {
+  const next = event.relatedTarget
+  if (next instanceof Node) {
+    const current = event.currentTarget
+    if (current instanceof Node && current.parentElement?.contains(next)) return
+    const list = typeof document !== 'undefined' ? document.getElementById(listboxId.value) : null
+    if (list?.contains(next)) return
+  }
+  setOpen(false)
+  restoreSelectedTitle()
+  validation.onBlur()
+}
 watch(
   selected,
   (item) => {
@@ -199,7 +211,7 @@ defineExpose({ ...validation, open, close: () => setOpen(false), search: query }
             @input="updateQuery(($event.target as HTMLInputElement).value)"
             @focus="openOverlay($event)"
             @keydown="onKeydown"
-            @blur="validation.onBlur"
+            @blur="onBlur"
           />
         </template>
         <ul

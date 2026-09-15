@@ -2,7 +2,7 @@
 
 数值间距使用 `--mc-spacer`（默认 4px）乘以 `0–16`。margin 额外支持 `auto` 和 `n1–n16` 负值；所有类都有响应式变体，尺寸中缀统一见[分辨率](./breakpoints)。
 
-## Padding 与 Margin
+## 基础用法
 
 <div class="mc-demo mc-demo--column">
   <div class="mc-utility-demo__surface">

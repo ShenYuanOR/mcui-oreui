@@ -16,8 +16,9 @@ const scrollTop = ref(0)
 const numericHeight = computed(() =>
   typeof props.height === 'number' ? props.height : Number.parseFloat(props.height) || 0,
 )
-const start = computed(() => Math.max(0, Math.floor(scrollTop.value / props.itemHeight) - props.overscan))
-const count = computed(() => Math.ceil(numericHeight.value / props.itemHeight) + props.overscan * 2)
+const resolvedItemHeight = computed(() => (Number.isFinite(props.itemHeight) && props.itemHeight > 0 ? props.itemHeight : 1))
+const start = computed(() => Math.max(0, Math.floor(scrollTop.value / resolvedItemHeight.value) - props.overscan))
+const count = computed(() => Math.ceil(numericHeight.value / resolvedItemHeight.value) + props.overscan * 2)
 const end = computed(() => Math.min(props.items.length, start.value + count.value))
 const visible = computed(() => props.items.slice(start.value, end.value))
 const keyOf = (item: unknown, index: number) =>
@@ -39,14 +40,14 @@ defineExpose({ start, end, scrollTop })
     :style="{ height: typeof height === 'number' ? `${height}px` : height }"
     @scroll="onScroll"
   >
-    <div class="mc-virtual-scroll__spacer" :style="{ height: `${items.length * itemHeight}px` }">
-      <div class="mc-virtual-scroll__window" :style="{ transform: `translateY(${start * itemHeight}px)` }">
+    <div class="mc-virtual-scroll__spacer" :style="{ height: `${items.length * resolvedItemHeight}px` }">
+      <div class="mc-virtual-scroll__window" :style="{ transform: `translateY(${start * resolvedItemHeight}px)` }">
         <div
           v-for="(item, localIndex) in visible"
           :key="String(keyOf(item, start + localIndex))"
           class="mc-virtual-scroll__item"
           role="listitem"
-          :style="{ height: `${itemHeight}px` }"
+          :style="{ height: `${resolvedItemHeight}px` }"
         >
           <slot :item="item" :index="start + localIndex" />
         </div>

@@ -32,6 +32,27 @@ describe('browser resource lifecycle', () => {
     wrapper.unmount()
   })
 
+  it('ignores SkinViewer image load after unmount', async () => {
+    const loaders: Array<{ onload: ((this: GlobalEventHandlers, ev: Event) => unknown) | null; src: string }> = []
+    class FakeImage {
+      onload: ((this: GlobalEventHandlers, ev: Event) => unknown) | null = null
+      onerror: OnErrorEventHandler = null
+      src = ''
+      naturalWidth = 64
+      naturalHeight = 64
+      constructor() {
+        loaders.push(this)
+      }
+    }
+    vi.stubGlobal('Image', FakeImage)
+    const wrapper = mount(McSkinViewer, { props: { skin: '/skin.png', autoRotate: false } })
+    expect(wrapper.emitted('load')).toBeUndefined()
+    wrapper.unmount()
+    expect(() => {
+      loaders[0].onload?.call(loaders[0] as unknown as GlobalEventHandlers, new Event('load'))
+    }).not.toThrow()
+  })
+
   it('falls back when ResizeObserver is unavailable', () => {
     const addWindowListener = vi.spyOn(window, 'addEventListener')
     vi.stubGlobal('ResizeObserver', undefined)

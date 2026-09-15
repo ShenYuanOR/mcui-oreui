@@ -2,7 +2,7 @@
 
 `elevation-0–24` 使用 Ore UI 无模糊像素阴影。等级越高，向右下方的像素偏移越大；颜色由 `--mc-shadow` 控制。
 
-## 实际效果
+## 基础用法
 
 <div class="mc-demo mc-demo--column">
   <div class="mc-utility-demo__grid" style="gap:36px">

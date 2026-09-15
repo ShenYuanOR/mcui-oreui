@@ -36,7 +36,7 @@ function pickFg(hex) {
 }
 </script>
 
-## Java / 通用颜色（§0 – §f）
+## 基础用法
 
 <div class="mc-demo mc-demo--column">
   <div class="mc-color-grid">
@@ -119,7 +119,7 @@ function pickFg(hex) {
   </tbody>
 </table>
 
-## 在代码中使用
+## API
 
 ```ts
 import { MC_FORMAT_CODE_COLORS } from 'mcui-oreui'

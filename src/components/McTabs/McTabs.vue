@@ -28,10 +28,10 @@ const emit = defineEmits<{
 }>()
 const baseId = useId()
 const tabs = ref<HTMLButtonElement[]>([])
-const activeIndex = computed(() => {
-  const selected = props.items.findIndex((item) => item.value === props.modelValue && !item.disabled)
-  return selected >= 0 ? selected : props.items.findIndex((item) => !item.disabled)
-})
+const selectedIndex = computed(() => props.items.findIndex((item) => item.value === props.modelValue && !item.disabled))
+const fallbackIndex = computed(() => props.items.findIndex((item) => !item.disabled))
+const activeIndex = computed(() => (selectedIndex.value >= 0 ? selectedIndex.value : fallbackIndex.value))
+const hasSelection = computed(() => selectedIndex.value >= 0)
 function select(index: number) {
   const item = props.items[index]
   if (!item || item.disabled || item.value === props.modelValue) return
@@ -80,13 +80,13 @@ function keydown(event: KeyboardEvent, index: number) {
           }
         "
         class="mc-tabs__tab"
-        :class="{ 'mc-tabs__tab--active': index === activeIndex }"
+        :class="{ 'mc-tabs__tab--active': hasSelection && index === activeIndex }"
         type="button"
         role="tab"
-        :aria-selected="index === activeIndex"
+        :aria-selected="hasSelection && index === activeIndex"
         :aria-controls="`${baseId}-panel-${index}`"
         :disabled="item.disabled"
-        :tabindex="index === activeIndex ? 0 : -1"
+        :tabindex="index === (hasSelection ? activeIndex : fallbackIndex) ? 0 : -1"
         @click="select(index)"
         @keydown="keydown($event, index)"
       >
@@ -100,10 +100,10 @@ function keydown(event: KeyboardEvent, index: number) {
       class="mc-tabs__panel"
       role="tabpanel"
       :aria-labelledby="`${baseId}-tab-${index}`"
-      :hidden="index !== activeIndex"
-      :tabindex="index === activeIndex ? 0 : -1"
+      :hidden="!(hasSelection && index === activeIndex)"
+      :tabindex="hasSelection && index === activeIndex ? 0 : -1"
     >
-      <slot v-if="index === activeIndex" :active="item.value" :item="item" />
+      <slot v-if="hasSelection && index === activeIndex" :active="item.value" :item="item" />
     </div>
   </div>
 </template>

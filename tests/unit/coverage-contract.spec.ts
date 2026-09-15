@@ -114,10 +114,14 @@ describe('coverage-enforced public contracts', () => {
     )
     expect(stripMcFormatCodes('§aGreen')).toBe('Green')
 
+    const plugin = createMcUI()
+    const appHost = mount(defineComponent({ template: '<span />' }), { global: { plugins: [plugin] } })
     registerMcIcons({ coverage: mcNormalIconSet.icons?.['mc-add'] ?? Object.values(mcNormalIconSet.icons ?? {})[0] })
     expect(hasMcIcon('coverage')).toBe(true)
     expect(getMcIcon('coverage')).toBeDefined()
     expect(getMcIcon(null)).toBeUndefined()
+    expect(plugin.services.icons.get('coverage')).toBeDefined()
+    appHost.unmount()
   })
 
   it('validates and interacts with native selection controls', async () => {
@@ -248,6 +252,8 @@ describe('coverage-enforced public contracts', () => {
     await root.trigger('drop', { dataTransfer: { files: [medium] } })
     await wrapper.get('.mc-file-input__clear').trigger('click')
     await wrapper.setProps({ disabled: true })
+    await root.trigger('dragenter')
+    expect(root.classes()).not.toContain('mc-file-input--dragging')
     await root.trigger('drop', { dataTransfer: { files: [tiny] } })
     ;(wrapper.vm as unknown as { browse: () => void; clear: () => void }).browse()
     ;(wrapper.vm as unknown as { clear: () => void }).clear()
@@ -336,7 +342,14 @@ describe('coverage-enforced public contracts', () => {
     await sort[0].trigger('click')
     await sort[0].trigger('click')
     await sort[1].trigger('click')
-    await wrapper.get('select').setValue('2')
+    const pageSize = wrapper.get('.mc-data-table__page-size [role="combobox"]')
+    await pageSize.trigger('keydown', { key: 'Enter' })
+    await nextTick()
+    const pageOption = Array.from(document.body.querySelectorAll<HTMLElement>('.mc-select__option')).find(
+      (option) => option.textContent?.trim() === '2',
+    )
+    pageOption?.click()
+    await nextTick()
     await wrapper.setProps({ options: { page: 9, itemsPerPage: 1, sortBy: [], search: '' }, items: items.slice(0, 1) })
     await nextTick()
 

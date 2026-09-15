@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import '../../styles/component-core.css'
 import './style.css'
-import { computed } from 'vue'
+import { computed, provide } from 'vue'
 import { useMcValidation } from '../../composables/validation'
 import type { McRule } from '../../framework/form'
 import type { McValidateOn } from '../../framework/types'
 import { useMcRoutedAttrs } from '../../utils/attrs'
 import McRadio, { type McRadioValue } from '../McRadio'
+import { mcRadioGroupKey } from './groupContext'
 
 export interface McRadioOption {
   label: string
@@ -46,6 +47,7 @@ const emit = defineEmits<{
 }>()
 defineOptions({ inheritAttrs: false })
 const { rootAttrs, controlAttrs } = useMcRoutedAttrs()
+provide(mcRadioGroupKey, true)
 const validation = useMcValidation({
   id: props.id,
   value: () => props.modelValue,

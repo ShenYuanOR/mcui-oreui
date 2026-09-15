@@ -40,4 +40,24 @@ describe('overlay behavior', () => {
     await wrapper.vm.$nextTick()
     expect(wrapper.vm.closes).toBe(2)
   })
+
+  it('keeps Tab cycling when focus is outside the overlay content', async () => {
+    const Host = defineComponent({
+      components: { McDialog },
+      setup() {
+        return { open: ref(true) }
+      },
+      template: `
+        <button id="outside">Outside</button>
+        <mc-dialog v-model="open" title="Settings" :teleport="false" :show-close="false">
+          <button id="first">First</button><button id="last">Last</button>
+        </mc-dialog>`,
+    })
+    const wrapper = mount(Host, { attachTo: document.body, global: { plugins: [createMcUI()] } })
+    await new Promise((resolve) => setTimeout(resolve, 0))
+    document.getElementById('outside')!.focus()
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Tab', bubbles: true }))
+    expect(document.activeElement).toBe(document.querySelector('#first'))
+    wrapper.unmount()
+  })
 })

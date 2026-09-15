@@ -31,6 +31,18 @@ describe('McSelect', () => {
     await trigger.trigger('keydown', { key: 'Escape' })
     expect(trigger.attributes('aria-expanded')).toBe('false')
   })
+
+  it('does not swallow Enter when the option list is empty', async () => {
+    const wrapper = mount(McSelect, {
+      props: { modelValue: null, options: [] },
+      attachTo: document.body,
+    })
+    const trigger = wrapper.find('[role="combobox"]')
+    await trigger.trigger('keydown', { key: 'Enter' })
+    expect(trigger.attributes('aria-expanded')).toBe('true')
+    await trigger.trigger('keydown', { key: 'Enter' })
+    expect(wrapper.emitted('update:modelValue')).toBeUndefined()
+  })
 })
 
 describe('McAutocomplete', () => {
@@ -59,5 +71,21 @@ describe('McAutocomplete', () => {
     await input.trigger('keydown', { key: 'Enter' })
     expect(wrapper.emitted('update:modelValue')?.[0]).toEqual(['creative'])
     expect(input.attributes('aria-expanded')).toBe('false')
+  })
+
+  it('keeps the panel open when blur stays on an option', async () => {
+    const wrapper = mount(McAutocomplete, {
+      props: {
+        modelValue: null,
+        options: [{ title: 'Creative', value: 'creative' }],
+      },
+      attachTo: document.body,
+    })
+    const input = wrapper.find<HTMLInputElement>('[role="combobox"]')
+    await input.trigger('focus')
+    expect(input.attributes('aria-expanded')).toBe('true')
+    const option = document.body.querySelector('[role="option"]')
+    await input.trigger('blur', { relatedTarget: option })
+    expect(input.attributes('aria-expanded')).toBe('true')
   })
 })

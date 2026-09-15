@@ -8,7 +8,7 @@ const multipleActive = ref(['world'])
 
 `McExpansionPanels` 管理展开状态，`McExpansionPanel` 提供单个可折叠区域，两者共同组成 accordion 组件族。
 
-## 单选、多选与禁用项
+## 基础用法
 
 <div class="mc-demo mc-demo--column" style="width:100%">
   <mc-expansion-panels v-model="active">
@@ -44,7 +44,9 @@ const multipleActive = ref(['world'])
 </template>
 ```
 
-## McExpansionPanels Props
+## API
+
+### McExpansionPanels Props
 
 | 名称         | 类型                                               | 默认    | 说明                                                     |
 | ------------ | -------------------------------------------------- | ------- | -------------------------------------------------------- |
@@ -53,7 +55,7 @@ const multipleActive = ref(['world'])
 
 事件：`update:modelValue`、`change`。
 
-## McExpansionPanel Props
+### McExpansionPanel Props
 
 | 名称       | 类型               | 默认     | 说明                                                |
 | ---------- | ------------------ | -------- | --------------------------------------------------- |

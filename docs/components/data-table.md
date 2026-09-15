@@ -63,7 +63,7 @@ function refreshServer(mode) {
 
 提供客户端或服务端数据模式、搜索、稳定多列排序、分页与行选择。
 
-## 客户端排序、分页与选择
+## 基础用法
 
 <div class="mc-demo mc-demo--column" style="width:100%"><mc-data-table v-model="selected" v-model:options="options" :headers="headers" :items="items" show-select><template #item.name="{ value }"><strong>{{ value }}</strong></template></mc-data-table></div>
 
@@ -226,13 +226,15 @@ const headers = [
 </template>
 ```
 
-## Props、事件与插槽
+## API
+
+### Props
 
 | 名称                  | 类型                                          | 默认             | 说明                                                            |
 | --------------------- | --------------------------------------------- | ---------------- | --------------------------------------------------------------- |
 | `headers`             | `{ title,key,sortable?,align?,width? }[]`     | 必填             | 列定义，控制标题、字段键、排序能力、对齐方式和可选宽度。        |
 | `items`               | `Record<string, unknown>[]`                   | 必填             | 当前页或完整数据列表，具体含义由 `mode` 决定。                  |
-| `itemKey`             | `string \| ((item) => unknown)`               | `id`             | 从数据项中取得稳定行键的字段名或函数。                          |
+| `itemKey`             | `string \| ((item) => unknown)`               | `id`             | 从数据项中取得稳定行键的字段名或函数。对象键用 `Object.is` 比较，不能放进 `Set`。 |
 | `options`             | `{ page, itemsPerPage, sortBy, search }`      | 内置默认值       | 分页、每页条数、排序和搜索组成的受控表格状态。                  |
 | `itemsPerPageOptions` | `number[]`                                    | `[10,25,50,100]` | 每页条数下拉框中的可选值。                                      |
 | `showSelect`          | `boolean`                                     | `false`          | 是否显示行选择框和表头全选框。                                  |

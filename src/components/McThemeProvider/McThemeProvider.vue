@@ -6,32 +6,41 @@ import type { McThemeDefinition } from '../../framework/types'
 
 const props = withDefaults(defineProps<{ name?: string; theme?: McThemeDefinition; tag?: string }>(), { tag: 'div' })
 const parent = useMcTheme()
-const localName = props.name || 'local'
+
+function resolveName(name?: string) {
+  return name || 'local'
+}
+
+function mergeTheme(value?: McThemeDefinition): McThemeDefinition {
+  return {
+    ...parent.current.value,
+    ...value,
+    colors: { ...parent.current.value.colors, ...value?.colors },
+    variables: { ...parent.current.value.variables, ...value?.variables },
+    fonts: { ...parent.current.value.fonts, ...value?.fonts },
+  }
+}
+
 const theme = createMcTheme(
   {
-    defaultTheme: localName,
+    defaultTheme: resolveName(props.name),
     themes: {
-      [localName]: {
-        ...parent.current.value,
-        ...props.theme,
-        colors: { ...parent.current.value.colors, ...props.theme?.colors },
-        variables: { ...parent.current.value.variables, ...props.theme?.variables },
-        fonts: { ...parent.current.value.fonts, ...props.theme?.fonts },
-      },
+      [resolveName(props.name)]: mergeTheme(props.theme),
     },
   },
   parent,
 )
 provide(mcThemeKey, theme)
+
 watch(
-  () => props.theme,
-  (value) => {
-    theme.themes.value[localName] = {
-      ...parent.current.value,
-      ...value,
-      colors: { ...parent.current.value.colors, ...value?.colors },
-      variables: { ...parent.current.value.variables, ...value?.variables },
-      fonts: { ...parent.current.value.fonts, ...value?.fonts },
+  () => [props.name, props.theme] as const,
+  ([name, value], previous) => {
+    const localName = resolveName(name)
+    const previousName = previous ? resolveName(previous[0]) : theme.name.value
+    theme.themes.value[localName] = mergeTheme(value)
+    if (previousName !== localName) {
+      delete theme.themes.value[previousName]
+      theme.name.value = localName
     }
   },
   { deep: true },

@@ -1,8 +1,9 @@
 import { defineComponent, h } from 'vue'
 import { mount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
-import { createMcUI, McApp, McButton } from '../../src'
+import { createMcUI, McApp, McButton, useMcForm } from '../../src'
 import { useMcDisplay, useMcLocale, useMcTheme } from '../../src'
+import { createMcDisplay } from '../../src/framework/display'
 
 describe('framework services', () => {
   it('applies themes and component defaults without touching the host root', async () => {
@@ -34,13 +35,32 @@ describe('framework services', () => {
   })
 
   it('uses the configured SSR width before mounting', () => {
+    const display = createMcDisplay({ ssrWidth: 800 })
+    expect(display.width.value).toBe(800)
+    expect(display.name.value).toBe('sm')
+    expect(display.mobile.value).toBe(true)
+
     const Probe = defineComponent({
       setup() {
-        const display = useMcDisplay()
-        return () => h('span', { 'data-name': display.name.value, 'data-mobile': display.mobile.value })
+        const runtime = useMcDisplay()
+        return () => h('span', { 'data-name': runtime.name.value, 'data-mobile': String(runtime.mobile.value) })
       },
     })
     const wrapper = mount(Probe, { global: { plugins: [createMcUI({ display: { ssrWidth: 800 } })] } })
     expect(wrapper.attributes('data-name')).toBeTruthy()
+  })
+
+  it('defaults SSR width to md and does not provide a global form', () => {
+    const display = createMcDisplay()
+    expect(display.width.value).toBe(960)
+    expect(display.name.value).toBe('md')
+
+    const Probe = defineComponent({
+      setup() {
+        return () => h('span', { 'data-form': String(useMcForm() !== null) })
+      },
+    })
+    const wrapper = mount(Probe, { global: { plugins: [createMcUI()] } })
+    expect(wrapper.attributes('data-form')).toBe('false')
   })
 })

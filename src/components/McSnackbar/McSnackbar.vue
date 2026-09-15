@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import '../../styles/component-core.css'
 import './style.css'
-import { onBeforeUnmount, useAttrs, watch } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref, useAttrs, watch } from 'vue'
 import { useMcLocale } from '../../framework/locale'
 import { useMcTheme } from '../../framework/theme'
 
@@ -23,6 +23,9 @@ defineOptions({ inheritAttrs: false })
 const attrs = useAttrs()
 const theme = useMcTheme()
 const locale = useMcLocale()
+const teleportReady = ref(false)
+const teleportDisabled = computed(() => props.teleport === false || !teleportReady.value)
+const teleportTarget = computed(() => props.teleport || 'body')
 let timer: ReturnType<typeof setTimeout> | undefined
 function close() {
   emit('update:modelValue', false)
@@ -36,13 +39,16 @@ watch(
   },
   { immediate: true },
 )
+onMounted(() => {
+  teleportReady.value = true
+})
 onBeforeUnmount(() => {
   if (timer) clearTimeout(timer)
 })
 </script>
 
 <template>
-  <Teleport :to="teleport || 'body'" :disabled="teleport === false">
+  <Teleport :to="teleportTarget" :disabled="teleportDisabled">
     <Transition name="mc-snackbar-transition">
       <div
         v-if="modelValue"

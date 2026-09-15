@@ -2,7 +2,7 @@
 
 本页集中说明基础安装之外的能力。尚未完成安装和首次使用时，请先阅读[快速开始](./getting-started)。
 
-## 配置位置与唯一实例
+## 基础用法
 
 配置较多时，建议在消费应用的 `src/plugins/mcui.ts` 中集中创建插件。`createMcUI()` 接受 `theme`、`defaults`、`locale`、`display`、`icons` 和 `sounds` 六类选项；它不是会被自动扫描的配置文件，每个 Vue App 只创建并安装一个实例。
 
@@ -92,7 +92,7 @@ const options: McUIOptions = {
 
 组件内可通过 `useMcTheme().setTheme(name)` 切换已注册主题。完整变量清单见 [Theme 与设计 Token](./design-tokens)。
 
-局部主题使用 Provider，不影响外部组件：
+局部主题使用 Provider，不影响外部组件。`name` 变化会同步局部主题键：
 
 ```vue
 <script setup lang="ts">
@@ -100,7 +100,7 @@ const purpleTheme = { colors: { primary: '#7b4ab5' } }
 </script>
 
 <template>
-  <mc-theme-provider :theme="purpleTheme">
+  <mc-theme-provider name="purple" :theme="purpleTheme">
     <mc-button>局部紫色主题</mc-button>
   </mc-theme-provider>
 </template>
@@ -167,7 +167,7 @@ const options: McUIOptions = {
 
 ## Display 运行时断点
 
-`thresholds` 修改组合式 API 的断点像素值，`mobileBreakpoint` 决定 `mobile` 状态，`ssrWidth` 用于保证 SSR 首屏与 hydration 使用相同断点：
+`thresholds` 修改组合式 API 的断点像素值，`mobileBreakpoint` 决定 `mobile` 状态，`ssrWidth` 用于保证 SSR 首屏与 hydration 使用相同断点。未传 `ssrWidth` 时默认 `960`（`md`），而不是 `0`。需要桌面首屏时显式传入，例如 `1280`：
 
 ```ts
 const options: McUIOptions = {
@@ -300,11 +300,17 @@ import 'mcui-oreui/styles/tokens.css' // 只需要主题变量时
 
 ## Services 与 Composables
 
-`createMcUI()` 返回的 `services` 是当前 App 的只读服务集合，包含 `theme`、`defaults`、`locale`、`display`、`icons`、`sounds`、`overlay`、`form` 和 `pop`。组件外使用保存的插件实例：
+`createMcUI()` 返回的 `services` 是当前 App 的只读服务集合，包含 `theme`、`defaults`、`locale`、`display`、`icons`、`sounds`、`overlay`、`form` 和 `pop`。插件会 provide Theme、Defaults、Locale、Icons、Sounds、Display、Overlay 和 Pop；**不会** provide 全局 Form。`services.form` 仍可在组件外使用，但输入字段只向最近的 `McForm` 祖先注册。组件外使用保存的插件实例：
 
 ```ts
 mcui.services.pop.show('已保存')
 mcui.services.theme.setTheme('copper')
 ```
 
-组件 `setup` 内优先使用 `usePop()`、`useSound()`、`useMcTheme()`、`useMcDefaults()`、`useMcLocale()`、`useMcDisplay()`、`useMcOverlay()` 和 `useMcForm()`。每个服务都按 App 隔离；App 卸载时会释放 Display 监听、Pop 计时器、Overlay 滚动锁和默认声音资源。
+组件 `setup` 内优先使用 `usePop()`、`useSound()`、`useMcTheme()`、`useMcDefaults()`、`useMcLocale()`、`useMcDisplay()`、`useMcOverlay()` 和 `useMcForm()`。`useMcForm()` 在 `McForm` 外返回 `null`。每个服务都按 App 隔离；App 卸载时会释放 Display 监听、Pop 计时器、Overlay 滚动锁和默认声音资源。Display 的窗口监听由 `useMcDisplay()` 按组件挂载，而不是在 `app.use()` 时立刻 `display.mount()`。
+
+## 下一步
+
+- [快速开始](./getting-started)：安装、注册和第一个界面。
+- [设计 Token](./design-tokens)：`--mc-*` 变量与主题切换。
+- [分辨率](../styles/breakpoints)：工具类断点与 `display.thresholds` 的边界。

@@ -29,4 +29,28 @@ describe('McTooltip content surface', () => {
 
     wrapper.unmount()
   })
+
+  it('closes on Escape and touch pointerdown', async () => {
+    vi.useFakeTimers()
+    const wrapper = mount(McTooltip, {
+      props: { content: 'Hint', teleport: false },
+      slots: { default: 'Trigger' },
+    })
+    const trigger = wrapper.get('.mc-tooltip__trigger')
+    await trigger.trigger('mouseenter')
+    vi.runAllTimers()
+    await nextTick()
+    expect(wrapper.find('[role="tooltip"]').exists()).toBe(true)
+    await trigger.trigger('keydown', { key: 'Escape' })
+    await nextTick()
+    expect(wrapper.find('[role="tooltip"]').exists()).toBe(false)
+
+    await trigger.trigger('mouseenter')
+    vi.runAllTimers()
+    await nextTick()
+    await trigger.trigger('pointerdown', { pointerType: 'touch' })
+    await nextTick()
+    expect(wrapper.find('[role="tooltip"]').exists()).toBe(false)
+    wrapper.unmount()
+  })
 })

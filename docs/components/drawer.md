@@ -7,7 +7,7 @@ const persistentOpen = ref(true)
 
 # Drawer 抽屉
 
-## 临时抽屉
+## 基础用法
 
 <div class="mc-demo"><mc-drawer v-model="open" title="导航" position="start" mode="temporary"><template #activator="{ props }"><mc-button v-bind="props">打开 Drawer</mc-button></template>抽屉内容</mc-drawer></div>
 
@@ -111,7 +111,9 @@ const persistentOpen = ref(true)
 }
 </style>
 
-## Props
+## API
+
+### Props
 
 | 名称             | 类型                                   | 默认        | 说明                                                           |
 | ---------------- | -------------------------------------- | ----------- | -------------------------------------------------------------- |

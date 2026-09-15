@@ -2,7 +2,7 @@
 
 本文面向组件维护者，说明 mcui-oreui 2.x 的目录结构、实现约束、测试矩阵和发布前检查。组件使用方式请先阅读[快速开始](./getting-started)和[配置选项](./configuration)。
 
-## 环境与初始化
+## 基础用法
 
 - Node.js `>=20 <23`
 - npm `10.8.2`（项目只维护 `package-lock.json`）
@@ -147,7 +147,7 @@ tests/
 1. 优先使用原生 `button`、`input`、`textarea`、`a` 等语义元素。
 2. 为 label、description、hint、error 和控件建立稳定 ID 关联。
 3. 自定义复合控件实现完整键盘模型、禁用项跳过、Escape 和焦点行为。
-4. 表单字段通过 `useMcValidation()` 接入 `McForm`，暴露 `validate()`、`reset()`、`resetValidation()`。
+4. 表单字段通过 `useMcValidation()` 接入最近的 `McForm` 祖先，暴露 `validate()`、`reset()`、`resetValidation()`；不要依赖插件级全局 Form。
 5. Overlay 类行为复用 `McOverlay`，不要在各组件中重新实现滚动锁或全局 Escape 监听。
 6. 运行 `npm run generate:components`，由生成器同步根导出、插件注册、GlobalComponents、web-types 和 package exports；公开类型在组件入口导出。
 7. 更新 `scripts/component-metadata.json`、README 和对应组件文档。
@@ -206,23 +206,32 @@ npm run docs:build
 
 主题入口继续扩展 VitePress 默认主题以保留 Markdown、代码块与本地搜索能力，但 `docs/.vitepress/theme/DocsLayout.vue` 覆盖默认 `Layout`，用 `McApp → McLayout → McAppbar / McDrawer / McMain` 构建页面外壳。相关职责如下：
 
-- `docs-navigation.ts` 是纯数据层，统一标准化 `themeConfig.sidebar`，并推导活动分组、面包屑与前后页；站内链接必须通过 `withBase()`，非 clean URL 构建还要保留 `.html` 后缀，确保 GitHub Project Pages 可直接打开。Appbar 中部不放重复的文档入口，右侧固定按“搜索、贡献者、GitHub”排列。
+- `docs-navigation.ts` 是纯数据层，统一标准化路径级 `themeConfig.sidebar` 与 `themeConfig.nav`，并推导活动分组、面包屑与前后页；站内链接必须通过 `withBase()`，非 clean URL 构建还要保留 `.html` 后缀，确保 GitHub Project Pages 可直接打开。Appbar 中部放「指南 / 组件 / 样式」三区入口，右侧固定按“搜索、贡献者、GitHub”排列；窄屏三区入口收进 Appbar 右侧。
 - `DocsSidebarTree.vue` 只渲染标准化后的分组和链接。桌面 Drawer 的展开状态保存在 `localStorage`；移动端使用 MCUI temporary Drawer 自带的遮罩、滚动锁、焦点陷阱和 Esc 行为，路由变化后关闭。
 - `DocsOutline.vue` 消费 `page.headers` 的 H2/H3 数据，并用 `IntersectionObserver` 标记当前位置。`markdown.headers` 不得关闭，否则 SSR 页面数据不会包含目录；无 Observer 时链接仍必须可用。
-- `docs-theme.css` 负责文档外壳、正文、表格、代码块、搜索弹窗和响应式视觉。断点固定为 `<960px` 临时 Drawer、`960–1279px` 常驻左栏加正文顶部目录、`>=1280px` 左栏加右侧 sticky 目录。
+- `docs-theme.css` 负责文档外壳、正文、表格、代码块、搜索弹窗和响应式视觉。断点固定为 `<960px` 临时 Drawer（菜单按钮开关）、`>=960px` 常驻左栏且不可收起、`960–1279px` 正文顶部目录、`>=1280px` 右侧 sticky 目录。
 
 首页通过 `sidebar: false` 隐藏两侧栏；`layout: false` 页面只渲染 VitePress `Content`；404 由同一 Layout 根据 `page.isNotFound` 渲染。不要重新引入 `.VPNav*`、`.VPSidebar` 等默认外壳选择器，只有仍实际复用的 `VPNavBarSearch` / `VPLocalSearchBox` 可以保留针对性样式。
 
 文档站不得全局导入 `src/styles/index.css` 或 `styles/base.css`。组件 Demo 继续限制在 `.mc-demo` / `.ore-demo`，`oreui-base.scoped.css` 的隔离契约不变；修改主题后至少运行 `npm run docs:build` 和 `npx playwright test tests/e2e/docs-layout.spec.ts`。
 
-组件页采用“效果优先、源码紧随”的示例规范：
+文档页按读者分区使用路径级侧栏：`/guide/`、`/components/`、`/styles/`。顶栏三区通过 `themeConfig.nav` 的 `activeMatch` 切换当前侧栏，不要再把三类页面塞进同一棵树。
 
-1. 每个示例使用独立的二级标题，标题后先放带 `mc-demo` class 的实时效果。
-2. Demo 后的下一个内容块必须是 `vue` 代码块，中间不插入解释文字。
-3. 源码必须是可独立复制的完整 SFC，至少包含 `<script setup lang="ts">` 与 `<template>`；状态、数据和事件处理不能依赖代码块外的隐藏实现。
-4. 多状态组件按语义、尺寸、交互、校验或结构模式拆分展示；hover、focus、pressed 等瞬时状态交给实时交互，不伪造静态状态。
-5. Props、Events、Slots 与实现说明放在相关示例之后。修改 Demo 后运行 `npm run check:docs-examples`，该检查还会比对实时模板与紧随其后的源码模板。
-6. Props 表统一使用“名称、类型、默认、说明”四列，每个公开 Prop 独占一行并写明用途；无公开 Props 的组件应直接说明，不生成空表。参数表由 Markdown 渲染器自动撑满正文，窄屏时只在表格容器内横向滚动。
+组件页采用固定章节顺序，缺失节直接省略、不得调换：
+
+1. H1 与导语说明职责。
+2. 第一个 H2 必须是 `基础用法`，标题后先放带 `mc-demo` class 的实时效果。
+3. 随后按 `变体 / 状态`、`组合 / 交互`、`验证机制`（仅表单控件）展开；具体标题可用尺寸、图标、Server 模式等，但验证必须在 API 之前。
+4. 页尾统一 `## API`，其下用 `### Props` / `### Events` / `### Slots` 或 `### McXxx`；无则省略。
+5. Demo 后的下一个内容块必须是 `vue` 代码块，中间不插入解释文字。
+6. 源码必须是可独立复制的完整 SFC，至少包含 `<script setup lang="ts">` 与 `<template>`；状态、数据和事件处理不能依赖代码块外的隐藏实现。
+7. hover、focus、pressed 等瞬时状态交给实时交互，不伪造静态状态。
+8. 修改 Demo 后运行 `npm run check:docs-examples`，该检查还会比对实时模板与紧随其后的源码模板。
+9. Props 表统一使用“名称、类型、默认、说明”四列，每个公开 Prop 独占一行并写明用途；无公开 Props 的组件应直接说明，不生成空表。参数表由 Markdown 渲染器自动撑满正文，窄屏时只在表格容器内横向滚动。
+
+指南页顺序为：导语 → `基础用法` → 完整选项或分节 → 边界 → `下一步`。
+
+样式页分两种：工具类页为导语 → `基础用法` → 变体/响应式 → `本章类名`；带组件或导出 API 的页（图标总览、格式化代码、颜色代码）走组件页模板。
 
 文档主题会把 `vue` 示例在构建时拆成 JS、HTML、CSS 三个标签，并放入默认收起的“示例代码”折叠面板；空代码段不会生成标签。示例源码仍写成完整 SFC，不要在 Markdown 中手工维护重复的标签或折叠结构。拆分后的代码统一使用 2 空格视觉缩进，保留 VitePress 的语法高亮与复制能力。
 
@@ -255,3 +264,8 @@ npm run docs:build
 - [ ] `package.json` 与 `package-lock.json` 同步。
 - [ ] 全部测试矩阵通过，运行时 audit 为 0。
 - [ ] `npm pack --dry-run --json` 不包含本地状态、AI 配置或其他私有文件。
+
+## 下一步
+
+- [快速开始](./getting-started)：消费应用的安装与注册。
+- [配置选项](./configuration)：插件选项与按需入口。

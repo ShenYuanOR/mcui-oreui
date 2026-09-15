@@ -56,20 +56,35 @@ const emit = defineEmits<{
 
 // ---------- 加载皮肤，识别尺寸 -------------------------------------------------
 const isLegacy = ref(false) // 64×32 老版皮肤（宽:高 = 2:1）
+let currentSkinImage: HTMLImageElement | undefined
+
+function releaseSkinImage() {
+  if (!currentSkinImage) return
+  currentSkinImage.onload = null
+  currentSkinImage.onerror = null
+  currentSkinImage.src = ''
+  currentSkinImage = undefined
+}
 
 watch(
   () => props.skin,
   (url) => {
+    releaseSkinImage()
     if (!url) return
     if (typeof window === 'undefined' || typeof Image === 'undefined') return // SSR 跳过
     const img = new Image()
+    currentSkinImage = img
     img.onload = () => {
+      if (currentSkinImage !== img) return
       const w = img.naturalWidth || 64
       const h = img.naturalHeight || 64
       isLegacy.value = h * 2 === w
       emit('load', { width: w, height: h, legacy: isLegacy.value })
     }
-    img.onerror = (e) => emit('error', e)
+    img.onerror = (e) => {
+      if (currentSkinImage !== img) return
+      emit('error', e)
+    }
     img.src = url
   },
   { immediate: true },
@@ -401,6 +416,7 @@ function onPointerUp(e: PointerEvent) {
 }
 onBeforeUnmount(() => {
   dragging.value = false
+  releaseSkinImage()
 })
 
 // 自动旋转（用 rAF 累加，避免 CSS 动画与拖拽冲突）

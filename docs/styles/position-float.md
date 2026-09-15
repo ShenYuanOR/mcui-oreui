@@ -2,7 +2,7 @@
 
 定位工具控制元素采用 static、relative、fixed、absolute 或 sticky 布局，并可将定位元素贴到四个物理边缘。浮动工具提供 left/right 以及随 `dir` 自动映射的 start/end，并支持响应式和打印媒体变体。
 
-## 定位
+## 基础用法
 
 <div class="mc-demo mc-demo--column">
   <div class="mc-utility-demo__position position-relative">

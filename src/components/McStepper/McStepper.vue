@@ -21,13 +21,10 @@ const emit = defineEmits<{
 }>()
 const locale = useMcLocale()
 const slots = useSlots()
-const currentIndex = computed(() =>
-  Math.max(
-    0,
-    props.items.findIndex((item) => Object.is(item.value, props.modelValue)),
-  ),
-)
-const current = computed(() => props.items[currentIndex.value])
+const matchedIndex = computed(() => props.items.findIndex((item) => Object.is(item.value, props.modelValue)))
+const currentIndex = computed(() => (matchedIndex.value >= 0 ? matchedIndex.value : 0))
+const hasSelection = computed(() => matchedIndex.value >= 0)
+const current = computed(() => (hasSelection.value ? props.items[currentIndex.value] : undefined))
 function canSelect(item: McStepperItem, index: number) {
   return !item.disabled && (!props.linear || item.editable || index <= currentIndex.value + 1)
 }
@@ -54,14 +51,14 @@ function previous() {
         :key="String(item.value)"
         class="mc-stepper__step"
         :class="{
-          'mc-stepper__step--active': index === currentIndex,
-          'mc-stepper__step--complete': index < currentIndex,
+          'mc-stepper__step--active': hasSelection && index === currentIndex,
+          'mc-stepper__step--complete': hasSelection && index < currentIndex,
         }"
       >
         <button
           type="button"
           :disabled="!canSelect(item, index)"
-          :aria-current="index === currentIndex ? 'step' : undefined"
+          :aria-current="hasSelection && index === currentIndex ? 'step' : undefined"
           @click="select(item, index)"
         >
           <span class="mc-stepper__number">{{ index + 1 }}</span

@@ -60,14 +60,24 @@ const files = computed(() =>
 const validation = useMcValidation({
   id: props.id,
   value: () => props.modelValue,
-  initialValue: null,
-  rules: () => props.rules,
+  rules: () => [...(props.rules ?? []), acceptRule],
   required: () => props.required,
   disabled: () => props.disabled,
   errorMessages: () => props.errorMessages,
   validateOn: () => props.validateOn,
-  emitReset: (value) => emit('update:modelValue', value),
+  emitReset: (value) => {
+    fileTypeError.value = ''
+    emit('update:modelValue', value)
+  },
 })
+function acceptRule(value: McFileInputValue) {
+  if (fileTypeError.value) return fileTypeError.value
+  const current = value ? (Array.isArray(value) ? value : [value]) : []
+  if (props.accept && current.some((file) => !accepts(file))) {
+    return locale.t('invalid')
+  }
+  return true
+}
 function accepts(file: File) {
   if (!props.accept) return true
   return props.accept
@@ -83,13 +93,19 @@ function accepts(file: File) {
 }
 function update(nextFiles: File[]) {
   const accepted = nextFiles.filter(accepts)
-  fileTypeError.value = accepted.length !== nextFiles.length ? `仅支持：${props.accept || '指定文件类型'}` : ''
+  fileTypeError.value =
+    accepted.length !== nextFiles.length ? locale.t('fileType', { accept: props.accept || '' }) : ''
   const value: McFileInputValue = props.multiple ? accepted : (accepted[0] ?? null)
   emit('update:modelValue', value)
   emit('change', value)
+  void validation.validate()
 }
 function onInput(event: Event) {
   update(Array.from((event.target as HTMLInputElement).files ?? []))
+}
+function setDragging(value: boolean) {
+  if (props.disabled || props.readonly) return
+  dragging.value = value
 }
 function onDrop(event: DragEvent) {
   dragging.value = false
@@ -119,7 +135,7 @@ defineExpose({ ...validation, browse, clear })
     :label="label"
     :description="description"
     :hint="hint"
-    :error="fileTypeError || validation.errorMessages.value"
+    :error="fileTypeError || validation.errorMessage.value"
     :required="required"
     :disabled="disabled"
   >
@@ -130,9 +146,9 @@ defineExpose({ ...validation, browse, clear })
           `mc-file-input--${variant}`,
           { 'mc-file-input--dragging': dragging, 'mc-file-input--disabled': disabled },
         ]"
-        @dragenter.prevent="dragging = true"
+        @dragenter.prevent="setDragging(true)"
         @dragover.prevent
-        @dragleave.prevent="dragging = false"
+        @dragleave.prevent="setDragging(false)"
         @drop.prevent="onDrop"
       >
         <input

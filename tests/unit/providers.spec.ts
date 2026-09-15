@@ -49,4 +49,17 @@ describe('scoped providers', () => {
     expect(wrapper.get('#message').text()).toBe('مرحبا / Next page')
     expect(wrapper.get('.mc-app').attributes('style')).not.toContain('#123456')
   })
+
+  it('updates McThemeProvider name after mount', async () => {
+    const wrapper = mount(McThemeProvider, {
+      props: { name: 'purple', theme: { colors: { primary: '#7b4ab5' } } },
+      slots: { default: 'Local' },
+      global: { plugins: [createMcUI()] },
+    })
+    expect(wrapper.classes()).toContain('mc-theme--purple')
+    await wrapper.setProps({ name: 'copper', theme: { colors: { primary: '#b36a3c' } } })
+    expect(wrapper.classes()).toContain('mc-theme--copper')
+    expect(wrapper.classes()).not.toContain('mc-theme--purple')
+    expect(wrapper.attributes('style')).toContain('#b36a3c')
+  })
 })

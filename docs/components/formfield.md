@@ -4,7 +4,7 @@
 
 标准输入组件（`McTextField`、`McSelect`、`McSwitch` 等）已经内置自己的 `McFormField`，因此不要写成 `McFormField > McTextField`，否则会出现重复标签和嵌套消息。需要整体提交与校验时，把这些输入直接放进 [Form](./form)。
 
-## 自定义控件展示
+## 基础用法
 
 <div class="mc-demo mc-demo--column" style="width:380px">
   <mc-form-field label="玩家名" description="用于多人游戏和本地存档展示" required>
@@ -72,20 +72,22 @@
 </template>
 ```
 
-## Props
+## API
+
+### Props
 
 | 名称          | 类型                 | 默认     | 说明           |
 | ------------- | -------------------- | -------- | -------------- |
 | `label`       | `string`             | `''`     | 标签文本       |
 | `description` | `string`             | `''`     | 辅助说明       |
-| `error`       | `string \| string[]` | `''`     | 错误信息       |
+| `error`       | `string \| string[]` | `''`     | 错误信息；空字符串和空数组都不显示错误态 |
 | `hint`        | `string`             | `''`     | 辅助提示       |
 | `success`     | `string`             | `''`     | 成功信息       |
 | `id`          | `string`             | 自动生成 | 控件 ID 基础值 |
 | `required`    | `boolean`            | `false`  | 是否必填       |
 | `disabled`    | `boolean`            | `false`  | 是否禁用展示   |
 
-## Slots
+### Slots
 
 | 名称          | 说明                                                         |
 | ------------- | ------------------------------------------------------------ |

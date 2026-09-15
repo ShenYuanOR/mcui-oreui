@@ -2,7 +2,7 @@
 
 边框工具覆盖整体边、逻辑方向边、宽度、样式、透明度和主题色；圆角覆盖整体、四边、四个逻辑角、pill、circle 与 shaped。
 
-## 边宽与样式
+## 基础用法
 
 <div class="mc-demo">
   <div class="mc-utility-demo__box border">border</div>

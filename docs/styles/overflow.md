@@ -2,7 +2,7 @@
 
 整体、X 轴和 Y 轴分别使用 `overflow-*`、`overflow-x-*`、`overflow-y-*`，支持 `auto`、`hidden`、`visible`、`scroll` 和 `clip`。
 
-## 实际效果
+## 基础用法
 
 <div class="mc-demo">
   <div><span class="mc-utility-demo__label">overflow-auto</span><div class="mc-utility-demo__overflow overflow-auto"><div class="mc-utility-demo__overflow-content">可以滚动查看完整内容</div></div></div>

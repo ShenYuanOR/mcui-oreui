@@ -40,7 +40,7 @@ function onPick(event: Event) {
 把 **64×64 / 64×32（旧版）/ 128×128（HD）** 的 Minecraft 皮肤图折叠成一个可旋转的 3D 小人。
 纯 CSS 3D transforms 实现，无第三方依赖，支持自动旋转 / 拖拽 / 行走姿势 / 第二层。
 
-## 交互式预览
+## 基础用法
 
 <div class="mc-demo skin-demo">
   <div class="skin-demo__stage">
@@ -403,7 +403,11 @@ const skinLegacy = ref('/path/to/your-legacy-skin.png')
 | `64×32`         | 旧版 1.7- 皮肤，自动检测：仅有右半身数据，左半身会镜像；第二层仅帽子可用 |
 | `128×128`       | HD 皮肤，UV 布局与 64×64 等比放大；组件按 64×64 处理，浏览器自动缩放     |
 
-## Props
+实现说明：6 个基础部位（头 / 身 / 双臂 / 双腿）+ 6 个外层，全部用 6 个 `<div>` 当 cube 面，通过 `background-position` 在皮肤图上裁出 UV 区域，再用 CSS `transform` 推到立方体表面。关节摆动用 4 层 wrapper：`pivot → swing → center → faces`，保证肩 / 髋绕关节点旋转而不是绕几何中心旋转。`image-rendering: pixelated` 保持像素质感；HD 皮肤同样按 64×64 UV，浏览器自动缩放。旧版 64×32 皮肤自动检测（宽:高 = 2:1），左半身镜像右半身。
+
+## API
+
+### Props
 
 | 名称              | 类型                         | 默认            | 说明                                             |
 | ----------------- | ---------------------------- | --------------- | ------------------------------------------------ |
@@ -418,18 +422,9 @@ const skinLegacy = ref('/path/to/your-legacy-skin.png')
 | `interactive`     | `boolean`                    | `true`          | 是否允许鼠标 / 触摸拖拽旋转；按住时自动旋转暂停  |
 | `background`      | `string`                     | `'transparent'` | 容器背景，可填任意 CSS 颜色                      |
 
-## Events
+### Events
 
 | 事件    | 参数                                                 | 说明                                                |
 | ------- | ---------------------------------------------------- | --------------------------------------------------- |
 | `load`  | `{ width: number; height: number; legacy: boolean }` | 皮肤图加载完成，`legacy=true` 表示识别为 64×32 旧版 |
 | `error` | `Event \| string`                                    | 皮肤图加载失败                                      |
-
-## 实现说明
-
-- 6 个基础部位（头 / 身 / 双臂 / 双腿）+ 6 个外层，全部用 6 个 `<div>` 当 cube 面，
-  通过 `background-position` 在皮肤图上裁出 UV 区域，再用 CSS `transform` 推到立方体表面。
-- 关节摆动用 4 层 wrapper：`pivot → swing → center → faces`，
-  保证肩 / 髋绕关节点旋转而不是绕几何中心旋转。
-- `image-rendering: pixelated` 保持像素质感；HD 皮肤同样按 64×64 UV，浏览器自动做近邻缩放。
-- 旧版 64×32 皮肤自动检测（宽:高 = 2:1），左半身镜像右半身。

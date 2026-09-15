@@ -85,7 +85,7 @@ function onKeydown(event: KeyboardEvent) {
   else if (event.key === 'End') activeIndex.value = firstEnabled(items.value.length, -1)
   else if (event.key === 'ArrowDown') activeIndex.value = firstEnabled(activeIndex.value, 1)
   else if (event.key === 'ArrowUp') activeIndex.value = firstEnabled(activeIndex.value, -1)
-  else if (event.key === 'Enter' || event.key === ' ') select(activeIndex.value)
+  else if ((event.key === 'Enter' || event.key === ' ') && activeIndex.value >= 0) select(activeIndex.value)
   else return
   event.preventDefault()
 }

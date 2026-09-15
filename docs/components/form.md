@@ -26,7 +26,7 @@ function reset() {
 
 表单展示与校验是两层职责：先用 Form 组织字段和操作区，再按需启用统一校验机制。标准输入组件已经内置 `McFormField` 展示层，不要再把它们包进第二层 `McFormField`；需要包装原生或自定义控件时才直接使用 [FormField](./formfield)。
 
-## 组合与展示
+## 基础用法
 
 下面只展示父组件、字段和操作区的组合，不引入规则或错误状态。
 
@@ -171,6 +171,8 @@ function reset() {
 </style>
 ```
 
+## API
+
 ### McForm Props
 
 | 名称         | 类型                              | 默认    | 说明                           |
@@ -180,7 +182,7 @@ function reset() {
 | `fastFail`   | `boolean`                         | `false` | 提交校验遇到首个无效字段即停止 |
 | `disabled`   | `boolean`                         | `false` | 禁用全部字段                   |
 
-### Events 与方法
+### Events
 
 | 名称                | 参数                | 说明                     |
 | ------------------- | ------------------- | ------------------------ |
@@ -192,7 +194,7 @@ function reset() {
 | `reset()`           | -                   | 重置值与校验             |
 | `resetValidation()` | -                   | 只清空校验状态           |
 
-所有标准输入组件共享同步/异步 `rules`；异步竞态只采纳最后一次结果。`validateOn` 支持 `input`、`blur`、`submit` 和 `lazy`。
+所有标准输入组件共享同步/异步 `rules`；异步竞态只采纳最后一次结果。`reset()` 恢复挂载时捕获的初值并清空校验，不会立刻按 `validateOn: input` 再跑一遍。`validateOn` 支持 `input`、`blur`、`submit` 和 `lazy`。布尔字段的 `required` 只把 `true` 视为已填；空数组 `errorMessages` 不算错误。字段必须放在 `McForm` 内才会注册，插件级 Form 服务不会自动收集它们。`McRadioGroup` 作为单一字段注册，内部的 `McRadio` 不会再各注册一次。
 
 <style scoped>
 .mc-form-demo {

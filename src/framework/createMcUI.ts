@@ -1,7 +1,7 @@
 import type { App, Component, Plugin } from 'vue'
 import { createMcDefaults, mcDefaultsKey, type McDefaultsInstance } from './defaults'
 import { createMcDisplay, mcDisplayKey, type McDisplayInstance } from './display'
-import { createMcForm, mcFormKey, type McFormInstance } from './form'
+import { createMcForm, type McFormInstance } from './form'
 import { createMcIcons, mcIconsKey, type McIconInstance } from './icons'
 import { createMcLocale, mcLocaleKey, type McLocaleInstance } from './locale'
 import { createMcOverlay, mcOverlayKey, type McOverlayInstance } from './overlay'
@@ -9,6 +9,7 @@ import { createMcPop, mcPopKey, type McPopInstance } from './pop'
 import { createMcSounds, mcSoundsKey, type McSoundInstance } from './sounds'
 import { createMcTheme, mcThemeKey } from './theme'
 import type { McThemeInstance, McUIOptions } from './types'
+import { setActiveMcIcons } from '../utils/iconRegistry'
 
 export type McComponentRegistry = Record<string, Component>
 
@@ -56,9 +57,8 @@ export function createMcUIPlugin(options: McUIOptions, components: McComponentRe
       app.provide(mcSoundsKey, sounds)
       app.provide(mcDisplayKey, display)
       app.provide(mcOverlayKey, overlay)
-      app.provide(mcFormKey, form)
       app.provide(mcPopKey, pop)
-      display.mount()
+      setActiveMcIcons(icons)
       for (const [name, component] of Object.entries(components)) {
         app.component(name, component)
         app.component(name.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase(), component)
@@ -69,6 +69,7 @@ export function createMcUIPlugin(options: McUIOptions, components: McComponentRe
         overlay.dispose()
         display.dispose()
         sounds.dispose()
+        setActiveMcIcons(undefined)
       })
     },
   }

@@ -9,7 +9,7 @@ const items = [{ title:'详情', value:'details' }, { title:'资源包', value:'
 
 将线性或可自由跳转的多步骤流程组织为可访问的步骤导航。
 
-## 线性流程
+## 基础用法
 
 <div class="mc-demo mc-demo--column" style="width:100%"><mc-stepper v-model="step" :items="items" linear><template #default="{ item }"><p>当前：{{ item.title }}</p></template></mc-stepper></div>
 
@@ -67,7 +67,9 @@ const items = [
 </template>
 ```
 
-## Props
+## API
+
+### Props
 
 | 名称         | 类型                                              | 默认    | 说明                                                     |
 | ------------ | ------------------------------------------------- | ------- | -------------------------------------------------------- |
@@ -75,6 +77,6 @@ const items = [
 | `modelValue` | `string \| number`                                | `''`    | 当前步骤的 value，支持通过 `v-model` 双向绑定。          |
 | `linear`     | `boolean`                                         | `false` | 是否限制用户只能访问已完成步骤和当前步骤的下一步。       |
 
-默认内容插槽获得 `{ item, index }`；`item.<value>` 可提供字段级内容；`actions` 获得 `{ item, index, next, previous }`。事件：`update:modelValue`、`change`。
+默认内容插槽获得 `{ item, index }`；`item.<value>` 可提供字段级内容；`actions` 获得 `{ item, index, next, previous }`。事件：`update:modelValue`、`change`。`v-model` 对不上任何步骤时，不会把第一项显示为当前步骤。
 
 步骤头参考 Vuetify 的连续导航结构：每一步使用等高按钮、编号方块和标题区域，步骤之间用连接缝分隔；可选副标题固定在标题区域内，不会单独撑高某一步。步骤 `ol/li` 同时隔离宿主列表缩进和相邻项 margin。

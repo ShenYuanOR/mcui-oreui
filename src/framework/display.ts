@@ -34,7 +34,7 @@ export const mcDisplayKey: InjectionKey<McDisplayInstance> = Symbol.for('mcui:di
 
 export function createMcDisplay(options: McDisplayOptions = {}): McDisplayInstance {
   const thresholds = { ...defaultThresholds, ...(options.thresholds ?? {}) }
-  const width = ref(options.ssrWidth ?? 0)
+  const width = ref(options.ssrWidth ?? defaultThresholds.md)
   const height = ref(0)
   const name = computed<McBreakpointName>(() => {
     if (width.value < thresholds.sm) return 'xs'

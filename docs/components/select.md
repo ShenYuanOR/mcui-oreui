@@ -10,7 +10,7 @@ const options = [
 
 `McSelect` 用于从选项列表中选择一个值，内部已包含字段展示层，可直接作为 `McForm` 的子组件使用。
 
-## 基础展示
+## 基础用法
 
 <div class="mc-demo mc-demo--column" style="width:340px">
   <mc-select model-value="survival" label="游戏模式" :options="options" placeholder="请选择" />
@@ -36,7 +36,7 @@ const options = [
 </template>
 ```
 
-展开时选择器会像按钮一样向下压入 4px，右侧三角旋转 180°；收起后恢复。它使用 Connected Overlay，支持方向键、Home、End、Enter、Space 与 Escape。需要输入搜索时请使用 [Autocomplete](./autocomplete)。
+展开时选择器会像按钮一样向下压入 4px，右侧三角旋转 180°；收起后恢复。它使用 Connected Overlay，支持方向键、Home、End、Enter、Space 与 Escape。选项列表为空时 Enter / Space 不会吞掉按键去选择 `-1`。需要输入搜索时请使用 [Autocomplete](./autocomplete)。
 
 ## 验证机制
 
@@ -69,7 +69,9 @@ const options = [
 </template>
 ```
 
-## Props
+## API
+
+### Props
 
 | 名称            | 类型                                           | 默认           | 说明                                              |
 | --------------- | ---------------------------------------------- | -------------- | ------------------------------------------------- |

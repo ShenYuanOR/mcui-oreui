@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import '../../styles/component-core.css'
 import './style.css'
-import { useId } from 'vue'
+import { computed, useId } from 'vue'
 
 const props = withDefaults(
   defineProps<{
@@ -24,14 +24,20 @@ const generatedId = useId()
 const controlId = props.id || `${generatedId}-control`
 const descriptionId = `${controlId}-description`
 const messageId = `${controlId}-message`
+const errorMessages = computed(() => {
+  if (props.error == null || props.error === false) return []
+  return Array.isArray(props.error) ? props.error.filter(Boolean) : props.error ? [props.error] : []
+})
+const hasError = computed(() => errorMessages.value.length > 0)
+const hasMessage = computed(() => hasError.value || Boolean(props.hint) || Boolean(props.success))
 </script>
 
 <template>
   <div
     class="mc-form-field"
     :class="{
-      'mc-form-field--error': error,
-      'mc-form-field--success': success && !error,
+      'mc-form-field--error': hasError,
+      'mc-form-field--success': success && !hasError,
       'mc-form-field--disabled': disabled,
     }"
   >
@@ -46,19 +52,19 @@ const messageId = `${controlId}-message`
       <slot
         :id="controlId"
         :description-id="description ? descriptionId : undefined"
-        :message-id="error || hint || success ? messageId : undefined"
+        :message-id="hasMessage ? messageId : undefined"
       />
     </div>
     <div
-      v-if="error || hint || success || $slots.message"
+      v-if="hasMessage || $slots.message"
       :id="messageId"
       class="mc-form-field__message"
-      :role="error ? 'alert' : 'status'"
+      :role="hasError ? 'alert' : 'status'"
       aria-live="polite"
     >
       <slot name="message">
-        <template v-if="Array.isArray(error)">{{ error.join(', ') }}</template>
-        <template v-else>{{ error || success || hint }}</template>
+        <template v-if="hasError">{{ errorMessages.join(', ') }}</template>
+        <template v-else>{{ success || hint }}</template>
       </slot>
     </div>
   </div>

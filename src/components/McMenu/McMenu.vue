@@ -26,6 +26,7 @@ const props = withDefaults(
 const emit = defineEmits<{ (event: 'update:modelValue', value: boolean): void }>()
 defineOptions({ inheritAttrs: false })
 const attrs = useAttrs()
+const overlayRef = ref<{ closeWithoutRestore?: () => void } | null>(null)
 const menu = ref<HTMLElement | null>(null)
 let activeIndex = -1
 function items() {
@@ -59,6 +60,7 @@ function onKeydown(event: KeyboardEvent) {
   else if (event.key === 'End') focusAt(available.length - 1)
   else if (event.key === 'Enter' || event.key === ' ') (document.activeElement as HTMLElement | null)?.click()
   else if (event.key === 'Tab') {
+    overlayRef.value?.closeWithoutRestore?.()
     emit('update:modelValue', false)
     return
   } else return
@@ -73,6 +75,7 @@ function onClick(event: MouseEvent) {
 
 <template>
   <mc-overlay
+    ref="overlayRef"
     :model-value="modelValue"
     :teleport="teleport"
     location-strategy="connected"

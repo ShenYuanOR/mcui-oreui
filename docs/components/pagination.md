@@ -7,7 +7,7 @@ const page = ref(1)
 
 用于在分页数据间导航，支持紧凑页码、首尾页按钮和完整键盘操作。
 
-## 页码与禁用状态
+## 基础用法
 
 <div class="mc-demo mc-demo--column">
   <mc-pagination v-model="page" :length="12" :total-visible="7" show-first-last aria-label="世界列表分页" />
@@ -28,7 +28,9 @@ const page = ref(1)
 </template>
 ```
 
-## Props
+## API
+
+### Props
 
 | 名称            | 类型      | 默认    | 说明                                         |
 | --------------- | --------- | ------- | -------------------------------------------- |

@@ -6,7 +6,7 @@ const demoHeight = ref(340)
 
 # ScrollView 滚动区
 
-## 固定高度滚动
+## 基础用法
 
 McUI 风格的自定义滚动区。基于原生滚动 + 联动滚动条 thumb（可拖动）。
 
@@ -83,7 +83,9 @@ const demoHeight = ref(340)
 
 这个机制依赖父级的剩余空间可计算：父级需要设置明确高度、`display: flex` 和 `flex-direction: column`。如果父级本身也是可伸展区域，同样应设置 `min-height: 0`。
 
-## Props
+## API
+
+### Props
 
 `McScrollView` 暂无公开 Props。通过父容器尺寸控制可视高度，默认插槽提供滚动内容。
 

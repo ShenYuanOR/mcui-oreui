@@ -1,42 +1,56 @@
-import { computed, onBeforeUnmount, onMounted, ref, toValue, useId, watch, type MaybeRefOrGetter } from 'vue'
-import { useMcForm, type McRule } from '../framework/form'
+import { computed, inject, onBeforeUnmount, onMounted, ref, toValue, useId, watch, type MaybeRefOrGetter } from 'vue'
+import { mcFormKey, type McRule } from '../framework/form'
 import { useMcLocale } from '../framework/locale'
 import type { McValidateOn } from '../framework/types'
 
 export interface McValidationOptions<T> {
   id?: string
   value: MaybeRefOrGetter<T>
-  initialValue: T
+  initialValue?: T
   rules?: MaybeRefOrGetter<McRule<T>[] | undefined>
   required?: MaybeRefOrGetter<boolean | undefined>
   disabled?: MaybeRefOrGetter<boolean | undefined>
   errorMessages?: MaybeRefOrGetter<string | string[] | undefined>
   validateOn?: MaybeRefOrGetter<McValidateOn | undefined>
   requiredMessage?: string
+  register?: boolean
   emitReset: (value: T) => void
 }
 
 export function useMcValidation<T>(options: McValidationOptions<T>) {
-  const form = useMcForm()
+  const form = inject(mcFormKey, null)
   const locale = useMcLocale()
   const id = options.id || `${useId()}-field`
   const internalErrors = ref<string[]>([])
   const validating = ref(false)
   const dirty = ref(false)
   let validationRun = 0
+  let skipValueWatch = false
+  const snapshotInitial = (): T =>
+    options.initialValue !== undefined ? structuredCloneValue(options.initialValue) : structuredCloneValue(toValue(options.value))
+  let initialValue = snapshotInitial()
   const externalErrors = computed(() => {
     const value = toValue(options.errorMessages)
-    return value ? (Array.isArray(value) ? value : [value]) : []
+    return value ? (Array.isArray(value) ? value.filter(Boolean) : [value]) : []
   })
   const errorMessages = computed(() => [...externalErrors.value, ...internalErrors.value])
   const mode = computed(() => toValue(options.validateOn) ?? form?.validateOn.value ?? 'input')
-  const hasValue = (value: T) =>
-    value !== null && value !== undefined && value !== '' && (!Array.isArray(value) || value.length > 0)
+  const hasValue = (value: T) => {
+    if (typeof value === 'boolean') return value === true
+    if (Array.isArray(value)) return value.length > 0
+    return value !== null && value !== undefined && value !== ''
+  }
+
+  function currentValid() {
+    return errorMessages.value.length === 0
+  }
 
   async function validate(): Promise<boolean> {
     if (toValue(options.disabled)) {
+      validationRun += 1
       internalErrors.value = []
-      return true
+      validating.value = false
+      return currentValid()
     }
     const run = ++validationRun
     validating.value = true
@@ -47,20 +61,22 @@ export function useMcValidation<T>(options: McValidationOptions<T>) {
     for (const rule of toValue(options.rules) ?? []) {
       try {
         const result = await rule(value)
+        if (run !== validationRun) return currentValid()
         if (result !== true) messages.push(typeof result === 'string' ? result : locale.t('invalid'))
       } catch (error) {
+        if (run !== validationRun) return currentValid()
         messages.push(error instanceof Error && error.message ? error.message : locale.t('invalid'))
       }
     }
-    if (run === validationRun) {
-      internalErrors.value = messages
-      validating.value = false
-    }
-    return messages.length === 0 && externalErrors.value.length === 0
+    if (run !== validationRun) return currentValid()
+    internalErrors.value = messages
+    validating.value = false
+    return currentValid()
   }
 
   function reset() {
-    options.emitReset(options.initialValue)
+    skipValueWatch = true
+    options.emitReset(structuredCloneValue(initialValue))
     resetValidation()
   }
   function resetValidation() {
@@ -70,6 +86,10 @@ export function useMcValidation<T>(options: McValidationOptions<T>) {
     validating.value = false
   }
   function onInput() {
+    if (skipValueWatch) {
+      skipValueWatch = false
+      return
+    }
     if (mode.value === 'input' || (mode.value === 'lazy' && dirty.value)) void validate()
   }
   function onBlur() {
@@ -77,8 +97,13 @@ export function useMcValidation<T>(options: McValidationOptions<T>) {
   }
 
   const field = { id, validate, reset, resetValidation, errorMessages, validating, dirty }
-  onMounted(() => form?.register(field))
-  onBeforeUnmount(() => form?.unregister(id))
+  onMounted(() => {
+    initialValue = snapshotInitial()
+    if (options.register !== false) form?.register(field)
+  })
+  onBeforeUnmount(() => {
+    if (options.register !== false) form?.unregister(id)
+  })
   watch(() => toValue(options.value), onInput, { flush: 'post' })
   watch(externalErrors, () => {
     if (externalErrors.value.length) dirty.value = true
@@ -97,4 +122,10 @@ export function useMcValidation<T>(options: McValidationOptions<T>) {
     onInput,
     onBlur,
   }
+}
+
+function structuredCloneValue<T>(value: T): T {
+  if (Array.isArray(value)) return [...value] as T
+  if (value && typeof value === 'object') return { ...(value as object) } as T
+  return value
 }

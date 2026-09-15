@@ -4,4 +4,6 @@
 
 目录由 `scripts/generate-utilities.mjs` 与 CSS 同源生成；构建会通过 `npm run check:generated` 检查漂移和重复选择器。
 
+## 基础用法
+
 <mc-utility-catalog :initial-limit="240" />

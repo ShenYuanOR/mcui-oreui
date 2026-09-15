@@ -76,6 +76,7 @@ export type McBreakpointName = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
 export interface McDisplayOptions {
   thresholds?: Partial<Record<Exclude<McBreakpointName, 'xs'>, number>>
   mobileBreakpoint?: McBreakpointName | number
+  /** SSR and first-paint width. Defaults to the `md` threshold (960) so hydration matches a desktop-first layout. */
   ssrWidth?: number
 }
 

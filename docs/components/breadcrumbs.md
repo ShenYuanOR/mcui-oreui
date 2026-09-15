@@ -6,7 +6,7 @@ const items = [{ title:'首页', href:'/' }, { title:'世界', href:'/worlds' },
 
 显示当前位置的层级路径，不依赖 vue-router。
 
-## 路径与分隔符
+## 基础用法
 
 <div class="mc-demo"><mc-breadcrumbs :items="items" divider="›" aria-label="页面路径" /></div>
 
@@ -20,7 +20,9 @@ const items = [{ title: '首页', href: '/' }, { title: '世界', href: '/worlds
 </template>
 ```
 
-## Props
+## API
+
+### Props
 
 | 名称      | 类型                            | 默认 | 说明                                                    |
 | --------- | ------------------------------- | ---- | ------------------------------------------------------- |

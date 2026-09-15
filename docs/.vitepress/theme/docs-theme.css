@@ -98,8 +98,56 @@ body {
 }
 
 .mc-docs-appbar .mc-appbar__left,
+.mc-docs-appbar .mc-appbar__center,
 .mc-docs-appbar .mc-appbar__right {
   min-width: 0;
+}
+
+.mc-docs-appbar .mc-appbar__center {
+  justify-content: center;
+  gap: 4px;
+}
+
+.mc-docs-section-nav {
+  display: flex;
+  align-items: stretch;
+  align-self: stretch;
+  min-width: 0;
+  gap: 2px;
+}
+
+.mc-docs-section-nav--compact .mc-docs-section-nav__link {
+  padding: 0 10px;
+}
+
+.mc-docs-section-nav__link {
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  color: #d0d1d4;
+  font-family: var(--mc-font-ui, sans-serif);
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.mc-docs-section-nav__link:hover,
+.mc-docs-section-nav__link:focus-visible {
+  background: #48494a;
+  color: #ffffff;
+}
+
+.mc-docs-section-nav__link:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: -4px;
+}
+
+.mc-docs-section-nav__link.is-active {
+  background: #3c8527;
+  color: #ffffff;
+  box-shadow:
+    inset 1px 1px rgba(255, 255, 255, 0.22),
+    inset -1px -1px rgba(0, 0, 0, 0.35);
 }
 
 .mc-docs-appbar .mc-appbar__right {
@@ -252,6 +300,16 @@ body {
   max-height: calc(100vh - 56px);
 }
 
+@media (max-width: 959px) {
+  .mc-docs-drawer.mc-drawer--layout {
+    display: none;
+  }
+
+  .mc-docs-app .mc-main {
+    padding-inline-start: 0;
+  }
+}
+
 .mc-docs-drawer > .mc-drawer__header {
   flex: 0 0 auto;
   min-height: 52px;
@@ -266,6 +324,12 @@ body {
 
 .mc-docs-drawer > .mc-drawer__header .mc-drawer__close {
   color: #ffffff;
+}
+
+@media (min-width: 960px) {
+  .mc-docs-drawer > .mc-drawer__header .mc-drawer__close {
+    display: none;
+  }
 }
 
 .mc-docs-drawer > .mc-drawer__body {
@@ -822,13 +886,25 @@ body {
 }
 
 .mc-docs-home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: calc(100vh - 56px);
+  box-sizing: border-box;
+  padding: 24px 16px;
+}
+
+.mc-docs-home > * {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
 }
 
 .mc-docs-home .mc-landing {
-  width: min(100%, 1180px);
+  width: min(100%, 760px);
   margin: 0 auto;
-  padding: clamp(34px, 7vw, 88px) 24px 72px;
 }
 
 .mc-home-hero {
@@ -864,16 +940,6 @@ body {
   bottom: -34px;
 }
 
-.mc-home-kicker {
-  margin: 0 0 12px;
-  color: #9ade7d;
-  font-family: var(--mc-font-ui, sans-serif);
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
 .mc-home-title {
   margin: 0;
   color: #ffffff;
@@ -885,17 +951,10 @@ body {
 
 .mc-home-subtitle {
   margin: 18px auto 0;
-  color: #ffffff;
-  font-family: var(--mc-font-title, sans-serif);
-  font-size: clamp(22px, 4vw, 36px);
-}
-
-.mc-home-tagline {
-  max-width: 680px;
-  margin: 18px auto 0;
   color: #d0d1d4;
-  font-size: 15px;
-  line-height: 1.8;
+  font-family: var(--mc-font-body, 'Noto Sans', Arial, sans-serif);
+  font-size: clamp(16px, 2.4vw, 20px);
+  line-height: 1.6;
 }
 
 .mc-home-actions {
@@ -944,42 +1003,6 @@ body {
 .mc-home-action:focus-visible {
   outline: 3px solid #ffffff;
   outline-offset: 4px;
-}
-
-.mc-home-features {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-  margin-top: 34px;
-}
-
-.mc-home-features .mc-card {
-  min-height: 180px;
-  padding: 22px;
-}
-
-.mc-home-features .mc-card__title {
-  color: #9ade7d;
-  font-size: 19px;
-}
-
-.mc-home-features .mc-card__body {
-  color: #d0d1d4;
-  font-size: 14px;
-  line-height: 1.7;
-}
-
-.mc-home-note {
-  max-width: 820px;
-  margin: 28px auto 0;
-  color: #aeb0b3;
-  font-size: 12px;
-  line-height: 1.7;
-  text-align: center;
-}
-
-.mc-home-note a {
-  color: #9ade7d;
 }
 
 .VPLocalSearchBox.VPLocalSearchBox .shell {
@@ -1150,8 +1173,8 @@ body {
     justify-content: flex-start;
   }
 
-  .mc-docs-home .mc-landing {
-    padding: 20px 12px 48px;
+  .mc-docs-home {
+    padding: 16px 12px;
   }
 
   .mc-home-hero {
@@ -1162,10 +1185,6 @@ body {
       inset 2px 2px rgba(255, 255, 255, 0.12),
       inset -2px -2px rgba(0, 0, 0, 0.3),
       5px 5px 0 rgba(0, 0, 0, 0.32);
-  }
-
-  .mc-home-features {
-    grid-template-columns: 1fr;
   }
 
   .mc-home-action {

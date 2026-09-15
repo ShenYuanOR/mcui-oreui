@@ -19,7 +19,7 @@
 官方 `Mojang/mc-ui` 仓库开源的是 `@react-facet` 等性能基础设施，不包含 Minecraft 界面外观；本库讨论的 OreUI 风格迁移与它不是同一个项目。
 :::
 
-## 迁移做了哪些现代化适配
+## 基础用法
 
 在视觉原语基础上做 Vue 化与无障碍工程改造：
 
@@ -28,3 +28,8 @@
 - 原全局 `rootPath` 资源路径 → Vite 资源打包
 - 原全局 `playSound` → App 作用域的 `useSound` 或 `mcui.services.sounds`，音效通过可选入口配置
 - 原全局 CSS → 主题 Token、宿主隔离的组件样式与 `.mc-page` opt-in 页面环境
+
+## 下一步
+
+- [快速开始](./getting-started)：安装与第一个组件。
+- [2.0 迁移](./migration-2)：从 1.x 升级时的 API 变化。

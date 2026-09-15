@@ -2,7 +2,7 @@
 
 Flex 工具类包含方向、换行、grow/shrink、flex shorthand、justify、justify-items、align-items/content/self 和 order；全部提供响应式变体，尺寸中缀统一见[分辨率](./breakpoints)。
 
-## 方向、换行与 Gap
+## 基础用法
 
 <div class="mc-demo mc-demo--column">
   <div class="d-flex flex-wrap ga-3 w-100">

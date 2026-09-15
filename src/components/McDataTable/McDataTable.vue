@@ -213,12 +213,22 @@ function toggle(item: McDataTableItem, value?: boolean) {
       : props.modelValue.filter((current) => !Object.is(current, key)),
   )
 }
+function sameKey(left: unknown, right: unknown) {
+  return Object.is(left, right)
+}
+function mergeKeys(current: unknown[], extra: unknown[]) {
+  const next = [...current]
+  for (const key of extra) {
+    if (!next.some((item) => sameKey(item, key))) next.push(key)
+  }
+  return next
+}
 function toggleAll(value: boolean) {
   const keys = displayed.value.map(keyOf)
   updateSelection(
     value
-      ? [...new Set([...props.modelValue, ...keys])]
-      : props.modelValue.filter((current) => !keys.some((key) => Object.is(key, current))),
+      ? mergeKeys(props.modelValue, keys)
+      : props.modelValue.filter((current) => !keys.some((key) => sameKey(key, current))),
   )
 }
 watch(pageCount, (count) => {

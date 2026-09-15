@@ -38,4 +38,13 @@ describe('Dialog component family', () => {
     expect(wrapper.emitted('confirm')).toHaveLength(1)
     expect(wrapper.emitted('update:modelValue')).toEqual([[false], [false]])
   })
+
+  it('emits cancel when Dialog closes without confirming', async () => {
+    const wrapper = mount(McConfirm, {
+      props: { modelValue: true, teleport: false, showClose: true, title: 'Delete?' },
+    })
+    await wrapper.get('.mc-dialog__close').trigger('click')
+    expect(wrapper.emitted('cancel')).toHaveLength(1)
+    expect(wrapper.emitted('confirm')).toBeUndefined()
+  })
 })

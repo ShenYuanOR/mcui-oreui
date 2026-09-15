@@ -1,5 +1,4 @@
-import { computed, ref, shallowRef, type ComputedRef, type InjectionKey, type Ref } from 'vue'
-import { useMcService } from './fallback'
+import { computed, getCurrentInstance, inject, ref, shallowRef, type ComputedRef, type InjectionKey, type Ref } from 'vue'
 import type { McValidateOn } from './types'
 
 export type McValidationResult = true | false | string
@@ -75,6 +74,8 @@ export function createMcForm(options: { validateOn?: McValidateOn; fastFail?: bo
   }
 }
 
-export function useMcForm(): McFormInstance {
-  return useMcService(mcFormKey, createMcForm)
+export function useMcForm(): McFormInstance | null {
+  const instance = getCurrentInstance()
+  if (!instance) return null
+  return inject(mcFormKey, null)
 }

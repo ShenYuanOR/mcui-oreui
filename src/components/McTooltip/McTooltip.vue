@@ -25,6 +25,11 @@ let timer = 0
 function show(event: Event, open: (source?: Event | HTMLElement) => void) {
   if (props.disabled || (!props.content && !slots.content)) return
   const target = event.currentTarget instanceof HTMLElement ? event.currentTarget : undefined
+  if (typeof window === 'undefined') {
+    visible.value = true
+    open(target)
+    return
+  }
   window.clearTimeout(timer)
   timer = window.setTimeout(() => {
     visible.value = true
@@ -32,10 +37,18 @@ function show(event: Event, open: (source?: Event | HTMLElement) => void) {
   }, props.delay)
 }
 function hide() {
-  window.clearTimeout(timer)
+  if (typeof window !== 'undefined') window.clearTimeout(timer)
   visible.value = false
 }
-onBeforeUnmount(() => window.clearTimeout(timer))
+function onKeydown(event: KeyboardEvent) {
+  if (event.key === 'Escape') hide()
+}
+function onPointerDown(event: PointerEvent) {
+  if (event.pointerType === 'touch' || event.pointerType === 'pen') hide()
+}
+onBeforeUnmount(() => {
+  if (typeof window !== 'undefined') window.clearTimeout(timer)
+})
 </script>
 
 <template>
@@ -61,6 +74,8 @@ onBeforeUnmount(() => window.clearTimeout(timer))
         @mouseleave="hide"
         @focusin="show($event, open)"
         @focusout="hide"
+        @keydown="onKeydown"
+        @pointerdown="onPointerDown"
         ><slot
       /></span>
     </template>

@@ -7,17 +7,15 @@ import { VPNavBarSearch, VPSocialLink } from 'vitepress/theme'
 import packageJson from '../../../package.json'
 import DocsOutline from './DocsOutline.vue'
 import DocsSidebarTree from './DocsSidebarTree.vue'
-import { createDocsNavigation, normalizeDocsPath, stripDocsBase } from './docs-navigation'
+import { createDocsNavigation, normalizeDocsPath, normalizeNav, stripDocsBase } from './docs-navigation'
 
 const { site, theme, page, frontmatter, lang } = useData<DefaultTheme.Config>()
 const route = useRoute()
 const router = useRouter()
 
 const isMobile = ref(false)
-const desktopDrawerOpen = ref(true)
 const mobileDrawerOpen = ref(false)
 const outlinePanel = ref<string | null>(null)
-let drawerPreferenceReady = false
 let mobileQuery: MediaQueryList | undefined
 
 const currentPath = computed(() => {
@@ -37,6 +35,7 @@ const navigation = computed(() =>
     isNotFound: isNotFound.value,
   }),
 )
+const sectionNav = computed(() => normalizeNav(theme.value.nav, currentPath.value))
 const hasSidebar = computed(
   () => !isHome.value && !isNotFound.value && frontmatter.value.sidebar !== false && navigation.value.groups.length > 0,
 )
@@ -44,13 +43,12 @@ const hasOutline = computed(
   () => !isHome.value && !isNotFound.value && frontmatter.value.aside !== false && page.value.headers.length > 0,
 )
 const drawerOpen = computed({
-  get: () => (isMobile.value ? mobileDrawerOpen.value : desktopDrawerOpen.value),
+  get: () => (isMobile.value ? mobileDrawerOpen.value : true),
   set: (value: boolean) => {
     if (isMobile.value) mobileDrawerOpen.value = value
-    else desktopDrawerOpen.value = value
   },
 })
-const drawerMode = computed(() => (isMobile.value ? 'temporary' : 'persistent'))
+const drawerMode = computed(() => (isMobile.value ? 'temporary' : 'permanent'))
 const siteTitle = computed(() => (theme.value.siteTitle === false ? '' : (theme.value.siteTitle ?? site.value.title)))
 const githubLink = computed(() => theme.value.socialLinks?.find((item) => item.icon === 'github'))
 const lastUpdatedLabel = computed(() => theme.value.lastUpdated?.text ?? '最后更新于')
@@ -106,23 +104,7 @@ onMounted(() => {
   mobileQuery = window.matchMedia('(max-width: 959px)')
   updateMobile(mobileQuery)
   mobileQuery.addEventListener('change', updateMobile)
-
-  const storedDrawerState = window.localStorage.getItem('mcui-docs-drawer-open')
-  if (storedDrawerState !== null) {
-    const persistedOpen = storedDrawerState === 'true'
-    desktopDrawerOpen.value = persistedOpen
-    mobileDrawerOpen.value = persistedOpen
-  }
-  drawerPreferenceReady = true
   window.addEventListener('keydown', openSearchFromShortcut)
-})
-
-watch(desktopDrawerOpen, (open) => {
-  if (drawerPreferenceReady) window.localStorage.setItem('mcui-docs-drawer-open', String(open))
-})
-
-watch(mobileDrawerOpen, (open) => {
-  if (drawerPreferenceReady) window.localStorage.setItem('mcui-docs-drawer-open', String(open))
 })
 
 watch(
@@ -152,7 +134,7 @@ onBeforeUnmount(() => {
       <mc-appbar :height="56" class="mc-docs-appbar" data-testid="docs-appbar">
         <template #left>
           <mc-appbar-icon
-            v-if="hasSidebar"
+            v-if="hasSidebar && isMobile"
             icon="mc-menu"
             class="mc-docs-menu-button"
             :aria-label="drawerOpen ? '收起文档导航' : '展开文档导航'"
@@ -176,7 +158,42 @@ onBeforeUnmount(() => {
           </a>
         </template>
 
+        <nav
+          v-if="sectionNav.length && !isMobile"
+          class="mc-docs-section-nav"
+          aria-label="文档分区"
+          data-testid="docs-section-nav"
+        >
+          <a
+            v-for="item in sectionNav"
+            :key="item.id"
+            class="mc-docs-section-nav__link"
+            :class="{ 'is-active': item.active }"
+            :href="docsHref(item.link ?? '/')"
+            :aria-current="item.active ? 'page' : undefined"
+          >
+            {{ item.text }}
+          </a>
+        </nav>
+
         <template #right>
+          <nav
+            v-if="sectionNav.length && isMobile"
+            class="mc-docs-section-nav mc-docs-section-nav--compact"
+            aria-label="文档分区"
+            data-testid="docs-section-nav"
+          >
+            <a
+              v-for="item in sectionNav"
+              :key="item.id"
+              class="mc-docs-section-nav__link"
+              :class="{ 'is-active': item.active }"
+              :href="docsHref(item.link ?? '/')"
+              :aria-current="item.active ? 'page' : undefined"
+            >
+              {{ item.text }}
+            </a>
+          </nav>
           <div class="mc-docs-search"><VPNavBarSearch /></div>
           <a class="mc-docs-header-link" :href="docsHref('/contributors')">贡献者</a>
           <VPSocialLink

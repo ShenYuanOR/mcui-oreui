@@ -2,7 +2,7 @@
 
 尺寸工具控制宽度和高度，支持 auto、0、百分比、动态视口宽高与[分辨率](./breakpoints)中定义的响应式中缀。
 
-## 宽度
+## 基础用法
 
 <div class="mc-demo mc-demo--column">
   <div class="mc-utility-demo__surface">

@@ -1,5 +1,6 @@
 /* McPopHost component styles. Generated once from the 2.0 visual baseline; maintain here. */
 .mc-pop-host {
+  background: transparent;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -13,14 +14,17 @@
 .mc-pop-host__item {
   background: var(--mc-surface, #313233);
   border: 2px solid var(--mc-border, #1e1e1f);
-  box-shadow: 4px 4px #000;
-  color: #fff;
+  box-shadow:
+    inset 2px 2px rgba(255, 255, 255, 0.2),
+    inset -2px -2px rgba(255, 255, 255, 0.12),
+    3px 3px rgba(0, 0, 0, 0.3);
+  color: var(--mc-on-primary, #fff);
   opacity: 0;
   padding: 10px 14px;
   transform: translateY(-8px);
   transition:
-    opacity 0.15s,
-    transform 0.15s;
+    opacity var(--mc-motion-normal, 160ms) linear,
+    transform var(--mc-motion-normal, 160ms) steps(4, end);
 }
 .mc-pop-host__item--show {
   opacity: 1;
@@ -32,9 +36,8 @@
 .mc-pop-host__item--error {
   background: var(--mc-error, #c33636);
 }
-.mc-pop-host__item {
-  color: var(--mc-on-primary, #fff);
-}
-.mc-pop-host__item {
-  box-shadow: 4px 4px var(--mc-shadow, #000);
+@media (prefers-reduced-motion: reduce) {
+  .mc-pop-host__item {
+    transition: none;
+  }
 }

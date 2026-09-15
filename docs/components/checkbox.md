@@ -2,7 +2,7 @@
 
 # Checkbox 复选框
 
-## 基础展示与交互
+## 基础用法
 
 <div class="mc-demo">
   <mc-checkbox v-model="checked" label="允许多人游戏" />
@@ -44,7 +44,9 @@ const checked = ref(false)
 
 选中勾号使用 crispEdges 像素图形，混合态横杠由固定像素块绘制，不依赖系统字体中的 `✓` / `−` 字形，因此在不同平台与字体配置下保持一致。
 
-## Props
+## API
+
+### Props
 
 | 名称            | 类型                              | 默认           | 说明                                                              |
 | --------------- | --------------------------------- | -------------- | ----------------------------------------------------------------- |
@@ -55,7 +57,7 @@ const checked = ref(false)
 | `hint`          | `string`                          | -              | 无错误时显示的辅助提示。                                          |
 | `disabled`      | `boolean`                         | `false`        | 是否禁用复选框。                                                  |
 | `readonly`      | `boolean`                         | `false`        | 是否只读展示并阻止状态切换。                                      |
-| `required`      | `boolean`                         | `false`        | 是否要求选中，并接入 `McForm` 验证。                              |
+| `required`      | `boolean`                         | `false`        | 是否要求选中（仅 `true` 算已填），并接入 `McForm` 验证。          |
 | `color`         | `string`                          | -              | 自定义选中态强调色，接受合法 CSS 颜色值。                         |
 | `rules`         | `McRule<boolean>[]`               | `[]`           | 字段验证规则列表，规则可同步或异步返回结果。                      |
 | `errorMessages` | `string \| string[]`              | -              | 外部错误消息；提供后直接显示为错误状态。                          |

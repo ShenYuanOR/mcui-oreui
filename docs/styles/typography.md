@@ -2,7 +2,7 @@
 
 文本工具类包含对齐、装饰、换行、截断、大小写、字重、斜体和等宽字体；排版标尺使用 Vuetify 4 的 display、headline、title、body、label 名称，并支持[分辨率](./breakpoints)中定义的响应式中缀。
 
-## 排版标尺
+## 基础用法
 
 <div class="mc-demo mc-demo--column">
   <div class="text-display-small">Display small</div>

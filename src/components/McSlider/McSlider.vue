@@ -91,7 +91,7 @@ defineExpose(validation)
     :label="label"
     :description="description"
     :hint="hint"
-    :error="validation.errorMessages.value"
+    :error="validation.errorMessage.value"
     :required="required"
     :disabled="disabled"
   >
@@ -123,7 +123,7 @@ defineExpose(validation)
             :aria-valuemin="min"
             :aria-valuemax="max"
             :aria-valuenow="normalized"
-            :aria-invalid="validation.errorMessages.value.length > 0"
+            :aria-invalid="Boolean(validation.errorMessage.value)"
             :aria-describedby="[field.descriptionId, field.messageId].filter(Boolean).join(' ') || undefined"
             @input="onInput"
             @keydown="onKeydown"

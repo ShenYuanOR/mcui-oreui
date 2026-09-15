@@ -2,7 +2,7 @@
 
 Helpers 提供无障碍隐藏、pointer events 和断点范围隐藏，不承担组件 Props 或图片布局能力。断点范围与汇总写法统一见[分辨率](./breakpoints)。
 
-## Screen reader only
+## 基础用法
 
 下面的链接通过 `d-sr-only-focusable` 在普通状态下视觉隐藏；使用 Tab 键聚焦后会显示。
 

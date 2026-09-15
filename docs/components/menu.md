@@ -8,7 +8,7 @@ const open = ref(false)
 Connected Overlay 菜单会跟随 activator，并在视口边缘自动翻转或平移。直接放入的 `button`、链接或
 `role="menuitem"` 元素会自动使用纵向菜单项样式，不需要在业务页面补布局 CSS。
 
-## 操作菜单
+## 基础用法
 
 <div class="mc-demo">
   <mc-menu v-model="open">
@@ -37,7 +37,9 @@ const open = ref(false)
 </template>
 ```
 
-## Props
+## API
+
+### Props
 
 | 名称                  | 类型                             | 默认           | 说明                                                        |
 | --------------------- | -------------------------------- | -------------- | ----------------------------------------------------------- |
@@ -48,4 +50,4 @@ const open = ref(false)
 | `offset`              | `number \| [number, number]`     | `6`            | 主轴偏移，或 `[主轴, 交叉轴]` 两个方向的偏移量。            |
 | `minWidth`            | `string \| number`               | `180`          | 菜单最小宽度；数字按 px 处理，字符串作为 CSS 长度使用。     |
 
-事件为 `update:modelValue`。菜单支持上下方向键、Home、End、Enter、Space、Tab 与 Escape，并跳过禁用项。
+事件为 `update:modelValue`。菜单支持上下方向键、Home、End、Enter、Space、Tab 与 Escape，并跳过禁用项。按 Tab 关闭时不会把焦点抢回触发器，以便焦点继续前进。

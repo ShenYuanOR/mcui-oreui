@@ -34,12 +34,15 @@ export function useMcService<T>(key: InjectionKey<T>, create: () => T): T {
   if (!cleanupRegistered.has(context)) {
     cleanupRegistered.add(context)
     const app = (instance.appContext as typeof instance.appContext & { app?: App }).app
-    app?.onUnmount(() => {
-      for (const fallback of services.values()) {
-        ;(fallback as DisposableService).dispose?.()
-      }
-      services.clear()
-    })
+    if (app) {
+      app.onUnmount(() => {
+        for (const fallback of services.values()) {
+          ;(fallback as DisposableService).dispose?.()
+        }
+        services.clear()
+        cleanupRegistered.delete(context)
+      })
+    }
   }
 
   return service

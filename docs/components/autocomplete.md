@@ -13,7 +13,7 @@ const options = [
 
 可编辑的 combobox，输入时过滤选项；焦点始终留在真实输入框。
 
-## 基础展示
+## 基础用法
 
 <div class="mc-demo mc-demo--column" style="width:340px">
   <mc-autocomplete v-model="mode" label="搜索游戏模式" hint="输入文字筛选" :options="options" />
@@ -67,7 +67,9 @@ const options = [
 </template>
 ```
 
-## Props
+## API
+
+### Props
 
 | 名称            | 类型                                           | 默认     | 说明                                                       |
 | --------------- | ---------------------------------------------- | -------- | ---------------------------------------------------------- |
@@ -86,4 +88,4 @@ const options = [
 | `validateOn`    | `input \| blur \| submit \| lazy`              | `input`  | 覆盖字段的验证触发时机；位于 `McForm` 中时可继承表单设置。 |
 | `id`            | `string`                                       | 自动生成 | 原生输入框、列表框与字段辅助文本关联所用的 id。            |
 
-事件：`update:modelValue`、`change`、`update:search`；`option` 插槽获得 `{ option, selected }`。
+事件：`update:modelValue`、`change`、`update:search`；`option` 插槽获得 `{ option, selected }`。输入框失焦会关闭面板，但焦点仍在选项列表内时不会立刻关闭，避免点选被打断。

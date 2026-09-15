@@ -2,7 +2,7 @@
 
 用于展示需要用户注意的状态消息。语义颜色由 `variant` 控制，错误状态使用 `role="alert"`，其他状态使用 `role="status"`。
 
-## 语义状态
+## 基础用法
 
 <div class="mc-demo mc-demo--column" style="width:100%">
   <mc-alert variant="info"><template #title>提示</template>新的资源包可供下载。</mc-alert>
@@ -36,7 +36,9 @@
 </template>
 ```
 
-## Props
+## API
+
+### Props
 
 | 名称       | 类型                                  | 默认    | 说明                                               |
 | ---------- | ------------------------------------- | ------- | -------------------------------------------------- |

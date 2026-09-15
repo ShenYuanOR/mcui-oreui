@@ -3,11 +3,15 @@ import { expect, test } from '@playwright/test'
 
 const docsBase = `${process.env.DOCS_E2E_URL ?? 'http://127.0.0.1:4179'}/mcui-oreui`
 
-test('desktop drawer persists its state and marks the current page', async ({ page }) => {
+test('desktop drawer stays open and marks the current page', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 })
   await page.goto(`${docsBase}/guide/getting-started.html`)
 
   const appbar = page.getByTestId('docs-appbar')
+  const sectionNav = page.getByTestId('docs-section-nav')
+  await expect(sectionNav.getByRole('link', { name: '指南', exact: true })).toHaveAttribute('aria-current', 'page')
+  await expect(sectionNav.getByRole('link', { name: '组件', exact: true })).toBeVisible()
+  await expect(sectionNav.getByRole('link', { name: '样式', exact: true })).toBeVisible()
   await expect(appbar.getByRole('link', { name: '文档', exact: true })).toHaveCount(0)
   await expect(appbar.getByRole('link', { name: '设计 Token', exact: true })).toHaveCount(0)
   await expect(appbar.locator('.mc-docs-header-link')).toHaveCount(2)
@@ -25,19 +29,33 @@ test('desktop drawer persists its state and marks the current page', async ({ pa
   const sidebar = page.getByTestId('docs-sidebar')
   await expect(sidebar).toBeVisible()
   await expect(sidebar.getByRole('link', { name: '快速开始', exact: true })).toHaveAttribute('aria-current', 'page')
+  await expect(sidebar.getByRole('link', { name: '按钮 / Button', exact: true })).toHaveCount(0)
+  await expect(sidebar.getByRole('link', { name: '分辨率 / Breakpoints', exact: true })).toHaveCount(0)
 
-  await page.getByTestId('docs-menu-button').click()
-  await expect(sidebar).toHaveCount(0)
+  await sectionNav.getByRole('link', { name: '组件', exact: true }).click()
+  await expect(page).toHaveURL(`${docsBase}/components/overview.html`)
+  await expect(page.getByTestId('docs-section-nav').getByRole('link', { name: '组件', exact: true })).toHaveAttribute(
+    'aria-current',
+    'page',
+  )
+  await expect(
+    page.getByTestId('docs-sidebar').getByRole('link', { name: '组件总览 / Overview', exact: true }),
+  ).toBeVisible()
+  await expect(page.getByTestId('docs-sidebar').getByRole('link', { name: '快速开始', exact: true })).toHaveCount(0)
+
+  await expect(page.getByTestId('docs-menu-button')).toHaveCount(0)
   await page.reload()
-  await expect(page.getByTestId('docs-sidebar')).toHaveCount(0)
-
-  await page.getByTestId('docs-menu-button').click()
   await expect(page.getByTestId('docs-sidebar')).toBeVisible()
+  await expect(page.getByTestId('docs-menu-button')).toHaveCount(0)
 })
 
 test('mobile drawer traps focus, closes with Escape and closes after navigation', async ({ page }) => {
   await page.setViewportSize({ width: 820, height: 760 })
   await page.goto(`${docsBase}/guide/getting-started.html`)
+  await expect(page.getByTestId('docs-section-nav').getByRole('link', { name: '指南', exact: true })).toHaveAttribute(
+    'aria-current',
+    'page',
+  )
   await expect(page.getByTestId('docs-sidebar')).toHaveCount(0)
 
   await page.getByTestId('docs-menu-button').click()
@@ -47,7 +65,7 @@ test('mobile drawer traps focus, closes with Escape and closes after navigation'
   const closeButton = dialog.locator('.mc-drawer__close')
   await expect(closeButton).toBeFocused()
   await page.keyboard.press('Shift+Tab')
-  await expect(dialog.locator('.mc-docs-sidebar-group__toggle').last()).toBeFocused()
+  await expect(dialog.getByRole('link').last()).toBeFocused()
   await page.keyboard.press('Tab')
   await expect(closeButton).toBeFocused()
 
@@ -191,7 +209,7 @@ test('home, ordinary content and not-found views use the custom shell without ho
 
   await page.goto(`${docsBase}/guide/getting-started.html`)
   await expect(page.getByTestId('docs-frame')).toBeVisible()
-  expect(await page.locator('#安装').evaluate((heading) => getComputedStyle(heading).scrollMarginTop)).toBe('76px')
+  expect(await page.locator('#基础用法').evaluate((heading) => getComputedStyle(heading).scrollMarginTop)).toBe('76px')
 
   await page.goto(`${docsBase}/this-page-does-not-exist`)
   await expect(page.getByTestId('docs-not-found')).toBeVisible()

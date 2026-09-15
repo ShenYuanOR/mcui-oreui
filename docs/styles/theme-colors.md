@@ -2,7 +2,7 @@
 
 每个内置 Ore UI 语义 Token 都生成 `text-*`、`bg-*` 和 `border-*`。这些类直接引用同名 `--mc-*` 变量，因此运行时切换 Theme 会立即更新。
 
-## 背景与文字
+## 基础用法
 
 <div class="mc-demo mc-demo--column">
   <div class="mc-utility-demo__grid">

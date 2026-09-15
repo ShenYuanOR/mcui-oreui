@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import '../../styles/component-core.css'
 import './style.css'
-import { computed, useId } from 'vue'
+import { computed, inject, useId } from 'vue'
 import { useSound } from '../../composables/useSound'
 import { useMcValidation } from '../../composables/validation'
 import type { McRule } from '../../framework/form'
 import type { McValidateOn } from '../../framework/types'
 import { useMcRoutedAttrs } from '../../utils/attrs'
 import McFormField from '../McFormField'
+import { mcRadioGroupKey } from '../McRadioGroup/groupContext'
 
 const { playSound } = useSound()
 
@@ -41,18 +42,19 @@ const { rootAttrs, controlAttrs } = useMcRoutedAttrs()
 const generatedId = useId()
 const inputId = computed(() => props.id || `${generatedId}-radio`)
 const checked = computed(() => Object.is(props.modelValue, props.value))
+const grouped = Boolean(inject(mcRadioGroupKey, null))
 const validation = useMcValidation({
   id: props.id,
   value: () => props.modelValue,
-  initialValue: '',
   rules: () => props.rules,
   required: () => props.required,
   disabled: () => props.disabled,
   errorMessages: () => props.errorMessages,
   validateOn: () => props.validateOn,
+  register: !grouped,
   emitReset: (value) => emit('update:modelValue', value),
 })
-const fieldError = computed(() => validation.errorMessages.value)
+const fieldError = computed(() => validation.errorMessage.value)
 function select() {
   if (props.disabled || props.readonly || checked.value) return
   playSound('click')
@@ -93,7 +95,7 @@ defineExpose(validation)
           :disabled="disabled"
           :required="required"
           :aria-readonly="readonly || undefined"
-          :aria-invalid="fieldError.length > 0"
+          :aria-invalid="Boolean(fieldError)"
           :aria-describedby="[field.descriptionId, field.messageId].filter(Boolean).join(' ') || undefined"
           @click="readonly && $event.preventDefault()"
           @change="select"

@@ -48,7 +48,7 @@ const validation = useMcValidation({
   validateOn: () => props.validateOn,
   emitReset: (value) => emit('update:modelValue', value),
 })
-const fieldError = computed(() => validation.errorMessages.value)
+const fieldError = computed(() => validation.errorMessage.value)
 function update(event: Event) {
   if (props.readonly) {
     event.preventDefault()
@@ -88,7 +88,7 @@ defineExpose(validation)
           :required="required"
           :aria-readonly="readonly || undefined"
           :aria-checked="indeterminate ? 'mixed' : modelValue"
-          :aria-invalid="fieldError.length > 0"
+          :aria-invalid="Boolean(fieldError)"
           :aria-describedby="[field.descriptionId, field.messageId].filter(Boolean).join(' ') || undefined"
           @click="readonly && $event.preventDefault()"
           @change="update"

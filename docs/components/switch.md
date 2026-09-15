@@ -2,7 +2,7 @@
 
 # Switch 开关
 
-## 基础展示与交互
+## 基础用法
 
 <div class="mc-demo">
   <mc-switch v-model="enabled" label="启用音效" />
@@ -40,7 +40,9 @@ const enabled = ref(true)
 
 Switch 基于原生 checkbox 并声明 `role="switch"`，支持键盘和表单语义。可见层恢复 Spectrollay Ore UI 的双色像素轨道、开/关图标、32px 凸起手柄，以及 hover、active、focus-visible、disabled、readonly 和 error 状态；不依赖浏览器默认 checkbox 外观。
 
-## Props
+## API
+
+### Props
 
 | 名称            | 类型                              | 默认           | 说明                                            |
 | --------------- | --------------------------------- | -------------- | ----------------------------------------------- |
@@ -50,7 +52,7 @@ Switch 基于原生 checkbox 并声明 `role="switch"`，支持键盘和表单�
 | `hint`          | `string`                          | -              | 无错误时显示的辅助提示。                        |
 | `disabled`      | `boolean`                         | `false`        | 是否禁用开关。                                  |
 | `readonly`      | `boolean`                         | `false`        | 是否只读展示并阻止状态切换。                    |
-| `required`      | `boolean`                         | `false`        | 是否要求开启，并接入 `McForm` 验证。            |
+| `required`      | `boolean`                         | `false`        | 是否要求开启（仅 `true` 算已填），并接入 `McForm` 验证。 |
 | `color`         | `string`                          | -              | 自定义开启状态的强调色，接受合法 CSS 颜色值。   |
 | `rules`         | `McRule<boolean>[]`               | `[]`           | 字段验证规则列表，规则可同步或异步返回结果。    |
 | `errorMessages` | `string \| string[]`              | -              | 外部错误消息；提供后直接显示为错误状态。        |

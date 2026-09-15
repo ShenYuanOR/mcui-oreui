@@ -27,7 +27,7 @@
 | `--mc-font-body`                                            | `Noto Sans, sans-serif`       | 正文                                                          |
 | `--mc-spacer`                                               | `4px`                         | Utilities 的 `ma/pa/ga` 数值单位；不改变既有 `--mc-space-1–5` |
 
-## 配置主题
+## 基础用法
 
 把主题配置放入消费应用创建 McUI 插件的位置。以下示例采用 `src/plugins/mcui.ts`；该实例还需按[配置选项](./configuration)在 `src/main.ts` 中安装。
 
@@ -53,3 +53,8 @@ export const mcui = createMcUI({
 这不是 Vite 构建配置，也不会被自动扫描。通过 `useMcTheme().setTheme(name)` 运行时切换；`<mc-app>` 会应用对应变量和明暗 class。
 
 Utilities 的 `text-*`、`bg-*` 和 `border-*` 类引用同名 `--mc-*` 变量，所以运行时切换主题会立即更新。工具类固定使用项目标准断点；`display.thresholds` 只影响组合式状态，不会重新编译 CSS。
+
+## 下一步
+
+- [配置选项](./configuration)：完整 Theme / Defaults / Locale / Display / Icons / Sounds。
+- [主题颜色](../styles/theme-colors)：`text-*`、`bg-*`、`border-*` 工具类。

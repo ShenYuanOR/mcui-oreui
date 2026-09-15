@@ -105,7 +105,7 @@ defineExpose({ ...validation, commit, increment: () => stepBy(1), decrement: () 
     :label="label"
     :description="description"
     :hint="hint"
-    :error="validation.errorMessages.value"
+    :error="validation.errorMessage.value"
     :required="required"
     :disabled="disabled"
   >
@@ -131,7 +131,7 @@ defineExpose({ ...validation, commit, increment: () => stepBy(1), decrement: () 
           :disabled="disabled"
           :readonly="readonly"
           :required="required"
-          :aria-invalid="validation.errorMessages.value.length > 0"
+          :aria-invalid="Boolean(validation.errorMessage.value)"
           :aria-describedby="[field.descriptionId, field.messageId].filter(Boolean).join(' ') || undefined"
           @focus="editing = true"
           @input="text = ($event.target as HTMLInputElement).value"

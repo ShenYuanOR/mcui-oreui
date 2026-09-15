@@ -7,7 +7,7 @@ const items = [{ label: '世界', value: 'worlds' }, { label: '服务器', value
 
 # Tabs 标签页
 
-## 自动激活与禁用项
+## 基础用法
 
 <div class="mc-demo mc-demo--column" style="width:100%">
   <mc-tabs v-model="tab" :items="items"><div>当前面板：{{ tab }}</div></mc-tabs>
@@ -65,7 +65,9 @@ const items = [
 
 Tabs 实现 roving tabindex、方向键、Home/End、禁用项跳过，以及 tab 与 tabpanel 的 `aria-controls` / `aria-labelledby` 关联。`activation="automatic | manual"` 控制聚焦时是否立即切换。
 
-## Props
+## API
+
+### Props
 
 | 名称         | 类型                            | 默认         | 说明                                                |
 | ------------ | ------------------------------- | ------------ | --------------------------------------------------- |
@@ -74,4 +76,4 @@ Tabs 实现 roving tabindex、方向键、Home/End、禁用项跳过，以及 ta
 | `direction`  | `horizontal \| vertical`        | `horizontal` | 标签导航和内容区域的排列方向，同时决定方向键模型。  |
 | `activation` | `automatic \| manual`           | `automatic`  | 聚焦标签时立即激活，或等待 Enter / Space 后再激活。 |
 
-事件：`update:modelValue`、`change`。默认插槽显示当前标签对应的内容。
+事件：`update:modelValue`、`change`。默认插槽显示当前标签对应的内容。`v-model` 对不上任何未禁用项时，不会伪装成选中第一项；面板保持隐藏，直到选出合法值。

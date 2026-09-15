@@ -117,6 +117,14 @@ function collectSlotItems(vnodes: VNode[] | undefined, result: McListRenderedIte
 const slotItems = computed(() => collectSlotItems(slots.default?.()))
 const listItems = computed<McListRenderedItem[]>(() => slotItems.value)
 const itemElements = ref<HTMLElement[]>([])
+const activeIndex = ref(0)
+const focusIndex = computed(() => {
+  const items = listItems.value
+  if (!items.length) return -1
+  const current = items[activeIndex.value]
+  if (current && !current.disabled) return activeIndex.value
+  return items.findIndex((item) => !item.disabled)
+})
 
 function isSelected(item: McListRenderedItem): boolean {
   if (!props.mode) return false
@@ -130,9 +138,19 @@ function isInteractive(item: McListRenderedItem): boolean {
   return item.interactive !== false
 }
 
+function focusableIndex(from: number, direction: 1 | -1) {
+  if (!listItems.value.length) return -1
+  let index = from
+  for (let count = 0; count < listItems.value.length; count += 1) {
+    index = (index + direction + listItems.value.length) % listItems.value.length
+    if (!listItems.value[index].disabled) return index
+  }
+  return -1
+}
 function handleSelect(item: McListRenderedItem) {
   if (item.disabled) return
   playSound('click')
+  activeIndex.value = listItems.value.indexOf(item)
 
   if (props.mode === 'multiple') {
     const arr: McListValue[] = Array.isArray(props.modelValue) ? [...props.modelValue] : []
@@ -159,16 +177,14 @@ function handleItemKeydown(event: KeyboardEvent, item: McListRenderedItem) {
     return
   }
   let target = index
-  if (event.key === 'ArrowDown') target = Math.min(index + 1, listItems.value.length - 1)
-  else if (event.key === 'ArrowUp') target = Math.max(index - 1, 0)
-  else if (event.key === 'Home') target = 0
-  else if (event.key === 'End') target = listItems.value.length - 1
+  if (event.key === 'ArrowDown') target = focusableIndex(index, 1)
+  else if (event.key === 'ArrowUp') target = focusableIndex(index, -1)
+  else if (event.key === 'Home') target = focusableIndex(-1, 1)
+  else if (event.key === 'End') target = focusableIndex(listItems.value.length, -1)
   else return
+  if (target < 0) return
   event.preventDefault()
-  while (listItems.value[target]?.disabled && target !== index) {
-    target += target > index ? 1 : -1
-    if (target < 0 || target >= listItems.value.length) return
-  }
+  activeIndex.value = target
   itemElements.value[target]?.focus()
 }
 </script>
@@ -192,7 +208,7 @@ function handleItemKeydown(event: KeyboardEvent, item: McListRenderedItem) {
       :role="mode ? 'option' : 'listitem'"
       :aria-selected="mode ? isSelected(listItem) : undefined"
       :aria-disabled="listItem.disabled ? 'true' : 'false'"
-      :tabindex="mode && !listItem.disabled ? 0 : undefined"
+      :tabindex="listItem.disabled ? undefined : itemIndex === focusIndex ? 0 : -1"
       @click="handleSelect(listItem)"
       @keydown="handleItemKeydown($event, listItem)"
     >

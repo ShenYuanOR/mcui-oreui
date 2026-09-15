@@ -215,7 +215,7 @@ const modes = [
 
 ## 按职责浏览
 
-侧边栏统一使用“中文 / English”格式，中文说明用途，英文对应公开组件名。独立功能组件使用单独页面和实时 Demo；Grid、ExpansionPanels、Appbar 等紧密协作的组件族保留在同页。
+顶栏按「指南 / 组件 / 样式」分区；组件侧栏统一使用“中文 / English”格式，中文说明用途，英文对应公开组件名。独立功能组件使用单独页面和实时 Demo；Grid、ExpansionPanels、Appbar 等紧密协作的组件族保留在同页。
 
 - 基础：[Button](./button)、[Icon](./icon)、[Card](./card)、[Divider](./divider)
 - 表单：[Form](./form)、[FormField](./formfield)、[单行文本输入框 / TextField](./textfield)、[多行文本输入框 / Textarea](./textarea)、[Select](./select)、[Autocomplete](./autocomplete)、[Checkbox](./checkbox)、[Radio](./radio)、[RadioGroup](./radio-group)、[Switch](./switch)、[Slider](./slider)、[FileInput](./file-input)、[NumberInput](./number-input)

@@ -37,6 +37,20 @@ describe('flow and advanced inputs', () => {
     expect(wrapper.emitted('update:modelValue')?.[0]).toEqual(['two'])
   })
 
+  it('does not mark the first stepper item active for an unmatched value', () => {
+    const wrapper = mount(McStepper, {
+      props: {
+        modelValue: 'missing',
+        items: [
+          { title: 'One', value: 'one' },
+          { title: 'Two', value: 'two' },
+        ],
+      },
+    })
+    expect(wrapper.find('.mc-stepper__step--active').exists()).toBe(false)
+    expect(wrapper.find('.mc-stepper__content').exists()).toBe(false)
+  })
+
   it('keeps temporary number text and clamps on commit', async () => {
     const wrapper = mount(McNumberInput, { props: { modelValue: 2, min: 0, max: 10 } })
     const input = wrapper.get('input')

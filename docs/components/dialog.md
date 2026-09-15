@@ -8,7 +8,7 @@ const confirmOpen = ref(false)
 
 Dialog 组件族用于需要遮罩、焦点管理和明确关闭行为的模态内容。`McDialog` 承载通用内容，`McConfirm` 处理需要用户确认或取消的简短决策。
 
-## Dialog 基础展示
+## 基础用法
 
 <div class="mc-demo">
   <mc-dialog v-model="dialogOpen" title="世界设置">
@@ -66,7 +66,9 @@ const confirmOpen = ref(false)
 - Confirm 默认禁用遮罩关闭并隐藏关闭按钮，必须通过取消、确认或显式状态更新完成决策。
 - 两者都由 Overlay 提供焦点陷阱、焦点恢复、页面滚动锁和 Teleport；默认挂载到 `body`。
 
-## McDialog API
+## API
+
+### McDialog
 
 | 名称             | 类型                             | 默认    | 说明                                                  |
 | ---------------- | -------------------------------- | ------- | ----------------------------------------------------- |
@@ -81,7 +83,7 @@ const confirmOpen = ref(false)
 
 插槽：`activator`、`title`、`default`、`actions`。事件：`update:modelValue`、`close`。Dialog 使用 `role="dialog"`、焦点陷阱、焦点恢复和滚动锁。
 
-## McConfirm API
+### McConfirm
 
 | 名称           | 类型                             | 默认        | 说明                                                |
 | -------------- | -------------------------------- | ----------- | --------------------------------------------------- |
@@ -94,4 +96,4 @@ const confirmOpen = ref(false)
 | `stackActions` | `boolean`                        | `false`     | 是否将取消与确认按钮改为纵向堆叠。                  |
 | `teleport`     | `string \| HTMLElement \| false` | `body`      | Teleport 目标；设为 `false` 时保留在当前 DOM 层级。 |
 
-默认插槽为确认说明。事件：`update:modelValue`、`confirm`、`cancel`、`close`。
+默认插槽为确认说明。事件：`update:modelValue`、`confirm`、`cancel`、`close`。Escape、关闭按钮或遮罩导致关闭时发出 `cancel`；点确认只发出 `confirm`，不会顺带 `cancel`。

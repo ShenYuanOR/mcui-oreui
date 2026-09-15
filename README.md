@@ -10,7 +10,7 @@
 npm install mcui-oreui
 ```
 
-需要 `vue: ^3.5.0`。
+需要 `vue: ^3.5.0`。测试线安装 `npm i mcui-oreui@next`（当前 `2.0.1-dev.23`）。
 
 使用文档：[快速开始](./docs/guide/getting-started.md)只介绍安装与基础使用；Theme、Defaults、Locale、Display、Icons、Sounds、按需入口和可选样式统一见[配置选项](./docs/guide/configuration.md)。
 
@@ -145,9 +145,9 @@ mcui.services.pop.show('已保存')
 mcui.services.sounds.play('click')
 ```
 
-组件 `setup` 内使用 `usePop()`、`useSound()`、`useMcTheme()`、`useMcDefaults()`、`useMcLocale()`、`useMcDisplay()`、`useMcOverlay()` 和 `useMcForm()`。`usePop()` 与 `useSound()` 获取当前 App 注入的实例；2.0 不导出无作用域的 `showPop`、`popState`、`playSound`、`playSoundType` 或 `setSoundEnabled`。
+组件 `setup` 内使用 `usePop()`、`useSound()`、`useMcTheme()`、`useMcDefaults()`、`useMcLocale()`、`useMcDisplay()`、`useMcOverlay()` 和 `useMcForm()`。`usePop()` 与 `useSound()` 获取当前 App 注入的实例；`useMcForm()` 只在 `McForm` 内可用，插件不会 provide 全局 Form。2.0 不导出无作用域的 `showPop`、`popState`、`playSound`、`playSoundType` 或 `setSoundEnabled`。
 
-子树可用 `McThemeProvider`、`McDefaultsProvider`、`McLocaleProvider` 做嵌套作用域；局部主题、默认值和 RTL 不会泄漏到外部。Display 提供 `smAndUp`、`mdAndDown` 等范围状态，并支持 `ssrWidth`。
+子树可用 `McThemeProvider`、`McDefaultsProvider`、`McLocaleProvider` 做嵌套作用域；局部主题、默认值和 RTL 不会泄漏到外部。Display 提供 `smAndUp`、`mdAndDown` 等范围状态，并支持 `ssrWidth`（默认 `960`）。
 
 ## 图标与声音
 

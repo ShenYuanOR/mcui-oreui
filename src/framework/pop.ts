@@ -20,7 +20,8 @@ export interface McPopInstance {
 export const mcPopKey: InjectionKey<McPopInstance> = Symbol.for('mcui:pop')
 
 const maxVisible = 5
-const leaveDuration = 300
+/** Keep in sync with `.mc-pop-host__item` leave transition (`--mc-motion-normal`). */
+const leaveDuration = 160
 
 export function createMcPop(sounds?: McSoundInstance): McPopInstance {
   const items = ref<McPopItem[]>([])

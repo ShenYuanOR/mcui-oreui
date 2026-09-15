@@ -7,7 +7,7 @@ const verticalValue = ref(65)
 
 # Slider 滑块
 
-## 基础展示
+## 基础用法
 
 <div class="mc-demo mc-demo--column" style="width:360px">
   <mc-slider v-model="value" label="音量" :step="5" show-value />
@@ -28,21 +28,6 @@ const verticalValue = ref(65)
     <mc-slider v-model="value" label="音量" :step="5" show-value />
     <mc-slider :model-value="70" label="自定义颜色" color="#2e6be5" show-value readonly />
     <mc-slider :model-value="50" aria-label="禁用滑块" disabled />
-  </div>
-</template>
-```
-
-## 验证机制
-
-滑块支持 `required`、`rules`、`errorMessages` 与 `validateOn`。
-
-<div class="mc-demo mc-demo--column" style="width:360px"><mc-slider :model-value="20" label="校验错误" error-messages="数值过低" show-value /></div>
-
-```vue
-<script setup lang="ts"></script>
-<template>
-  <div class="mc-demo mc-demo--column" style="width:360px">
-    <mc-slider :model-value="20" label="校验错误" error-messages="数值过低" show-value />
   </div>
 </template>
 ```
@@ -72,7 +57,24 @@ const verticalValue = ref(65)
 
 Slider 保留 36px 高的透明原生 range 作为表单、指针和键盘交互层；可见部分使用独立的 Ore UI 轨道、进度填充和 20px 凸起像素手柄，因此不会退回 Chromium、Firefox 或 WebKit 的默认 range 外观。手柄与 12px 轨道的比例为 `20 / 12 ≈ 1.67`，贴近黄金比并保持整数像素；缩小的是视觉手柄，不会缩小拖动热区。支持 hover、active、focus-visible、disabled、readonly、error 和纵向布局，并补充 Home、End、PageUp、PageDown。
 
-## Props
+## 验证机制
+
+滑块支持 `required`、`rules`、`errorMessages` 与 `validateOn`。
+
+<div class="mc-demo mc-demo--column" style="width:360px"><mc-slider :model-value="20" label="校验错误" error-messages="数值过低" show-value /></div>
+
+```vue
+<script setup lang="ts"></script>
+<template>
+  <div class="mc-demo mc-demo--column" style="width:360px">
+    <mc-slider :model-value="20" label="校验错误" error-messages="数值过低" show-value />
+  </div>
+</template>
+```
+
+## API
+
+### Props
 
 | 名称            | 类型                              | 默认           | 说明                                            |
 | --------------- | --------------------------------- | -------------- | ----------------------------------------------- |

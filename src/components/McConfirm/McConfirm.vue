@@ -4,7 +4,7 @@ import './style.css'
 import { useMcLocale } from '../../framework/locale'
 import McButton from '../McButton'
 import McDialog from '../McDialog'
-withDefaults(
+const props = withDefaults(
   defineProps<{
     modelValue?: boolean
     title?: string
@@ -24,16 +24,21 @@ const emit = defineEmits<{
   (event: 'close'): void
 }>()
 const locale = useMcLocale()
+let suppressCancel = false
 function update(value: boolean) {
+  if (!value && props.modelValue && !suppressCancel) emit('cancel')
+  suppressCancel = false
   emit('update:modelValue', value)
 }
 function cancel() {
+  suppressCancel = true
   emit('cancel')
-  update(false)
+  emit('update:modelValue', false)
 }
 function confirm() {
+  suppressCancel = true
   emit('confirm')
-  update(false)
+  emit('update:modelValue', false)
 }
 </script>
 

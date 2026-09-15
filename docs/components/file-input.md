@@ -7,7 +7,7 @@ const files = ref(null)
 
 支持原生文件选择、拖放、清除、accept 过滤和文件大小显示。
 
-## 基础展示
+## 基础用法
 
 <div class="mc-demo mc-demo--column" style="width:380px">
   <mc-file-input v-model="files" label="资源包" accept=".zip,image/*" multiple hint="可拖放多个文件" />
@@ -47,13 +47,15 @@ const files = ref(null)
 </template>
 ```
 
-## Props
+## API
+
+### Props
 
 | 名称            | 类型                                  | 默认         | 说明                                                         |
 | --------------- | ------------------------------------- | ------------ | ------------------------------------------------------------ |
 | `modelValue`    | `File \| File[] \| null`              | `null`       | 当前文件或文件列表，返回形态由 `multiple` 决定。             |
 | `multiple`      | `boolean`                             | `false`      | 是否允许选择和保留多个文件。                                 |
-| `accept`        | `string`                              | -            | 允许的扩展名、精确 MIME 或 MIME 通配符；多个规则用逗号分隔。 |
+| `accept`        | `string`                              | -            | 允许的扩展名、精确 MIME 或 MIME 通配符；多个规则用逗号分隔。不符合的文件会被过滤，类型错误会进入字段校验（`valid` / `rules`），文案来自 Locale `fileType`。 |
 | `capture`       | `boolean \| user \| environment`      | `false`      | 在支持的移动设备上指定直接调用采集设备及摄像头方向。         |
 | `variant`       | `'dropzone' \| 'compact' \| 'button'` | `'dropzone'` | 上传区外观：拖放区域、紧凑字段或按钮。                       |
 | `label`         | `string`                              | -            | 字段标签。                                                   |
@@ -67,4 +69,4 @@ const files = ref(null)
 | `validateOn`    | `input \| blur \| submit \| lazy`     | `input`      | 覆盖字段的验证触发时机；位于 `McForm` 中时可继承表单设置。   |
 | `id`            | `string`                              | 自动生成     | 原生 file input 与字段辅助文本关联所用的 id。                |
 
-整个上传区域都可点击或按 Enter/Space 打开 Windows 文件选择器，不再只有文字区域可触发。支持拖放、清除；事件：`update:modelValue`、`change`；暴露 `browse()`、`clear()` 与校验方法。
+整个上传区域都可点击或按 Enter/Space 打开 Windows 文件选择器，不再只有文字区域可触发。支持拖放、清除；`disabled` 与 `readonly` 时不会进入拖放高亮。事件：`update:modelValue`、`change`；暴露 `browse()`、`clear()` 与校验方法。
