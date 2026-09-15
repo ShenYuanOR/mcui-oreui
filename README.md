@@ -2,6 +2,8 @@
 
 面向 Vue 3.5+ 的 Minecraft / OreUI 专用组件库。2.0 保留像素视觉、格式化文本、皮肤查看器、图标和可选音效，同时加入 Theme、Defaults、Locale、Display、Form、Overlay、SSR 与无障碍基础设施。
 
+**在线文档（组件实时 Demo + API）：<https://shenyuanor.github.io/mcui-oreui/>**
+
 > 非官方第三方项目，与 Mojang Studios 无从属关系。视觉基准来自 [Spectrollay-OreUI/OreUI](https://github.com/Spectrollay-OreUI/OreUI)（MIT），本轮对照 revision [`0bf8f466`](https://github.com/Spectrollay-OreUI/OreUI/commit/0bf8f46655878da872e4ddfa03db9ac663212438)。
 
 ## 安装

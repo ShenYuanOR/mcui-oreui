@@ -1,6 +1,6 @@
 # 快速开始
 
-本页只介绍 mcui-oreui 的安装、注册和基础使用。主题、默认值、语言、断点、图标、音效及可选样式请统一查看[配置选项](./configuration)。
+本页只介绍 mcui-oreui 的安装、注册和基础使用。主题、默认值、语言、断点、图标、音效及可选样式请统一查看[配置选项](./configuration)。在线文档站：<https://shenyuanor.github.io/mcui-oreui/>。
 
 ## 基础用法
 
