@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import '../../styles/component-core.css'
 import './style.css'
-import { computed, nextTick, ref, useId } from 'vue'
+import { computed, nextTick, useId } from 'vue'
 import { useSound } from '../../composables/useSound'
 
 const { playSound } = useSound()
@@ -27,7 +27,7 @@ const emit = defineEmits<{
   (event: 'change', value: McTabValue): void
 }>()
 const baseId = useId()
-const tabs = ref<HTMLButtonElement[]>([])
+const tabs: HTMLButtonElement[] = []
 const selectedIndex = computed(() => props.items.findIndex((item) => item.value === props.modelValue && !item.disabled))
 const fallbackIndex = computed(() => props.items.findIndex((item) => !item.disabled))
 const activeIndex = computed(() => (selectedIndex.value >= 0 ? selectedIndex.value : fallbackIndex.value))
@@ -49,7 +49,7 @@ function nextEnabled(start: number, step: 1 | -1) {
 }
 async function focus(index: number) {
   await nextTick()
-  tabs.value[index]?.focus()
+  tabs[index]?.focus()
   if (props.activation === 'automatic') select(index)
 }
 function keydown(event: KeyboardEvent, index: number) {

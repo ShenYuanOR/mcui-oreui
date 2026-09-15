@@ -10,6 +10,8 @@ All notable changes to this project are documented in this file. The format foll
 
 - 开发线基准从已发布的 `2.0.0` 推进到 `2.0.1`，供 `next` 预发布 `2.0.1-dev.<run>`。
 - README 与快速开始恢复文档站入口：<https://shenyuanor.github.io/mcui-oreui/>。
+- `McApp` / Defaults 注入在空配置时不再克隆整棵子树，且只改写 McUI 组件；避免文档站 SSR 水合崩溃后页面无响应。
+- `McList` / `McTabs` 的 DOM 引用改为非响应式数组，避免渲染期写 `ref` 触发无限更新；`McTextarea` 的模板 `ref` 不再与 FormField 插槽同名。
 
 ## [2.0.0] - 2026-09-15
 

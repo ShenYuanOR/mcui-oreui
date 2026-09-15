@@ -122,7 +122,7 @@ const options: McUIOptions = {
 }
 ```
 
-优先级为：显式 Prop → 当前 Provider → 外层组件 Defaults → 外层全局 Defaults → 组件内置值。局部覆盖使用 `McDefaultsProvider`：
+优先级为：显式 Prop → 当前 Provider → 外层组件 Defaults → 外层全局 Defaults → 组件内置值。`McApp` 与 `McDefaultsProvider` 只在配置了 Defaults 时改写 **McUI 组件** 的 VNode；空配置会原样转发插槽，不调用 `slots.default()`、也不 `cloneVNode`，以免 SSR 水合失败后页面无响应。局部覆盖使用 `McDefaultsProvider`：
 
 ```vue
 <script setup lang="ts">

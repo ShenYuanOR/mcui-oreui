@@ -116,7 +116,7 @@ function collectSlotItems(vnodes: VNode[] | undefined, result: McListRenderedIte
 
 const slotItems = computed(() => collectSlotItems(slots.default?.()))
 const listItems = computed<McListRenderedItem[]>(() => slotItems.value)
-const itemElements = ref<HTMLElement[]>([])
+const itemElements: HTMLElement[] = []
 const activeIndex = ref(0)
 const focusIndex = computed(() => {
   const items = listItems.value
@@ -185,7 +185,7 @@ function handleItemKeydown(event: KeyboardEvent, item: McListRenderedItem) {
   if (target < 0) return
   event.preventDefault()
   activeIndex.value = target
-  itemElements.value[target]?.focus()
+  itemElements[target]?.focus()
 }
 </script>
 
