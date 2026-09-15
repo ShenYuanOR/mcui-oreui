@@ -1,4 +1,4 @@
-import { createSSRApp, h } from 'vue'
+import { createSSRApp, defineComponent, h } from 'vue'
 import { renderToString } from '@vue/server-renderer'
 import { describe, expect, it, vi } from 'vitest'
 import {
@@ -45,6 +45,43 @@ describe('hydration', () => {
       .map((value) => (typeof value === 'symbol' ? (value.description ?? 'symbol') : String(value)))
       .join(' ')
     expect(messages.toLowerCase()).not.toContain('hydration')
+    expect(messages).not.toContain("Cannot read properties of undefined (reading 'refs')")
+    client.unmount()
+  })
+
+  it('hydrates McApp around third-party trees without cloning them', async () => {
+    const Foreign = defineComponent({
+      setup(_, { slots }) {
+        return () => h('section', { class: 'foreign', 'data-foreign': '1' }, slots.default?.())
+      },
+    })
+    const render = () =>
+      h(McApp, null, {
+        default: () =>
+          h(Foreign, null, {
+            default: () => [
+              h(McButton, null, () => 'Play'),
+              h(McLayout, null, { default: () => h(McMain, null, { default: () => 'Docs' }) }),
+            ],
+          }),
+      })
+    const server = createSSRApp({ render })
+    server.use(createMcUI())
+    const container = document.createElement('div')
+    container.innerHTML = await renderToString(server)
+    document.body.appendChild(container)
+    const warning = vi.spyOn(console, 'warn').mockImplementation(() => undefined)
+    const error = vi.spyOn(console, 'error').mockImplementation(() => undefined)
+    const client = createSSRApp({ render })
+    client.use(createMcUI())
+    client.mount(container)
+    const messages = [...warning.mock.calls, ...error.mock.calls]
+      .flat()
+      .map((value) => (typeof value === 'symbol' ? (value.description ?? 'symbol') : String(value)))
+      .join(' ')
+    expect(messages.toLowerCase()).not.toContain('hydration')
+    expect(messages).not.toContain("Cannot read properties of undefined (reading 'refs')")
+    expect(container.querySelector('[data-foreign="1"]')?.textContent).toContain('Play')
     client.unmount()
   })
 })

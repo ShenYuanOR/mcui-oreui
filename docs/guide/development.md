@@ -204,7 +204,7 @@ npm run docs:build
 
 ### 文档主题架构
 
-主题入口继续扩展 VitePress 默认主题以保留 Markdown、代码块与本地搜索能力，但 `docs/.vitepress/theme/DocsLayout.vue` 覆盖默认 `Layout`，用 `McApp → McLayout → McAppbar / McDrawer / McMain` 构建页面外壳。相关职责如下：
+主题入口继续扩展 VitePress 默认主题以保留 Markdown、代码块与本地搜索能力，但 `docs/.vitepress/theme/DocsLayout.vue` 覆盖默认 `Layout`，用 `McApp → McLayout → McAppbar / McDrawer / McMain` 构建页面外壳。文档站不配置 `defaults`，`McApp` 必须原样转发插槽，不得调用 `slots.default()` 或 `cloneVNode` VitePress `Content`。相关职责如下：
 
 - `docs-navigation.ts` 是纯数据层，统一标准化路径级 `themeConfig.sidebar` 与 `themeConfig.nav`，并推导活动分组、面包屑与前后页；站内链接必须通过 `withBase()`，非 clean URL 构建还要保留 `.html` 后缀，确保 GitHub Project Pages 可直接打开。Appbar 中部放「指南 / 组件 / 样式」三区入口，右侧固定按“搜索、贡献者、GitHub”排列；窄屏三区入口收进 Appbar 右侧。
 - `DocsSidebarTree.vue` 只渲染标准化后的分组和链接。桌面 Drawer 的展开状态保存在 `localStorage`；移动端使用 MCUI temporary Drawer 自带的遮罩、滚动锁、焦点陷阱和 Esc 行为，路由变化后关闭。

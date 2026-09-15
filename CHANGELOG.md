@@ -21,6 +21,8 @@ All notable changes to this project are documented in this file. The format foll
 - Utilities, fonts, sounds, and icon sets remain explicit opt-ins.
 - `McDataTable` selection now uses `McCheckbox` (including indeterminate header state) and page size uses `McSelect`.
 - Display SSR 默认宽度改为 `md`（960）。未传 `ssrWidth` 时，hydration 前按中等断点计算，不再把未知宽度当成超窄屏。
+- `McApp` / Defaults 注入在空配置时不再克隆整棵子树，且只改写 McUI 组件；避免文档站 SSR 水合崩溃后页面无响应。
+- `McList` / `McTabs` 的 DOM 引用改为非响应式数组，避免渲染期写 `ref` 触发无限更新；`McTextarea` 的模板 `ref` 不再与 FormField 插槽同名。
 - `useMcForm()` 只返回当前 `McForm` 祖先；`createMcUI()` 不再向整棵应用 provide 全局 Form。
 - `registerMcIcons()` / `getMcIcon()` 优先使用当前 App 安装的图标服务。
 - `McThemeProvider` 的 `name` 变化会同步局部主题键，而不是只在创建时求值一次。

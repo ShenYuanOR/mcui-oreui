@@ -55,9 +55,9 @@ const validation = useMcValidation({
   validateOn: () => props.validateOn,
 })
 const fieldError = computed(() => validation.errorMessage.value)
-const field = ref<HTMLTextAreaElement | null>(null)
+const textareaEl = ref<HTMLTextAreaElement | null>(null)
 function syncHeight() {
-  const target = field.value
+  const target = textareaEl.value
   if (!props.autoGrow || !target) return
   target.style.height = 'auto'
   target.style.height = `${target.scrollHeight}px`
@@ -92,7 +92,7 @@ defineExpose(validation)
       <textarea
         v-bind="controlAttrs"
         :id="field.id"
-        ref="field"
+        ref="textareaEl"
         class="mc-input mc-textarea"
         :value="modelValue"
         :rows="rows"

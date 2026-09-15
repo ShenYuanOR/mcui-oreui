@@ -3,6 +3,7 @@ import { mount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
 import {
   createMcUI,
+  McAlert,
   McApp,
   McButton,
   McDefaultsProvider,
@@ -29,6 +30,27 @@ describe('scoped providers', () => {
     expect(wrapper.get('#local').classes()).toContain('mc-button--large')
     expect(wrapper.get('#explicit').classes()).toContain('mc-button--primary')
     expect(wrapper.get('#outside').classes()).not.toContain('mc-button--error')
+  })
+
+  it('applies nested McUI defaults through a third-party host without cloning that host', () => {
+    const Foreign = defineComponent({
+      setup(_, { slots }) {
+        return () => h('div', { id: 'foreign' }, slots.default?.())
+      },
+    })
+    const wrapper = mount(
+      defineComponent({
+        components: { McApp, McAlert, Foreign },
+        template: `<mc-app><foreign><mc-alert id="nested">Hi</mc-alert></foreign></mc-app>`,
+      }),
+      {
+        global: {
+          plugins: [createMcUI({ defaults: { components: { McAlert: { variant: 'error' } } } })],
+        },
+      },
+    )
+    expect(wrapper.get('#foreign').exists()).toBe(true)
+    expect(wrapper.get('#nested').classes()).toContain('mc-alert--error')
   })
 
   it('scopes theme and locale including English missing-key fallback', () => {

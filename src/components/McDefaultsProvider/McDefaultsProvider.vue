@@ -4,6 +4,7 @@ import { defineComponent, h, provide, watch, type PropType, type VNode } from 'v
 import {
   applyMcDefaults,
   createMcDefaults,
+  hasConfiguredDefaults,
   mcDefaultsKey,
   useMcDefaults,
   type McDefaultsInstance,
@@ -27,8 +28,11 @@ export default defineComponent({
       { deep: true },
     )
     provide(mcDefaultsKey, local)
-    return () =>
-      h(props.tag, { class: 'mc-defaults-provider' }, applyMcDefaults(slots.default?.() ?? [], local) as VNode[])
+    return () => {
+      const attrs = { class: 'mc-defaults-provider' }
+      if (!hasConfiguredDefaults(local)) return h(props.tag, attrs, slots)
+      return h(props.tag, attrs, applyMcDefaults(slots.default?.() ?? [], local) as VNode[])
+    }
   },
 })
 </script>
