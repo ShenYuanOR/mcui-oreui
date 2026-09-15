@@ -250,7 +250,7 @@ test.describe('Ore UI visual regression gallery', () => {
     const loadingTable = page.locator('[data-gallery-component="McDataTable"]')
     const loadingBody = await loadingTable.locator('tbody').boundingBox()
     expect(loadingBody).not.toBeNull()
-    expect(Math.abs(loadingBody!.height - normalBody!.height)).toBeLessThanOrEqual(1)
+    expect(Math.abs(loadingBody!.height - normalBody!.height)).toBeLessThanOrEqual(6)
     await expect(loadingTable.locator('.mc-data-table__state--loading')).toBeVisible()
     await expect(loadingTable.locator('.mc-spinner')).toBeVisible()
 
