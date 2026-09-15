@@ -242,7 +242,7 @@ test.describe('Ore UI visual regression gallery', () => {
     const table = page.locator('[data-gallery-component="McDataTable"]')
     const normalBody = await table.locator('tbody').boundingBox()
     expect(normalBody).not.toBeNull()
-    await expect(table.locator('.mc-data-table__page-size select')).toHaveValue('2')
+    await expect(table.locator('.mc-data-table__page-size [role="combobox"]')).toHaveText(/2/)
     await expect(table.locator('.mc-data-table__page-size-control')).toHaveCount(1)
 
     await page.goto('/visual?data-table-state=loading')

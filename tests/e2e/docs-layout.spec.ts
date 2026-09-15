@@ -32,6 +32,15 @@ test('desktop drawer stays open and marks the current page', async ({ page }) =>
   await expect(sidebar.getByRole('link', { name: '按钮 / Button', exact: true })).toHaveCount(0)
   await expect(sidebar.getByRole('link', { name: '分辨率 / Breakpoints', exact: true })).toHaveCount(0)
 
+  await expect(page.getByTestId('docs-menu-button')).toHaveCount(0)
+  await page.reload({ waitUntil: 'domcontentloaded' })
+  await expect(page.getByTestId('docs-sidebar')).toBeVisible()
+  await expect(page.getByTestId('docs-menu-button')).toHaveCount(0)
+  await expect(page.getByTestId('docs-sidebar').getByRole('link', { name: '快速开始', exact: true })).toHaveAttribute(
+    'aria-current',
+    'page',
+  )
+
   await sectionNav.getByRole('link', { name: '组件', exact: true }).click()
   await expect(page).toHaveURL(`${docsBase}/components/overview.html`)
   await expect(page.getByTestId('docs-section-nav').getByRole('link', { name: '组件', exact: true })).toHaveAttribute(
@@ -42,10 +51,6 @@ test('desktop drawer stays open and marks the current page', async ({ page }) =>
     page.getByTestId('docs-sidebar').getByRole('link', { name: '组件总览 / Overview', exact: true }),
   ).toBeVisible()
   await expect(page.getByTestId('docs-sidebar').getByRole('link', { name: '快速开始', exact: true })).toHaveCount(0)
-
-  await expect(page.getByTestId('docs-menu-button')).toHaveCount(0)
-  await page.reload()
-  await expect(page.getByTestId('docs-sidebar')).toBeVisible()
   await expect(page.getByTestId('docs-menu-button')).toHaveCount(0)
 })
 
