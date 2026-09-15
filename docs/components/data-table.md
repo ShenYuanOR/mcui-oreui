@@ -230,21 +230,21 @@ const headers = [
 
 ### Props
 
-| 名称                  | 类型                                          | 默认             | 说明                                                            |
-| --------------------- | --------------------------------------------- | ---------------- | --------------------------------------------------------------- |
-| `headers`             | `{ title,key,sortable?,align?,width? }[]`     | 必填             | 列定义，控制标题、字段键、排序能力、对齐方式和可选宽度。        |
-| `items`               | `Record<string, unknown>[]`                   | 必填             | 当前页或完整数据列表，具体含义由 `mode` 决定。                  |
+| 名称                  | 类型                                          | 默认             | 说明                                                                              |
+| --------------------- | --------------------------------------------- | ---------------- | --------------------------------------------------------------------------------- |
+| `headers`             | `{ title,key,sortable?,align?,width? }[]`     | 必填             | 列定义，控制标题、字段键、排序能力、对齐方式和可选宽度。                          |
+| `items`               | `Record<string, unknown>[]`                   | 必填             | 当前页或完整数据列表，具体含义由 `mode` 决定。                                    |
 | `itemKey`             | `string \| ((item) => unknown)`               | `id`             | 从数据项中取得稳定行键的字段名或函数。对象键用 `Object.is` 比较，不能放进 `Set`。 |
-| `options`             | `{ page, itemsPerPage, sortBy, search }`      | 内置默认值       | 分页、每页条数、排序和搜索组成的受控表格状态。                  |
-| `itemsPerPageOptions` | `number[]`                                    | `[10,25,50,100]` | 每页条数下拉框中的可选值。                                      |
-| `showSelect`          | `boolean`                                     | `false`          | 是否显示行选择框和表头全选框。                                  |
-| `modelValue`          | `unknown[]`                                   | `[]`             | 当前选中的行键列表，支持通过 `v-model` 双向绑定。               |
-| `multiSort`           | `boolean`                                     | `false`          | 是否保留已有排序条件并允许多列排序。                            |
-| `mode`                | `client \| server`                            | `client`         | 客户端模式本地筛选、排序和分页；服务端模式只发出 options 更新。 |
-| `itemsLength`         | `number`                                      | `0`              | 服务端模式下的总数据条数，用于计算总页数。                      |
-| `loading`             | `boolean`                                     | `false`          | 是否显示加载态并保持稳定的表体高度。                            |
-| `loadingHeight`       | `number \| \`${number}px\` \| \`${number}L\`` | -                | 加载态固定高度；数字或 px 表示像素，`L` 表示可见数据行数。      |
-| `loadingAutoHeight`   | `boolean`                                     | `true`           | 未设置 `loadingHeight` 时，是否沿用加载前测得的表体高度。       |
-| `noDataText`          | `string`                                      | 本地化文案       | 没有可显示数据时使用的空状态文字。                              |
+| `options`             | `{ page, itemsPerPage, sortBy, search }`      | 内置默认值       | 分页、每页条数、排序和搜索组成的受控表格状态。                                    |
+| `itemsPerPageOptions` | `number[]`                                    | `[10,25,50,100]` | 每页条数下拉框中的可选值。                                                        |
+| `showSelect`          | `boolean`                                     | `false`          | 是否显示行选择框和表头全选框。                                                    |
+| `modelValue`          | `unknown[]`                                   | `[]`             | 当前选中的行键列表，支持通过 `v-model` 双向绑定。                                 |
+| `multiSort`           | `boolean`                                     | `false`          | 是否保留已有排序条件并允许多列排序。                                              |
+| `mode`                | `client \| server`                            | `client`         | 客户端模式本地筛选、排序和分页；服务端模式只发出 options 更新。                   |
+| `itemsLength`         | `number`                                      | `0`              | 服务端模式下的总数据条数，用于计算总页数。                                        |
+| `loading`             | `boolean`                                     | `false`          | 是否显示加载态并保持稳定的表体高度。                                              |
+| `loadingHeight`       | `number \| \`${number}px\` \| \`${number}L\`` | -                | 加载态固定高度；数字或 px 表示像素，`L` 表示可见数据行数。                        |
+| `loadingAutoHeight`   | `boolean`                                     | `true`           | 未设置 `loadingHeight` 时，是否沿用加载前测得的表体高度。                         |
+| `noDataText`          | `string`                                      | 本地化文案       | 没有可显示数据时使用的空状态文字。                                                |
 
 字段插槽 `item.<key>` 获得 `{ item, value, index }`，另有 `loading`、`no-data`。表格状态只发出 `update:options`；选择状态发出 `update:modelValue`、`change`。

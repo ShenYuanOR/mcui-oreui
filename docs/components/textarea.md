@@ -48,21 +48,21 @@
 
 ### Props
 
-| 名称            | 类型                              | 默认           | 说明                                                      |
-| --------------- | --------------------------------- | -------------- | --------------------------------------------------------- |
-| `modelValue`    | `string`                          | `''`           | 当前文本，支持通过 `v-model` 双向绑定。                   |
-| `rows`          | `number`                          | `3`            | 未自动增长时显示的初始文本行数。                          |
+| 名称            | 类型                              | 默认           | 说明                                                                |
+| --------------- | --------------------------------- | -------------- | ------------------------------------------------------------------- |
+| `modelValue`    | `string`                          | `''`           | 当前文本，支持通过 `v-model` 双向绑定。                             |
+| `rows`          | `number`                          | `3`            | 未自动增长时显示的初始文本行数。                                    |
 | `autoGrow`      | `boolean`                         | `false`        | 是否随内容增加自动扩展输入框高度；外部 `v-model` 变化也会同步高度。 |
-| `maxLength`     | `number`                          | `0`            | 最大字符数；设为 `0` 时不向原生 textarea 添加 maxlength。 |
-| `label`         | `string`                          | -              | 字段标签。                                                |
-| `description`   | `string`                          | -              | 显示在输入框前的补充说明。                                |
-| `hint`          | `string`                          | -              | 无错误时显示的辅助提示。                                  |
-| `disabled`      | `boolean`                         | `false`        | 是否禁用输入框。                                          |
-| `readonly`      | `boolean`                         | `false`        | 是否只读展示并阻止文本编辑。                              |
-| `required`      | `boolean`                         | `false`        | 是否要求输入内容，并接入 `McForm` 验证。                  |
-| `rules`         | `McRule<string>[]`                | `[]`           | 字段验证规则列表，规则可同步或异步返回结果。              |
-| `errorMessages` | `string \| string[]`              | -              | 外部错误消息；提供后直接显示为错误状态。                  |
-| `validateOn`    | `input \| blur \| submit \| lazy` | 继承 / `input` | 覆盖字段的验证触发时机；未提供时继承 `McForm`。           |
-| `id`            | `string`                          | 自动生成       | 原生 textarea 与字段辅助文本关联所用的 id。               |
+| `maxLength`     | `number`                          | `0`            | 最大字符数；设为 `0` 时不向原生 textarea 添加 maxlength。           |
+| `label`         | `string`                          | -              | 字段标签。                                                          |
+| `description`   | `string`                          | -              | 显示在输入框前的补充说明。                                          |
+| `hint`          | `string`                          | -              | 无错误时显示的辅助提示。                                            |
+| `disabled`      | `boolean`                         | `false`        | 是否禁用输入框。                                                    |
+| `readonly`      | `boolean`                         | `false`        | 是否只读展示并阻止文本编辑。                                        |
+| `required`      | `boolean`                         | `false`        | 是否要求输入内容，并接入 `McForm` 验证。                            |
+| `rules`         | `McRule<string>[]`                | `[]`           | 字段验证规则列表，规则可同步或异步返回结果。                        |
+| `errorMessages` | `string \| string[]`              | -              | 外部错误消息；提供后直接显示为错误状态。                            |
+| `validateOn`    | `input \| blur \| submit \| lazy` | 继承 / `input` | 覆盖字段的验证触发时机；未提供时继承 `McForm`。                     |
+| `id`            | `string`                          | 自动生成       | 原生 textarea 与字段辅助文本关联所用的 id。                         |
 
 事件：`update:modelValue`、`change`。

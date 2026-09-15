@@ -65,7 +65,9 @@ describe('McForm', () => {
     })
     const wrapper = mount(Host)
     const form = wrapper.getComponent(McForm)
-    const result = await (form.vm as unknown as { validate: () => Promise<{ valid: boolean; errors: string[] }> }).validate()
+    const result = await (
+      form.vm as unknown as { validate: () => Promise<{ valid: boolean; errors: string[] }> }
+    ).validate()
     expect(result.valid).toBe(false)
     expect(result.errors).toHaveLength(1)
   })

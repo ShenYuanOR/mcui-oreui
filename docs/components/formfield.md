@@ -76,16 +76,16 @@
 
 ### Props
 
-| 名称          | 类型                 | 默认     | 说明           |
-| ------------- | -------------------- | -------- | -------------- |
-| `label`       | `string`             | `''`     | 标签文本       |
-| `description` | `string`             | `''`     | 辅助说明       |
+| 名称          | 类型                 | 默认     | 说明                                     |
+| ------------- | -------------------- | -------- | ---------------------------------------- |
+| `label`       | `string`             | `''`     | 标签文本                                 |
+| `description` | `string`             | `''`     | 辅助说明                                 |
 | `error`       | `string \| string[]` | `''`     | 错误信息；空字符串和空数组都不显示错误态 |
-| `hint`        | `string`             | `''`     | 辅助提示       |
-| `success`     | `string`             | `''`     | 成功信息       |
-| `id`          | `string`             | 自动生成 | 控件 ID 基础值 |
-| `required`    | `boolean`            | `false`  | 是否必填       |
-| `disabled`    | `boolean`            | `false`  | 是否禁用展示   |
+| `hint`        | `string`             | `''`     | 辅助提示                                 |
+| `success`     | `string`             | `''`     | 成功信息                                 |
+| `id`          | `string`             | 自动生成 | 控件 ID 基础值                           |
+| `required`    | `boolean`            | `false`  | 是否必填                                 |
+| `disabled`    | `boolean`            | `false`  | 是否禁用展示                             |
 
 ### Slots
 

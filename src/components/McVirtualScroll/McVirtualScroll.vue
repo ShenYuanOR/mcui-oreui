@@ -16,7 +16,9 @@ const scrollTop = ref(0)
 const numericHeight = computed(() =>
   typeof props.height === 'number' ? props.height : Number.parseFloat(props.height) || 0,
 )
-const resolvedItemHeight = computed(() => (Number.isFinite(props.itemHeight) && props.itemHeight > 0 ? props.itemHeight : 1))
+const resolvedItemHeight = computed(() =>
+  Number.isFinite(props.itemHeight) && props.itemHeight > 0 ? props.itemHeight : 1,
+)
 const start = computed(() => Math.max(0, Math.floor(scrollTop.value / resolvedItemHeight.value) - props.overscan))
 const count = computed(() => Math.ceil(numericHeight.value / resolvedItemHeight.value) + props.overscan * 2)
 const end = computed(() => Math.min(props.items.length, start.value + count.value))

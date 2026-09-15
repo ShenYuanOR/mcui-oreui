@@ -93,8 +93,7 @@ function accepts(file: File) {
 }
 function update(nextFiles: File[]) {
   const accepted = nextFiles.filter(accepts)
-  fileTypeError.value =
-    accepted.length !== nextFiles.length ? locale.t('fileType', { accept: props.accept || '' }) : ''
+  fileTypeError.value = accepted.length !== nextFiles.length ? locale.t('fileType', { accept: props.accept || '' }) : ''
   const value: McFileInputValue = props.multiple ? accepted : (accepted[0] ?? null)
   emit('update:modelValue', value)
   emit('change', value)

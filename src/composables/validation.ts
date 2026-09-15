@@ -27,7 +27,9 @@ export function useMcValidation<T>(options: McValidationOptions<T>) {
   let validationRun = 0
   let skipValueWatch = false
   const snapshotInitial = (): T =>
-    options.initialValue !== undefined ? structuredCloneValue(options.initialValue) : structuredCloneValue(toValue(options.value))
+    options.initialValue !== undefined
+      ? structuredCloneValue(options.initialValue)
+      : structuredCloneValue(toValue(options.value))
   let initialValue = snapshotInitial()
   const externalErrors = computed(() => {
     const value = toValue(options.errorMessages)

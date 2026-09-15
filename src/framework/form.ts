@@ -1,4 +1,13 @@
-import { computed, getCurrentInstance, inject, ref, shallowRef, type ComputedRef, type InjectionKey, type Ref } from 'vue'
+import {
+  computed,
+  getCurrentInstance,
+  inject,
+  ref,
+  shallowRef,
+  type ComputedRef,
+  type InjectionKey,
+  type Ref,
+} from 'vue'
 import type { McValidateOn } from './types'
 
 export type McValidationResult = true | false | string
