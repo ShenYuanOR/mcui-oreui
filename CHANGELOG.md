@@ -4,6 +4,13 @@ All notable changes to this project are documented in this file. The format foll
 
 ## [Unreleased]
 
+## [2.0.1] - 2026-09-15
+
+### Changed
+
+- 开发线基准从已发布的 `2.0.0` 推进到 `2.0.1`，供 `next` 预发布 `2.0.1-dev.<run>`。
+- README 与快速开始恢复文档站入口：<https://shenyuanor.github.io/mcui-oreui/>。
+
 ## [2.0.0] - 2026-09-15
 
 ### Added
@@ -60,5 +67,6 @@ All notable changes to this project are documented in this file. The format foll
 - Legacy CSS, unused fonts and images, and the accidental `useTooltipFlip` subpath.
 - `McPanel` `bordered` and `elevated` props; the Ore UI frame and section dividers are now its default layout appearance.
 
-[Unreleased]: https://github.com/ShenYuanOR/mcui-oreui/compare/v2.0.0...HEAD
+[Unreleased]: https://github.com/ShenYuanOR/mcui-oreui/compare/v2.0.1...HEAD
+[2.0.1]: https://github.com/ShenYuanOR/mcui-oreui/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/ShenYuanOR/mcui-oreui/compare/v1.2.2...v2.0.0
